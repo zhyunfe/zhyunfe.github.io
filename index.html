@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="zhyunfe, demor" />
 
 
 
@@ -232,9 +232,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -249,164 +287,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/skills-mysql-slow-query/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/19/skills-mysql-slow-query/" itemprop="url">Untitled</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T22:03:26+08:00">
-                2018-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p>title: MySQL慢查询<br>date: 2018-01-04 21:46:16<br>tags:</p>
-<ul>
-<li>MySQL<br>categories:</li>
-<li>技术笔记</li>
-</ul>
-<hr>
-<p>MySQL 慢查询的相关参数解释：</p>
-<p>slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。</p>
-<p>log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
-<p>slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
-<p>long_query_time ：慢查询阈值，当查询时间多于设定的阈值时，记录日志。</p>
-<p>log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。</p>
-<p>log_output：日志存储方式。log_output=’FILE’表示将日志存入文件，默认值是’FILE’。log_output=’TABLE’表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=’FILE,TABLE’。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需要能够获得更高的系统性能，那么建议优先记录到文件。</p>
-<pre><code>//查看是否开启慢查询，默认为OFF
-mysql&gt; show variables  like &apos;%slow_query_log%&apos;;
-//开启慢查询(仅对当前一次有效，重启后就失效了)
-mysql&gt; set global slow_query_log = 1;
-//修改慢查询记录触发时间为4秒，默认为10秒
-mysql&gt; set global long_query_time = 4;
-
-//修改my.cnf文件修改参数永久有效
-在my.cnf文件里增加
-//开启慢查询
-slow_query_log =1
-//指定慢查询日志文件
-slow_query_log_file=/tmp/mysql_slow.log
-//设置慢查询记录时间
-long_query_time = 4
-
-系统变量log-queries-not-using-indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。如果调优的话，建议开启这个选项。另外，开启了这个参数，其实使用full index scan的sql也会被记录到慢查询日志。
-set global log_queries_not_using_indexes=1;
-
-
-
-慢查询日志分析工具
-mysqldumpslow 日志文件路径
-
-mysqldumpslow /usr/local/var/mysql/Demoer-slow.log
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -518,7 +398,7 @@ mysqldumpslow /usr/local/var/mysql/Demoer-slow.log
 <pre><code>- PE Portable Executable (windows)
 - ELF Executable Linkable Format (Linux)
 </code></pre><p>目标文件：源代码编译后但未进行链接的哪些中间文件windows下的.obj和linux下的.o</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用file命令查看响应的文件格式</span><br><span class="line">file filename.o</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 使用file命令查看响应的文件格式</span><br><span class="line">file filename.o</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/19/self-contivation-of-programmers-three/#more" rel="contents">
@@ -1665,7 +1545,7 @@ Kafka消息队列负责日志数据的接受、存储和转发
 <blockquote>
 <p>使用lnmp新建一个项目的时候，引入上级文件报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: require(): open_basedir restriction in effect. File(/home/wwwroot/my.cmf.com/simplewind/thinkphp/base.php) is not within the allowed path(s): (/home/wwwroot/my.cmf.com/public/:/tmp/:/proc/) in /home/wwwroot/my.cmf.com/public/index.php on line 39</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>大体意思就是open_basedir生效中，没有权限访问当前路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">open_basedir</span><br><span class="line">#限制可以访问的路径</span><br><span class="line">#可以在php.ini里设置，也可以在nginx下设置</span><br><span class="line"></span><br><span class="line">#在文件fastcgi.conf中有</span><br><span class="line">fastcgi_param PHP_ADMIN_VALUE &quot;open_basedir=$document_root/:/tmp/:/proc/&quot;;</span><br><span class="line"></span><br><span class="line">限制了不能引入上一级的文件</span><br></pre></td></tr></table></figure></p>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>大体意思就是open_basedir生效中，没有权限访问当前路径<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">open_basedir</span><br><span class="line"><span class="meta">#</span>限制可以访问的路径</span><br><span class="line"><span class="meta">#</span>可以在php.ini里设置，也可以在nginx下设置</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>在文件fastcgi.conf中有</span><br><span class="line">fastcgi_param PHP_ADMIN_VALUE "open_basedir=$document_root/:/tmp/:/proc/";</span><br><span class="line"></span><br><span class="line">限制了不能引入上一级的文件</span><br></pre></td></tr></table></figure></p>
 <p>关于open_basedir的描述在这个博客里有讲到<br><a href="https://www.iamle.com/archives/1854.html" target="_blank" rel="noopener">https://www.iamle.com/archives/1854.html</a></p>
 
           
@@ -1855,6 +1735,169 @@ Kafka消息队列负责日志数据的接受、存储和转发
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/11/skills-redis-persistence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/11/skills-redis-persistence/" itemprop="url">Redis持久化简介</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-11T22:02:04+08:00">
+                2018-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="RDB-Redis-DataBase"><a href="#RDB-Redis-DataBase" class="headerlink" title="RDB Redis DataBase"></a>RDB Redis DataBase</h3><p>可以在指定的时间间隔内生成数据及的时间点快照</p>
+<ul>
+<li><p>是一个非常紧凑的文件，保存了Redis在某个时间点上的数据集，适用于进行备份。</p>
+</li>
+<li><p>非常适用于灾难恢复：只有一个文件，并且内容非常紧凑，可以在加密后将它传送到别的数据中心</p>
+</li>
+<li>可以最大化Redis性能：服进行在保存RDB文件唯一要做的就是fork一个子进程，然后子进程就会处理接下来所有的保存工作，服进行无须执行任何磁盘I/O操作</li>
+<li>在恢复大数据集时笔AOF速度要快</li>
+<li>发生错误时，会有几分钟的数据丢失</li>
+<li>每次保存RDB时都需要fork子进程，数据量大时，会非常耗时，如果CPU时间紧张，就会停止处理客户端</li>
+</ul>
+<h3 id="AOF-Append-Only-File"><a href="#AOF-Append-Only-File" class="headerlink" title="AOF Append Only File"></a>AOF Append Only File</h3><p>记录服务器执行的所有写操作命令，并在服务器启动时，通过重新执行这些命令来还原数据集</p>
+<p>AOF文件中的命令全部以Redis协议的格式保存，新命令会被追加到文件的末尾</p>
+<p>Redis还可以在后台对AOF文件进行重写，使得AOF文件的提及不会超出保存数据集状态所需的实际大小</p>
+<ul>
+<li>会让Redis变得非常耐久：可以设置不同的fsync策略，默认每秒fsync一次</li>
+<li>AOF文件是一个只进行追加操作的日志文件，对AOF文件写入不需要进行seek</li>
+<li>Redis</li>
+</ul>
+<blockquote>
+<p>可以同时使用AOF持久化和RDB持久化，在Redis重启时，会优先使用AOF文件来还原数据集，因为AOF保存的数据集通常比RDB文件更加完整</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1920,7 +1963,7 @@ Kafka消息队列负责日志数据的接受、存储和转发
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1931,7 +1974,7 @@ Kafka消息队列负责日志数据的接受、存储和转发
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1968,7 +2011,7 @@ Kafka消息队列负责日志数据的接受、存储和转发
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -2138,6 +2181,19 @@ Kafka消息队列负责日志数据的接受、存储和转发
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
