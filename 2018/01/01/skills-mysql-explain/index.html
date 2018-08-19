@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="Mysql Explain 是常用分析mysql性能的工具，下面简单说一下各参数的分析 1）id列数字越大越先执行，如果说数字一样大，那么就从上往下依次执行，id列为null的就表是这是一个结果集，不需要使用它来进行查询。  2）select_type列常见的有：     A：simple：表示不需要union操作或者不包含子查询的简单select查询。有连接查询时，外层的查询为simple，且只">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-08-19T13:51:01.613Z">
+<meta property="og:updated_time" content="2018-08-19T14:38:11.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql Explain使用详解">
 <meta name="twitter:description" content="Mysql Explain 是常用分析mysql性能的工具，下面简单说一下各参数的分析 1）id列数字越大越先执行，如果说数字一样大，那么就从上往下依次执行，id列为null的就表是这是一个结果集，不需要使用它来进行查询。  2）select_type列常见的有：     A：simple：表示不需要union操作或者不包含子查询的简单select查询。有连接查询时，外层的查询为simple，且只">
@@ -367,8 +367,8 @@
 
 3）table
 显示的查询表名，如果查询使用了别名，那么这里显示的是别名，如果不涉及对数据表的操作，那么这显示为null，如果显示为尖括号括起来的&lt;derived N&gt;就表示这个是临时表，后边的N就是执行计划中的id，表示结果来自于这个查询产生。如果是尖括号括起来的&lt;union M,N&gt;，与&lt;derived N&gt;类似，也是一个临时表，表示这个结果来自于union查询的id为M,N的结果集。
-
-4）type
+</code></pre><a id="more"></a>    
+<pre><code>4）type
 依次从好到差：system，const，eq_ref，ref，fulltext，ref_or_null，unique_subquery，index_subquery，range，index_merge，index，ALL，除了all之外，其他的type都可以使用到索引，除了index_merge之外，其他的type只可以用到一个索引
     A：system：表中只有一行数据或者是空表，且只能用于myisam和memory表。如果是Innodb引擎表，type列在这个情况通常都是all或者index
     B：const：使用唯一索引或者主键，返回记录一定是1行记录的等值where条件时，通常type是const。其他数据库也叫做唯一索引扫描

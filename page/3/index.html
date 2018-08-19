@@ -263,161 +263,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/11/05/beginning-c-4-5-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/05/beginning-c-4-5-6/" itemprop="url">（四）最简单的C程序设计</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-05T20:43:51+08:00">
-                2017-11-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《C语言程序设计》/" itemprop="url" rel="index">
-                    <span itemprop="name">《C语言程序设计》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="4-1-C语句概述"><a href="#4-1-C语句概述" class="headerlink" title="4.1 C语句概述"></a>4.1 C语句概述</h3><h3 id="4-2-赋值语句"><a href="#4-2-赋值语句" class="headerlink" title="4.2 赋值语句"></a>4.2 赋值语句</h3><h3 id="4-3-数据输入输出的概念及在C语言中的实现"><a href="#4-3-数据输入输出的概念及在C语言中的实现" class="headerlink" title="4.3 数据输入输出的概念及在C语言中的实现"></a>4.3 数据输入输出的概念及在C语言中的实现</h3><h3 id="4-4-字符数据的输入输出"><a href="#4-4-字符数据的输入输出" class="headerlink" title="4.4 字符数据的输入输出"></a>4.4 字符数据的输入输出</h3><h4 id="4-4-1-putchar-函数"><a href="#4-4-1-putchar-函数" class="headerlink" title="4.4.1 putchar 函数"></a>4.4.1 putchar 函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    char a,b,c;</span><br><span class="line">    a = &apos;B&apos;;</span><br><span class="line">    b = &apos;O&apos;;</span><br><span class="line">    c = &apos;Y&apos;;</span><br><span class="line">    putchar(a);putchar(b);putchar(c);putchar(&apos;\n&apos;);</span><br><span class="line">    //BOY</span><br><span class="line">    </span><br><span class="line">    putchar(&apos;\101&apos;);//A</span><br><span class="line">    putchar(&apos;\&apos;&apos;);//&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-4-2-getchar函数"><a href="#4-4-2-getchar函数" class="headerlink" title="4.4.2 getchar函数"></a>4.4.2 getchar函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">函数的值就是从出入设备得到的字符</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    char c;</span><br><span class="line">    c = getchar();//运行时，如果从键盘输入 a,只有在按Enter键之后才会从到内存</span><br><span class="line">    putchar(c);</span><br><span class="line">    </span><br><span class="line">    //getchar只能接受一个字符</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-5-格式输入与输出"><a href="#4-5-格式输入与输出" class="headerlink" title="4.5 格式输入与输出"></a>4.5 格式输入与输出</h3><h4 id="4-5-1-printf函数"><a href="#4-5-1-printf函数" class="headerlink" title="4.5.1 printf函数"></a>4.5.1 printf函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">printf(格式控制,输出表列)</span><br><span class="line">printf(&quot;%d,%c&quot;,a,b);</span><br></pre></td></tr></table></figure>
-<p><strong>格式字符</strong><br>在输入出时对不同类型的数据要使用不同的格式字符</p>
-<p>d 格式符 用来输出十进制整数<br>%d 十进制整数数据的实际长度输出<br>%md m为指定的输出字段的宽度，不足m为，以空格补齐<br>%ld 输出长整型数据</p>
-<p>o格式符 以8进制整数形式输出<br>x格式符 以16进制形式输出整数<br>u格式符 输出unsigned型数据，以十进制整数形式输出<br>c格式符 输出一个字符<br>s格式符 输出一个字符串<br>f格式符 输出实数，包括双精度、单精度，以小数形式输出<br>e格式符 以指数形式输出实数</p>
-<h4 id="4-5-2-scanf函数"><a href="#4-5-2-scanf函数" class="headerlink" title="4.5.2 scanf函数"></a>4.5.2 scanf函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scanf(格式控制,地址表列)</span><br><span class="line">scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);//&amp;是地址运算符，&amp;a指a在内存中的地址，这个语句的作用是按照a,b,c在内存的地址将a,b,c的值存进去</span><br></pre></td></tr></table></figure>
-<h3 id="4-6-顺序结构程序设计举例"><a href="#4-6-顺序结构程序设计举例" class="headerlink" title="4.6 顺序结构程序设计举例"></a>4.6 顺序结构程序设计举例</h3><h2 id="第5章-选择结构程序设计"><a href="#第5章-选择结构程序设计" class="headerlink" title="第5章 选择结构程序设计"></a>第5章 选择结构程序设计</h2><h2 id="第6章-循环控制"><a href="#第6章-循环控制" class="headerlink" title="第6章 循环控制"></a>第6章 循环控制</h2><h4 id="6-1-概述"><a href="#6-1-概述" class="headerlink" title="6.1 概述"></a>6.1 概述</h4><h4 id="6-2-goto语句以及用goto语句构成循环"><a href="#6-2-goto语句以及用goto语句构成循环" class="headerlink" title="6.2 goto语句以及用goto语句构成循环"></a>6.2 goto语句以及用goto语句构成循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int i,sum=0;</span><br><span class="line">    i = 1;</span><br><span class="line">    loop:if(i&lt;100)</span><br><span class="line">        &#123;</span><br><span class="line">            sum = sum+i;</span><br><span class="line">            i++;</span><br><span class="line">            goto loop;</span><br><span class="line">        &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="6-3-while循环"><a href="#6-3-while循环" class="headerlink" title="6.3 while循环"></a>6.3 while循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int i,sum=0;</span><br><span class="line">    i = 1;</span><br><span class="line">    while(i&lt;100)</span><br><span class="line">    &#123;</span><br><span class="line">        sum=sum+i;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    print(&quot;%d\n&quot;,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-4-do…while-循环"><a href="#6-4-do…while-循环" class="headerlink" title="6.4 do…while 循环"></a>6.4 do…while 循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#inlcude &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int i,sum=0;</span><br><span class="line">    i = 1;</span><br><span class="line">    do &#123;</span><br><span class="line">        sum = sum+i;</span><br><span class="line">        i++;</span><br><span class="line">    &#125; while(i&lt;100);</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-5-for循环"><a href="#6-5-for循环" class="headerlink" title="6.5 for循环"></a>6.5 for循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int i,sum=0;</span><br><span class="line">    i = 1;</span><br><span class="line">    for(i=1;i&lt;100;i++)</span><br><span class="line">        sum = sum + i;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-6-循环嵌套"><a href="#6-6-循环嵌套" class="headerlink" title="6.6 循环嵌套"></a>6.6 循环嵌套</h3><h3 id="6-7-比较"><a href="#6-7-比较" class="headerlink" title="6.7 比较"></a>6.7 比较</h3><h3 id="6-8-break语句和continue语句"><a href="#6-8-break语句和continue语句" class="headerlink" title="6.8 break语句和continue语句"></a>6.8 break语句和continue语句</h3><h4 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h4><p>break可以跳出switch结构，继续执行switch语句下面的一个语句，也可以从循环体内跳出循环体，提前结束循环</p>
-<h4 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h4><p>contunue;<br>其作用为结束本次循环，跳过循环体中下面尚未执行的语句接着执行下一次是否执行循环的判定</p>
-<p>continue 和 break的区别是：continue语句只是结束本次循环，而不是终止整个循环的执行</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/11/03/beginning-c-three/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -510,8 +355,7 @@
 
       
         
-          
-            <h3 id="3-1-C语言的数据类型"><a href="#3-1-C语言的数据类型" class="headerlink" title="3.1 C语言的数据类型"></a>3.1 C语言的数据类型</h3><ul>
+          <h3 id="3-1-C语言的数据类型"><a href="#3-1-C语言的数据类型" class="headerlink" title="3.1 C语言的数据类型"></a>3.1 C语言的数据类型</h3><ul>
 <li>基本类型<br>  整形、字符型、浮点型(单精度型、双精度型)、枚举类型</li>
 <li>构造类型<br>  数组类型、结构体类型、共用体类型</li>
 <li>指针类型</li>
@@ -521,77 +365,13 @@
 <h4 id="3-2-2-变量"><a href="#3-2-2-变量" class="headerlink" title="3.2.2 变量"></a>3.2.2 变量</h4><p>变量代表内存中具有特定属性的一个存储单元，用来存放数据，也就是变量的值</p>
 <p>在对程序年一连接时由编译系统给每一个变量名分配对应的的内存地址，从变量中取值，实际上是通过变量名找到对应的内存地址，从该存储单元中读取数据</p>
 <p><strong>C语言规定标识符只能由字母、数字和下划线3种字符组成，且第一个字符必须为字母或下划线</strong></p>
-<h3 id="3-3-整型数据"><a href="#3-3-整型数据" class="headerlink" title="3.3 整型数据"></a>3.3 整型数据</h3><h4 id="3-3-1-整型常量的表示方法"><a href="#3-3-1-整型常量的表示方法" class="headerlink" title="3.3.1 整型常量的表示方法"></a>3.3.1 整型常量的表示方法</h4><ul>
-<li>十进制整数<br>123,-456,</li>
-<li>八进制整数<br>  以0开头的数是八进制数，如0123表示八进制数123，其值等于十进制 1<em>8^2 + 2 </em> 8^1 + 3 * 8^0</li>
-<li>十六进制整数<br>  以0x开头的数是十六进制数，如0123代表十六进制123，其值等于十进制 1<em> 16^2 + 2 </em> 16^1 + 3 * 16^0</li>
-</ul>
-<h4 id="3-3-2-整型变量"><a href="#3-3-2-整型变量" class="headerlink" title="3.3.2 整型变量"></a>3.3.2 整型变量</h4><ul>
-<li><p>整型数据在内存中的存放形式<br>  数据在内存中以二进制形式存放的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int i;//定义为整型变量</span><br><span class="line">i = 10;// 给i赋值以整数 10 </span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">十进制数10的二进制形式为1010</span><br><span class="line">实际上，数值是以补码表示的。一个正整数的补码和该树的源码相同</span><br><span class="line">求负数的补码方法是：将该数的绝对值的二进制形式，按位取反再加1</span><br><span class="line"></span><br><span class="line">-10的补码</span><br><span class="line"></span><br><span class="line">10 的二进制形式 一个整数占16位</span><br><span class="line">0000000000001010    </span><br><span class="line">取反</span><br><span class="line">1111111111110101</span><br><span class="line">+1</span><br><span class="line">1111111111110110</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>整型变量的分类</p>
-<ul>
-<li>基本整型 int    范围 -2^15 ~ 2^15-1   -32768 ~ 32768</li>
-<li>短整型  short int</li>
-<li>长整型  long int</li>
-<li>有符号基本类型 [signed] int;</li>
-<li>无符号基本类型 unsigned int;</li>
-<li>有符号短整型   [signed] short [int];</li>
-<li>无符号短整型   unsigned short [int];</li>
-<li>有符号长整型   [signed] long  [int];</li>
-<li>无符号长整型   unsigned long  [int];</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>如果不指定unsigned 或者指定 signed，则存储单元中最高位代表符号(0为正，1为负)<br>如果指定unsigned，为无符号型，存储单元中全部二进制bit用作存放数本身，而不包含符号<br>无符号变量只能存放不带符号的证书，如123，4578，而不能存放负数<br>一个无符号整型变量中可以存放的正数的范围比一般整型变量中正数的范围扩大一倍 为0 ~ 65535</p>
-</blockquote>
-<p>short型都是16位<br>long型为32位<br>int型既可以是16位也可以是32位</p>
-<ul>
-<li><p>整型变量的定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a,b;</span><br><span class="line">unsigned short c,d;</span><br><span class="line">long e,f;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>整型数据溢出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int a;</span><br><span class="line">    short int b;//-32767 ~ 32767 </span><br><span class="line">    a = 32767;//0111111111111111</span><br><span class="line">    b = a + 1;//1000000000000000</span><br><span class="line">    printf(&quot;%d,%d\n&quot;, a, b)// 32767 -32768</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="3-3-3-整型常量的类型"><a href="#3-3-3-整型常量的类型" class="headerlink" title="3.3.3 整型常量的类型"></a>3.3.3 整型常量的类型</h4><p>整型变量分为int,short int, long int,unsigned intm unsigned short, unsigned long</p>
-<p>在将一个整型常量复制给上述几种类别的整型变量时如何做到类型匹配</p>
-<ul>
-<li>在-32768 ~ 32767 之间 认为是int型，可以赋值给int型或者long int型</li>
-<li>在-2147483648 ~ 2147483647 范围内，则认为是长整型，可以将它赋值给一个long int型变量</li>
-<li>一个整型常量后面加一个u或者U认为是unsigned int型，如果协程-123u，则先将-123转换成其补码然后再按照无符号数存储</li>
-<li>一个整常量后面加一个字母l或者L，则认为是long int型常量</li>
-</ul>
-<h3 id="3-4-浮点型数据"><a href="#3-4-浮点型数据" class="headerlink" title="3.4 浮点型数据"></a>3.4 浮点型数据</h3><h4 id="3-4-1-浮点型常量的表示方法"><a href="#3-4-1-浮点型常量的表示方法" class="headerlink" title="3.4.1 浮点型常量的表示方法"></a>3.4.1 浮点型常量的表示方法</h4><ul>
-<li>十进制小数形式<br>  0.123</li>
-<li>指数形式<br>  123e3</li>
-</ul>
-<h4 id="3-4-2浮点型变量"><a href="#3-4-2浮点型变量" class="headerlink" title="3.4.2浮点型变量"></a>3.4.2浮点型变量</h4><ul>
-<li>浮点型数据在内存中的存放形式<br>  一个浮点型数据一般在内存中占4个字节(32位)，按照指数形式存储<h2 id="系统把一个浮点型数据分成小数部分和指数部分，分别存放，指数部分采用规范化的指数形式"><a href="#系统把一个浮点型数据分成小数部分和指数部分，分别存放，指数部分采用规范化的指数形式" class="headerlink" title="  系统把一个浮点型数据分成小数部分和指数部分，分别存放，指数部分采用规范化的指数形式"></a>  系统把一个浮点型数据分成小数部分和指数部分，分别存放，指数部分采用规范化的指数形式</h2><h2 id="3-1-4-1-5-9-1"><a href="#3-1-4-1-5-9-1" class="headerlink" title="  |+| . 3 1 4 1 5 9 | 1|"></a>  |+| . 3 1 4 1 5 9 | 1|</h2>  数符    小数部分    指数<ul>
-<li>.314159  *  10^1 = 3.14159</li>
-</ul>
-</li>
-<li>多少位表示小数部分，多少位标书指数部分无具体规定，由c语言编译系统自定，不少以24位表示小数部分，8为表示指数部分，小数部分bit越多，数的有效数字越多，精度也就越高。指数部分占的越多，表示数值范围越大</li>
-<li>浮点型变量的分类<br>  单精度 float            32位    6~7位有效数<br>  双精度 double           64位    15~16 位<br>  长双精度 long double    128位   18~19 位</li>
-<li>浮点类型数据的舍入误差<br>  print函数中%f 是输出浮点数时指定的格式符，作用是指定该实数以小数形式输出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    float a,b;</span><br><span class="line">    a = 123456.789e5;</span><br><span class="line">    b = 20;</span><br><span class="line">    printf(&quot;%f\n&quot;,b);//12345678848.00000</span><br><span class="line">    /*</span><br><span class="line">    程序运行时输出b的值与a相等，a的值笔20大很多，a+20的理论只应该是12345678920，而一个浮点类型变量只能保证的有效数字是7位，后面的数字是无意义的，因此并不准确表示该数</span><br><span class="line">    </span><br><span class="line">    应当避免将一个很大的数和一个很小的数直接相加或相减，否则就会丢失小数</span><br><span class="line">    */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="3-4-3-浮点型常量的类型"><a href="#3-4-3-浮点型常量的类型" class="headerlink" title="3.4.3 浮点型常量的类型"></a>3.4.3 浮点型常量的类型</h4><p>C语言编译系统将浮点型常量作为双精度来处理。</p>
-<h3 id="3-5-字符型数据"><a href="#3-5-字符型数据" class="headerlink" title="3.5 字符型数据"></a>3.5 字符型数据</h3><h4 id="3-5-1-字符常量"><a href="#3-5-1-字符常量" class="headerlink" title="3.5.1 字符常量"></a>3.5.1 字符常量</h4><p>C语言的字符常量是用单引号括起来的一个字符’a’,’x’,’D’,’?’,’$’</p>
-<p>C允许使用一种特殊形式的字符常量，以\开头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\n -&gt; 换行</span><br><span class="line">\t -&gt; tab</span><br><span class="line">\b -&gt; 退格</span><br><span class="line">\r -&gt; 回车</span><br><span class="line">\f -&gt; 换页</span><br><span class="line">\\ -&gt; \</span><br><span class="line">\&apos; -&gt; &apos;</span><br><span class="line">\&apos;&apos; -&gt; &apos;&apos;</span><br></pre></td></tr></table></figure>
-<p>字符变量定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">char c1,c2;</span><br><span class="line">c1 = &apos;a&apos;;</span><br><span class="line">c2 = &apos;b&apos;;</span><br><span class="line">printf(&apos;%c&apos;, c1);// a</span><br><span class="line">printf(&apos;%d&apos;, c1);// 97</span><br></pre></td></tr></table></figure></p>
-<p>大小写字符转换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    char c1,c2;</span><br><span class="line">    c1 = &apos;a&apos;;</span><br><span class="line">    c2 = &apos;b&apos;;</span><br><span class="line">    c1 = c1 - 32;</span><br><span class="line">    c2 = c2 - 32;</span><br><span class="line">    printf(&quot;%c %c&quot;, c1,c2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-5-4字符串常量"><a href="#3-5-4字符串常量" class="headerlink" title="3.5.4字符串常量"></a>3.5.4字符串常量</h4><p>字符串常量是双引号引起来的字符序列</p>
-<p>“how do you do”</p>
-<p>不能把一个字符串常量赋给</p>
-<blockquote>
-<p>C规定：在每一个字符串常量的结尾加一个“字符串结束标志”，以便系统据此判断字符串是否结束。C规定以字符’\0’作为字符串结束标志。’\O’是一个ASCII码为0的字符，为空操作字符，它既不其任何控制动作，也不是一个可现实的字符，如果有一个字符串常量”CHINA”，实际在内存中是 C H I N A \0  占内存单元不是5个字符而是6个字符</p>
-</blockquote>
-<h3 id="3-6-变量赋初值"><a href="#3-6-变量赋初值" class="headerlink" title="3.6 变量赋初值"></a>3.6 变量赋初值</h3><h3 id="3-7-各类数值型数据间的混合运算"><a href="#3-7-各类数值型数据间的混合运算" class="headerlink" title="3.7 各类数值型数据间的混合运算"></a>3.7 各类数值型数据间的混合运算</h3><h3 id="3-8-算数运算符和算术表达式"><a href="#3-8-算数运算符和算术表达式" class="headerlink" title="3.8 算数运算符和算术表达式"></a>3.8 算数运算符和算术表达式</h3><h3 id="3-9-赋值运算符和赋值表达式"><a href="#3-9-赋值运算符和赋值表达式" class="headerlink" title="3.9 赋值运算符和赋值表达式"></a>3.9 赋值运算符和赋值表达式</h3><h3 id="3-10-逗号运算符和逗号表达式"><a href="#3-10-逗号运算符和逗号表达式" class="headerlink" title="3.10 逗号运算符和逗号表达式"></a>3.10 逗号运算符和逗号表达式</h3>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/03/beginning-c-three/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -730,8 +510,7 @@
 
       
         
-          
-            <h1 id="第2章-程序的灵魂-算法"><a href="#第2章-程序的灵魂-算法" class="headerlink" title="第2章 程序的灵魂 - 算法"></a>第2章 程序的灵魂 - 算法</h1><blockquote>
+          <h1 id="第2章-程序的灵魂-算法"><a href="#第2章-程序的灵魂-算法" class="headerlink" title="第2章 程序的灵魂 - 算法"></a>第2章 程序的灵魂 - 算法</h1><blockquote>
 <p>一个程序包括一下两个方面的额内容：<br>1、对数据的描述<br>2、对操作的描述，即操作步骤 也就是算法</p>
 </blockquote>
 <h3 id="数据结构-算法-程序"><a href="#数据结构-算法-程序" class="headerlink" title="数据结构 + 算法 = 程序"></a>数据结构 + 算法 = 程序</h3><h3 id="2-1-算法的概念"><a href="#2-1-算法的概念" class="headerlink" title="2.1 算法的概念"></a>2.1 算法的概念</h3><p>广义的讲，为解决一个问题而采取的方法和步骤就称为算法</p>
@@ -744,28 +523,14 @@
 </ul>
 <h3 id="2-4-怎样表示一个算法"><a href="#2-4-怎样表示一个算法" class="headerlink" title="2.4 怎样表示一个算法"></a>2.4 怎样表示一个算法</h3><h4 id="2-4-1-用自然语言表示算法"><a href="#2-4-1-用自然语言表示算法" class="headerlink" title="2.4.1 用自然语言表示算法"></a>2.4.1 用自然语言表示算法</h4><p>自然语言就是人们日常使用的语言，可以是汉语、英语或其他语言，用自然语言表示通俗易懂，但文字冗长，容易出现歧义性</p>
 <h4 id="2-4-2-用流程图表示算法"><a href="#2-4-2-用流程图表示算法" class="headerlink" title="2.4.2 用流程图表示算法"></a>2.4.2 用流程图表示算法</h4><p>用图形表示算法，直观形象，便于理解</p>
-<h4 id="2-4-3-3中基本结构和改进的流程图"><a href="#2-4-3-3中基本结构和改进的流程图" class="headerlink" title="2.4.3 3中基本结构和改进的流程图"></a>2.4.3 3中基本结构和改进的流程图</h4><ul>
-<li>顺序结构</li>
-<li>选择结构</li>
-<li>循环结构</li>
-</ul>
-<h4 id="2-4-4-用N-S流程图表示算法"><a href="#2-4-4-用N-S流程图表示算法" class="headerlink" title="2.4.4 用N-S流程图表示算法"></a>2.4.4 用N-S流程图表示算法</h4><p>在流程图中完全去掉了带箭头的流程线，全部算法写在一个矩形框里，在该框内还可以包含其他的从属它的框，或者说由一些基本的框组成一个大的框。适用于结构化程序设计</p>
-<h3 id="2-4-5-用伪代码表示算法"><a href="#2-4-5-用伪代码表示算法" class="headerlink" title="2.4.5 用伪代码表示算法"></a>2.4.5 用伪代码表示算法</h3><h3 id="2-4-6-用计算机语言表示算法"><a href="#2-4-6-用计算机语言表示算法" class="headerlink" title="2.4.6 用计算机语言表示算法"></a>2.4.6 用计算机语言表示算法</h3><p>C、C++</p>
-<h3 id="2-5-结构化程序设计方法"><a href="#2-5-结构化程序设计方法" class="headerlink" title="2.5 结构化程序设计方法"></a>2.5 结构化程序设计方法</h3><p>一个结构化程序就是用高级语言表示的结构化算法，用3中基本结构组成的额程序必然是结构化的程序，这种程序便于编写、阅读、修改和维护，减少了出错的机会，提高了程序可靠性，保证了程序的质量</p>
-<h4 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h4><ul>
-<li>自顶向下</li>
-<li>逐步细化</li>
-<li>模块化设计</li>
-<li>结构化编码</li>
-</ul>
-<h3 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h3><ul>
-<li>什么是算法</li>
-<li>什么是结构化算法，为什么提倡结构化算法</li>
-<li>3中基本结构的特点</li>
-<li>用自顶向下、逐步细化的方法进行算法设计</li>
-</ul>
-
-          
+<h4 id="2-4-3-3中基本结构和改进的流程图"><a href="#2-4-3-3中基本结构和改进的流程图" class="headerlink" title="2.4.3 3中基本结构和改进的流程图"></a>2.4.3 3中基本结构和改进的流程图</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/02/beginning-c-two/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1055,8 +820,7 @@
 
       
         
-          
-            <h4 id="算法的概念"><a href="#算法的概念" class="headerlink" title="算法的概念"></a>算法的概念</h4><p>一个问题可以有多种算法，每种算法都有不同的效率<br>算法评定从时间复杂度和空间复杂度计算</p>
+          <h4 id="算法的概念"><a href="#算法的概念" class="headerlink" title="算法的概念"></a>算法的概念</h4><p>一个问题可以有多种算法，每种算法都有不同的效率<br>算法评定从时间复杂度和空间复杂度计算</p>
 <h4 id="时间复杂度和空间复杂度"><a href="#时间复杂度和空间复杂度" class="headerlink" title="时间复杂度和空间复杂度"></a>时间复杂度和空间复杂度</h4><p><strong>时间复杂度：</strong> 执行算法所需要的计算工作量，一般来说，计算机算法是问题规模N的函数f(n),算法的时间复杂度也因此记作T（n）= O(f(n))</p>
 <p>计算方式：</p>
 <ul>
@@ -1074,100 +838,13 @@
 </ul>
 <p>效率排名：O(1)&gt;O(log2n)&gt;O(n)&gt;O(nlog2n)&gt;O(n^2) &gt; O(n^3) &gt; O(2^n) &gt; O(n!) &gt; O(n^n)</p>
 <p>最坏的情况：最坏情况时的运行时间，一种保证，如果没有特别说明，说明时间复杂度为最坏的时间复杂度</p>
-<p><strong>空间复杂度</strong></p>
-<p>S(n) = O(f(n)),算法需要消耗的内存空间</p>
-<p>包括程序代码、输入数据、辅助变量所占用的空间</p>
-<p><em>计算方式：</em></p>
-<p>有时用空间换取时间<br>冒泡排序的元素交换，空间复杂度就是O(1)</p>
-<h4 id="常见排序算法"><a href="#常见排序算法" class="headerlink" title="常见排序算法"></a>常见排序算法</h4><p>冒泡排序、直接排序、希尔、选择、快速、堆、归并排序</p>
-<ul>
-<li>冒泡排序<blockquote>
-<p>原理：两两相邻的数进行比较，如果反序就交换，否则不交换</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度：最坏O(n^2),空间复杂度O(1)</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#m冒泡排序</span><br><span class="line">1,3,2,4,6,5</span><br><span class="line">1,3,2,4,6,5</span><br><span class="line">1,2,3,4,6,5</span><br><span class="line">1,2,3,4,6,5</span><br><span class="line">1,2,3,4,5,6</span><br><span class="line"></span><br><span class="line">for ($i=0;$c = count($arr);$i&lt;$c;$i++)&#123;</span><br><span class="line">    for($j=0;$j&lt;$c;$j++) &#123;</span><br><span class="line">        $arr[$j] = $arr[$j+1];</span><br><span class="line">        $temp = $arr[$j];</span><br><span class="line">        if ($arr[$j] &gt; $arr[$j+1]) &#123;</span><br><span class="line">          $arr[$j+1] = $temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>直接插入排序<blockquote>
-<p>原理：每次从无序表中取出一个元素，把它插入到有序表的合适的位置，使有序表依然有序</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度O(n^2),空间复杂度O(1)</p>
-</blockquote>
-<ul>
-<li>希尔排序<blockquote>
-<p>把待排序的数据很具增量分成几个子序列，对子序列进行插入排序，直到增量为1，直接进行插入排序；增量的排序一般是数组长度的一半，再变为原来增量的一般，知道增量为1</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度O(n^2)空间复杂度O(1)</p>
-</blockquote>
-<ul>
-<li>选择排序<blockquote>
-<p>每次从待排序的数据元素中选出最小(或最大)的一个元素，存放在序列的起始位置，直到全部待排序的数据元素排完</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度 O(n^2),空间复杂度O(1)</p>
-</blockquote>
-<ul>
-<li>快速排序<blockquote>
-<p>通过一趟排序将要排序的数据分割成独立的两个部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按照此方法对这两个部分数据进行快速排序，整个排序过程可以递归完成</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度为最差O(n^2)平均O(nlog2n)<br>空间复杂度为O(n)，平均O(nlog2n)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">function swap(array &amp;$arr,$a,$b)&#123;</span><br><span class="line">    $temp = $arr[$a];</span><br><span class="line">    $arr[$a] = $arr[$b];</span><br><span class="line">    $arr[$b] = $temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Partition(array &amp;$arr,$low,$high)&#123;</span><br><span class="line">    $pivot = $arr[$low];   //选取子数组第一个元素作为枢轴</span><br><span class="line">    while($low &lt; $high)&#123;  //从数组的两端交替向中间扫描</span><br><span class="line">        while($low &lt; $high &amp;&amp; $arr[$high] &gt;= $pivot)&#123;</span><br><span class="line">            $high --;</span><br><span class="line">        &#125;</span><br><span class="line">        swap($arr,$low,$high);	//终于遇到一个比$pivot小的数，将其放到数组低端</span><br><span class="line">        while($low &lt; $high &amp;&amp; $arr[$low] &lt;= $pivot)&#123;</span><br><span class="line">            $low ++;</span><br><span class="line">        &#125;</span><br><span class="line">        swap($arr,$low,$high);	//终于遇到一个比$pivot大的数，将其放到数组高端</span><br><span class="line">    &#125;</span><br><span class="line">    return $low;   //返回high也行，毕竟最后low和high都是停留在pivot下标处</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function QSort(array &amp;$arr,$low,$high)&#123;</span><br><span class="line">    if($low &lt; $high)&#123;</span><br><span class="line">        $pivot = Partition($arr,$low,$high);  //将$arr[$low...$high]一分为二，算出枢轴值</span><br><span class="line">        QSort($arr,$low,$pivot - 1);   //对低子表进行递归排序</span><br><span class="line">        QSort($arr,$pivot + 1,$high);  //对高子表进行递归排序</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function QuickSort(array &amp;$arr)&#123;</span><br><span class="line">    $low = 0;</span><br><span class="line">    $high = count($arr) - 1;</span><br><span class="line">    QSort($arr,$low,$high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li>堆排序<blockquote>
-<p>把待排序的元素按照大小在二叉树位置上排序，排序好的元素要满足：父节点的元素要大于等于子节点；这个过程叫做堆化过程，如果根节点存放的是最大的数，则叫做大跟堆，如果是最小，就叫小根堆，可以把节点拿出来，然后再堆化，循环到最后一个节点</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度：O(nlog2n)<br>空间复杂度：O(1)</p>
-</blockquote>
-<ul>
-<li>归并排序<blockquote>
-<p>将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个有序的子序列，再把有序的子序列合并为整体有序序列</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度O(nlog2n)<br>空间复杂度O(n)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">//交换函数</span><br><span class="line">function swap(array $arr,$a,$b) &#123;</span><br><span class="line">    $temp = $arr[$a];</span><br><span class="line">    $arr[$a] = $arr[$b];</span><br><span class="line">    $arr[$b = $temp];</span><br><span class="line">&#125;</span><br><span class="line">//归并算法总函数</span><br><span class="line">function mergeSort(array $arr) &#123;</span><br><span class="line">    $start = 0;</span><br><span class="line">    $end = count($arr) - 1;</span><br><span class="line">    Msort($arr,$start,$end);</span><br><span class="line">&#125;</span><br><span class="line">functin Msort(array &amp;$arr,$start,$end) &#123;</span><br><span class="line">    //当子序列长度为1时，$start == $end,不再分组</span><br><span class="line">    if ($start &lt; $end) &#123;</span><br><span class="line">        $mid = floor(($start + $end) / 2);//将 $arr 平分为 $arr[$start - $mid] 和 $arr[$mid+1 - $end]</span><br><span class="line">        MSort($arr,$start,$mid);//将 $arr[$start - $mid] 归并为有序的$arr[$start - $mid]</span><br><span class="line">        MSort($arr,$mid + 1,$end);//将 $arr[$mid+1 - $end] 归并为有序的 $arr[$mid+1 - $end]</span><br><span class="line">        Merge($arr,$start,$mid,$end); //将$arr[$start - $mid]部分和$arr[$mid+1 - $end]部分合并起来成为有序的$arr[$start - $end]</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//归并操作</span><br><span class="line">function Merge(array &amp;$arr,$start,$mid,$end)&#123;</span><br><span class="line">    $i = $start;</span><br><span class="line">    $j=$mid + 1;</span><br><span class="line">    $k = $start;</span><br><span class="line">    $temparr = array();</span><br><span class="line"></span><br><span class="line">    while($i!=$mid+1 &amp;&amp; $j!=$end+1)</span><br><span class="line">    &#123;</span><br><span class="line">       if($arr[$i] &gt;= $arr[$j])&#123;</span><br><span class="line">           $temparr[$k++] = $arr[$j++];</span><br><span class="line">       &#125;</span><br><span class="line">       else&#123;</span><br><span class="line">           $temparr[$k++] = $arr[$i++];</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //将第一个子序列的剩余部分添加到已经排好序的 $temparr 数组中</span><br><span class="line">    while($i != $mid+1)&#123;</span><br><span class="line">        $temparr[$k++] = $arr[$i++];</span><br><span class="line">    &#125;</span><br><span class="line">    //将第二个子序列的剩余部分添加到已经排好序的 $temparr 数组中</span><br><span class="line">    while($j != $end+1)&#123;</span><br><span class="line">        $temparr[$k++] = $arr[$j++];</span><br><span class="line">    &#125;</span><br><span class="line">    for($i=$start; $i&lt;=$end; $i++)&#123;</span><br><span class="line">        $arr[$i] = $temparr[$i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="常见查找算法"><a href="#常见查找算法" class="headerlink" title="常见查找算法"></a>常见查找算法</h4><ul>
-<li>二分查找<blockquote>
-<p>从数组的中间元素开始，如果中间元素正好是要查找的元素，搜索结束，如果某一个特定元素大于或者小于中间元素，则在数组大于或者小于中间元素的一半中查找</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度最差O（log2n）空间复杂度迭代o(1),递归O（nlog2n）</p>
-</blockquote>
-<ul>
-<li>顺序查找<blockquote>
-<p>按一定的顺序检查数组中的每一个元素，直到找到所要寻找的特定值为止</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>时间复杂度：O(n) 空间复杂度O(1)</p>
-</blockquote>
-<h4 id="其他算法"><a href="#其他算法" class="headerlink" title="其他算法"></a>其他算法</h4><blockquote>
-<p>1,1,2,3,5,8,13,21,34…第30位是多少？使用伪代码描述其实现方法。 伪代码就是文字描述就可以</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$arr = [1,1];</span><br><span class="line">for ($i=2;$i&lt;30;$i++) &#123;</span><br><span class="line">    $arr[$i] = $arr[$i-1] + $arr[$i-2];</span><br><span class="line">&#125;</span><br><span class="line">var_dump($arr);</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/07/php-interview-prepare-algorithm/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1656,8 +1333,7 @@
 
       
         
-          
-            <h3 id="动态语言的并发处理"><a href="#动态语言的并发处理" class="headerlink" title="动态语言的并发处理"></a>动态语言的并发处理</h3><h4 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h4><ul>
+          <h3 id="动态语言的并发处理"><a href="#动态语言的并发处理" class="headerlink" title="动态语言的并发处理"></a>动态语言的并发处理</h3><h4 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h4><ul>
 <li>什么是进程、线程、协程</li>
 <li>什么是多进程、多线程</li>
 <li>同步阻塞模型</li>
@@ -1669,130 +1345,14 @@
 <p>运行、就绪、阻塞</p>
 <p>运行：当一个进程在处理机上运行时，则称该进程处于运行状态</p>
 <p>就绪：当一个进程获得了除处理机以为的一切所需资源，一旦得到处理机即可运行，则称此进程处于就绪状态</p>
-<p>阻塞:也成等待或睡眠状态，一个进程正在等待某一时间发生而暂停停止运行，这时即使把处理机分配给进程也无法运行</p>
-<p><strong>进程的五态模型</strong> 对于一个世纪的系统，进程的状态以及转换更为复杂</p>
-<p>新建态：对应于进程刚刚被创建时没有被提交的状态，并且等待系统完成创建进程的所有必要信息</p>
-<p>终止态:进程已经结束运行，回收进行控制块以外的其他资源，并让其他进程从进程控制块中收集有关信息</p>
-<p>活跃就绪:进程在主存并且可被调度的状态</p>
-<p>静止就绪:进程被对换到辅存时的就绪状态，是不能被直接调度的状态，只有当主存中没有活跃就绪态进程或者是挂起就绪进程具有更高的优先级，系统将把挂起就绪状态进程调回主存并转换为活跃就绪</p>
-<p>活跃阻塞：指进程在主存，一旦等待的事件产生便进入活跃就绪状态</p>
-<p>静止阻塞：进程对换到辅存时的阻塞状态，一旦等待事件产生便进入静止就绪状态</p>
-<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><blockquote>
-<p>由于用户的并发请求，为每一个请求都创建一个进程显然是行不通的，从系统资源开销方面或者是响应用户请求的效率方面来看，因此操作系统中线程的概念便被引进了</p>
-</blockquote>
-<p>线程，有时候被称为轻量级进程</p>
-<p>线程是进程中的一个实体，是被系统独立调度和分配的基本单位，线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但是她可以同属一个进程的其他线程共享进程所拥有的全部资源</p>
-<p>一个线程可以创建和撤销另一个线程，同一个进程中的多个线程之间可以并发执行</p>
-<p>线程是程序中一个单一的顺序控制流程。进程内一个相对独立的可以调度的执行单元，是系统独立调度和分配CPU的基本单位，指运行程序的调度单位</p>
-<p>在单个程序中同时运行多个线程完成不同的工作，称为多线程</p>
-<p>每一个程序至少有一个线程，如果只有一个线程，那就是程序本身了</p>
-<p>线程的三种状态：就绪状态，运行状态，阻塞状态</p>
-<h4 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h4><blockquote>
-<p>协程是一种用户台的轻量级线程，协程的调度完全由用户控制。</p>
-</blockquote>
-<h3 id="线程与进程的区别"><a href="#线程与进程的区别" class="headerlink" title="线程与进程的区别"></a>线程与进程的区别</h3><ul>
-<li>线程是进程内的一个执行单元，进程内至少有一个线程，他们共享进程的地址空间，而进程有自己独立的地址空间</li>
-<li>进程是资源分配和拥有的但愿，同一个进程内的线程共享进程的资源</li>
-<li>线程是处理器调度的基本单位，但进程不是</li>
-<li><p>两者均可并发执行</p>
-</li>
-<li><p>每个独立的线程有一个程序运行的入口，顺序执行序列和程序的出口，但是线程不能独立执行，必须已存在应用程序中，由应用程序提供多个线程执行控制</p>
-</li>
-</ul>
-<h4 id="线程和协程的区别"><a href="#线程和协程的区别" class="headerlink" title="线程和协程的区别"></a>线程和协程的区别</h4><ul>
-<li><p>一个线程可以有多个协程，一个进程也可以单独拥有多个协程</p>
-</li>
-<li><p>线程进程都是同步机制，而协程则是异步</p>
-</li>
-<li>协程可以保留上一次调用时的状态，每次过程重入时，就相当于进入上一次调用的状态</li>
-</ul>
-<h4 id="什么是多进程、多线程"><a href="#什么是多进程、多线程" class="headerlink" title="什么是多进程、多线程"></a>什么是多进程、多线程</h4><p>多进程：同一时间里，同一个计算机系统中如果允许两个或者两个以上的进程处于运行状态，这就是多进程</p>
-<p>多开一个进程，多分配一份资源，进程间通讯不方便</p>
-<p>多线程：线程就是吧一个进程分诶很多片，每一个片都可以是一个独立的流程</p>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>单进程单线程：一个人在一个桌子上吃菜</p>
-<p>单进程多线程：多个人在同一个桌子上吃采</p>
-<p>多进程单线程：多个人每个人在自己的桌子上吃菜</p>
-<h4 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h4><p>多进程：最早的服务器端的程序都是通过多进程、多线程来解决并发的IO问题</p>
-<p>一个请求创建一个进程，然后子进程进入循环同步阻塞的与客户端连接并且进行交互，手法处理数据</p>
-<p>多线程：线程中可以直接向客户端连接发送数据</p>
-<p>步骤：</p>
-<p>创建一个socket</p>
-<p>进入while循环，阻塞在进程accept操作上，等待客户端连接进入</p>
-<p>主进程在多进程模式下通过fork创建子进程</p>
-<p>多线程模型下可以创建子线程</p>
-<p>子进程/线程创建成功后进入while循环，阻塞在recv调用上，等待客户端向服务器发送数据</p>
-<p>收到数据后服务器程序进程处理然后使用send向客户端发送响应</p>
-<p>当客户端连接关闭时，子进程/子线程退出并销毁所有资源。主进程/线程会回收掉此子进程/线程</p>
-<p>缺点：严重依赖进程来解决并发问题，会造成严重消耗</p>
-<h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>现在各种高并发异步IO的服务器程序都是基于epoll实现的</p>
-<p>IO复用异步非阻塞程序使用景点的Reactor模型，Reactor顾名思义就是反应堆的意思，它本身不处理任何数据首发，只是可以监听一个socket句柄的时间变化</p>
-<blockquote>
-<p>Add:添加一个socket 到 Reactor</p>
-</blockquote>
-<blockquote>
-<p>Set：修改socket对应的时间，如可读可写</p>
-</blockquote>
-<blockquote>
-<p>Del:从Reactor中移除,不再监听事件</p>
-</blockquote>
-<blockquote>
-<p>Callback:事件发生后回调指定的函数</p>
-</blockquote>
-<p>Nginx:使用的就是多线程的Reactor</p>
-<p>Swoole:使用的是多线程的Reactor和多进程的Worker</p>
-<h3 id="PHP并发编程实践"><a href="#PHP并发编程实践" class="headerlink" title="PHP并发编程实践"></a>PHP并发编程实践</h3><ul>
-<li>php的Swoole扩展<blockquote>
-<p>php的异步、并行、高性能网络通信引擎，使用纯C语言编写，提供了PHP语言的异步多线程服务器，异步TCP/UDP网络客户端，异步Mysql，异步Redis，数据库连接池，AsyncTask，消息队列，毫秒定时器，异步文件读写，异步DNS查询</p>
-</blockquote>
-</li>
-</ul>
-<p>除了异步IO支持之外，Swoole为PHP多进程的模式设计了多个并发数据结构和IPC通信机制，可以大大简化多进程并发编程的工作</p>
-<p>Swoole2.0支持了类似Go语言的协程，可以使用完全同步的代码实现异步程序</p>
-<ul>
-<li><p>Swoole的异步Mysql实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$db = new Swoole\MySQL;</span><br><span class="line">$server = array(&apos;host&apos;=&gt;&apos;&apos;,&apos;user&apos;=&gt;&apos;&apos;,&apos;password&apos;=&gt;&apos;&apos;,&apos;database&apos;=&gt;&apos;&apos;);</span><br><span class="line"></span><br><span class="line">$db-&gt;connect($server,function($db,$result) &#123;</span><br><span class="line">    $db-&gt;query(&apos;show tables&apos;,function(Swoole\MySQL $db,$result) &#123;</span><br><span class="line">        //do some thing;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>消息队列</p>
-</li>
-</ul>
-<p>场景说明:用户注册后，需要发注册邮件和注册短信</p>
-<p>串行方式:将注册信息写入数据库成功后，发送注册邮件，再发送注册短信</p>
-<p>并行方式：将注册信息写入数据库成功后，发送注册邮件的同时发送注册短信</p>
-<p>消息队列：将注册信息写入数据库成功后，将成功的信息写入队列，此时直接返回成功给用户，写入队列的时间非常短，可以忽略不计，然后异步发送邮件和短信</p>
-<ul>
-<li>应用解耦</li>
-</ul>
-<p>场景说明：用户下凡后，订饭系统需要通知库存系统</p>
-<p>加入库存系统无法访问，则订饭减库存将失败，从而导致订单失败，订单系统与库存系统解耦</p>
-<p>引用队列，用户下单后，订单系统完成持久化处理，将消息写入消息队列，返回用户下单成功</p>
-<p>订阅下单的消息，采用拉/推的方式，获取下单信息，库存系统根据下单信息，进行库存处理</p>
-<ul>
-<li>流量削峰</li>
-</ul>
-<p>应用场景：秒杀活动，流量瞬间激增，服务器压力大</p>
-<p>用户发起请求，服务器接收后，先写入消息队列，加入消息队列长度超过最大值，则直接报错或者提示用户</p>
-<p>后续的程序读取消息队列，去处理</p>
-<p>控制请求量<br>缓解高流量</p>
-<ul>
-<li>日志处理</li>
-</ul>
-<p>应用场景：解决大量日志的传输</p>
-<p>日志采集程序将程序写入消息队列，然后通过日志处理程序的订阅消费日志</p>
-<ul>
-<li>消息通讯</li>
-</ul>
-<p>应用场景：聊天室</p>
-<p>多个客户端订阅同一个主题，进行消息发布和接收</p>
-<ul>
-<li>常见消息队列产品</li>
-</ul>
-<p>Kafka、ActiveMQ、ZeroMQ、RabbitMQ、Redis等</p>
-<ul>
-<li>接口的并发请求</li>
-</ul>
-<p>curl_multi_init</p>
-
-          
+<p>阻塞:也成等待或睡眠状态，一个进程正在等待某一时间发生而暂停停止运行，这时即使把处理机分配给进程也无法运行<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/04/php-interview-prepare-hc-4/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1931,8 +1491,7 @@
 
       
         
-          
-            <h3 id="七层负载均衡的实现"><a href="#七层负载均衡的实现" class="headerlink" title="七层负载均衡的实现"></a>七层负载均衡的实现</h3><p>基于URL等应用层信息的负载均衡</p>
+          <h3 id="七层负载均衡的实现"><a href="#七层负载均衡的实现" class="headerlink" title="七层负载均衡的实现"></a>七层负载均衡的实现</h3><p>基于URL等应用层信息的负载均衡</p>
 <p>Nginx的proxy是一个很强大的功能，实现了7层负载均衡</p>
 <p>功能强大、性能卓越，运行稳定</p>
 <p>配置简单灵活</p>
@@ -1951,27 +1510,13 @@
 </li>
 </ul>
 <p>当所有后端机器都down掉时，Nginx会立即将所有机器的标志位清成初始状态，以避免造成所有的机器都处在timeout的状态</p>
-<h4 id="扩展策略"><a href="#扩展策略" class="headerlink" title="扩展策略"></a>扩展策略</h4><ul>
-<li>fair 策略<blockquote>
-<p>根据后端服务器的响应时间判断负载情况，从中选择出负载最轻的机器进行分流</p>
-</blockquote>
-</li>
-<li>通用hash<blockquote>
-<p>以nginx内置的变量为key进行hash</p>
-</blockquote>
-</li>
-<li>一致性hash<blockquote>
-<p>支持mem</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="Nginx配置方案"><a href="#Nginx配置方案" class="headerlink" title="Nginx配置方案"></a>Nginx配置方案</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#nginx.conf</span><br><span class="line">http&#123;</span><br><span class="line">    upstream cluster&#123;</span><br><span class="line">        server srv1;</span><br><span class="line">        server srv2;</span><br><span class="line">        server srv3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://cluster</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="四层负载均衡实现"><a href="#四层负载均衡实现" class="headerlink" title="四层负载均衡实现"></a>四层负载均衡实现</h3><blockquote>
-<p>通过报文中的目标和端口，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器</p>
-</blockquote>
-<p>LVS实现服务器集群负载均衡有三种方式NAT,DR,TUN</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/03/php-interview-prepare-hc-3/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2110,8 +1655,7 @@
 
       
         
-          
-            <h3 id="数据库缓存"><a href="#数据库缓存" class="headerlink" title="数据库缓存"></a>数据库缓存</h3><p><strong>相关概念</strong></p>
+          <h3 id="数据库缓存"><a href="#数据库缓存" class="headerlink" title="数据库缓存"></a>数据库缓存</h3><p><strong>相关概念</strong></p>
 <ul>
 <li>什么是数据库缓存？</li>
 <li>为什么使用缓存</li>
@@ -2134,87 +1678,172 @@
 <p><strong>缓存场景的选择</strong></p>
 <p><strong>缓存数据的实时性</strong></p>
 <p><strong>缓存数据的稳定性</strong></p>
-<h4 id="MySQL查询缓存"><a href="#MySQL查询缓存" class="headerlink" title="MySQL查询缓存"></a>MySQL查询缓存</h4><p>启用mysql查询缓存：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">query_cache_type</span><br><span class="line">#查询缓存类型有0，1，2三个取值。0表示不使用缓存，1表示始终使用查询缓存，2表示按需使用查询缓存</span><br><span class="line"></span><br><span class="line">query_cache_type = 1</span><br><span class="line">#此时也可以关闭查询缓存</span><br><span class="line">select sql_no_cache * from table where condition;</span><br><span class="line"></span><br><span class="line">query_cache_type = 2</span><br><span class="line"># 按需查询缓存</span><br><span class="line">select sql_cache * from table where condition</span><br><span class="line"></span><br><span class="line">query_cache_size</span><br><span class="line">#默认情况下的query_cache_size为0，表示为查询缓存预留的内存位0，则无法使用查询缓存</span><br><span class="line"></span><br><span class="line">set global query_cache_size = 133443344;</span><br><span class="line"># 设置query_cache_size的大小</span><br></pre></td></tr></table></figure></p>
-<p>查询缓存可以看做是sql文本和查询结构的映射</p>
-<p>第二次查询的sql和第一次查询的sql必须完全相同才会使用缓存</p>
-<p>show status like ‘Qcache_hits’ 查看命中次数</p>
-<p>表的结构或者数据发生改变时，查询缓存中的数据不再有效</p>
-<p><strong>清理缓存</strong></p>
-<p><code>flush query cache;</code>清理查询缓存内存碎片</p>
-<p><code>reset qyery cache;</code>从查询缓存中移除所有查询</p>
-<p><code>flush tables;</code>关闭所有打开的表，同时该操作将会清空表缓存的内容</p>
-<h4 id="使用Memcache缓存查询数据"><a href="#使用Memcache缓存查询数据" class="headerlink" title="使用Memcache缓存查询数据"></a>使用Memcache缓存查询数据</h4><blockquote>
-<p>memcache 是一套分布式的高速缓存系统，由LiveJournal的Bard Fitzpatrict开发，但目前被许多网站使用以提升网站的访问速度，尤其是对一些大型的、需要频繁访问数据库的网站访问速度提升效果十分明显</p>
-</blockquote>
-<ul>
-<li><p>工作原理</p>
-<blockquote>
-<p>memcache 是一个高性能的分布式的内存对象缓存系统，通过在内存里维护一个统一的巨大的hash表，它能够用来存储各种格式的数据，包括图像，视频，文件以及数据库检索的结构等。简单的说就是将数据调用到内存，然后从内存读取，从而大大提高读取速度。</p>
-</blockquote>
-</li>
-<li><p>工作流程</p>
-<blockquote>
-<p>先检查客户端的请求数据是否在mem中，有的话直接返回，不在的话就去查库，把数据库中的数据返回给客户端，同时缓存到mem中</p>
-</blockquote>
-</li>
-<li><p>方法</p>
-</li>
-</ul>
-<p>获取： get(key)</p>
-<p>设置：set（key）</p>
-<p>删除：delete(key)</p>
-<h3 id="Redis缓存查询数据"><a href="#Redis缓存查询数据" class="headerlink" title="Redis缓存查询数据"></a>Redis缓存查询数据</h3><ul>
-<li>与memcache的区别</li>
-</ul>
-<blockquote>
-<p>性能差别不大</p>
-</blockquote>
-<blockquote>
-<p>Redis在2.0版本后增加了自己的VM特性，突破了物理内存的限制，mem可以修改最大可用内存，采用LRU算法</p>
-</blockquote>
-<blockquote>
-<p>Redis依赖客户端实现分布式读写，mem本身没有数据冗余机制，Redis支持(快照，AOF)，依赖快照进行持久化，aof增强了可靠性的同时对性能有所影响</p>
-</blockquote>
-<blockquote>
-<p>mem不支持持久化，在并发情境下用cas保证一致性，redis事务支持较弱，Redis支持多种类的数据类型</p>
-</blockquote>
-<blockquote>
-<p>Redis用于数据量小的高性能的操作和运算上，mem用于在动态系统中减少数据库负载，提升性能，适合做缓存，提高性能</p>
-</blockquote>
-<h4 id="缓存其他数据"><a href="#缓存其他数据" class="headerlink" title="缓存其他数据"></a>缓存其他数据</h4><ul>
-<li>Session<blockquote>
-<p>将session存入到数据库来说是一种逆天的行为，可以存储到mem和redis中<br><code>session_set_save_handler</code>来修改存储地址</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="MySQL数据库层的优化"><a href="#MySQL数据库层的优化" class="headerlink" title="MySQL数据库层的优化"></a>MySQL数据库层的优化</h2><p><strong>相关概念</strong></p>
-<ul>
-<li>优化方向</li>
-<li>优化方案</li>
-</ul>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><ul>
-<li>数据表结构设计的优化</li>
-<li><p>数据表数据类型的优化</p>
-<blockquote>
-<p>字段使用什么样的数据类型更合适</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tinyint（0-255）、smallint、bigint（存储上千万的数字）#考虑空间的问题，考虑范围的问题，按需取</span><br><span class="line">char、varchar #考虑字符串长度是否固定</span><br><span class="line">enum #特定、固定的分类可以使用enum存储，效率更快</span><br><span class="line">IP地址的存储#ip2long将ip转换成长整型，long2ip</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>存储引擎的优化</p>
-</li>
-</ul>
-<p>建立合适的索引，在什么时候效率最好？</p>
-<blockquote>
-<p>索引的创立原则： 不是越多越好，在合适的字段上创建合适的索引</p>
-</blockquote>
-<blockquote>
-<p>复合索引的前缀的原则,like 查询%的问题，全表扫描优化，or条件索引使用情况，字符串类型索引失效问题</p>
-<ul>
-<li>数据库服务器架构的优化<br>分区操作</li>
-</ul>
-</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/02/php-interview-prepare-hc-2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/01/php-interview-prepare-hc-1/" itemprop="url">PHP如何解决网站大流量与高并发的问题（一）</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-01T21:06:47+08:00">
+                2017-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Interview-Prepare/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview Prepare</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="高并发的相关概念"><a href="#高并发的相关概念" class="headerlink" title="高并发的相关概念"></a>高并发的相关概念</h4><p>在某个时间点，有多少个访问量</p>
+<p>如果一个系统的日PV在千万以上，有可能是一个高并发的系统</p>
+<p><strong>QPS:</strong> 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求)</p>
+<p><strong>吞吐量:</strong> 单位时间处理的请求数量</p>
+<p><strong>响应时间:</strong> 从请求发出到收到相应花费的时间</p>
+<p><strong>PV:</strong> 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量</p>
+<p><strong>UV:</strong> 独立访客unique visitor，一定时间范围内相同访客多次访问网站，只计算一独立个访客</p>
+<p><strong>带宽:</strong> 计算带宽大小需关注两个指标，峰值流量和页面平均大小</p>
+<p>日网站带宽 = PV/统计时间(s)<em> 平均页面大小(k) </em> 8</p>
+<p>峰值一般是平均值的倍数，根据实际情况来定</p>
+<p>QPS不等于并发连接数量</p>
+<p>QPS是每秒HTTP的请求数量，并发连接数量是系统同事处理的请求数量</p>
+<p>峰值每秒请求数(QPS) = (总PV数 <em> 80%) / (6小时秒数</em> 20%) </p>
+<p>代表80%的访问量集中在20%的时间（28定律）</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/01/php-interview-prepare-hc-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
