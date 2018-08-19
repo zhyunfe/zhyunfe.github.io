@@ -191,6 +191,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -233,12 +263,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/blockchain-develop-dapp-desc/">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/blockchain-bitcoin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -252,7 +282,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/19/blockchain-develop-dapp-desc/" itemprop="url">区块链项目开发指南 - 去中心化应用</a></h2>
+                <a class="post-title-link" href="/2018/08/19/blockchain-bitcoin/" itemprop="url">《比特币白皮书》解读</a></h2>
         
 
         <div class="post-meta">
@@ -264,7 +294,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T18:42:44+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T22:21:44+08:00">
                 2018-08-19
               </time>
             
@@ -326,107 +356,8 @@
       
         
           
-            <h2 id="区块链项目开发指南"><a href="#区块链项目开发指南" class="headerlink" title="区块链项目开发指南"></a>区块链项目开发指南</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>如何学习以太坊？ -&gt; 从以太坊的白皮书和黄皮书开始/Building Blockchain Projects</p>
-<p>通过有趣的现实世界案例，将了解到如何编写完全按照程序运行、没有欺诈、没有中心机构或者第三方干预的智能合约，并学习如何创建端到端的区块链应用。</p>
-<p>将介绍加密货币中的密码学、以太币安全、挖矿、智能合约和Solidity等概念</p>
-<p>实例代码下载地址：<a href="http://www.packtpub.com" target="_blank" rel="noopener">http://www.packtpub.com</a></p>
-<p>​                <a href="http://www.hzbook.com" target="_blank" rel="noopener">http://www.hzbook.com</a></p>
-<h3 id="第一章-去中心化应用"><a href="#第一章-去中心化应用" class="headerlink" title="第一章 去中心化应用"></a>第一章 去中心化应用</h3><h5 id="1-1-什么是Dapp"><a href="#1-1-什么是Dapp" class="headerlink" title="1.1 什么是Dapp"></a>1.1 什么是Dapp</h5><p>目前几乎所有互联网应用都是中心化，每个应用的服务端由一个特定的企业或者个人所有，开发者在开发中心化应用，用户也一直在使用中心化应用。</p>
-<p>但是中心化应用存在一些问题：不透明、单点故障、不能防止网络审查。几乎不可能创建某些特定类型的应用</p>
-<p>为了解决这一问题，去中心化应用诞生了，它创建以网络为基础的去中心化应用Dapp</p>
-<p>Dapp是一种互联网应用，其后端在去中心化的点对点的网络上运行，且源代码是开源的，网络中不存在能够完全控制的Dapp节点</p>
-<p>不同的Dapp使用不同的数据接口来存储应用数据，比特币Dapp使用区块链数据接口</p>
-<ul>
-<li>一致性协议。Dapp中没有一个中心服务器来协调节点或者决定什么是对的什么是错的，一致性协议可用于解决这个问题（concensus protocol），不同的Dapp通常使用不同额数据结构类型的共识协议，比特币使用   <strong>工作量证明协议（PoW</strong>来达成共识</li>
-</ul>
-<p>为了让用户使用Dapp，每个Dapp都需要一个客户端，使用时，用户首先要运行Dapp中自己的节点服务端，然后将客户端连接至节点服务器。</p>
-<p>Dapp的节点只是提供API，并允许开发者社区使用API开发多种客户端</p>
-<p>建立客户端架构比较麻烦，因此客户端通常作为服务或节点形式出现</p>
-<ul>
-<li><p>Dapp的优点</p>
-<ul>
-<li>Dapp能容错，没有单点故障，默认分布式</li>
-<li>防止某单一机构的干扰</li>
-<li>用户容易相信该应用</li>
-</ul>
-</li>
-<li><p>Dapp的缺点</p>
-<ul>
-<li>修改bug或者更新Dapp很困男，因为网络中每一个节点都需要更新其节点软件</li>
-<li>一些应用要求验证用户身份（KYC），却没有中心化的机构来验证用户身份，开发时会遇到问题</li>
-<li>创建去中心化应用比较困难，因为他们应用复杂的协议达成共识，并且必须从最開是就自行创建并扩大规模，所以不能仅仅实现一个想法，然后不断添加功能</li>
-<li>应用通常独立于第三方API，以获取或者存储数据。Dapp不能依赖中心化应用的API，但是可以依赖其他Dapp，目前Dapp生态圈不大，所以创建起来比较困难，在实践中紧密融合Dapp也比较困难</li>
-</ul>
-</li>
-</ul>
-<h5 id="1-2-去中心化自治组织"><a href="#1-2-去中心化自治组织" class="headerlink" title="1.2 去中心化自治组织"></a>1.2 去中心化自治组织</h5><p>Decentralized Autononmous Organization (DAO) 由计算机程序代表的组织（即组织根据程序中写明的规则运行），完全透明、完全由股东控制，不受政府影响。</p>
-<p>为了达到这个目标，需要把DAO作为DApp来开发，可以说DAO是Dapp的一个子类</p>
-<h5 id="1-3-Dapp中的用户身份"><a href="#1-3-Dapp中的用户身份" class="headerlink" title="1.3 Dapp中的用户身份"></a>1.3 Dapp中的用户身份</h5><p>Dapp主要优点是它一般能保证用户的匿名性，但是许多应用要求用户必须经过身份验证才能使用，因为Dapp没有中央机构，验证身份是一项挑战</p>
-<p>KYC Know Your Customer</p>
-<p>Dapp不能理解和验证扫描文档，也不能发送短信，因此需要用户提供哪些他们可以理解和验证的数字标识，问题是几乎没有Dapp有数字标识，用户也不知道如何得到数字身份</p>
-<p>数字身份有多种形式，目前最受推崇最热门的形式是数字证书（一个用来证明公钥所有权的电子文档）</p>
-<p>基本上一个用户拥有私钥、公钥和数字证书</p>
-<p>数字证书由用户可以信任的授权机构颁发</p>
-<p>目前可供选择的方案：由提供客户端的公司派人手动验证用户身份，比如创建一个比特币账户不需要验证身份，但是当提现的时候交易所去验证</p>
-<p>在应用中验证身份的想法是使一些用户在进行一些欺诈行为之后难以逃脱，让用户难以伪装成其他人，并收集足够的数据跟踪用户，证明该用户进行了一些欺诈行为</p>
-<h5 id="1-4-Dapp中的用户账户"><a href="#1-4-Dapp中的用户账户" class="headerlink" title="1.4 Dapp中的用户账户"></a>1.4 Dapp中的用户账户</h5><p>有多种实现方式，现在最热门的是公钥-私钥来代表一个账户。公钥的哈希是账户的唯一身份，为了改变账户中的数据，用户需要私钥签名</p>
-<h5 id="1-5-访问中心化应用"><a href="#1-5-访问中心化应用" class="headerlink" title="1.5 访问中心化应用"></a>1.5 访问中心化应用</h5><p>Dapp不能依赖于中心化应用，原因是存在单点故障，但是在一些情况下Dapp需要从中心化应用中抓取数据，但是主要问题是Dapp如何知道一个域名中抓取的数据有没有被中间人篡改，数据是否还是真实的响应。</p>
-<p>根据Dapp架构的不同，解决办法也有所不同，在以太坊中，智能合约不能直接发出HTTP请求，为了访问中心化API，可以使用Oraclize服务作为中间人，Oraclize为从中心化服务智能合约中的数据提供TLSNotart验证</p>
-<h4 id="1-6-Dapp中的内部货币"><a href="#1-6-Dapp中的内部货币" class="headerlink" title="1.6 Dapp中的内部货币"></a>1.6 Dapp中的内部货币</h4><p>中心化应用的所有者需要有盈利才能长期维护应用的运行，Dapp虽然没有所有者，但是和中心化应用一样，Dapp节点需要硬件和网路资源才能维持运行。</p>
-<p>Dapp节点需要一些有用的回报来维持运行，于是内部货币登场了，大多数Dapp都有内置内部货币。</p>
-<p>共识协议决定节点收取多少的内部货币。</p>
-<p>根据共识协议，只有为维护Dapp安全和运行做出贡献的哪些特定节点可以赚取货币，只进行数据读取的节点没有回报，也就是指挖矿。</p>
-<ul>
-<li>Dapp内部货币的缺点</li>
-</ul>
-<p>Dapp不能再免费使用了，免费是中心化应用占上风的原因之，因为中心化应用可以通过广告赚钱，为第三方应用提供优质API，所以可以对用户免费。在Dapp中不能加入广告，因为没有人去检查广告尺度，客户端还可能不展示广告，因为展示广告对他们没有好处。</p>
-<h5 id="1-7-什么是授权Dapp"><a href="#1-7-什么是授权Dapp" class="headerlink" title="1.7 什么是授权Dapp"></a>1.7 什么是授权Dapp</h5><p>授权的Dapp并不对所有人开放。授权的Dapp继承了面权限Dapp的全部属性，但是需要权限才能参与到网络中去。授权的Dppp与免权限的Dapp的共识协议是不同的，授权的Dapp没有内部货币。</p>
-<h5 id="1-8-热门的Dapp"><a href="#1-8-热门的Dapp" class="headerlink" title="1.8 热门的Dapp"></a>1.8 热门的Dapp</h5><ul>
-<li>比特币</li>
-</ul>
-<p><strong>账本：</strong> 本质上是一个交易列表。数据库与账本不同，在账本中我们只能添加新的交易；在数据库中我们可以CURD，数据库可以用来实现账本。<br><strong>区块链：</strong> 是用于创建区中心化账本的数据结构，区块链中的区块按序号排列。区块包含一系列的交易、前一个区块的哈希、时间戳、区块回报、区块序号等。</p>
-<p>每一个区块包含前一个区块的哈希，由此创建了区块彼此相连的链，网络中的每一个节点都保留区块链的一个备份</p>
-<p><strong>工作量证明和权益证明等是用于保障区块链安全性的多种共识协议</strong></p>
-<p>在工作量证明中，通过挖矿创建区块，这让区块链保持安全。<br>在工作量证明协议中，挖矿涉及解决复杂问题。</p>
-<p><strong>为什么使用比特币：可以在世界上任何地方快速便捷地发送和接收支付、比特币交易费低于在线支付交易费。黑客可以从商户哪里窃取支付信息，但是在比特币情况下，窃取了比特币的地址是完全没用的，必须使用相关私钥签名</strong></p>
-<ul>
-<li>以太坊<br>是一个去中心化平台，可以在其上运行使用智能合约编写的Dapp<br>以太坊智能合约完全按照程序运行，杜绝了停机、去中心化操控、欺诈和第三方能干涉的可能性。<br>使用以太坊运行智能合约的主要优点是方面智能合约彼此交互，而且不需要担心整合共识协议等事情，只需编写应用所需逻辑即可。</li>
-</ul>
-<p>以太坊有一种内部货币叫做以太币ether，部署只能合约或者执行只能合约函数需要用到以太币。</p>
-<ul>
-<li>超级账本</li>
-</ul>
-<p>超级账本项目致力于开发创建授权的Dapp技术，Hyperledger fabric是Hyperledger项目的一个实现。</p>
-<p>fabric是一个区中心化的授权平台，它允许在其上运行授权的Dapp。fabric是即插即用系统，可以方便地即插即用多种公式协议和功能。</p>
-<ul>
-<li>IPFS</li>
-</ul>
-<p>星际文件存储系统是一个去中心化的文件系统。使用分布式哈希表和Merkle有向无环图数据结构。它使用类似于BitTorrent比特流的协议来决定如何在网络中移动数据。</p>
-<p>在文件系统中，所存储的内筒会一直保留到被删除之前每一个节点并不存储全部文件，存储的是需要的文件。</p>
-<p>如果一个文件不那么受欢迎，许多节点就没有这个文件，那么该文件很有可能从网络中消失。</p>
-<ul>
-<li>Namecoin</li>
-</ul>
-<p>Namecoin是一个去中心化的键值数据库，它的内部货币叫做域名币。使用区块链数据结构和工作量证明共识协议。</p>
-<ul>
-<li>达世币</li>
-</ul>
-<p>达世币是一种类似于比特币的去中心化货币，使用区块链数据结构和工作量证明共识协议，并解决了比特币面临的一些主要问题。</p>
-<ul>
-<li>BigChainDB</li>
-</ul>
-<p>允许用户部署自己的、授权的或者免权限去中心化数据库，使用区块链数据结构以及其他多种特定数据库数据结构。</p>
-<ul>
-<li>OpenBazaar</li>
-</ul>
-<p>是一个去中心化的电子商务平台，可以在其上买卖物品，用户不是匿名的，因为IP被记录了，节点可以是买方、卖方或者中间人。</p>
-<p>使用Kademlia分布式哈希表数据结构。</p>
-<ul>
-<li>Ripple</li>
-</ul>
-<p>瑞波是一个去中心化的转账平台，允许兑换货币、数字货币和大宗商品。使用区块链数据结构，并且有自己的共识协议。在Ripple相关文档中，找不到区块、区块链等词汇，用账本来代替。</p>
-<p>瑞波币不是由挖矿生成的，最初就有1000亿个瑞波币，最初由Ripple公司拥有，是手动供给的。</p>
-<h5 id="1-9-总结"><a href="#1-9-总结" class="headerlink" title="1.9 总结"></a>1.9 总结</h5>
+            <h4 id="白皮书"><a href="#白皮书" class="headerlink" title="白皮书"></a>白皮书</h4><p>今天带来的是中本聪2009年发布的比特币白皮书《Bitcoin: A Peer-to-Peer Electronic Cash System》的个人整理，基本可以明白比特币的基础概念了。<br><img src="https://upload-images.jianshu.io/upload_images/3067941-e1343ac5506242b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="白皮书.png"></p>
+
           
         
       
@@ -474,12 +405,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/skills-es/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -493,7 +424,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/19/hello-world/" itemprop="url">Hello World</a></h2>
+                <a class="post-title-link" href="/2018/08/19/skills-es/" itemprop="url">初识ElasticSearch</a></h2>
         
 
         <div class="post-meta">
@@ -505,7 +436,611 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T17:13:45+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T22:12:15+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="数据分类"><a href="#数据分类" class="headerlink" title="数据分类"></a>数据分类</h4><ul>
+<li>结构化数据</li>
+</ul>
+<p><strong>概念</strong></p>
+<blockquote>
+<p>行数据，存储在数据库里，可以使用二维表结构来逻辑表达实现的数据，能够用数据或者统一的结构加以表示<br>数字、符号</p>
+</blockquote>
+<ul>
+<li>非结构化数据</li>
+</ul>
+<blockquote>
+<p>无法使用数字或者统一的结构表示</p>
+</blockquote>
+<blockquote>
+<p>文本、图像、声音、网页</p>
+</blockquote>
+<blockquote>
+<p>结构化数据属于非结构化数据</p>
+</blockquote>
+<blockquote>
+<p>非结构化数据即为全文数据</p>
+</blockquote>
+<h4 id="全文检索"><a href="#全文检索" class="headerlink" title="全文检索"></a>全文检索</h4><blockquote>
+<p>一种将文件中或者数据库中所有文本与检索匹配的文字资料检索的方法称之为全文检索</p>
+</blockquote>
+<h5 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a>两种方法</h5><ul>
+<li><p>顺序扫描法</p>
+<blockquote>
+<p>将数据表中所有数据进行挨个扫描，然后对每一个扫描的内容进行逐字扫描，非常慢</p>
+</blockquote>
+</li>
+<li><p>索引扫描法</p>
+<blockquote>
+<p>全文检索的基本思路，即将非结构化数据中的一部分信息提取出来，重新组织，使其变得有一定结构，然后对此有一定结构的数据进行搜索，从而达到搜索相对较快的目的</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="全文检索过程"><a href="#全文检索过程" class="headerlink" title="全文检索过程"></a>全文检索过程</h4><p><strong>两个过程</strong></p>
+<ul>
+<li>索引创建<blockquote>
+<p>索引创建只会创建一次。索引保存了什么？————索引就是一个字典</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>第一步：将一些索引的源文档拿出</p>
+</blockquote>
+<blockquote>
+<p>第二步：将源文档传递给分词组件，将内容<strong>拆分成一个个单词</strong>，<strong>去掉标点符号</strong>，<strong>去掉停词</strong></p>
+</blockquote>
+<blockquote>
+<p>第三步：将得到的词元传给语言处理组件，<strong>变成小写</strong>，<strong>将单词缩减为词根形式</strong>，<strong>将单词转换为词根形式</strong></p>
+</blockquote>
+<blockquote>
+<p>第四步：将得到的词传递给索引组件，利用得到的词创建一个词典，对词典安字母顺序进行排序，合并相同的词组合成一个链表</p>
+</blockquote>
+<ul>
+<li>搜索索引<blockquote>
+<p>第一步：输入查询语句</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>第二步：对查询语句进行词法分析，语法分析及语言处理</p>
+</blockquote>
+<blockquote>
+<p>第三步：搜索索引，得到符合文档</p>
+</blockquote>
+<h4 id="全文检索引擎"><a href="#全文检索引擎" class="headerlink" title="全文检索引擎"></a>全文检索引擎</h4><p>全文检索引擎是目前广泛应用的主流搜索引擎。</p>
+<p>它的工作原理是计算机所以呢程序通过扫描文章中的每一个次，对每一个词建立一个索引，指明该词在文章中出现的次数和位置，当用户查询时，检索程序就根据事先建立的索引进行查找，并将查找的结果反馈给用户的检索方式</p>
+<h4 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h4><p>ElasticSearch是一个基于Apache Lucene的开源搜索引擎，无论在开源领域还是专有领域，Lucene可以被认为迄今为止最先进，性能最好的、功能最全的搜索引擎库</p>
+<p><strong>优势：</strong></p>
+<ul>
+<li>ES也是使用JAVA开发并使用Lucece作为其核心来实现所有索引和搜索功能，但是它的目的是通过简单的RESRful API来隐藏Lucene的复杂性，从而让全文检索变得简单</li>
+<li>分布式的实时文件存储，每个字段都被索引可被搜索</li>
+<li>分布式的实时分析搜索引擎</li>
+<li>可扩展到上百台服务器，处理PB级结构化或非结构化数据</li>
+<li>所有功能集成在一个服务里面，可以通过RESTful API,各种语言客户端甚至命令行与之监护</li>
+<li>上手容易，提供了很多合理的缺省值，开箱机用，学习成本低</li>
+<li>免费下载、使用和修改</li>
+<li>配置灵活</li>
+</ul>
+<p><strong>官网：</strong></p>
+<p><a href="https://www.elastic.co/" target="_blank" rel="noopener">https://www.elastic.co/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/kafka-easy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/kafka-easy/" itemprop="url">初始Kafka</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T22:06:58+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/KeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">KeepLearning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><p>消息队列中间件是分布式系统中重要的组件，主要解决应用耦合，异步消息，流量削锋等问题，实现高性能、高可用、可伸缩和最终一致性的架构，是大型分布式系统中不可缺少的中间件</p>
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p>异步处理</p>
+<pre><code>串行方式：用户注册-&gt;写入数据库-&gt;发送注册邮件-&gt;发送注册短信
+
+并行方式：用户注册-&gt;写入数据库-&gt;发送邮件并且发送短信
+
+消息队列：用户注册-&gt;写入数据库-&gt;写入消息队列-&gt;发送邮件和短信的消费者异步读取消息队列，写入消息队列即将结果返回给客户端
+</code></pre><p>流量大的时候redis并不可靠</p>
+<p>应用解耦<br>    用户下单后，订单系统需要通知库存系统</p>
+<pre><code>传统方式：订单系统调用库存系统的接口
+
+消息队列：
+
+    订单系统：当用户下单后，将订单内容写入消息队列，返回订单下单成功
+
+    库存系统：订阅下单的消息，采用拉/推的方式获取下单的信息，库存系统根据下单的信息，进行库存操作
+</code></pre><p>流量削锋<br>    秒杀活动，因为流量过大，导致流量暴增</p>
+<pre><code>传统方式：突然接受来自前端大量订单请求
+
+消息队列：在应用前端加入消息队列
+
+用户请求，服务器接收后首先写入消息队列，超过最大数量，直接抛弃用户请求或者跳转到错误页面，
+
+秒杀业务根据消息队列的信息进行相关处理
+</code></pre><p>日志处理</p>
+<pre><code>解决大量日志传输的问题
+日志采集客户端负责日志数据采集写入Kafka
+
+Kafka消息队列负责日志数据的接受、存储和转发
+
+日志处理应用：订阅并消费Kafka队列中的日志数据
+</code></pre><p>生产环境中，使用较多的消息队列有ActiveMQ、RabbitMQ、Kafka、RocketMQ</p>
+<h4 id="Kafka简介"><a href="#Kafka简介" class="headerlink" title="Kafka简介"></a>Kafka简介</h4><p>Kafka是一种高吞吐量的分布式发布订阅消息系统，可以处理消费者规模较大的网站中的所有动作流数据</p>
+<p>kafka.apache.org</p>
+<p>优势：<br>在普通的硬件上也支持每秒数百万的消息</p>
+<p>支持Kafka服务器和消费机集群来区分消息</p>
+<p>关键概念</p>
+<p>Broker:kafka集群中的一台或者多台服务器统称为broker</p>
+<p>Topic：kafka处理的消息源的不同的分类</p>
+<p>Partition：Topic物理上的分组，一个topic可以分为多个partition，每个partition是一个有序的队列，partition中的每个消息都会被分配一个有序的id</p>
+<p>Message：消息，通信的基本单位，每个producer可以向一个topic发布一些消息</p>
+<p>Producers：消息和数据生产者，向kafka的一个topic发布消息的过程叫做producers</p>
+<p>Consumers：消息和数据消费者，订阅topic并处理其发布的消息的过程叫做consumers</p>
+<h4 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h4><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装JAVA环境安装JDK<br>：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/jdk</span><br><span class="line">cp jdk.gz /usr/jdk</span><br><span class="line">tar -xzvf jdk.gz</span><br><span class="line">vim /etc/profile</span><br><span class="line">#添加一下内容</span><br><span class="line">JAVA_HOME=/usr/jdk</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+<p><code>source /etc/profile</code></p>
+<p>安装kafka<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#启动zookeeper server</span><br><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties &amp;</span><br><span class="line">#启动kafka</span><br><span class="line">bin/kafka-server-start.sh config/server.properties &amp;</span><br><span class="line">#producer</span><br><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test</span><br><span class="line">#consumer</span><br><span class="line">bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic zhyunfe --from-beginning</span><br></pre></td></tr></table></figure></p>
+<h4 id="结合PHP使用"><a href="#结合PHP使用" class="headerlink" title="结合PHP使用"></a>结合PHP使用</h4><p>安装php扩展<br>需要打一个库librdkafka:<a href="https://github.com/edenhill/librdkafka.git" target="_blank" rel="noopener">https://github.com/edenhill/librdkafka.git</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/edenhill/librdkafka.git</span><br><span class="line"></span><br><span class="line">tar zxvf librdkafka</span><br><span class="line">cd librdkafka</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>php-rdkafka：<a href="https://github.com/arnaud-lb/php-rdkafka" target="_blank" rel="noopener">https://github.com/arnaud-lb/php-rdkafka</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/arnaud-lb/php-rdkafka</span><br><span class="line"></span><br><span class="line">tar -zxvf php-rdkafka</span><br><span class="line">cd php-rdkafka</span><br><span class="line">phpize</span><br><span class="line">./configure --with-php-confif=/usr/local/Cellar/php/lib/php-config</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">#编辑php.ini</span><br><span class="line">vim /usr/local/etc/php/7.0/php.ini</span><br><span class="line">extension=rdkafka.so</span><br><span class="line">重启php</span><br></pre></td></tr></table></figure></p>
+<p>使用kafka<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">/**</span><br><span class="line"> * Created by PhpStorm.</span><br><span class="line"> * User: zhyunfe</span><br><span class="line"> * Date: 2017/12/10</span><br><span class="line"> * Time: 下午9:15</span><br><span class="line"> */</span><br><span class="line">namespace app\index\model;</span><br><span class="line">use think\image\Exception;</span><br><span class="line">class Kafka</span><br><span class="line">&#123;</span><br><span class="line">    public $broker_list = &apos;192.168.37.140:9092&apos;;</span><br><span class="line">    public $topic = &quot;topic&quot;;</span><br><span class="line">    public $partition = 0;</span><br><span class="line">    public $logFile = &apos;&apos;;</span><br><span class="line"></span><br><span class="line">    protected  $producer = null;</span><br><span class="line">    protected $consumer = null;</span><br><span class="line">    public function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        if (empty($this-&gt;broker_list)) &#123;</span><br><span class="line">            throw new Exception(&apos;broker list not init&apos;);</span><br><span class="line">        &#125;</span><br><span class="line">        $rk = new \RdKafka\Producer();</span><br><span class="line">        if (empty($rk)) &#123;</span><br><span class="line">            throw  new Exception(&apos;rdkafka not iniit&apos;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $rk-&gt;setLogLevel(LOG_DEBUG);</span><br><span class="line">        if (!$rk-&gt;addBrokers($this-&gt;broker_list)) &#123;</span><br><span class="line">            throw new Exception(&apos;broker_list not init&apos;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $this-&gt;producer = $rk;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    public function send($message = [])</span><br><span class="line">    &#123;</span><br><span class="line">        $topic = $this-&gt;producer-&gt;newTopic($this-&gt;topic);</span><br><span class="line">        var_dump($topic);die();</span><br><span class="line">        return $topic-&gt;produce(RD_KAFKA_PARTITION_UA,$this-&gt;partition,json_encode($message));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/skills-seo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/skills-seo/" itemprop="url">SEO优化 - 怎样建立高转化率的站点关键词</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T22:03:55+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>想要优化好一个网站，行业的分析，以及关键词的挖掘是必要的,有一定的关键词排名了,但是转化率和流量方面却很不理想这种情况大部分是只注重了有指数的关键词排名，而忽略了长尾关键词和一些没有指数但是可以带来巨大流量的关键词。</p>
+</blockquote>
+<p>网站大部分的搜索流量来自于单个搜索次数并不多的长尾关键词几乎是每个SEO都知道的事，越是大中型和门户型网站，长尾词的流量占比越重。这也是为什么很多SEO一直在呼喊要重视长尾词，要不停的的去拓展、去优化长尾词关键词的缘故。</p>
+<p><strong>长尾关键词的挖掘也是一个比较繁琐的活，也是需要长期去做的事情.</strong></p>
+<p>一般来讲，长尾关键词的拓展方式有以下几种：</p>
+<h4 id="1、百度下拉框及相关搜索"><a href="#1、百度下拉框及相关搜索" class="headerlink" title="1、百度下拉框及相关搜索"></a>1、百度下拉框及相关搜索</h4><p>通过对百度下拉框的提示也能获取一些长尾关键词，这些词很大程度上会让用户直接搜索，因此也具有一定的访问量和转化效果，相关搜索也同样如此。但由于下拉框是单体搜索，扩展量比较小，不适宜于大批量的长尾词拓展。</p>
+<h4 id="2、流量统计工具"><a href="#2、流量统计工具" class="headerlink" title="2、流量统计工具"></a>2、流量统计工具</h4><p>这也是仅次于搜索引擎后台的关键词又一大量获取真实并有价值的长尾词的方法。借助网站流量统计工具，不仅能分析出网站访问流量的来源，同时也能分析出用户的具体搜索行为，即用户是通过什么搜索词进入网站的。</p>
+<h4 id="3、客服软件"><a href="#3、客服软件" class="headerlink" title="3、客服软件"></a>3、客服软件</h4><p>网站常见的客服软件，比如商务通、53kf、乐语等都提供关键词下载工具，这个绝对是用户真实搜索的关键词，并且具有相当的商业和转化价值。当然这其中很大一部分与后台流量统计工具的关键词有重叠，可作为筛选关键词之用。
+　　</p>
+<p>如果可以的话，这些客服公司都有关键词库，不妨想办法要过来一些，扩充一下自身网站的关键词库，岂不美哉!</p>
+<h4 id="4、问答平台及专业社区"><a href="#4、问答平台及专业社区" class="headerlink" title="4、问答平台及专业社区"></a>4、问答平台及专业社区</h4><p>像百度知道、搜搜问问、天涯问答这些综合型的问答平台，各行各业的问答都会有，虽然充斥着大量的推广和广告问答，但也有大量的真实用户的问答，所以很大一部分长尾词可能是我们头脑风暴所意想不到的，是继搜索引擎后台关键词工具和流量统计后台关键词挖掘之后的又一大长尾词拓展方法。</p>
+<p>例如在百度知道搜索某目标关键词时，会出现许多与这个关键词相关的问题，而通过这许多相关问题再搜索时，又会出现更多关于这个关键词的问题，如此循环，可利用的长尾关键词资源可谓源源不绝。</p>
+<p>一些专业社区或者论坛，如39健康是医疗行业寻找关键词的最佳去处。</p>
+<blockquote>
+<p>PS：以上4个方法也可以通过做个简单脚本程序来完成，这样可省去不少人力和时间，给批量挖掘长尾关键词带来方便。
+　　</p>
+</blockquote>
+<h4 id="5、搜索引擎提供的站长工具-关键词工具"><a href="#5、搜索引擎提供的站长工具-关键词工具" class="headerlink" title="5、搜索引擎提供的站长工具/关键词工具"></a>5、搜索引擎提供的站长工具/关键词工具</h4><p>谷歌的网站管理员工具和百度的凤巢竞价后台的关键词查询都有拓展关键词的功能，在国内来说，站长和SEO们还是以百度为主，所以百度竞价后台的关键词相对来说比较重要，搜索次数和拓展词量也相对真实可靠。</p>
+<h4 id="6、站长工具及关键词软件"><a href="#6、站长工具及关键词软件" class="headerlink" title="6、站长工具及关键词软件"></a>6、站长工具及关键词软件</h4><p>目前站长工具像站长之家、爱站网、站长帮手都有类似的关键词拓展查询，并给出关键词的百度指数、搜索量以及优化难度，在一定程度上也能拓展出一定量的关键词。</p>
+<h4 id="7、拆分组合"><a href="#7、拆分组合" class="headerlink" title="7、拆分组合"></a>7、拆分组合</h4><p>把网站目标关键词按一定形式进行拆分，然后在排列组合在一起，产生大批量的长尾关键词是很多网站的通用做法，这虽然并不像搜索引擎后台、流量统计以及问答平台这三种得到的关键词那样在真实性和价值性上性价比高，但同样可以获得大批量的关键词，全方位的把关键词覆盖住，是一种全面撒网式拓展方法。</p>
+<h4 id="8、其他方法"><a href="#8、其他方法" class="headerlink" title="8、其他方法"></a>8、其他方法</h4><p>　　比如去竞争对手网站查看，可自制一些抓取工具把对手网站的长尾词抓取过来，进行去重、筛选等，存入关键词库。或者是利用百度指数、搜索风云榜这些工具，来搜集和拓展一些长尾词。</p>
+<h4 id="总结一下几个挖掘长尾关键词的方法："><a href="#总结一下几个挖掘长尾关键词的方法：" class="headerlink" title="总结一下几个挖掘长尾关键词的方法："></a>总结一下几个挖掘长尾关键词的方法：</h4><pre><code>1. 产品核心词+品牌名称，通用型号;
+2. 产品核心词+商业模式;
+3. 产品核心词+服务方式;
+4. 产品核心词+企业性质;
+5. 产品核心词+错字别字，缩写;
+6. 产品服务核心词+搜索意图;
+7. 产品服务核心词+质地，特点，功能;
+8. 产品服务核心词+应用领域，地域名称。
+</code></pre><hr>
+<blockquote>
+<p>关键词是影响我们网站排名的重要因素，在做seo的时候，拥有自己独特的关键词库至关重要，但是怎么建立一套属于自己网站的关键词库，并且在众多网站中脱颖而出呢？</p>
+</blockquote>
+<p><strong>第一步：搜集行业相关的关键词</strong></p>
+<p>关键词一般分为三类:目标关键词,长尾关键词和品牌关键词,既然是搜集关键词,这三类关键词一般我们是大小通吃的,但是长尾关键词一般都是由关键词词根拓展而来,所以抓住关键词的词根进行拓展才是比较正确的方法。</p>
+<p>拓展方法包括:</p>
+<pre><code>1.百度下拉，及相关搜索
+2.百度指数，及下拉。相关信息等。
+3.百度推广助手的使用。
+4.其他搜索词关键的时候用。
+</code></pre><p><strong>第二步：筛选选出的关键词</strong></p>
+<p>经过搜集关键词这一步后，大量的关键词已经得到。接下来就是筛选出适合企业的关键词。比如：企业是搞网站建设的，那么关于网站建设流程，网站建设方案，网站建设报价就是第一批关键词。那么像网站建设软件，就不是用户的需求，或者说关联性不很紧密。毕竟企业想找个建站公司不关心用什么软件去建设网站的。</p>
+<p><strong>第三步：对关键词进行归档</strong></p>
+<p>　　这项工作就是比较细致的工作了。归档可以更合理的在网站布局关键词。哪些关键词需要布局到首页，栏目页，导航，内页。就一目了然。对网站内链，和外链也有很好地规划作用。</p>
+<p><strong>第四步：从数据中找流量</strong></p>
+<p>　　当网站优化到中期，已经有一定的流量后，可以根据网站流量数据做进一步的关键词词库完善工作。人们的搜索习惯不同，不可能把所有的关键词全部找出来。分析数据，只要能带来流量的关键词就要进一步添加到关键词词库。形成良性循环。网站优化自然会出效果。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/skills-mysql-slow-query/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/skills-mysql-slow-query/" itemprop="url">Untitled</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T22:03:26+08:00">
                 2018-08-19
               </time>
             
@@ -545,15 +1080,805 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <hr>
+<p>title: MySQL慢查询<br>date: 2018-01-04 21:46:16<br>tags:</p>
+<ul>
+<li>MySQL<br>categories:</li>
+<li>技术笔记</li>
+</ul>
+<hr>
+<p>MySQL 慢查询的相关参数解释：</p>
+<p>slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。</p>
+<p>log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>long_query_time ：慢查询阈值，当查询时间多于设定的阈值时，记录日志。</p>
+<p>log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。</p>
+<p>log_output：日志存储方式。log_output=’FILE’表示将日志存入文件，默认值是’FILE’。log_output=’TABLE’表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=’FILE,TABLE’。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需要能够获得更高的系统性能，那么建议优先记录到文件。</p>
+<pre><code>//查看是否开启慢查询，默认为OFF
+mysql&gt; show variables  like &apos;%slow_query_log%&apos;;
+//开启慢查询(仅对当前一次有效，重启后就失效了)
+mysql&gt; set global slow_query_log = 1;
+//修改慢查询记录触发时间为4秒，默认为10秒
+mysql&gt; set global long_query_time = 4;
+
+//修改my.cnf文件修改参数永久有效
+在my.cnf文件里增加
+//开启慢查询
+slow_query_log =1
+//指定慢查询日志文件
+slow_query_log_file=/tmp/mysql_slow.log
+//设置慢查询记录时间
+long_query_time = 4
+
+系统变量log-queries-not-using-indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。如果调优的话，建议开启这个选项。另外，开启了这个参数，其实使用full index scan的sql也会被记录到慢查询日志。
+set global log_queries_not_using_indexes=1;
+
+
+
+慢查询日志分析工具
+mysqldumpslow 日志文件路径
+
+mysqldumpslow /usr/local/var/mysql/Demoer-slow.log
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-three/" itemprop="url">（三）目标文件里有什么</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:22:49+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
+                    <span itemprop="name">《程序员的自我修养》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>编译器编译源代码后生成的文件叫做目标文件。</p>
+<h3 id="3-1-目标文件的格式是什么"><a href="#3-1-目标文件的格式是什么" class="headerlink" title="3.1 目标文件的格式是什么"></a>3.1 目标文件的格式是什么</h3><p>可执行文件格式：</p>
+<pre><code>- PE Portable Executable (windows)
+- ELF Executable Linkable Format (Linux)
+</code></pre><p>目标文件：源代码编译后但未进行链接的哪些中间文件windows下的.obj和linux下的.o</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用file命令查看响应的文件格式</span><br><span class="line">file filename.o</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/19/self-contivation-of-programmers-three/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-two/" itemprop="url">（二）静态链接</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:21:20+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
+                    <span itemprop="name">《程序员的自我修养》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="2-1-被隐藏了的过程"><a href="#2-1-被隐藏了的过程" class="headerlink" title="2.1 被隐藏了的过程"></a>2.1 被隐藏了的过程</h3><p>4个步骤：预处理、编译、汇编、链接</p>
+<h4 id="2-1-1-预编译"><a href="#2-1-1-预编译" class="headerlink" title="2.1.1 预编译"></a>2.1.1 预编译</h4><p><code>gcc -E hello.c -o hello.i</code> 或者 <code>cpp hello.c &gt; hello.i</code></p>
+<p><strong>预编译</strong>过程主要处理那些源代码文件中以#开始的预编译指令，比如#include、#define等主要处理规则如下</p>
+<ul>
+<li>将所有的#define删除，并展开所有宏定义</li>
+<li>处理所有条件编译指令，比如#if #ifdef #elif #else #endif</li>
+<li>处理#include预编译指令，将被包含的文件插入到该预编译指令的位置，这个过程是递归进行的，就是说被包含的文件可能还包含其他文件</li>
+<li>删除所有的注释</li>
+<li>添加行号额文件标识，比如#2 hello.c 2， 以便于编译时编译器产生调试用的行号信息及用于编译时产生编译错误或警告时能够显示的行号</li>
+<li>保留所有的#pragma编译器指令，因为编译器须要使用它们</li>
+</ul>
+<p>经过编译处理后的.i文件不包含任何宏定义，因为所有的宏已经被展开，并且包含的文件也已经被插入到i文件中</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/19/self-contivation-of-programmers-two/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/self-contivation-of-progammers-one/" itemprop="url">（一）程序员的自我修养</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:17:51+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
+                    <span itemprop="name">《程序员的自我修养》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="第1部分-简介"><a href="#第1部分-简介" class="headerlink" title="第1部分 简介"></a>第1部分 简介</h3><h4 id="1-1-从Hello-World说起"><a href="#1-1-从Hello-World说起" class="headerlink" title="1.1 从Hello World说起"></a>1.1 从Hello World说起</h4><h4 id="1-2-万变不离其宗"><a href="#1-2-万变不离其宗" class="headerlink" title="1.2 万变不离其宗"></a>1.2 万变不离其宗</h4><p>对于系统程序开发者来说，计算机多如牛毛的硬件设备中，有三个部件最为关键，他们分别是中央处理器CPU、内存和I/O控制芯片，这三个部件几乎就是计算机的核心</p>
+<p>早期的计算机没有很复杂的图形功能，CPU的核心频率也不高，跟内存的频率一样，他们都是直接连接在同一个<strong>总线</strong>上。</p>
+<p>由于I/O设备诸如显示设备、键盘、软盘和磁盘等速度与CPU和内存相比还是慢很多，当时也没有复杂的图形设备，显示设备大多是只能输出字符的终端，为了协调I/O设备与总线之间的速度，也为了能够让CPU能够和I/O设备进行通信，一般每个设备都会有一个相应的I/O控制器。</p>
+<p>后来由于CPU核心频率的提升，导致内存跟不上CPU的速度，于是产生了与内存频率一致的系统总线，而CPU采用倍频的方式与系统总线进行通信。</p>
+<p>为了协调CPU、内存和高速的图形设备，人们专门设计了一个高速的北桥芯片，以便他们之间能够高速地交换数据。</p>
+<p>由于北桥的运行速度非常高，所有相对低速的设备如果全部连接在北桥上，北桥既需要处理高速设备有需要处理低速设备，设计就会十分复杂，于是设计了专门处理低速设备的南桥芯片。</p>
+<p>磁盘、USB、键盘、鼠标等设备都连接在南桥上，由南桥将它们汇总后连接在北桥上。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/19/self-contivation-of-progammers-one/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/20/trouble-open-basedir/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/20/trouble-open-basedir/" itemprop="url">Warning:require(): open_basedir restriction in effect. File</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T22:16:35+08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/常见错误/" itemprop="url" rel="index">
+                    <span itemprop="name">常见错误</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>【问题描述】</p>
+<blockquote>
+<p>使用lnmp新建一个项目的时候，引入上级文件报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: require(): open_basedir restriction in effect. File(/home/wwwroot/my.cmf.com/simplewind/thinkphp/base.php) is not within the allowed path(s): (/home/wwwroot/my.cmf.com/public/:/tmp/:/proc/) in /home/wwwroot/my.cmf.com/public/index.php on line 39</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>大体意思就是open_basedir生效中，没有权限访问当前路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">open_basedir</span><br><span class="line">#限制可以访问的路径</span><br><span class="line">#可以在php.ini里设置，也可以在nginx下设置</span><br><span class="line"></span><br><span class="line">#在文件fastcgi.conf中有</span><br><span class="line">fastcgi_param PHP_ADMIN_VALUE &quot;open_basedir=$document_root/:/tmp/:/proc/&quot;;</span><br><span class="line"></span><br><span class="line">限制了不能引入上一级的文件</span><br></pre></td></tr></table></figure></p>
+<p>关于open_basedir的描述在这个博客里有讲到<br><a href="https://www.iamle.com/archives/1854.html" target="_blank" rel="noopener">https://www.iamle.com/archives/1854.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/17/skills-redis-safe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/17/skills-redis-safe/" itemprop="url">Redis安全性简介</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-17T22:00:31+08:00">
+                2018-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Redis安全性"><a href="#Redis安全性" class="headerlink" title="Redis安全性"></a>Redis安全性</h3><h4 id="常规安全模式"><a href="#常规安全模式" class="headerlink" title="常规安全模式"></a>常规安全模式</h4><p>Redis被设计成仅有可信环境下的可信用户才可以访问</p>
+<h4 id="网路安全"><a href="#网路安全" class="headerlink" title="网路安全"></a>网路安全</h4><p>仅可信的网络用户才可以访问Redis端口</p>
+<p><code>redis.conf</code> 修改  <code>bind 127.0.0.1</code></p>
+<h4 id="认证的特性"><a href="#认证的特性" class="headerlink" title="认证的特性"></a>认证的特性</h4><p>Redis没有尝试去实现访问控制，提供了一个轻量级的认证方式，可以编辑redis.conf文件来启用</p>
+<p>认证授权方式启用后，Redis会拒绝来自没有认证的用户的任何查询</p>
+<p>密码是明文配置在<code>redis.conf</code>文件中的</p>
+<p>Redis并不支持加密，需要实现新增的保护层，例如SSL代理</p>
+<h4 id="禁用特殊命令"><a href="#禁用特殊命令" class="headerlink" title="禁用特殊命令"></a>禁用特殊命令</h4><p>在Redis可以禁用命令或者将他们重命名成难以推测的名称，这样普通用户就只能使用部分命令了</p>
+<p>在<code>redis.conf</code>中 </p>
+<p><code>rename-command CONFIG basdadjdh23234j</code><br>或者删除这个命令<br><code>rename-command CONFIG &#39;&#39;</code></p>
+<h4 id="外部客户端通过仔细构造的输入触发的攻击"><a href="#外部客户端通过仔细构造的输入触发的攻击" class="headerlink" title="外部客户端通过仔细构造的输入触发的攻击"></a>外部客户端通过仔细构造的输入触发的攻击</h4><p>一个攻击者可以通过提交表单提交大量一样的字符串到哈希表里，是的O(1)的算法复杂度(平均时间)达到最差的O(N)，Redis将需要更多的CPU来处理，到最后会导致无法提供服务</p>
+<p>为了防止这类特殊的攻击，redis的哈希函数使用per-excution的伪随机种子</p>
 
           
         
@@ -592,6 +1917,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -624,6 +1953,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Demor" />
+            
               <p class="site-author-name" itemprop="name">Demor</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -635,7 +1968,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -645,10 +1978,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -656,10 +1989,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 

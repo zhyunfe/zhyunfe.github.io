@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="English">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Nginx,Cache,High Concurrency,PHP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="高并发的相关概念在某个时间点，有多少个访问量 如果一个系统的日PV在千万以上，有可能是一个高并发的系统 QPS: 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求) 吞吐量: 单位时间处理的请求数量 响应时间: 从请求发出到收到相应花费的时间 PV: 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量 UV: 独立访客unique">
+<meta name="keywords" content="Nginx,Cache,High Concurrency,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP如何解决网站大流量与高并发的问题（一）">
+<meta property="og:url" content="http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/index.html">
+<meta property="og:site_name" content="Demor&#39;s Blog">
+<meta property="og:description" content="高并发的相关概念在某个时间点，有多少个访问量 如果一个系统的日PV在千万以上，有可能是一个高并发的系统 QPS: 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求) 吞吐量: 单位时间处理的请求数量 响应时间: 从请求发出到收到相应花费的时间 PV: 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量 UV: 独立访客unique">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-08-19T13:51:01.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP如何解决网站大流量与高并发的问题（一）">
+<meta name="twitter:description" content="高并发的相关概念在某个时间点，有多少个访问量 如果一个系统的日PV在千万以上，有可能是一个高并发的系统 QPS: 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求) 吞吐量: 单位时间处理的请求数量 响应时间: 从请求发出到收到相应花费的时间 PV: 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量 UV: 独立访客unique">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/"/>
+
+
+
+
+
+  <title>PHP如何解决网站大流量与高并发的问题（一） | Demor's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demor's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Keep Growing</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PHP如何解决网站大流量与高并发的问题（一）</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-01T21:06:47+08:00">
+                2017-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Interview-Prepare/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview Prepare</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="高并发的相关概念"><a href="#高并发的相关概念" class="headerlink" title="高并发的相关概念"></a>高并发的相关概念</h4><p>在某个时间点，有多少个访问量</p>
+<p>如果一个系统的日PV在千万以上，有可能是一个高并发的系统</p>
+<p><strong>QPS:</strong> 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求)</p>
+<p><strong>吞吐量:</strong> 单位时间处理的请求数量</p>
+<p><strong>响应时间:</strong> 从请求发出到收到相应花费的时间</p>
+<p><strong>PV:</strong> 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量</p>
+<p><strong>UV:</strong> 独立访客unique visitor，一定时间范围内相同访客多次访问网站，只计算一独立个访客</p>
+<p><strong>带宽:</strong> 计算带宽大小需关注两个指标，峰值流量和页面平均大小</p>
+<p>日网站带宽 = PV/统计时间(s)<em> 平均页面大小(k) </em> 8</p>
+<p>峰值一般是平均值的倍数，根据实际情况来定</p>
+<p>QPS不等于并发连接数量</p>
+<p>QPS是每秒HTTP的请求数量，并发连接数量是系统同事处理的请求数量</p>
+<p>峰值每秒请求数(QPS) = (总PV数 <em> 80%) / (6小时秒数</em> 20%) </p>
+<p>代表80%的访问量集中在20%的时间（28定律）</p>
+<a id="more"></a>
+<p><strong>压力测试:</strong></p>
+<ul>
+<li><p>压力测试</p>
+<p>  常用的性能测试工具<br>  <strong>ab（apache benchmark）</strong></p>
+<blockquote>
+<p>模拟并发请求100次，总共请求5000次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ab -c 100 -n 5000 http://**.com</span><br><span class="line"></span><br><span class="line">//-c 并发数</span><br><span class="line">//-n 请求数量</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>注意事项:<br>测试机器与被测试机器分开 | 不要对线上服务做压力测试 | 观察测试功工具ab在机器以及被测试的前端机的CPU、网络等不超过75%</p>
+</blockquote>
+<ul>
+<li><p>QPS达到50：不需要优化</p>
+</li>
+<li><p>QPS达到100： 假设关系型数据库的每次请求在0.01s完成，假设单个页面只有1个SQL,那么100QPS以为这1秒钟完成100次请求，但是此时我们并不能保证数据库查询能完成100次</p>
+</li>
+</ul>
+<p>方案:数据库缓存层，数据库的负载均衡</p>
+<ul>
+<li>QPS达到800:</li>
+</ul>
+<p>假设我们使用百兆贷款，以为这网站出口的实际宽带是8M左右</p>
+<p>假设每个页面只有10k，在这个并发下，百兆贷款已经吃完</p>
+<p><strong>方案:</strong> CDN加速，负载均衡</p>
+<ul>
+<li>QPS达到1000:</li>
+</ul>
+<p>假设使用mem缓存数据，每个页面对mem的请求数远大于直接对db的请求</p>
+<p>mem的悲观并发数在2w左右，但是有可能在之间内网宽带已经吃光，表现不稳定</p>
+<p><strong>方案:</strong> 静态HTML缓存</p>
+<ul>
+<li>QPS达到2000:</li>
+</ul>
+<p>这个级别下，文件系统访问锁都成为了灾难</p>
+<p><strong>方案:</strong> 做业务分离，分布式存储</p>
+<p>测试能承受的最大并发</p>
+<p>测试最大承受的QPS值</p>
+<h4 id="高并发解决方案案例"><a href="#高并发解决方案案例" class="headerlink" title="高并发解决方案案例"></a>高并发解决方案案例</h4><ul>
+<li><p>流量优化</p>
+<p>  防盗链处理</p>
+<p>  前端优化：减少http请求（合并css,js,图片）、添加异步请求、启用浏览器缓存和文件压缩、CDN加速、建立独立图片服务器</p>
+<p>  服务端优化：页面静态化、并发处理</p>
+<p>  数据库优化：数据库缓存(mem,redis),分库分表、分区操作、读写分离、负载均衡</p>
+<p>  Web服务器优化：负载均衡</p>
+</li>
+</ul>
+<h4 id="Web资源防盗链"><a href="#Web资源防盗链" class="headerlink" title="Web资源防盗链"></a>Web资源防盗链</h4><p><strong>盗链概念:</strong><br>盗链是指在自己的页面上展示一些并不在自己服务器上的内容</p>
+<p>常见的小站盗用大战的图片、音乐、视频、软件资源</p>
+<p>通过盗链的方法可以减轻自己服务器的负担，因为真实的空间和流量均是来自别人的服务器</p>
+<p><strong>防盗链的概念：</strong></p>
+<p>防止别人通过一些技术手段盗用自己站点的资源，让资源在别人的站点上无法访问</p>
+<p>可以大大减轻服务器以及带宽压力</p>
+<p><strong>工作原理:</strong> 通过Referer或者签名，网站可以检测目标网页访问的来源网页</p>
+<ul>
+<li>Referer（有漏洞，可伪装）</li>
+</ul>
+<p>nginx 模块，ngx_http_referer_module用来阻挡来源非法的域名请求</p>
+<p>Nginx指令valid_referers,全局变量$invalid_referer</p>
+<p>valid_referers none|blocked|server_names|string…</p>
+<p>none 代表为空时</p>
+<p>blocked 代表来源头部不为空，但是里面的值被防火墙删除</p>
+<p>server_names  代表信任的地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    valid_referers none blocked immoc.com *.imooc.com</span><br><span class="line">    </span><br><span class="line">    #如果有不允许的访问，$invalid_referer 为1 ，重定向到错误页面</span><br><span class="line">    if($invalid_referer) &#123;</span><br><span class="line">        #return 403</span><br><span class="line">        rewrite ^/ http://www.imooc.com/403.jpg</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>加密签名。使用第三方模块HttpAccessKeyModule实现Nginx防盗链</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">accesskey on|off 模块开关</span><br><span class="line"></span><br><span class="line">accesskey_hashmethod md5 | sha-1签名加密方式</span><br><span class="line"></span><br><span class="line">accesskey_arg GET参数名称呢</span><br><span class="line"></span><br><span class="line">accesskey_signature加密规则</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    accesskey on;</span><br><span class="line">    #加密方式</span><br><span class="line">    accesskey_hashmethod md5;</span><br><span class="line">    #获取参数的键</span><br><span class="line">    accesskey_arg sign;</span><br><span class="line">    #签名规则</span><br><span class="line">    accesskey_signatur &apos;jason$remoe_addr&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//md5(jason.ip)</span><br><span class="line">//PHP中的加密规则</span><br><span class="line">$sign = md5(&apos;jason&apos;.$_SERVER[&apos;REMOTE_ADDR&apos;]);</span><br><span class="line"></span><br><span class="line">echo &quot;&lt;img src = &apos;./logo.img?sign=&apos;.$sign.&apos;&gt;&quot;</span><br></pre></td></tr></table></figure>
+<p>####减少HTTP的请求</p>
+<p>性能黄金法则：只有10%-20%的最终用户响应时间花在接受请求的HTML上，剩下的80%-90%时间花在HTML文档所引用的js,css等组件上</p>
+<p>如何改善：改善相应时间的最简单的途径就是减少组件的数量，并由此减少HTTP的请求量</p>
+<p><strong>HTTP请求连接产生的开销</strong></p>
+<p>域名解析–TCP连接–发送请求–等待–下载资源–解析时间</p>
+<p><em>疑问？</em></p>
+<p>DNS缓存、Keep-Alive会不会消除影响</p>
+<p>查找DNS缓存也需要时间，多个缓存就要查找多次有可能缓存会被清楚</p>
+<p>HTTP1.1协议规定请求只能串行发送，也就是100个请求必须依次逐个发送，前面的一个请求完成才能开始下个请求</p>
+<h4 id="减少HTTP请求的方式"><a href="#减少HTTP请求的方式" class="headerlink" title="减少HTTP请求的方式"></a>减少HTTP请求的方式</h4><ul>
+<li>图片地图：图片地图允许你在一个图片上关联多个URL,目标URL的选择取决于用户单击了图片上的那个位置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;img usemap=&quot;#map1&quot; src=&quot;/image/image.git=f&quot;&gt;</span><br><span class="line">&lt;map name=&quot;map1&quot;&gt;</span><br><span class="line">     &lt;area shape=&apos;rect&apos; coords=&apos;0,0,31,31&apos; href=&apos;javascipt:alert(&apos;Home&apos;)&apos; title=&apos;Home&apos;&gt;</span><br><span class="line">     &lt;area shape=&apos;rect&apos; coords=&apos;36,0,66,31&apos; href=&apos;javascipt:alert(&apos;Cart&apos;)&apos; title=&apos;Cart&apos;&gt;</span><br><span class="line">     ...</span><br><span class="line">     ...</span><br><span class="line">&lt;map&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>CSS Sprites</li>
+</ul>
+<p>CSS Sprites中文翻译CSS精灵，通过使用合并图片，通过指定的cssbackground-image 和backgroud-position来显示元素</p>
+<ul>
+<li>合并脚本和样式表</li>
+</ul>
+<p>使用外部的js和css文件引用的方式，因为这样比直接写在页面中性能要更好一点</p>
+<p>把多个脚本合并成一个脚本，把多个css合并成一个css</p>
+<ul>
+<li>图片使用Base64编码减少页面请求数</li>
+</ul>
+<p>采用base64的编码方式将图片直接嵌入到网页中，而不是从外部载入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&apos;data:image/gif;base64,/9j/4AAQSkZJ....&apos;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="浏览器缓存和数据压缩"><a href="#浏览器缓存和数据压缩" class="headerlink" title="浏览器缓存和数据压缩"></a>浏览器缓存和数据压缩</h3><p><em>高并发下只能通过提升服务器负责解决吗？</em></p>
+<p><em>缓存只能做数据库缓存吗？</em></p>
+<p>相关概念</p>
+<p>HTTP缓存机制</p>
+<p>前端代码和资源的压缩</p>
+<h4 id="缓存分类"><a href="#缓存分类" class="headerlink" title="缓存分类"></a>缓存分类</h4><p>HTTP缓存模型中，如果请求成功会有三种情况</p>
+<ul>
+<li>200 from memory cache:直接从本地缓存中获取相应，最快速，最省流量，因为根本没有向服务器发送请求<br><strong>本地缓存</strong></li>
+</ul>
+<p>相关Header</p>
+<blockquote>
+<p>Pragma:HTTP1.0时代的遗留产物，该字段被设置为no-cache时没，会告知浏览器禁用本地缓存，每次都向服务器发送请求</p>
+</blockquote>
+<blockquote>
+<p>Expires:HTTP1.0时代用来启动本地缓存的字段，expires值对应一个形如Thu，31 Dec 2037 23：55：55 GMT的格林威治时间，告诉浏览器缓存实现的时刻，如果时间还没到，标明缓存有效，无需发送请求，但是Expire是Nginx发送的，如果浏览器时间不准确，会造成很大的影响</p>
+</blockquote>
+<blockquote>
+<p>Cache-Control:HTTP1.1针对Expires时间不一致的解决方案，运用Cache-Control告知浏览器缓存国企的时间间隔而不是时刻，即使具体时间不一致，也不影响缓存的管理<br>no-store:禁止浏览器缓存响应<br>no-cache：不允许直接使用本地缓存，先发起请求和服务器协商<br>max-age=delta-seconds:告知浏览器该相应本地缓存有效的最长期限，以秒为单位</p>
+</blockquote>
+<p><strong>优先级</strong><br>Pragma  &gt; Cache-Control &gt; Expires</p>
+<ul>
+<li>304 Not Modified:协商缓存，浏览器在本地没有命中的情况下请求头中发送一定的校验数据到服务端，如果服务端数据没有改变，浏览器从本地缓存相应，返回304</li>
+</ul>
+<p><strong>相关Header</strong></p>
+<blockquote>
+<p>Last-Modified:通知浏览器资源的最后修改时间</p>
+</blockquote>
+<blockquote>
+<p>If-Modified-Since：得到资源的最后修改时间后，会将这个信息通过If-Modified-Since提交到服务器做检查，如果没有修改，返回304状态码</p>
+</blockquote>
+<blockquote>
+<p>ETag:HTTP1.1推出，文件的指纹标识符，如果文件内容修改，指纹会改变</p>
+</blockquote>
+<blockquote>
+<p>If-None-Math:本地缓存失效失败，会携带此值去请求服务端，服务端判断该资源是否改变，如果没有改变，直接使用本地缓存，返回304</p>
+</blockquote>
+<ul>
+<li>200 OK 以上两种缓存失败，服务器返回完整相应数据，没有用到缓存，相对最慢</li>
+</ul>
+<h4 id="缓存策略的选择"><a href="#缓存策略的选择" class="headerlink" title="缓存策略的选择"></a>缓存策略的选择</h4><p>适合本地缓存的内容</p>
+<ul>
+<li>不变的图像，如logo，图标</li>
+<li>js,css静态文件</li>
+<li>下载的文件</li>
+</ul>
+<p>适合使用协商缓存</p>
+<ul>
+<li>HTML文件</li>
+<li>经常替换的图片</li>
+<li>经常修改的js,css文件</li>
+<li>js,css文件的加载可以加入文件的签名来拒绝签名  index.css?签名|index.签名.js</li>
+</ul>
+<p>不建议缓存的内容</p>
+<ul>
+<li>用户隐私等敏感数据</li>
+<li>经常改变的api数据接口</li>
+</ul>
+<h4 id="Nginx配置缓存策略"><a href="#Nginx配置缓存策略" class="headerlink" title="Nginx配置缓存策略"></a>Nginx配置缓存策略</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//获取响应头的If-Modified-Since参数</span><br><span class="line">$since = $_SERVER[&apos;HTTP_IF_MODOFIED_SINCE&apos;];</span><br><span class="line">//设置生存时间</span><br><span class="line">$lifttime = 3600;</span><br><span class="line">//如果没有过期</span><br><span class="line">if (strtotime($since)+ $lifetime &gt; time()) </span><br><span class="line">&#123;</span><br><span class="line">    header(&apos;HTTP/1.1 304 Not Modified&apos;);</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line">header(&apos;Last-Modified:&apos; . gmdate(&apos;D,d M Y H:i:s&apos;,time()).&apos;GMT&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="本地缓存配置"><a href="#本地缓存配置" class="headerlink" title="本地缓存配置"></a>本地缓存配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add_header指令：添加状态码为2xx和3xx的相应投信息</span><br><span class="line">add_header name value [always]</span><br><span class="line">可以设置Pragma/Expire/Cache-Control，可以继承</span><br><span class="line">expires指令:通知浏览器过期时间expires time;为负值时表示Cache-Control：no-cache</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># nginx.conf</span><br><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    valid_referers none blocked immoc.com *.imooc.com</span><br><span class="line">    </span><br><span class="line">    #如果有不允许的访问，$invalid_referer 为1 ，重定向到错误页面</span><br><span class="line">    if($invalid_referer) &#123;</span><br><span class="line">        #return 403</span><br><span class="line">        rewrite ^/ http://www.imooc.com/403.jpg</span><br><span class="line">    &#125;</span><br><span class="line">    # 缓存30天</span><br><span class="line">    expires 30d;</span><br><span class="line">    # 关闭etag</span><br><span class="line">    etag off;</span><br><span class="line">     # 添加cache-control</span><br><span class="line">    add_header</span><br><span class="line">    cache-control max-age=3600</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="前端代码和资源压缩"><a href="#前端代码和资源压缩" class="headerlink" title="前端代码和资源压缩"></a>前端代码和资源压缩</h4><p>可以让资源文件更小</p>
+<p>压缩方式：js,css,image,html代码压缩、<br>Gzip压缩</p>
+<p>js压缩的原理一般是去掉多余的空格和回车，替换长变量名，简化写法</p>
+<p>常用的压缩工具：UglifyJS、YUI Compressor<br>、Closure Compiler</p>
+<p><strong>图片压缩：</strong></p>
+<p>压缩工具：tinypng、JpegMini，ImageOptim</p>
+<p><strong>Gzip压缩：</strong> 配置Nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip on|off</span><br><span class="line">gzip_buffers 32k</span><br><span class="line">gzip_disable</span><br><span class="line">gzip_min_length 200</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+          
+            <a href="/tags/Cache/" rel="tag"># Cache</a>
+          
+            <a href="/tags/High-Concurrency/" rel="tag"># High Concurrency</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/15/skills-linux-command/" rel="next" title="Linux常用命令">
+                <i class="fa fa-chevron-left"></i> Linux常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/02/php-interview-prepare-hc-2/" rel="prev" title="PHP如何解决网站大流量与高并发的问题（二）">
+                PHP如何解决网站大流量与高并发的问题（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Demor" />
+            
+              <p class="site-author-name" itemprop="name">Demor</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#高并发的相关概念"><span class="nav-number">1.</span> <span class="nav-text">高并发的相关概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高并发解决方案案例"><span class="nav-number">2.</span> <span class="nav-text">高并发解决方案案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web资源防盗链"><span class="nav-number">3.</span> <span class="nav-text">Web资源防盗链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#减少HTTP请求的方式"><span class="nav-number">4.</span> <span class="nav-text">减少HTTP请求的方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存和数据压缩"><span class="nav-number"></span> <span class="nav-text">浏览器缓存和数据压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存分类"><span class="nav-number">1.</span> <span class="nav-text">缓存分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存策略的选择"><span class="nav-number">2.</span> <span class="nav-text">缓存策略的选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx配置缓存策略"><span class="nav-number">3.</span> <span class="nav-text">Nginx配置缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#本地缓存配置"><span class="nav-number">3.1.</span> <span class="nav-text">本地缓存配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端代码和资源压缩"><span class="nav-number">4.</span> <span class="nav-text">前端代码和资源压缩</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demor</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

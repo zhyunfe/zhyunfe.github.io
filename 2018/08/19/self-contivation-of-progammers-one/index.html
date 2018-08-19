@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="English">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="reading,C,," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第1部分 简介1.1 从Hello World说起1.2 万变不离其宗对于系统程序开发者来说，计算机多如牛毛的硬件设备中，有三个部件最为关键，他们分别是中央处理器CPU、内存和I/O控制芯片，这三个部件几乎就是计算机的核心 早期的计算机没有很复杂的图形功能，CPU的核心频率也不高，跟内存的频率一样，他们都是直接连接在同一个总线上。 由于I/O设备诸如显示设备、键盘、软盘和磁盘等速度与CPU和内存相">
+<meta name="keywords" content="reading,C,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（一）程序员的自我修养">
+<meta property="og:url" content="http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/index.html">
+<meta property="og:site_name" content="Demor&#39;s Blog">
+<meta property="og:description" content="第1部分 简介1.1 从Hello World说起1.2 万变不离其宗对于系统程序开发者来说，计算机多如牛毛的硬件设备中，有三个部件最为关键，他们分别是中央处理器CPU、内存和I/O控制芯片，这三个部件几乎就是计算机的核心 早期的计算机没有很复杂的图形功能，CPU的核心频率也不高，跟内存的频率一样，他们都是直接连接在同一个总线上。 由于I/O设备诸如显示设备、键盘、软盘和磁盘等速度与CPU和内存相">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-08-19T11:39:44.743Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（一）程序员的自我修养">
+<meta name="twitter:description" content="第1部分 简介1.1 从Hello World说起1.2 万变不离其宗对于系统程序开发者来说，计算机多如牛毛的硬件设备中，有三个部件最为关键，他们分别是中央处理器CPU、内存和I/O控制芯片，这三个部件几乎就是计算机的核心 早期的计算机没有很复杂的图形功能，CPU的核心频率也不高，跟内存的频率一样，他们都是直接连接在同一个总线上。 由于I/O设备诸如显示设备、键盘、软盘和磁盘等速度与CPU和内存相">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/"/>
+
+
+
+
+
+  <title>（一）程序员的自我修养 | Demor's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demor's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Keep Growing</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">（一）程序员的自我修养</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:17:51+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
+                    <span itemprop="name">《程序员的自我修养》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="第1部分-简介"><a href="#第1部分-简介" class="headerlink" title="第1部分 简介"></a>第1部分 简介</h3><h4 id="1-1-从Hello-World说起"><a href="#1-1-从Hello-World说起" class="headerlink" title="1.1 从Hello World说起"></a>1.1 从Hello World说起</h4><h4 id="1-2-万变不离其宗"><a href="#1-2-万变不离其宗" class="headerlink" title="1.2 万变不离其宗"></a>1.2 万变不离其宗</h4><p>对于系统程序开发者来说，计算机多如牛毛的硬件设备中，有三个部件最为关键，他们分别是中央处理器CPU、内存和I/O控制芯片，这三个部件几乎就是计算机的核心</p>
+<p>早期的计算机没有很复杂的图形功能，CPU的核心频率也不高，跟内存的频率一样，他们都是直接连接在同一个<strong>总线</strong>上。</p>
+<p>由于I/O设备诸如显示设备、键盘、软盘和磁盘等速度与CPU和内存相比还是慢很多，当时也没有复杂的图形设备，显示设备大多是只能输出字符的终端，为了协调I/O设备与总线之间的速度，也为了能够让CPU能够和I/O设备进行通信，一般每个设备都会有一个相应的I/O控制器。</p>
+<p>后来由于CPU核心频率的提升，导致内存跟不上CPU的速度，于是产生了与内存频率一致的系统总线，而CPU采用倍频的方式与系统总线进行通信。</p>
+<p>为了协调CPU、内存和高速的图形设备，人们专门设计了一个高速的北桥芯片，以便他们之间能够高速地交换数据。</p>
+<p>由于北桥的运行速度非常高，所有相对低速的设备如果全部连接在北桥上，北桥既需要处理高速设备有需要处理低速设备，设计就会十分复杂，于是设计了专门处理低速设备的南桥芯片。</p>
+<p>磁盘、USB、键盘、鼠标等设备都连接在南桥上，由南桥将它们汇总后连接在北桥上。</p>
+<a id="more"></a>
+<h5 id="SMP与多核"><a href="#SMP与多核" class="headerlink" title="SMP与多核"></a>SMP与多核</h5><p>在过去50年里，CPU的频率从几十kHz到现在的4GHz,整整提高了数十万倍，基本每18个月频率就会翻倍，但是自2004年以来，这种规律几乎已经失效，CPU的频率自从那开始再也再也没有发生质的提高，因为人们在制造CPU的工艺方面已经达到了物理极限。</p>
+<p>在频率上短期内没有提高的余地了，于是通过增加CPU数量来提高速度。<br>对称处理器(SMP symmetrical Muti-Processing)简单的将就是每个CPU在系统中所处的地位和所发挥的功能都是一样的，是互相对称的。</p>
+<h4 id="1-3-站得高，望得远"><a href="#1-3-站得高，望得远" class="headerlink" title="1.3 站得高，望得远"></a>1.3 站得高，望得远</h4><p>系统软件这个概念其实比较模糊，传统意义上一般将用于管理计算机本身的软件称为系统软件，以区别普通的应用程序。系统软件可以分为两块，一块是平台型的，比如操作系统、内核、驱动程序、运行库和数以千计的系统工具。另一块是用于程序开发的，比如编译器、汇编器、链接器等开发工具和开发库。</p>
+<p>计算机科学领域的任何问题都可以通过增加一个间接的中间件来解决<br>Any problem in computer science can be solved by another layer of indirection.</p>
+<table>
+<thead>
+<tr>
+<th>Applications:</th>
+<th>Developments Tools:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web Browser</td>
+<td>Development Libraries</td>
+</tr>
+<tr>
+<td>Video Player</td>
+<td>C/C++ Complier</td>
+</tr>
+<tr>
+<td>Word Processor</td>
+<td>Assember</td>
+</tr>
+<tr>
+<td>Email Client</td>
+<td>Library Tools</td>
+</tr>
+<tr>
+<td>Image Viewer</td>
+<td>Debug Tools</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>每个层次之间都需要互相通信，通信需要有一个通信的协议，我们一般将其称为接口。接口的下面那层是接口的提供者，由它定义接口。接口的上面那层是接口的使用者，它使用该接口来实现所需要的功能。</p>
+<p>除了硬件和应用程序，其他都是所谓的中间层，每个中间层都是对他下面那层的包装和扩展，正式这些中间层的存在，使得应用程序和硬件之间保持相对的独立。</p>
+<p>硬件和操作系统本身保持了向后兼容性，所以一些芯片和DOS系统设计的软件在最新的多核处理器下还是能够运行的</p>
+<h4 id="1-4-操作系统做什么"><a href="#1-4-操作系统做什么" class="headerlink" title="1.4 操作系统做什么"></a>1.4 操作系统做什么</h4><p>操作系统的一个功能是提供抽象的接口，另外一个主要功能是管理硬件资源</p>
+<h5 id="1-4-1-不要让CPU打盹"><a href="#1-4-1-不要让CPU打盹" class="headerlink" title="1.4.1 不要让CPU打盹"></a>1.4.1 不要让CPU打盹</h5><ul>
+<li>多道程序<blockquote>
+<p>如果一个CPU只能运行一个程序那么当程序读写磁盘时，CPU就空闲下来了，于是人们就编写了一个监控程序，当某个程序无需使用CPU时，监控程序就把另外正在等待CPU资源的程序启动，是的CPU能够充分利用其阿里，这种被称为多道程序，大大提高了CPU的利用率。</p>
+</blockquote>
+</li>
+</ul>
+<p>但是这种原始的多道程序技术存在最大的问题是程序之间的调度策略太粗糙，程序之间不分轻重缓急，导致一些紧急的任务不能优先处理。</p>
+<ul>
+<li>分时系统<blockquote>
+<p>经过稍微改进，程序运行模式编程一种协作的模式，即每个程序运行一段时间以后都注重让出CPU给其他程序，是的一段时间内每个程序都有机会运行一小段时间，这种程序协作模式叫做<strong>分时系统</strong></p>
+</blockquote>
+</li>
+</ul>
+<p>如果一个程序在进行一个很耗时的计算，一致霸占着CPU不放，其他系统都只能等着，整个系统看过去就像死机了一样。系统中的任何一个程序死循环都会导致系统死机</p>
+<ul>
+<li><p>多任务系统</p>
+<blockquote>
+<p>操作系统接管了所有的硬件资源，并且本身运行在一个受硬件保护的级别，所有的应用程序都是以<strong>进程</strong>的方式运行在笔操作系统权限更低的几倍，每个进程都有自己独立的地址空间，使得进行之间的地址空间相互隔离。</p>
+</blockquote>
+</li>
+<li><p>抢占式</p>
+</li>
+</ul>
+<blockquote>
+<p>CPU由操作系统统一进行分配，每一个进程根据进程优先级的高低都会有机会得到CPU，但是如果运行时间超出了一定的时间，操作系统会暂停该进程，将CPU资源分配给其他正在等待运行的进程，这种CPU的分配方式即为抢占式，操作系统可以强制剥夺CPU资源并且分配给它认为目前最需要的进程。</p>
+</blockquote>
+<p>如果操作系统分配给每个进程的时间都很短，即CPU在多个进程间快速得切换，从而造成了很多进程都在同时运行的假象</p>
+<h5 id="1-4-2-设备驱动"><a href="#1-4-2-设备驱动" class="headerlink" title="1.4.2 设备驱动"></a>1.4.2 设备驱动</h5><p>操作系统作为硬件层的上层，它是对硬件的管理和抽象，对于操作系统上面的运行库和应用程序来说，他们希望看到的是一个统一的硬件访问模式。</p>
+<p>当成熟的操作系统出现以后，硬件逐渐被抽象成了一系列概念。繁琐的硬件细节全部交给了操作系统，具体的讲是操作系统中的硬件驱动程序来完成。</p>
+<p>驱动程序可以看做是操作系统的一部分，往往跟操作系统内核一起运行在特权级，但它又与操作系统内核之间有一定的独立性，使得驱动程序有比较好的灵活性。</p>
+<ul>
+<li>硬盘的结构介绍</li>
+</ul>
+<p>硬盘基本的存储单位为扇区，每一个扇区一般为512字节，一个硬盘往往有多个盘片，每个盘片分两面，没面按照同心圆划分为若干个磁道，每个磁道划分为若干个扇区。</p>
+<p>如：</p>
+<ul>
+<li>一个硬盘有2个盘片</li>
+<li>每个盘片有65536磁道</li>
+<li>每个磁道分1024个扇区<br>那么硬盘的容量就为 2<em>2</em>65536<em>1024</em>512=137 438 953 472（128G）</li>
+</ul>
+<h4 id="1-5-内存不够怎么办"><a href="#1-5-内存不够怎么办" class="headerlink" title="1.5 内存不够怎么办"></a>1.5 内存不够怎么办</h4><p>进程的总体目标是希望每个进程从逻辑上来看都可以独占计算机的资源。操作系统的多任务功能使得CPU能够在多个进程之间很好地共享，从进程的角度看好像是它独占了CPU而不用考虑与其他进程分享CPU的事情</p>
+<p>在早起的计算机中，程序是直接运行在物理内存上的，也就是说，程序在运行时所访问的地址都是物理地址。只要程序要求的内存空间不要超过物理内存的大小就不会有问题，事实上，为了更有效地利用硬件资源，我们必须同时运行多个程序.</p>
+<p>那如何将计算机上有限的物理内存分配给多个程序使用?<br>如果有128M内存，程序A需要20MB，程序B需要100MB，比较直接的做法就是先给A分配20MB内存再给B分配100MB内存，这样两个程序就可以同时运行，但这种策略有很多问题</p>
+<ul>
+<li>地址空间不隔离，数据容易被别的程序篡改</li>
+<li>内存使用率低，如果有程序C进来，要先将B停止写入，C读入内存开始运行，有大量的数据换入换出，效率十分低下</li>
+<li>程序运行的地址不确定。每次程序装入内存时，内存的位置不不确定的。</li>
+</ul>
+<p><strong>虚拟地址：</strong> 解决这个问题的思路就是增加中间层，即使用一种间接的地址访问方法。把程序给出的地址看做是一种虚拟地址Virtual Address，然后通过某周映射方法，将虚拟地址转换成物理地址。只要能控制好这个虚拟地址，就能保证任意一个程序所访问的物理内存区域与另一个程序相互不重叠，达到地址空间隔离效果。</p>
+<h5 id="1-5-1-关于隔离"><a href="#1-5-1-关于隔离" class="headerlink" title="1.5.1 关于隔离"></a>1.5.1 关于隔离</h5><p>作为一个普通的程序，需要的是一个简单的执行环境，有一个单一的地址空间，有自己的CPU。</p>
+<p><strong>地址空间：</strong> 是一个比较抽象的概念，可以想象成是一个很大的数组，每个数组的元素是一个字节，这个数组的大小由地址空间的地址长度决定。</p>
+<p>如32位的地址空间大小为2^32 = 4294967296 字节，即4GB ,地址空间的有效地址就是0~4294967296,用十六进制表示就是0x00000000 ~ 0xFFFFFFFF</p>
+<ul>
+<li>虚拟地址空间<blockquote>
+<p>虚拟的，不存在的，每个进程拥有自己独立的虚拟空间，每个进程只能访问自己的地址空间，这样做到了有效的隔离</p>
+</blockquote>
+</li>
+<li>物理地址空间<blockquote>
+<p>实实在在存在的，存在与计算机中，对于每一台计算机来说只有唯一的一个。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="1-5-2-分段（Segmentation）"><a href="#1-5-2-分段（Segmentation）" class="headerlink" title="1.5.2 分段（Segmentation）"></a>1.5.2 分段（Segmentation）</h5><p>即通过虚拟空间地址映射物理空间的方法将物理空间分成不同的段分配给不同的程序。当程序访问了不属于自己的地址空间时，就会报警，不允许访问，解决了物理空间隔离和程序地址不稳定的弊端，但是仍不能解决效率低的问题</p>
+<h5 id="1-5-3-分页（Paging）"><a href="#1-5-3-分页（Paging）" class="headerlink" title="1.5.3 分页（Paging）"></a>1.5.3 分页（Paging）</h5><p>分页的基本方法是把地址空间人为地等分成固定大小的页，每一页的大小由硬件决定或硬件支持多种大小的页，有操作系统选择决定页的大小。</p>
+<p>目前几乎所有PC操作系统都使用4kb大小的页</p>
+<p>虚拟空间的页叫做虚拟页</p>
+<p>物理内存中的页叫做物理页</p>
+<p>磁盘中的页叫做磁盘页</p>
+<p>虚拟空间的页被映射到同一个物理页，实现了内存共享</p>
+<p>如果一个进程的虚拟页在磁盘汇总，操作系统会从磁盘中读取出来并且装入内存，然后将内存中的这两个页与虚拟页建立映射关系。</p>
+<p>保护也是页映射的目的之一，每个页可以设置权限属性，谁可以修改，谁可以访问等，而只有操作系统有权限修改这些属性，那么操作系统就可以做到保护自己和保护进程。</p>
+<p>虚拟存储的实现需要依靠硬件的支持，对于不同的CPU来说是不同，但是几乎所有的硬件都采用一个叫Memory Management Unit（MMU）的部件来进行页映射。</p>
+<p>在页映射模式下,CPU发出的是Viryual Address ，经过MMU 转换成 Physical Address。一般MMU集成在CPU内部。</p>
+<h4 id="1-6-众人拾柴火焰高"><a href="#1-6-众人拾柴火焰高" class="headerlink" title="1.6 众人拾柴火焰高"></a>1.6 众人拾柴火焰高</h4><h5 id="1-6-1-线程基础"><a href="#1-6-1-线程基础" class="headerlink" title="1.6.1 线程基础"></a>1.6.1 线程基础</h5><p>多线程：实现软件并发执行的一个重要方法。这一节将回顾线程概念、线程调度、线程安全、用户线程与内核线程之间的映射关系。</p>
+<p><strong>什么是线程：</strong></p>
+<p>线程Thread，有时会被称为<strong>轻量级进程</strong>，是程序执行流的最小单元。</p>
+<p>一个标准的线程由</p>
+<ul>
+<li>线程ID</li>
+<li>当前指令指针PC</li>
+<li>寄存器集合</li>
+<li>堆栈</li>
+</ul>
+<p>组成。</p>
+<p>通常意义上，一个进程有一到多个线程组成，各个线程之间共享程序的内存空间（代码段、数据段、堆等）以及一些进程级的资源（打开文件和信号）</p>
+<p>多个线程可以互相不干扰的并发执行，并共享进程的全局变量和堆的数据。</p>
+<h6 id="使用多线程的原因"><a href="#使用多线程的原因" class="headerlink" title="使用多线程的原因"></a>使用多线程的原因</h6><ul>
+<li>某个操作可能会陷入长时间等待，等待的线程会进入睡眠状态，无法继续执行。多线程可以有效利用等待的时间，典型的例子是等待网络响应</li>
+<li>某个操作会消耗大量的时间，如果只有一个线程，程序和用户之间的交互就会终端。多线程可以让一个线程负责交互，另外一个线程负责计算</li>
+<li>程序逻辑本身就要求并发操作，比如一个多段下载软件件 Bittorent</li>
+<li>多CPU或多核计算机本身具备同事执行多个线程的能力，因此单线程无法发挥出计算出的全部计算能力</li>
+<li>相对于多进程应用，多线程在数据共享方面效率要高很多</li>
+</ul>
+<h5 id="线程的访问权限"><a href="#线程的访问权限" class="headerlink" title="线程的访问权限"></a>线程的访问权限</h5><p>线程的访问非常自由，可以访问进程内存里的所有数据，实际运用中线程也拥有自己的私有存储空间，包括以下几个方面：</p>
+<ul>
+<li>栈</li>
+<li>线程局部存储</li>
+<li>寄存器（寄存器是执行流的基本数据）</li>
+</ul>
+<p>C程序的角度来看，数据在线程之间是否私有如表所示</p>
+<table>
+<thead>
+<tr>
+<th>线程私有</th>
+<th>线程之间共享（进程所有）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>局部变量</td>
+<td>全局变量</td>
+</tr>
+<tr>
+<td>函数的参数</td>
+<td>堆上的数据</td>
+</tr>
+<tr>
+<td>TLS数据</td>
+<td>函数里的静态变量</td>
+</tr>
+<tr>
+<td></td>
+<td>程序代码，任何线程都有权利读取并执行任何代码</td>
+</tr>
+<tr>
+<td></td>
+<td>打开的文件，A线程打开的文件可以由B线程读写</td>
+</tr>
+</tbody>
+</table>
+<h5 id="线程调度与优先级"><a href="#线程调度与优先级" class="headerlink" title="线程调度与优先级"></a>线程调度与优先级</h5><p>线程总是并发执行的</p>
+<p>当线程数量小于等于处理器数量时，线程的并发时真正的并发，不同的线程运行在不同的处理器上，彼此之间互不相干。</p>
+<p>线程数量大于处理器数量的抢矿，线程的并发会受到一些阻碍，因为此时至少有一个处理器会运行多个线程。</p>
+<p>操作系统让线程轮流执行，每次仅执行一小段时间（通常是几十到几百毫秒）,这样每个线程就看起来在同时执行。</p>
+<ul>
+<li>线程调度</li>
+</ul>
+<p>这样一个不断在处理器上切换不同的线程的行为称之为<strong>线程调度</strong></p>
+<p>线程调度中，线程至少有三种状态，分别是:</p>
+<ul>
+<li>运行：此时线程正在执行</li>
+<li>就绪：此时线程可以立刻运行，但CPU已经被占用</li>
+<li><p>等待：此时线程正在等待某一事件（通常是I/O或者同步）发生，无法执行。</p>
+</li>
+<li><p>时间片</p>
+</li>
+</ul>
+<p>处于运行中的线程拥有一段可以执行的时间，这段时间称为<strong>时间片</strong></p>
+<p>当时间片用尽的时候，该线程将进入就绪状态</p>
+<p>如果在时间片用尽之前线程就开始等待某事件，那么它将进入等待状态</p>
+<p>每当一个线程离开运行状态时，调度系统就会选择一个其他的就绪线程继续运行</p>
+<p>主流的调度方式都带有 <strong>优先级调度</strong>和<strong>轮转法</strong></p>
+<ul>
+<li>IO密集型线程</li>
+</ul>
+<p>我们一般把频繁等待的线程称之为<strong>IO密集型线程</strong></p>
+<ul>
+<li>CPU密集型线程</li>
+</ul>
+<p>把很少等待的线程成为<strong>CPU密集型线程</strong></p>
+<p>通常情况下，IO密集型线程笔CPU密集型线程要受欢迎的多，IO密集型线程总是比CPU密集型线程容易得到优先级的提升。道理很简单频繁等待的线程通常只占用很少的时间，CPU也喜欢捏软柿子</p>
+<ul>
+<li>饿死现象</li>
+</ul>
+<p>在优先级调度下，存在一种<strong>饿死</strong>的现象，一个线程被饿死，是说它的优先级较低，在它执行之前，总是有高优先级的线程要执行，因此这个低优先级的进程就很可能饿死。</p>
+<p>为了避免饿死现象，调度系统常常会逐步提升哪些等待了过长时间的得不到执行的线程的优先级，这样，只要等待足够长的时间，其优先级一定会提高到足够让它执行的程度。</p>
+<p><strong>优先级调度环境下线程优先级改变的三种方式</strong></p>
+<ul>
+<li>用户指定优先级</li>
+<li>根据进入等待状态的频繁程度提升或者降低优先级</li>
+<li>长时间得不到执行而被提升优先级</li>
+</ul>
+<h5 id="可抢占线程和不可抢占线程"><a href="#可抢占线程和不可抢占线程" class="headerlink" title="可抢占线程和不可抢占线程"></a>可抢占线程和不可抢占线程</h5><ul>
+<li><p>抢占</p>
+<blockquote>
+<p>我们之前的线程调度有一个特点，就是在线程用尽时间片之后会被强制剥夺继续执行的权利，而进入就绪状态，这个过程叫做抢占。</p>
+</blockquote>
+</li>
+<li><p>不可抢占</p>
+<blockquote>
+<p>在早起系统里，线程不不可抢占的，线程必须手动进入就绪状态，而不是依靠时间片用来来强制进入，如果线程始终拒绝进入就绪状态，并且不进行任何的等操作，那么其他线程将永远无法进行。</p>
+</blockquote>
+</li>
+</ul>
+<p>在不可抢占线程中，线程主动放弃执行无非两种情况</p>
+<ul>
+<li>当线程试图等待某件事(I/O等)</li>
+<li>线程主动放弃时间片</li>
+</ul>
+<blockquote>
+<p>因此在不可抢占线程执行的时候，有一个显著的特点，那就是线程调度的时机是确定的，线程调度指挥发生在线程主动放弃指向或者线程等待某件事的时候，这样可以避免一些因为抢占线程里调度时机不确定而产生的问题。</p>
+</blockquote>
+<h5 id="Linux的多线程"><a href="#Linux的多线程" class="headerlink" title="Linux的多线程"></a>Linux的多线程</h5><p>Windows对线程和进程的实现如同教科书一般的标准，windows内核有明确的线程和进程概念，<strong>但是对于Linux来说，线程并不是一个通用的概念</strong></p>
+<p>Linux对线程的支持颇为贫乏，在Linux内核中并不存在真正意义上的线程概念。</p>
+<p>Linux将所有执行实体（无论是线程还是进程）都成为<strong>任务</strong>，每一个任务的概念都类似于一个单线程的进程。具有内存空间、执行实体、文件资源等。</p>
+<p>Linux下不同的任务之间可以选择共享内存空间，在实际意义上，共享了同一个内存空间的多个任务构成了一个进程，这些任务也就成了这个进程里的线程。</p>
+<p>Linux下，通过以下方法可以创建一个新的任务</p>
+<table>
+<thead>
+<tr>
+<th>系统调用</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fork</td>
+<td>复制但那个钱进程</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>使用新的可执行映像覆盖当前可执行映像</td>
+</tr>
+<tr>
+<td>clone</td>
+<td>创建子进程并从指定位置开始执行</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-6-2-线程安全"><a href="#1-6-2-线程安全" class="headerlink" title="1.6.2 线程安全"></a>1.6.2 线程安全</h4><p>多线程程序处于一个多变的环境当中，可访问的全局变量和堆数据随时都可能被其他的线程改变，因此多线程程序在并发时数据的一致性变得非常重要。</p>
+<ul>
+<li>竞争与原子操作<br>多个线程同时访问一个共享数据，可能造成很恶劣的后果。</li>
+</ul>
+<p>我们把单指令的操作成为原子的。</p>
+<p>因为无论如何，单条指令的执行是不会被打断的。但是仅仅适用于比较简单特定的场合，在复杂的场合下我们需要更加通用的手段：锁</p>
+<ul>
+<li>同步与锁<br>为了避免多个线程同时读写同一个数据而产生不可预料的后果，我们要将各个线程对同一个数据的访问同步。</li>
+</ul>
+<p>所谓同步，就是在一个线程访问数据为结束的时候其他线程不得对同一个数据进行访问</p>
+<p>同步最常见的方法是使用锁。</p>
+<p>锁是一种非强制机制，每一个线程在访问数据或资源之前首先试图获取锁，并在访问结束之后释放锁，在锁已经被占用的时候试图获取锁的，线程会等待，直到锁重新可用。</p>
+<p><strong>二元信号量</strong>是最简单的一种锁，它只有两种状态，占用与非占用。</p>
+<p>他适合只能被唯一一线程独占访问的资源。</p>
+<p>对于允许多个线程并发访问的资源，多元信号量简称信号量。</p>
+<p>一个初始值为N的信号量允许N个线程并发访问，线程访问资源的时候首先获取信号量，进行如下操作：</p>
+<ul>
+<li>将信号量减小1</li>
+<li>如果信号量小于0，则进入等待状态，否则继续执行</li>
+</ul>
+<p>访问完资源之后，线程四方信号量，进行如下操作</p>
+<ul>
+<li>将信号量加1</li>
+<li>如果信号量的值小于1，唤醒一个等待的线程</li>
+</ul>
+<p><strong>互斥量：</strong><br><strong>临界区：</strong><br><strong>读写锁：</strong><br><strong>条件变量：</strong></p>
+<ul>
+<li>可重入与线程安全</li>
+<li>过度优化</li>
+<li><h4 id="1-6-3-多线程内部情况"><a href="#1-6-3-多线程内部情况" class="headerlink" title="1.6.3 多线程内部情况"></a>1.6.3 多线程内部情况</h4></li>
+<li>三种线程模型</li>
+<li>一对一模型</li>
+<li>多对一模型</li>
+<li>多对多模型</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/reading-C/" rel="tag"># reading,C,</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/20/trouble-open-basedir/" rel="next" title="Warning:require(): open_basedir restriction in effect. File">
+                <i class="fa fa-chevron-left"></i> Warning:require(): open_basedir restriction in effect. File
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/19/self-contivation-of-programmers-two/" rel="prev" title="（二）静态链接">
+                （二）静态链接 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Demor" />
+            
+              <p class="site-author-name" itemprop="name">Demor</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第1部分-简介"><span class="nav-number">1.</span> <span class="nav-text">第1部分 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-从Hello-World说起"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 从Hello World说起</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-万变不离其宗"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 万变不离其宗</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SMP与多核"><span class="nav-number">1.2.1.</span> <span class="nav-text">SMP与多核</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-站得高，望得远"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 站得高，望得远</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-操作系统做什么"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 操作系统做什么</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-1-不要让CPU打盹"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1 不要让CPU打盹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-2-设备驱动"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2 设备驱动</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-内存不够怎么办"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 内存不够怎么办</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5-1-关于隔离"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.5.1 关于隔离</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5-2-分段（Segmentation）"><span class="nav-number">1.5.2.</span> <span class="nav-text">1.5.2 分段（Segmentation）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5-3-分页（Paging）"><span class="nav-number">1.5.3.</span> <span class="nav-text">1.5.3 分页（Paging）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-众人拾柴火焰高"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 众人拾柴火焰高</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-1-线程基础"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.6.1 线程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#使用多线程的原因"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">使用多线程的原因</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程的访问权限"><span class="nav-number">1.6.2.</span> <span class="nav-text">线程的访问权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程调度与优先级"><span class="nav-number">1.6.3.</span> <span class="nav-text">线程调度与优先级</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可抢占线程和不可抢占线程"><span class="nav-number">1.6.4.</span> <span class="nav-text">可抢占线程和不可抢占线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux的多线程"><span class="nav-number">1.6.5.</span> <span class="nav-text">Linux的多线程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-2-线程安全"><span class="nav-number">1.7.</span> <span class="nav-text">1.6.2 线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-3-多线程内部情况"><span class="nav-number">1.8.</span> <span class="nav-text">1.6.3 多线程内部情况</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demor</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

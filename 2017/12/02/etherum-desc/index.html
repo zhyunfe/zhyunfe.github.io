@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="English">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Ether," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="2.1 以太坊概览以太坊是一个去中心化的平台，可以在其上部署Dapp，Dapp用一个或者更多个只能合约创建，使用Solidity编程语言编写只能合约。智能合约完全按照程序运行，而且防停机、防审查、防欺诈、防第三方干扰。 以太坊的内部货币为以太坊，部署智能合约或者调用其方法需要用到以太币。只能合约可以有多个实例，每个实例都有自己专门的地址，用户账户和智能合约都可以持有以太币。 以太坊使用区块链数据结">
+<meta name="keywords" content="Ether">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（二）以太坊工作原理">
+<meta property="og:url" content="http://zhyunfe.github.io/2017/12/02/etherum-desc/index.html">
+<meta property="og:site_name" content="Demor&#39;s Blog">
+<meta property="og:description" content="2.1 以太坊概览以太坊是一个去中心化的平台，可以在其上部署Dapp，Dapp用一个或者更多个只能合约创建，使用Solidity编程语言编写只能合约。智能合约完全按照程序运行，而且防停机、防审查、防欺诈、防第三方干扰。 以太坊的内部货币为以太坊，部署智能合约或者调用其方法需要用到以太币。只能合约可以有多个实例，每个实例都有自己专门的地址，用户账户和智能合约都可以持有以太币。 以太坊使用区块链数据结">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-08-19T13:51:01.585Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（二）以太坊工作原理">
+<meta name="twitter:description" content="2.1 以太坊概览以太坊是一个去中心化的平台，可以在其上部署Dapp，Dapp用一个或者更多个只能合约创建，使用Solidity编程语言编写只能合约。智能合约完全按照程序运行，而且防停机、防审查、防欺诈、防第三方干扰。 以太坊的内部货币为以太坊，部署智能合约或者调用其方法需要用到以太币。只能合约可以有多个实例，每个实例都有自己专门的地址，用户账户和智能合约都可以持有以太币。 以太坊使用区块链数据结">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhyunfe.github.io/2017/12/02/etherum-desc/"/>
+
+
+
+
+
+  <title>（二）以太坊工作原理 | Demor's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demor's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Keep Growing</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/12/02/etherum-desc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">（二）以太坊工作原理</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-02T18:56:11+08:00">
+                2017-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BlockChain/" itemprop="url" rel="index">
+                    <span itemprop="name">BlockChain</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BlockChain/《区块链项目开发指南》/" itemprop="url" rel="index">
+                    <span itemprop="name">《区块链项目开发指南》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="2-1-以太坊概览"><a href="#2-1-以太坊概览" class="headerlink" title="2.1 以太坊概览"></a>2.1 以太坊概览</h5><p>以太坊是一个去中心化的平台，可以在其上部署Dapp，Dapp用一个或者更多个只能合约创建，使用Solidity编程语言编写只能合约。智能合约完全按照程序运行，而且防停机、防审查、防欺诈、防第三方干扰。</p>
+<p>以太坊的内部货币为以太坊，部署智能合约或者调用其方法需要用到以太币。只能合约可以有多个实例，每个实例都有自己专门的地址，用户账户和智能合约都可以持有以太币。</p>
+<p>以太坊使用区块链数据结构和工作量证明共识协议。</p>
+<p>有两种网络中的节点：普通节点和矿工，普通节点只备份区块链上的数据，而矿工通过挖矿创建区块链。</p>
+<a id="more"></a>
+<h5 id="2-2-以太坊账户"><a href="#2-2-以太坊账户" class="headerlink" title="2.2 以太坊账户"></a>2.2 以太坊账户</h5><p>创建以太坊账户，只需要一个非对称加密密钥对 - 由不同算法生成，如RSA、ECC</p>
+<p>以太坊使用ECC 椭圆曲线加密算法，它拥有多个参数来调节速度和安全性，以太坊使用secp256k1参数。</p>
+<p>以太坊使用256位加密，公钥是一个256位数，被编译成长度为64的十六进制字符串</p>
+<p>从公钥生成地址的过程如下：</p>
+<pre><code>- 生成公钥的keccak-256哈希，给出一个256位数字
+- 丢弃前面的96位，即12个字节，得到160位二进制数据，20字节
+- 把地址编译成十六进制字符串，得到一个40字符串的字节串，就是账户地址
+</code></pre><h5 id="2-3-交易"><a href="#2-3-交易" class="headerlink" title="2.3 交易"></a>2.3 交易</h5><p>交易是一个签名数据包，用于从一个账户向另一个账户或者向一个合约转以太币、调用合约方法或者部署一个新合约。</p>
+<p>交易使用椭圆曲线数字签名算法（ECDSA）签名、ECDSA是一种基于ECC的数字签名算法。</p>
+<p>交易包含：</p>
+<pre><code>-   信息接受者
+-   识别发起人及其意愿的签名
+-   要转账的以太币数量
+-   交易执行允许进行的计算资源最大值(gas上线)
+-   交易发起人愿意为单位计算资源支付的费用（gas价格）
+-   输入数据（如果调用合约方法）
+-   初始化代码（如果目的是部署合约）
+</code></pre><p><strong>交易费=交易消耗的gas * gas价格</strong></p>
+<p>如果确定交易将永久出现在区块链中，则称交易已确认。</p>
+<h5 id="2-4-共识"><a href="#2-4-共识" class="headerlink" title="2.4 共识"></a>2.4 共识</h5><p>以太坊使用工作量证明共识协议防止区块链被篡改。工作量证明系统需要解决一个复杂问题以创建一个新的区块。</p>
+<p><strong>在工作量证明系统中，创建区块的过程称为挖矿，旷工是网络中挖区块的节点。</strong></p>
+<p>网络安全不是用矿工总数衡量，而是用网络中的全部算力衡量。</p>
+<p>区块链中有多少个区块没有限制，可以生成的以太币总数也没有限制。</p>
+<p>为了挖区块，旷工首先从收到的广播中收集新的、未挖处处的交易，然后过滤掉不合法的交易。</p>
+<p><strong><em>合法的交易必须满足正确的使用私钥签名、账户中有足够的余额进行交易等条件</em></strong></p>
+<p>现在矿工创建一个有区块头和内容的区块，内容是区块包含的交易列表。</p>
+<p>区块头包含前一个区块的哈希、区块序号、随机数、目标值、难度值、矿工地址等内容。</p>
+<ul>
+<li>时间戳表示区块初始时间</li>
+<li>随机数是一个没有意义的值，纯粹是为了设置一个小于或等于目标值的区块哈希，以太坊使用ethash哈希算法，发现随机数的唯一方法是穷尽所有可能，目标值是一个256位的数字，根据不同的因素计算。</li>
+</ul>
+<p>区块头的难度值是目标值的一种不同表述方法，目标值越低，发现随机数需要的时间越多。目标值越高需要的时间越少。</p>
+<p>计算问题难度值的公式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">current_block_difficulty = previous_block_difficulty + previous_block_difficulty // 2048 * max(1 - (currency_block_timestamp - previous_block_timestamp) // 10, -99) + int(2 ** ((current_block_number // 1000) -  2))</span><br></pre></td></tr></table></figure></p>
+<p>如果网络中的节点接收到两个不同的合法区块链，那么多有取款的整体难度值较高的那个区块链被视为合法的区块链。</p>
+<h5 id="2-5-时间戳"><a href="#2-5-时间戳" class="headerlink" title="2.5 时间戳"></a>2.5 时间戳</h5><p>计算区块目标值的公式需要用到当前时间戳，且每个区块在区块头附加了当前时间戳。</p>
+<p>没有什么机制可以阻止矿工在挖区块时使用其他时间戳(而非当前时间戳)。<br>时间戳验证失败，其他节点不会接受该区块，这样就浪费了矿工的资源。</p>
+<p>当一个矿工广播一个新挖出的区块时，其他节点对其时间戳的验证取决于其时间戳是否大于前一个区块的时间戳。</p>
+<h5 id="2-6-随机数"><a href="#2-6-随机数" class="headerlink" title="2.6 随机数"></a>2.6 随机数</h5><p>随机数是一个64位未签名证书。随机数是一个问题的解决办法，矿工不断尝试随机数，知道发现目标值。</p>
+<p>每个矿工挖的区块的哈希是不同的，因为哈希取决于如时间戳、旷工地址等内容，而且对于所有狂公共来说这些内容很可能是不一样的。因此解决问题并不是一场比赛，而更像是意见碰运气的事</p>
+<h5 id="2-7-区块时间"><a href="#2-7-区块时间" class="headerlink" title="2.7 区块时间"></a>2.7 区块时间</h5><p>我们看到的区块难度值公式使用了一个长达10s的阈值以确保挖出父区块和子区块的时间差在10~20s因为我们需要有一个相对稳定的生成区块的平均时间，即区块时间。</p>
+<p>无效区块：两个矿工同时挖出了一个区块，网络最终会接受难度值较大的那个区块，被放弃的那个区块就是无效区块。</p>
+<p>网络中生成的无效块总数与生成新的区块所需的平均时间成反比。难度越简单，区块时间越短，就有可能有更多的矿工挖出矿工，最终会舍弃很多区块。</p>
+<p>无效块会影响区块链的安全，网络安全由网络中矿工的全部算力衡量，当算力增加时难度值也要增加，以确保区块不是在平均时间之前生成的</p>
+<p>更高的难度值意味着更安全的区块链，因为篡改所需的算力会比多，而且最后不会被接受</p>
+<p><strong>以太坊用ghost协议解决无效块带来的安全问题。</strong><br>ghost协议仅仅把无效块添加到母链上，掩盖了安全问题，由此增加了区块链的整体难度值（包括无效块的难度值之和）。</p>
+<p>如何在不产生交易冲突的情况下把无效块添加到母链中呢？<br>事实上，任何一个区块链都可以接纳零个或者多个无效块</p>
+<p>为了激励矿工接纳无效块，矿工接纳无效块也会得到回报，无效块中的交易不需要确认，无效块矿工也不想无效块接纳的交易收取交易费</p>
+<p>在以太坊中 无效块称为 <strong>叔块</strong></p>
+<p><strong>矿工接纳无效块得到的回报计算公式为</strong><code>(uncle_block_number+8-block_number) * 5 / 8</code></p>
+<p>其余回报归侄块即包含孤块的区块。</p>
+<h5 id="2-8-分叉"><a href="#2-8-分叉" class="headerlink" title="2.8 分叉"></a>2.8 分叉</h5><p>在节点验证区块链发生冲突时，会发生分叉 forking</p>
+<p>分叉分为三种：</p>
+<ul>
+<li>普通分叉<blockquote>
+<p>由于两个或者多个矿工几乎同时发现了一个区块引起的暂时冲突，如果一个区块的难度高于另一个，这个冲突就解决了。</p>
+</blockquote>
+</li>
+<li>软分叉<blockquote>
+<p>更改源代码，要求有50%以上算力的矿工升级。例如：更新源代码使得旧区块/交易的一部分失效，有50%以上算力矿工升级后可以解决，这样新的额区块链将有更大的难度值，最后被整个网络接受</p>
+</blockquote>
+</li>
+<li>硬分叉<blockquote>
+<p>更改源代码引起冲突，全部矿工升级，以解决冲突。例如更改源代码为了个更改对矿工的汇报，全部矿工都需要升级。</p>
+</blockquote>
+<h5 id="2-9-创世区块"><a href="#2-9-创世区块" class="headerlink" title="2.9 创世区块"></a>2.9 创世区块</h5></li>
+</ul>
+<p>genesis block，区块链中的第一个区块，其区块序号是0。</p>
+<p>只有网络中的两个节点有相同的创世区块，他们才会彼此配对进行同步，否则他们将会彼此拒绝。<br>每一个节点生成自己的创世区块<br>对于不同的网络，创世区块被硬编到客户端里</p>
+<h5 id="2-10-以太币面值"><a href="#2-10-以太币面值" class="headerlink" title="2.10 以太币面值"></a>2.10 以太币面值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1以太币 = 1000000000000000000 wei（18个0 100万千亿）</span><br><span class="line"></span><br><span class="line">        = 1000000000000000    Kwei</span><br><span class="line"></span><br><span class="line">        = 1000000000000       Mwei</span><br><span class="line"></span><br><span class="line">        = 1000000000          Gwei</span><br><span class="line"></span><br><span class="line">        = 1000000             Szabo</span><br><span class="line"></span><br><span class="line">        = 1000                Finnery</span><br><span class="line"></span><br><span class="line">        = 0.01                Kether</span><br></pre></td></tr></table></figure>
+<h5 id="2-11-以太坊虚拟机"><a href="#2-11-以太坊虚拟机" class="headerlink" title="2.11 以太坊虚拟机"></a>2.11 以太坊虚拟机</h5><p>以太坊虚拟机是以太坊只能合约字节码执行环境，网络中的每个节点都运行EVM，所有节点执行使用EVM指向智能合约的全部交易，因此他们进行同样的计算，并存储同样的数值</p>
+<p>出于各种原因，每个节点执行并存储最终状态。</p>
+<p>有两种EVM实现</p>
+<ul>
+<li>字节码VM</li>
+<li>JIT-VM<br>在两种情况下Solidity代码被编译成字节码，在JIT-VN中，字节码编译更充分，比字节码VM更高效</li>
+</ul>
+<h5 id="2-12-gas"><a href="#2-12-gas" class="headerlink" title="2.12 gas"></a>2.12 gas</h5><p>计算资源的计量单位。</p>
+<p>每个交易包含gas上限和为每个gas支付费用的单价</p>
+<h5 id="2-13-发现对等节点"><a href="#2-13-发现对等节点" class="headerlink" title="2.13 发现对等节点"></a>2.13 发现对等节点</h5><p>节点不需要连接到网络中的每一个节点，它只连接到几个其他节点，这些节点再连接到另外一个节点，按照这个方式，整个网络彼此连接。</p>
+<p>以太坊有自己的节点发现协议可用于解决发现网络中的其他节点。该协议以Kadelima协议为基础。</p>
+<p>在节点发现协议中有一个特殊节点，叫做<strong>Bootstrap节点</strong>，它保存了一段时间内与他们连接的所有的节点的列表，但其本身不保存区块链。</p>
+<p>当对等节点连接到以太坊网络时，他们首先连接到BootStrap节点，然后由它连接到他们的对等节点列表，然后对等节点与对等节点连接并同步。</p>
+<p>以太坊网络有两种</p>
+<ul>
+<li>主网<blockquote>
+<p>用于交易</p>
+</blockquote>
+</li>
+<li>测试网络<blockquote>
+<p>供开发人员测试</p>
+</blockquote>
+<h5 id="2-14-Whisper和Swarm"><a href="#2-14-Whisper和Swarm" class="headerlink" title="2.14 Whisper和Swarm"></a>2.14 Whisper和Swarm</h5></li>
+</ul>
+<p>Whisper和Swarm分别是去中心化的通信协议和存储平台，由以太坊开发人员开发。</p>
+<ul>
+<li>Whisper：去中心化的通信协议 <a href="https://github.com/ethereum/wiki/wili/Whisper" target="_blank" rel="noopener">https://github.com/ethereum/wiki/wili/Whisper</a><blockquote>
+<p>允许网络中的节点彼此通信，支持广播、用户到用户、加密信息等，但不用于传输数据</p>
+</blockquote>
+</li>
+<li>Swarm：去中心化的文件系统 <a href="https://github.com/ethersphere/go-ethereum/wiki/IPFS-&amp;-SWARM" target="_blank" rel="noopener">https://github.com/ethersphere/go-ethereum/wiki/IPFS-&amp;-SWARM</a><blockquote>
+<p>类似于Filecoin，最大的区别是技术细节和激励机制。Filecoin不惩罚存储，Swarm惩罚存储，进一步提高的文件的可用性</p>
+</blockquote>
+</li>
+</ul>
+<p>仍在开发中</p>
+<h5 id="2-15-geth"><a href="#2-15-geth" class="headerlink" title="2.15 geth"></a>2.15 geth</h5><p>是以太坊、Whisper和Swarm节点的一个实现，可以成为全部实现或者一些选定实现的一部分，合并他们的目的是让他们看起来想一个单一的Dapp，通过一个节点客户端可以访问三个dapp</p>
+<p>geth是一种CLI应用，使用Go语言编写，在主要的操作系统中都可以使用。</p>
+<h6 id="2-15-1-安装"><a href="#2-15-1-安装" class="headerlink" title="2.15.1 安装"></a>2.15.1 安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brew tap ethereum/erhereum</span><br><span class="line">brew install geth</span><br><span class="line"></span><br><span class="line">#ubuntu</span><br><span class="line">sudo apt-get install software-properties-commin</span><br><span class="line">sudo add-apt-repository -y ppa:etherum/ethereum</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ethereum</span><br></pre></td></tr></table></figure>
+<h5 id="2-15-2-JSON-RPC和JavaScript操作台"><a href="#2-15-2-JSON-RPC和JavaScript操作台" class="headerlink" title="2.15.2 JSON-RPC和JavaScript操作台"></a>2.15.2 JSON-RPC和JavaScript操作台</h5><p><a href="https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console</a><br>geth为其他应用提供了与其通信的JSON-RPC API geth使用HTTP、WebSocket和其他协议服务于JSON-RPC API</p>
+<p>JSON-RPC API分为：</p>
+<ul>
+<li>admin</li>
+<li>debug</li>
+<li>eth</li>
+<li>miner</li>
+<li>net</li>
+<li>personal</li>
+<li>shh</li>
+<li>txpool</li>
+<li>web3<br>等类型</li>
+</ul>
+<h6 id="2-15-3-子命令和选项"><a href="#2-15-3-子命令和选项" class="headerlink" title="2.15.3 子命令和选项"></a>2.15.3 子命令和选项</h6><ul>
+<li><p>连接至主网络</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir &apos;/usr/mnt/eth&apos; --networkid 1</span><br><span class="line"></span><br><span class="line">//--datadir 指定在哪里存储区块链默认路径[$HOME/.ethereum]</span><br><span class="line">//--networkid 指定网络ID 1代表主网络 2代表测试网络，默认为1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建私有网络</p>
+</li>
+</ul>
+<p>只需要给出一个随机网络ID即可。通常创建私有网络的目的是进行开发，可以简单使用–dev 标记运行一个私有网络</p>
+<h6 id="2-15-4-创建账户"><a href="#2-15-4-创建账户" class="headerlink" title="2.15.4 创建账户"></a>2.15.4 创建账户</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//创建新账户</span><br><span class="line">geth account new</span><br><span class="line">//获取用户所有列表,秘钥默认存储在--datadir路径中，可以使用--keystore选项指定一个不同的目录</span><br><span class="line">geth account list</span><br></pre></td></tr></table></figure>
+<ul>
+<li>挖矿</li>
+</ul>
+<p>默认geth不启动挖矿，提供–mine选项就可以进行挖矿，还有一些其他的参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--mine 开始挖矿</span><br><span class="line">--minerthreads 执行哈希过程中使用的线程总数，默认使用8个线程</span><br><span class="line">--etherbase 挖矿赚取的回报存入的地址</span><br><span class="line">#账户默认是加密的，所以要访问账户中的以太币，需要解锁。</span><br><span class="line">--unlock 解锁一个或者多个账户，使用逗号分隔地址可以提供多个地址</span><br><span class="line"></span><br><span class="line">geth --mine --minerthreads 16 --etherbase &apos;5415b18cd4802c5bc3ab0c28a40c2f840623a956&apos; --unlock &apos;5415b18cd4802c5bc3ab0c28a40c2f840623a956&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>快速同步</li>
+</ul>
+<p>不下载整个区块，只下载区块头、交易凭证和最新的状态数据库。</p>
+<p>为了检查区块链的真实性，该算法在每一个已定义的区块序号之后下载一个完整的区块<br>快速同步算法 <a href="https://github.com/ethereum/go-ethereum/pull/1889" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum/pull/1889</a></p>
+<p>在运行geth过程中使用–fast即可<br>fast sync只在初始同步时运行，在节点成功与网络同步之后，fast sync就永远禁用了</p>
+<h5 id="2-16-以太坊钱包"><a href="#2-16-以太坊钱包" class="headerlink" title="2.16 以太坊钱包"></a>2.16 以太坊钱包</h5><p>以太坊钱包使用IPC与geth通信，geth支持以文件为基础的IPC</p>
+<h5 id="2-17-浏览器钱包"><a href="#2-17-浏览器钱包" class="headerlink" title="2.17 浏览器钱包"></a>2.17 浏览器钱包</h5><p>浏览器钱包Mist是以太坊、Whisper和Swarm的一个客户端，允许用户发送交易、发送Whisper信息、检查区块链等</p>
+<h5 id="2-18-以太坊的缺点"><a href="#2-18-以太坊的缺点" class="headerlink" title="2.18 以太坊的缺点"></a>2.18 以太坊的缺点</h5><ul>
+<li><p>Sybil攻击</p>
+<blockquote>
+<p>攻击者视图用它控制的普通节点占满整个网络，用户很有可能只连接到攻击者节点，一旦连接到攻击值节点，攻击者可以拒绝所有节点转播区块和交易，从而将用户网络中断开，攻击者只能转播他创建的区块，从而会将用户放到分开的网络上。</p>
+</blockquote>
+</li>
+<li><p>51%攻击</p>
+<blockquote>
+<p>如果攻击者掌握了网络中一半以上的算力，他就可以比网络中的其他人更快生成区块，可以保留它的私有分叉，知道分叉比诚实网络创造的更长，然后广播自己的分叉<br>还可以重写交易，阻止一些交易被挖出，并阻止其他矿工挖出的区块被添加到区块链中。</p>
+</blockquote>
+<h5 id="2-19-serenity"><a href="#2-19-serenity" class="headerlink" title="2.19 serenity"></a>2.19 serenity</h5></li>
+</ul>
+<p>以太坊下一个主要更新的名字。这个更新将要求硬分叉，把共识协议改为casper，并将整合状态通道和分片。</p>
+<h5 id="2-20-总结"><a href="#2-20-总结" class="headerlink" title="2.20 总结"></a>2.20 总结</h5>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ether/" rel="tag"># Ether</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/09/beginning-c-nine/" rel="next" title="beginning-c-nine">
+                <i class="fa fa-chevron-left"></i> beginning-c-nine
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/03/coding-solidity/" rel="prev" title="（三）编写智能合约">
+                （三）编写智能合约 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Demor" />
+            
+              <p class="site-author-name" itemprop="name">Demor</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-以太坊概览"><span class="nav-number">1.</span> <span class="nav-text">2.1 以太坊概览</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-以太坊账户"><span class="nav-number">2.</span> <span class="nav-text">2.2 以太坊账户</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-交易"><span class="nav-number">3.</span> <span class="nav-text">2.3 交易</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-共识"><span class="nav-number">4.</span> <span class="nav-text">2.4 共识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-时间戳"><span class="nav-number">5.</span> <span class="nav-text">2.5 时间戳</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-随机数"><span class="nav-number">6.</span> <span class="nav-text">2.6 随机数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7-区块时间"><span class="nav-number">7.</span> <span class="nav-text">2.7 区块时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8-分叉"><span class="nav-number">8.</span> <span class="nav-text">2.8 分叉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-9-创世区块"><span class="nav-number">9.</span> <span class="nav-text">2.9 创世区块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-10-以太币面值"><span class="nav-number">10.</span> <span class="nav-text">2.10 以太币面值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-11-以太坊虚拟机"><span class="nav-number">11.</span> <span class="nav-text">2.11 以太坊虚拟机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-12-gas"><span class="nav-number">12.</span> <span class="nav-text">2.12 gas</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-13-发现对等节点"><span class="nav-number">13.</span> <span class="nav-text">2.13 发现对等节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-14-Whisper和Swarm"><span class="nav-number">14.</span> <span class="nav-text">2.14 Whisper和Swarm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-15-geth"><span class="nav-number">15.</span> <span class="nav-text">2.15 geth</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-15-1-安装"><span class="nav-number">15.1.</span> <span class="nav-text">2.15.1 安装</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-15-2-JSON-RPC和JavaScript操作台"><span class="nav-number">16.</span> <span class="nav-text">2.15.2 JSON-RPC和JavaScript操作台</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-15-3-子命令和选项"><span class="nav-number">16.1.</span> <span class="nav-text">2.15.3 子命令和选项</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-15-4-创建账户"><span class="nav-number">16.2.</span> <span class="nav-text">2.15.4 创建账户</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-16-以太坊钱包"><span class="nav-number">17.</span> <span class="nav-text">2.16 以太坊钱包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-17-浏览器钱包"><span class="nav-number">18.</span> <span class="nav-text">2.17 浏览器钱包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-18-以太坊的缺点"><span class="nav-number">19.</span> <span class="nav-text">2.18 以太坊的缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-19-serenity"><span class="nav-number">20.</span> <span class="nav-text">2.19 serenity</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-20-总结"><span class="nav-number">21.</span> <span class="nav-text">2.20 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demor</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

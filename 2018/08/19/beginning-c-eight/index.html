@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="English">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C,algorithm," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在一个函数中调用另一个函数，需要具备的条件如下：1、首先被调用的函数必须是已经存在的函数(库函数或者用户自己定义的函数)2、如果使用库函数，需要再本文件开头用#include命令调用有关函数库时所需要的信息包含到本文件中3、如果使用用户自己定义的函数，而该函数的位置在调用他的函数的后面，应该在主调用幻术中对被调用的函数作声明  12345678910111213141516#include &amp;l">
+<meta name="keywords" content="C,algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（八）函数">
+<meta property="og:url" content="http://zhyunfe.github.io/2018/08/19/beginning-c-eight/index.html">
+<meta property="og:site_name" content="Demor&#39;s Blog">
+<meta property="og:description" content="在一个函数中调用另一个函数，需要具备的条件如下：1、首先被调用的函数必须是已经存在的函数(库函数或者用户自己定义的函数)2、如果使用库函数，需要再本文件开头用#include命令调用有关函数库时所需要的信息包含到本文件中3、如果使用用户自己定义的函数，而该函数的位置在调用他的函数的后面，应该在主调用幻术中对被调用的函数作声明  12345678910111213141516#include &amp;l">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-08-19T12:47:57.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（八）函数">
+<meta name="twitter:description" content="在一个函数中调用另一个函数，需要具备的条件如下：1、首先被调用的函数必须是已经存在的函数(库函数或者用户自己定义的函数)2、如果使用库函数，需要再本文件开头用#include命令调用有关函数库时所需要的信息包含到本文件中3、如果使用用户自己定义的函数，而该函数的位置在调用他的函数的后面，应该在主调用幻术中对被调用的函数作声明  12345678910111213141516#include &amp;l">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhyunfe.github.io/2018/08/19/beginning-c-eight/"/>
+
+
+
+
+
+  <title>（八）函数 | Demor's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demor's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Keep Growing</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/beginning-c-eight/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">（八）函数</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T20:46:47+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《C语言程序设计》/" itemprop="url" rel="index">
+                    <span itemprop="name">《C语言程序设计》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在一个函数中调用另一个函数，需要具备的条件如下：<br>1、首先被调用的函数必须是已经存在的函数(库函数或者用户自己定义的函数)<br>2、如果使用库函数，需要再本文件开头用#include命令调用有关函数库时所需要的信息包含到本文件中<br>3、如果使用用户自己定义的函数，而该函数的位置在调用他的函数的后面，应该在主调用幻术中对被调用的函数作声明</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    float add（float x, float y）;//对函数add声明</span><br><span class="line">    float a,b,c;</span><br><span class="line">    scanf(&quot;%f,%f,%f&quot;,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    c = add(a,b);</span><br><span class="line">    printf(&quot;sum is %f\n&quot;,c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">float add(float x, float y)//函数首部</span><br><span class="line">&#123;</span><br><span class="line">    float z;                //函数体</span><br><span class="line">    z = x + y;</span><br><span class="line">    return(z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">类型标识符 函数名()</span><br><span class="line">&#123;</span><br><span class="line">    声明部分</span><br><span class="line">    语句部分</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int max(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">    int z;</span><br><span class="line">    z = x&gt;y ? x : y;</span><br><span class="line">    return(z);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//空函数</span><br><span class="line">void dummy()</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    float verage(float array[10]);</span><br><span class="line">    float score[10];aver;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">float average(float array[10])</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    float aver,sum = array[0];</span><br><span class="line">    for(i=1;i&lt;10;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += array[i];</span><br><span class="line">    &#125;</span><br><span class="line">    aver = sum/10;</span><br><span class="line">    return aver;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h4><h4 id="变量的存储类别"><a href="#变量的存储类别" class="headerlink" title="变量的存储类别"></a>变量的存储类别</h4><h5 id="动态存储方式与静态存储方式"><a href="#动态存储方式与静态存储方式" class="headerlink" title="动态存储方式与静态存储方式"></a>动态存储方式与静态存储方式</h5><blockquote>
+<p>全局变量全部存放在静态存储区中，在程序开始执行的时候给全局变量分配存储区，程序执行完就释放，在程序执行过程中他们占据固定的存储单元，而不是动态得进行分配和释放</p>
+</blockquote>
+<blockquote>
+<p>动态存储区中存放的数据有<br>1、函数形式参数，在调用函数时给形参分配空间<br>2、自动变量 为加staic生命的局部变量<br>3、函数调用时的现场保护和返回地址等</p>
+</blockquote>
+<h4 id="auto变量"><a href="#auto变量" class="headerlink" title="auto变量"></a>auto变量</h4><p>函数中的局部变量，如果不专门生命为static存储类别，都是动态的分配存储空间，数据存储在动态存储区中。因此这类局部变量称为自动变量，用关键字auto作存储类别的声明</p>
+<h4 id="static声明局部变量"><a href="#static声明局部变量" class="headerlink" title="static声明局部变量"></a>static声明局部变量</h4><p>如果希望函数中的局部变量的值在函数调用后不消失而保留原值，使其占用的存储单元不释放，在下一次该函数调用时，该变量已优质，就是上一次函数调用结束时的值，这时就应指该局部变量为静态局部变量，用static进行声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int f(int);</span><br><span class="line">    int a=2,i;</span><br><span class="line">    for(i=0;i&lt;3;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d&quot;,f(a));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int f(int a)</span><br><span class="line">&#123;</span><br><span class="line">    auto int b=0;</span><br><span class="line">    staic int c = 3;</span><br><span class="line">    b = b+1;</span><br><span class="line">    c = c+1;</span><br><span class="line">    return(a+b+c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="register变量"><a href="#register变量" class="headerlink" title="register变量"></a>register变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">寄存器变量</span><br><span class="line"></span><br><span class="line">一般情况下，变量的值是存放在内存中，当程序中用到哪一个变量的值时，由控制器发出指令将内存中该变量的值送到运算器中，经过运算器进行计算，如果需要村塾，再从运算器将数据送到内存中存放</span><br><span class="line"></span><br><span class="line">如果一些变量使用频繁，那么就浪费很多是按在运算器和内存的读取上，，为了提高效率，C语言允许将局部变量的值放在CPU的寄存其中，需要时直接从寄存器中取出参加运算，不必再到内存中去存取，由于寄存器的存取速度远高于内存的存取速度，因此可以提高执行效率</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main（）</span><br><span class="line">&#123;</span><br><span class="line">    long fac(long n);</span><br><span class="line">    long i,n;</span><br><span class="line">    scanf(&quot;%ld&quot;,&amp;n);</span><br><span class="line">    for(i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%ld\n&quot;,i,fac(i));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">long fac(long n)</span><br><span class="line">&#123;</span><br><span class="line">    register long i,f=1;</span><br><span class="line">    for(i=1;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        f=f*i;</span><br><span class="line">        return(f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>【注意】</p>
+<ul>
+<li>只有局部自动变量和形式参数可以作为寄存器变量，其他不行，在调用一个函数时占用一些寄存器以存放寄存器变量的值，函数调用结束释放寄存器，此后，在调用另一个函数时又可以利用他来存放该函数的寄存器变量</li>
+<li>一个计算机系统中的寄存器数目是有限的，不能定义任意多个寄存器变量</li>
+<li>局部静态变量不能定义为寄存器变量，不能写成 register static int a,b,c,不能把变量a,b,c既存放在静态存储中又存放在寄存器中，二者只能居其一</li>
+</ul>
+<h4 id="用extrn声明外部变量"><a href="#用extrn声明外部变量" class="headerlink" title="用extrn声明外部变量"></a>用extrn声明外部变量</h4><h4 id="用static声明外部变量"><a href="#用static声明外部变量" class="headerlink" title="用static声明外部变量"></a>用static声明外部变量</h4><h4 id="关于变量的声明和定义"><a href="#关于变量的声明和定义" class="headerlink" title="关于变量的声明和定义"></a>关于变量的声明和定义</h4><h4 id="存储类别小结"><a href="#存储类别小结" class="headerlink" title="存储类别小结"></a>存储类别小结</h4><h3 id="内部函数和外部函数"><a href="#内部函数和外部函数" class="headerlink" title="内部函数和外部函数"></a>内部函数和外部函数</h3><h4 id="内部函数"><a href="#内部函数" class="headerlink" title="内部函数"></a>内部函数</h4><p>如果一个函数只能被文件中其他函数使用，成为内部函数用static声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static int fun(int a, int b)</span><br></pre></td></tr></table></figure></p>
+<h4 id="外部函数"><a href="#外部函数" class="headerlink" title="外部函数"></a>外部函数</h4><p>如果在函数前添加了extern表示此函数是外部函数，可供其他文件调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extrn int fun(int a, int b);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/19/beginning-c-seven/" rel="next" title="（七）数组">
+                <i class="fa fa-chevron-left"></i> （七）数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/19/beginning-c-nine/" rel="prev" title="beginning-c-nine">
+                beginning-c-nine <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Demor" />
+            
+              <p class="site-author-name" itemprop="name">Demor</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#局部变量和全局变量"><span class="nav-number">1.</span> <span class="nav-text">局部变量和全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的存储类别"><span class="nav-number">2.</span> <span class="nav-text">变量的存储类别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态存储方式与静态存储方式"><span class="nav-number">2.1.</span> <span class="nav-text">动态存储方式与静态存储方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#auto变量"><span class="nav-number">3.</span> <span class="nav-text">auto变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static声明局部变量"><span class="nav-number">4.</span> <span class="nav-text">static声明局部变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#register变量"><span class="nav-number">4.1.</span> <span class="nav-text">register变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用extrn声明外部变量"><span class="nav-number">5.</span> <span class="nav-text">用extrn声明外部变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用static声明外部变量"><span class="nav-number">6.</span> <span class="nav-text">用static声明外部变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于变量的声明和定义"><span class="nav-number">7.</span> <span class="nav-text">关于变量的声明和定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储类别小结"><span class="nav-number">8.</span> <span class="nav-text">存储类别小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部函数和外部函数"><span class="nav-number"></span> <span class="nav-text">内部函数和外部函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部函数"><span class="nav-number">1.</span> <span class="nav-text">内部函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外部函数"><span class="nav-number">2.</span> <span class="nav-text">外部函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demor</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

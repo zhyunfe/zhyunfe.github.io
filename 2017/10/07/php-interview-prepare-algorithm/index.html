@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="English">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="algorithm," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="算法的概念一个问题可以有多种算法，每种算法都有不同的效率算法评定从时间复杂度和空间复杂度计算 时间复杂度和空间复杂度时间复杂度： 执行算法所需要的计算工作量，一般来说，计算机算法是问题规模N的函数f(n),算法的时间复杂度也因此记作T（n）= O(f(n)) 计算方式：  得出算法的计算次数 12345#1+2+3+4+...+nfor(i=1;i&amp;lt;=n; i++)&amp;#123;    $su">
+<meta name="keywords" content="algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法">
+<meta property="og:url" content="http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/index.html">
+<meta property="og:site_name" content="Demor&#39;s Blog">
+<meta property="og:description" content="算法的概念一个问题可以有多种算法，每种算法都有不同的效率算法评定从时间复杂度和空间复杂度计算 时间复杂度和空间复杂度时间复杂度： 执行算法所需要的计算工作量，一般来说，计算机算法是问题规模N的函数f(n),算法的时间复杂度也因此记作T（n）= O(f(n)) 计算方式：  得出算法的计算次数 12345#1+2+3+4+...+nfor(i=1;i&amp;lt;=n; i++)&amp;#123;    $su">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-08-19T13:51:01.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法">
+<meta name="twitter:description" content="算法的概念一个问题可以有多种算法，每种算法都有不同的效率算法评定从时间复杂度和空间复杂度计算 时间复杂度和空间复杂度时间复杂度： 执行算法所需要的计算工作量，一般来说，计算机算法是问题规模N的函数f(n),算法的时间复杂度也因此记作T（n）= O(f(n)) 计算方式：  得出算法的计算次数 12345#1+2+3+4+...+nfor(i=1;i&amp;lt;=n; i++)&amp;#123;    $su">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/"/>
+
+
+
+
+
+  <title>算法 | Demor's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demor's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Keep Growing</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">算法</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-07T21:14:02+08:00">
+                2017-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Interview-Prepare/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview Prepare</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="算法的概念"><a href="#算法的概念" class="headerlink" title="算法的概念"></a>算法的概念</h4><p>一个问题可以有多种算法，每种算法都有不同的效率<br>算法评定从时间复杂度和空间复杂度计算</p>
+<h4 id="时间复杂度和空间复杂度"><a href="#时间复杂度和空间复杂度" class="headerlink" title="时间复杂度和空间复杂度"></a>时间复杂度和空间复杂度</h4><p><strong>时间复杂度：</strong> 执行算法所需要的计算工作量，一般来说，计算机算法是问题规模N的函数f(n),算法的时间复杂度也因此记作T（n）= O(f(n))</p>
+<p>计算方式：</p>
+<ul>
+<li><p>得出算法的计算次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#1+2+3+4+...+n</span><br><span class="line">for(i=1;i&lt;=n; i++)&#123;</span><br><span class="line">    $sum += i;</span><br><span class="line">&#125;</span><br><span class="line">#总共循环了n次，所以时间复杂度为O(n)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用常数1来取代所有时间中的加法常数</p>
+</li>
+<li>在修改后的运行次数函数中，只保留最高阶</li>
+<li>如果最高阶存在且不是1，则去除与这个数相乘的常数<blockquote>
+<p>举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function test($n) &#123;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">&#125;</span><br><span class="line">#计算3次，O(3)--记作-&gt;O(1)</span><br><span class="line"></span><br><span class="line">for($i = 1; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    for ($j = 1;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#n * n 次 时间复杂度为O(n^2)</span><br><span class="line"></span><br><span class="line">for($i = 1; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    for ($j = 1;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">for () &#123;</span><br><span class="line">    n次</span><br><span class="line">&#125;</span><br><span class="line">echo $a + b </span><br><span class="line">#n^2 + n + 1 ---&gt;忽略 --&gt; O(n^2)</span><br><span class="line"></span><br><span class="line">while($n&gt;=1) &#123;</span><br><span class="line">    $n = $n/2;</span><br><span class="line">&#125;</span><br><span class="line">#n执行次数</span><br><span class="line"></span><br><span class="line">n/(2^m) = 1</span><br><span class="line">#m = log2n,所以时间复杂度O(log2n)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>效率排名：O(1)&gt;O(log2n)&gt;O(n)&gt;O(nlog2n)&gt;O(n^2) &gt; O(n^3) &gt; O(2^n) &gt; O(n!) &gt; O(n^n)</p>
+<p>最坏的情况：最坏情况时的运行时间，一种保证，如果没有特别说明，说明时间复杂度为最坏的时间复杂度</p>
+<p><strong>空间复杂度</strong></p>
+<p>S(n) = O(f(n)),算法需要消耗的内存空间</p>
+<p>包括程序代码、输入数据、辅助变量所占用的空间</p>
+<p><em>计算方式：</em></p>
+<p>有时用空间换取时间<br>冒泡排序的元素交换，空间复杂度就是O(1)</p>
+<h4 id="常见排序算法"><a href="#常见排序算法" class="headerlink" title="常见排序算法"></a>常见排序算法</h4><p>冒泡排序、直接排序、希尔、选择、快速、堆、归并排序</p>
+<ul>
+<li>冒泡排序<blockquote>
+<p>原理：两两相邻的数进行比较，如果反序就交换，否则不交换</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度：最坏O(n^2),空间复杂度O(1)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#m冒泡排序</span><br><span class="line">1,3,2,4,6,5</span><br><span class="line">1,3,2,4,6,5</span><br><span class="line">1,2,3,4,6,5</span><br><span class="line">1,2,3,4,6,5</span><br><span class="line">1,2,3,4,5,6</span><br><span class="line"></span><br><span class="line">for ($i=0;$c = count($arr);$i&lt;$c;$i++)&#123;</span><br><span class="line">    for($j=0;$j&lt;$c;$j++) &#123;</span><br><span class="line">        $arr[$j] = $arr[$j+1];</span><br><span class="line">        $temp = $arr[$j];</span><br><span class="line">        if ($arr[$j] &gt; $arr[$j+1]) &#123;</span><br><span class="line">          $arr[$j+1] = $temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>直接插入排序<blockquote>
+<p>原理：每次从无序表中取出一个元素，把它插入到有序表的合适的位置，使有序表依然有序</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度O(n^2),空间复杂度O(1)</p>
+</blockquote>
+<ul>
+<li>希尔排序<blockquote>
+<p>把待排序的数据很具增量分成几个子序列，对子序列进行插入排序，直到增量为1，直接进行插入排序；增量的排序一般是数组长度的一半，再变为原来增量的一般，知道增量为1</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度O(n^2)空间复杂度O(1)</p>
+</blockquote>
+<ul>
+<li>选择排序<blockquote>
+<p>每次从待排序的数据元素中选出最小(或最大)的一个元素，存放在序列的起始位置，直到全部待排序的数据元素排完</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度 O(n^2),空间复杂度O(1)</p>
+</blockquote>
+<ul>
+<li>快速排序<blockquote>
+<p>通过一趟排序将要排序的数据分割成独立的两个部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按照此方法对这两个部分数据进行快速排序，整个排序过程可以递归完成</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度为最差O(n^2)平均O(nlog2n)<br>空间复杂度为O(n)，平均O(nlog2n)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">function swap(array &amp;$arr,$a,$b)&#123;</span><br><span class="line">    $temp = $arr[$a];</span><br><span class="line">    $arr[$a] = $arr[$b];</span><br><span class="line">    $arr[$b] = $temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Partition(array &amp;$arr,$low,$high)&#123;</span><br><span class="line">    $pivot = $arr[$low];   //选取子数组第一个元素作为枢轴</span><br><span class="line">    while($low &lt; $high)&#123;  //从数组的两端交替向中间扫描</span><br><span class="line">        while($low &lt; $high &amp;&amp; $arr[$high] &gt;= $pivot)&#123;</span><br><span class="line">            $high --;</span><br><span class="line">        &#125;</span><br><span class="line">        swap($arr,$low,$high);	//终于遇到一个比$pivot小的数，将其放到数组低端</span><br><span class="line">        while($low &lt; $high &amp;&amp; $arr[$low] &lt;= $pivot)&#123;</span><br><span class="line">            $low ++;</span><br><span class="line">        &#125;</span><br><span class="line">        swap($arr,$low,$high);	//终于遇到一个比$pivot大的数，将其放到数组高端</span><br><span class="line">    &#125;</span><br><span class="line">    return $low;   //返回high也行，毕竟最后low和high都是停留在pivot下标处</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function QSort(array &amp;$arr,$low,$high)&#123;</span><br><span class="line">    if($low &lt; $high)&#123;</span><br><span class="line">        $pivot = Partition($arr,$low,$high);  //将$arr[$low...$high]一分为二，算出枢轴值</span><br><span class="line">        QSort($arr,$low,$pivot - 1);   //对低子表进行递归排序</span><br><span class="line">        QSort($arr,$pivot + 1,$high);  //对高子表进行递归排序</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function QuickSort(array &amp;$arr)&#123;</span><br><span class="line">    $low = 0;</span><br><span class="line">    $high = count($arr) - 1;</span><br><span class="line">    QSort($arr,$low,$high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>堆排序<blockquote>
+<p>把待排序的元素按照大小在二叉树位置上排序，排序好的元素要满足：父节点的元素要大于等于子节点；这个过程叫做堆化过程，如果根节点存放的是最大的数，则叫做大跟堆，如果是最小，就叫小根堆，可以把节点拿出来，然后再堆化，循环到最后一个节点</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度：O(nlog2n)<br>空间复杂度：O(1)</p>
+</blockquote>
+<ul>
+<li>归并排序<blockquote>
+<p>将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个有序的子序列，再把有序的子序列合并为整体有序序列</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度O(nlog2n)<br>空间复杂度O(n)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">//交换函数</span><br><span class="line">function swap(array $arr,$a,$b) &#123;</span><br><span class="line">    $temp = $arr[$a];</span><br><span class="line">    $arr[$a] = $arr[$b];</span><br><span class="line">    $arr[$b = $temp];</span><br><span class="line">&#125;</span><br><span class="line">//归并算法总函数</span><br><span class="line">function mergeSort(array $arr) &#123;</span><br><span class="line">    $start = 0;</span><br><span class="line">    $end = count($arr) - 1;</span><br><span class="line">    Msort($arr,$start,$end);</span><br><span class="line">&#125;</span><br><span class="line">functin Msort(array &amp;$arr,$start,$end) &#123;</span><br><span class="line">    //当子序列长度为1时，$start == $end,不再分组</span><br><span class="line">    if ($start &lt; $end) &#123;</span><br><span class="line">        $mid = floor(($start + $end) / 2);//将 $arr 平分为 $arr[$start - $mid] 和 $arr[$mid+1 - $end]</span><br><span class="line">        MSort($arr,$start,$mid);//将 $arr[$start - $mid] 归并为有序的$arr[$start - $mid]</span><br><span class="line">        MSort($arr,$mid + 1,$end);//将 $arr[$mid+1 - $end] 归并为有序的 $arr[$mid+1 - $end]</span><br><span class="line">        Merge($arr,$start,$mid,$end); //将$arr[$start - $mid]部分和$arr[$mid+1 - $end]部分合并起来成为有序的$arr[$start - $end]</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//归并操作</span><br><span class="line">function Merge(array &amp;$arr,$start,$mid,$end)&#123;</span><br><span class="line">    $i = $start;</span><br><span class="line">    $j=$mid + 1;</span><br><span class="line">    $k = $start;</span><br><span class="line">    $temparr = array();</span><br><span class="line"></span><br><span class="line">    while($i!=$mid+1 &amp;&amp; $j!=$end+1)</span><br><span class="line">    &#123;</span><br><span class="line">       if($arr[$i] &gt;= $arr[$j])&#123;</span><br><span class="line">           $temparr[$k++] = $arr[$j++];</span><br><span class="line">       &#125;</span><br><span class="line">       else&#123;</span><br><span class="line">           $temparr[$k++] = $arr[$i++];</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //将第一个子序列的剩余部分添加到已经排好序的 $temparr 数组中</span><br><span class="line">    while($i != $mid+1)&#123;</span><br><span class="line">        $temparr[$k++] = $arr[$i++];</span><br><span class="line">    &#125;</span><br><span class="line">    //将第二个子序列的剩余部分添加到已经排好序的 $temparr 数组中</span><br><span class="line">    while($j != $end+1)&#123;</span><br><span class="line">        $temparr[$k++] = $arr[$j++];</span><br><span class="line">    &#125;</span><br><span class="line">    for($i=$start; $i&lt;=$end; $i++)&#123;</span><br><span class="line">        $arr[$i] = $temparr[$i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="常见查找算法"><a href="#常见查找算法" class="headerlink" title="常见查找算法"></a>常见查找算法</h4><ul>
+<li>二分查找<blockquote>
+<p>从数组的中间元素开始，如果中间元素正好是要查找的元素，搜索结束，如果某一个特定元素大于或者小于中间元素，则在数组大于或者小于中间元素的一半中查找</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度最差O（log2n）空间复杂度迭代o(1),递归O（nlog2n）</p>
+</blockquote>
+<ul>
+<li>顺序查找<blockquote>
+<p>按一定的顺序检查数组中的每一个元素，直到找到所要寻找的特定值为止</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>时间复杂度：O(n) 空间复杂度O(1)</p>
+</blockquote>
+<h4 id="其他算法"><a href="#其他算法" class="headerlink" title="其他算法"></a>其他算法</h4><blockquote>
+<p>1,1,2,3,5,8,13,21,34…第30位是多少？使用伪代码描述其实现方法。 伪代码就是文字描述就可以</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$arr = [1,1];</span><br><span class="line">for ($i=2;$i&lt;30;$i++) &#123;</span><br><span class="line">    $arr[$i] = $arr[$i-1] + $arr[$i-2];</span><br><span class="line">&#125;</span><br><span class="line">var_dump($arr);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/06/php-interview-prepare-php/" rel="next" title="谈谈对MVC工作原理的认识和常见的MVC框架">
+                <i class="fa fa-chevron-left"></i> 谈谈对MVC工作原理的认识和常见的MVC框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/02/beginning-c-one/" rel="prev" title="（一）C语言概述">
+                （一）C语言概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Demor" />
+            
+              <p class="site-author-name" itemprop="name">Demor</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法的概念"><span class="nav-number">1.</span> <span class="nav-text">算法的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度和空间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度和空间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见排序算法"><span class="nav-number">3.</span> <span class="nav-text">常见排序算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见查找算法"><span class="nav-number">4.</span> <span class="nav-text">常见查找算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他算法"><span class="nav-number">5.</span> <span class="nav-text">其他算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demor</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
