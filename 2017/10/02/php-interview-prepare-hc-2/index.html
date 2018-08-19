@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="数据库缓存相关概念  什么是数据库缓存？ 为什么使用缓存 使用MySQL查询缓存 使用Memcache缓存 使用Redis缓存  什么是数据库缓存 Mysql等一些常见的关系型数据库的数据都存储在磁盘中，在高并发场景下，业务应用对mysql产生的增删改查的操作造成巨大的I/O开销和查询压力，这无疑对数据库和服务器都是一种巨大的压力，为了解决此类问题，缓存数据的概念应运而生  数据库缓存极大的解决数">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-08-19T14:38:11.544Z">
+<meta property="og:updated_time" content="2018-08-19T15:30:49.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP如何解决网站大流量与高并发的问题（二）">
 <meta name="twitter:description" content="数据库缓存相关概念  什么是数据库缓存？ 为什么使用缓存 使用MySQL查询缓存 使用Memcache缓存 使用Redis缓存  什么是数据库缓存 Mysql等一些常见的关系型数据库的数据都存储在磁盘中，在高并发场景下，业务应用对mysql产生的增删改查的操作造成巨大的I/O开销和查询压力，这无疑对数据库和服务器都是一种巨大的压力，为了解决此类问题，缓存数据的概念应运而生  数据库缓存极大的解决数">
@@ -232,9 +232,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -376,7 +414,7 @@
 <p><strong>缓存数据的实时性</strong></p>
 <p><strong>缓存数据的稳定性</strong></p>
 <a id="more"></a>
-<h4 id="MySQL查询缓存"><a href="#MySQL查询缓存" class="headerlink" title="MySQL查询缓存"></a>MySQL查询缓存</h4><p>启用mysql查询缓存：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">query_cache_type</span><br><span class="line">#查询缓存类型有0，1，2三个取值。0表示不使用缓存，1表示始终使用查询缓存，2表示按需使用查询缓存</span><br><span class="line"></span><br><span class="line">query_cache_type = 1</span><br><span class="line">#此时也可以关闭查询缓存</span><br><span class="line">select sql_no_cache * from table where condition;</span><br><span class="line"></span><br><span class="line">query_cache_type = 2</span><br><span class="line"># 按需查询缓存</span><br><span class="line">select sql_cache * from table where condition</span><br><span class="line"></span><br><span class="line">query_cache_size</span><br><span class="line">#默认情况下的query_cache_size为0，表示为查询缓存预留的内存位0，则无法使用查询缓存</span><br><span class="line"></span><br><span class="line">set global query_cache_size = 133443344;</span><br><span class="line"># 设置query_cache_size的大小</span><br></pre></td></tr></table></figure></p>
+<h4 id="MySQL查询缓存"><a href="#MySQL查询缓存" class="headerlink" title="MySQL查询缓存"></a>MySQL查询缓存</h4><p>启用mysql查询缓存：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">query_cache_type</span><br><span class="line"><span class="meta">#</span>查询缓存类型有0，1，2三个取值。0表示不使用缓存，1表示始终使用查询缓存，2表示按需使用查询缓存</span><br><span class="line"></span><br><span class="line">query_cache_type = 1</span><br><span class="line"><span class="meta">#</span>此时也可以关闭查询缓存</span><br><span class="line">select sql_no_cache * from table where condition;</span><br><span class="line"></span><br><span class="line">query_cache_type = 2</span><br><span class="line"><span class="meta">#</span> 按需查询缓存</span><br><span class="line">select sql_cache * from table where condition</span><br><span class="line"></span><br><span class="line">query_cache_size</span><br><span class="line"><span class="meta">#</span>默认情况下的query_cache_size为0，表示为查询缓存预留的内存位0，则无法使用查询缓存</span><br><span class="line"></span><br><span class="line">set global query_cache_size = 133443344;</span><br><span class="line"><span class="meta">#</span> 设置query_cache_size的大小</span><br></pre></td></tr></table></figure></p>
 <p>查询缓存可以看做是sql文本和查询结构的映射</p>
 <p>第二次查询的sql和第一次查询的sql必须完全相同才会使用缓存</p>
 <p>show status like ‘Qcache_hits’ 查看命中次数</p>
@@ -591,7 +629,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -602,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -655,7 +693,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -829,6 +867,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
