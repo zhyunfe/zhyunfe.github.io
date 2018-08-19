@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MySQL," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Demor Zhao,PHP developer">
-<meta name="keywords" content="zhyunfe,demor,PHP,Solidity,C,Python,PAI,Dapp">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Demor&#39;s Blog">
-<meta property="og:url" content="http://zhyunfe.github.io/archives/2018/08/index.html">
+<meta name="description" content="MySQL 慢查询的相关参数解释： slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。 log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL慢查询">
+<meta property="og:url" content="http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/index.html">
 <meta property="og:site_name" content="Demor&#39;s Blog">
-<meta property="og:description" content="Demor Zhao,PHP developer">
+<meta property="og:description" content="MySQL 慢查询的相关参数解释： slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。 log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-08-19T14:49:16.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Demor&#39;s Blog">
-<meta name="twitter:description" content="Demor Zhao,PHP developer">
+<meta name="twitter:title" content="MySQL慢查询">
+<meta name="twitter:description" content="MySQL 慢查询的相关参数解释： slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。 log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://zhyunfe.github.io/archives/2018/08/"/>
+  <link rel="canonical" href="http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/"/>
 
 
 
 
 
-  <title>Archive | Demor's Blog</title>
+  <title>MySQL慢查询 | Demor's Blog</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,147 +249,204 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 32 posts in total. Keep on posting.
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h2 class="post-title" itemprop="name headline">MySQL慢查询</h2>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T22:12:15+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-three/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">（三）目标文件里有什么</span>
+                <span class="post-meta-item-text">In</span>
               
-            </a>
-        
-      </h3>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-19T19:22:49+08:00"
-              content="2018-08-19" >
-          08-19
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
 
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-two/" itemprop="url">
-              
-                <span itemprop="name">（二）静态链接</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-19T19:21:20+08:00"
-              content="2018-08-19" >
-          08-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/19/self-contivation-of-progammers-one/" itemprop="url">
-              
-                <span itemprop="name">（一）程序员的自我修养</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-19T19:17:51+08:00"
-              content="2018-08-19" >
-          08-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
+        <p>MySQL 慢查询的相关参数解释：</p>
+<p>slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。</p>
+<p>log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>long_query_time ：慢查询阈值，当查询时间多于设定的阈值时，记录日志。</p>
+<p>log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。</p>
+<p>log_output：日志存储方式。log_output=’FILE’表示将日志存入文件，默认值是’FILE’。log_output=’TABLE’表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=’FILE,TABLE’。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需要能够获得更高的系统性能，那么建议优先记录到文件。</p>
+<pre><code>//查看是否开启慢查询，默认为OFF
+mysql&gt; show variables  like &apos;%slow_query_log%&apos;;
+//开启慢查询(仅对当前一次有效，重启后就失效了)
+mysql&gt; set global slow_query_log = 1;
+//修改慢查询记录触发时间为4秒，默认为10秒
+mysql&gt; set global long_query_time = 4;
 
+//修改my.cnf文件修改参数永久有效
+在my.cnf文件里增加
+//开启慢查询
+slow_query_log =1
+//指定慢查询日志文件
+slow_query_log_file=/tmp/mysql_slow.log
+//设置慢查询记录时间
+long_query_time = 4
+
+系统变量log-queries-not-using-indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。如果调优的话，建议开启这个选项。另外，开启了这个参数，其实使用full index scan的sql也会被记录到慢查询日志。
+set global log_queries_not_using_indexes=1;
+
+
+
+慢查询日志分析工具
+mysqldumpslow 日志文件路径
+
+mysqldumpslow /usr/local/var/mysql/Demoer-slow.log
+</code></pre>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/06/skills-nginx-504/" rel="next" title="Nginx 504解决方案">
+                <i class="fa fa-chevron-left"></i> Nginx 504解决方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/09/skills-nginx-vip/" rel="prev" title="Linux设置VIP">
+                Linux设置VIP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -396,6 +454,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -621,6 +683,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
