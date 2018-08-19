@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="3.1 C语言的数据类型 基本类型  整形、字符型、浮点型(单精度型、双精度型)、枚举类型 构造类型  数组类型、结构体类型、共用体类型 指针类型 空类型  3.2 常量与变量3.2.1 常量和符号常量12# define PRICE 30# include &amp;lt;stdio.h&amp;gt; 3.2.2 变量变量代表内存中具有特定属性的一个存储单元，用来存放数据，也就是变量的值 在对程序年一连接时由">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-08-19T15:23:52.327Z">
+<meta property="og:updated_time" content="2018-08-19T14:38:11.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（三）数据类型、运算符与表达式">
 <meta name="twitter:description" content="3.1 C语言的数据类型 基本类型  整形、字符型、浮点型(单精度型、双精度型)、枚举类型 构造类型  数组类型、结构体类型、共用体类型 指针类型 空类型  3.2 常量与变量3.2.1 常量和符号常量12# define PRICE 30# include &amp;lt;stdio.h&amp;gt; 3.2.2 变量变量代表内存中具有特定属性的一个存储单元，用来存放数据，也就是变量的值 在对程序年一连接时由">
@@ -232,47 +232,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -430,10 +392,10 @@
 <p>short型都是16位<br>long型为32位<br>int型既可以是16位也可以是32位</p>
 <ul>
 <li><p>整型变量的定义</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a,b;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> c,d;</span><br><span class="line"><span class="keyword">long</span> e,f;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a,b;</span><br><span class="line">unsigned short c,d;</span><br><span class="line">long e,f;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>整型数据溢出</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">short</span> <span class="keyword">int</span> b;<span class="comment">//-32767 ~ 32767 </span></span><br><span class="line">    a = <span class="number">32767</span>;<span class="comment">//0111111111111111</span></span><br><span class="line">    b = a + <span class="number">1</span>;<span class="comment">//1000000000000000</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%d\n"</span>, a, b)<span class="comment">// 32767 -32768</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int a;</span><br><span class="line">    short int b;//-32767 ~ 32767 </span><br><span class="line">    a = 32767;//0111111111111111</span><br><span class="line">    b = a + 1;//1000000000000000</span><br><span class="line">    printf(&quot;%d,%d\n&quot;, a, b)// 32767 -32768</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="3-3-3-整型常量的类型"><a href="#3-3-3-整型常量的类型" class="headerlink" title="3.3.3 整型常量的类型"></a>3.3.3 整型常量的类型</h4><p>整型变量分为int,short int, long int,unsigned intm unsigned short, unsigned long</p>
@@ -455,15 +417,15 @@
 </li>
 <li>多少位表示小数部分，多少位标书指数部分无具体规定，由c语言编译系统自定，不少以24位表示小数部分，8为表示指数部分，小数部分bit越多，数的有效数字越多，精度也就越高。指数部分占的越多，表示数值范围越大</li>
 <li>浮点型变量的分类<br>  单精度 float            32位    6~7位有效数<br>  双精度 double           64位    15~16 位<br>  长双精度 long double    128位   18~19 位</li>
-<li>浮点类型数据的舍入误差<br>  print函数中%f 是输出浮点数时指定的格式符，作用是指定该实数以小数形式输出<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a,b;</span><br><span class="line">    a = <span class="number">123456.789e5</span>;</span><br><span class="line">    b = <span class="number">20</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%f\n"</span>,b);<span class="comment">//12345678848.00000</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    程序运行时输出b的值与a相等，a的值笔20大很多，a+20的理论只应该是12345678920，而一个浮点类型变量只能保证的有效数字是7位，后面的数字是无意义的，因此并不准确表示该数</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    应当避免将一个很大的数和一个很小的数直接相加或相减，否则就会丢失小数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>浮点类型数据的舍入误差<br>  print函数中%f 是输出浮点数时指定的格式符，作用是指定该实数以小数形式输出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    float a,b;</span><br><span class="line">    a = 123456.789e5;</span><br><span class="line">    b = 20;</span><br><span class="line">    printf(&quot;%f\n&quot;,b);//12345678848.00000</span><br><span class="line">    /*</span><br><span class="line">    程序运行时输出b的值与a相等，a的值笔20大很多，a+20的理论只应该是12345678920，而一个浮点类型变量只能保证的有效数字是7位，后面的数字是无意义的，因此并不准确表示该数</span><br><span class="line">    </span><br><span class="line">    应当避免将一个很大的数和一个很小的数直接相加或相减，否则就会丢失小数</span><br><span class="line">    */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="3-4-3-浮点型常量的类型"><a href="#3-4-3-浮点型常量的类型" class="headerlink" title="3.4.3 浮点型常量的类型"></a>3.4.3 浮点型常量的类型</h4><p>C语言编译系统将浮点型常量作为双精度来处理。</p>
 <h3 id="3-5-字符型数据"><a href="#3-5-字符型数据" class="headerlink" title="3.5 字符型数据"></a>3.5 字符型数据</h3><h4 id="3-5-1-字符常量"><a href="#3-5-1-字符常量" class="headerlink" title="3.5.1 字符常量"></a>3.5.1 字符常量</h4><p>C语言的字符常量是用单引号括起来的一个字符’a’,’x’,’D’,’?’,’$’</p>
 <p>C允许使用一种特殊形式的字符常量，以\开头</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\n -&gt; 换行</span><br><span class="line">\t -&gt; tab</span><br><span class="line">\b -&gt; 退格</span><br><span class="line">\r -&gt; 回车</span><br><span class="line">\f -&gt; 换页</span><br><span class="line">\\ -&gt; \</span><br><span class="line">\' -&gt; '</span><br><span class="line">\'' -&gt; ''</span><br></pre></td></tr></table></figure>
-<p>字符变量定义<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c1,c2;</span><br><span class="line">c1 = <span class="string">'a'</span>;</span><br><span class="line">c2 = <span class="string">'b'</span>;</span><br><span class="line">printf('%c', c1);// a</span><br><span class="line">printf('%d', c1);// 97</span><br></pre></td></tr></table></figure></p>
-<p>大小写字符转换<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c1,c2;</span><br><span class="line">    c1 = <span class="string">'a'</span>;</span><br><span class="line">    c2 = <span class="string">'b'</span>;</span><br><span class="line">    c1 = c1 - <span class="number">32</span>;</span><br><span class="line">    c2 = c2 - <span class="number">32</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c %c"</span>, c1,c2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\n -&gt; 换行</span><br><span class="line">\t -&gt; tab</span><br><span class="line">\b -&gt; 退格</span><br><span class="line">\r -&gt; 回车</span><br><span class="line">\f -&gt; 换页</span><br><span class="line">\\ -&gt; \</span><br><span class="line">\&apos; -&gt; &apos;</span><br><span class="line">\&apos;&apos; -&gt; &apos;&apos;</span><br></pre></td></tr></table></figure>
+<p>字符变量定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">char c1,c2;</span><br><span class="line">c1 = &apos;a&apos;;</span><br><span class="line">c2 = &apos;b&apos;;</span><br><span class="line">printf(&apos;%c&apos;, c1);// a</span><br><span class="line">printf(&apos;%d&apos;, c1);// 97</span><br></pre></td></tr></table></figure></p>
+<p>大小写字符转换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    char c1,c2;</span><br><span class="line">    c1 = &apos;a&apos;;</span><br><span class="line">    c2 = &apos;b&apos;;</span><br><span class="line">    c1 = c1 - 32;</span><br><span class="line">    c2 = c2 - 32;</span><br><span class="line">    printf(&quot;%c %c&quot;, c1,c2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="3-5-4字符串常量"><a href="#3-5-4字符串常量" class="headerlink" title="3.5.4字符串常量"></a>3.5.4字符串常量</h4><p>字符串常量是双引号引起来的字符序列</p>
 <p>“how do you do”</p>
 <p>不能把一个字符串常量赋给</p>
@@ -606,7 +568,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -617,7 +579,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -670,7 +632,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -844,19 +806,6 @@
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

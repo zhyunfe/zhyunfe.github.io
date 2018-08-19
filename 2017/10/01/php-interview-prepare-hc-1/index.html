@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PHP,Nginx,Cache,High Concurrency," />
+  <meta name="keywords" content="Nginx,Cache,PHP,High Concurrency," />
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="高并发的相关概念在某个时间点，有多少个访问量 如果一个系统的日PV在千万以上，有可能是一个高并发的系统 QPS: 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求) 吞吐量: 单位时间处理的请求数量 响应时间: 从请求发出到收到相应花费的时间 PV: 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量 UV: 独立访客unique">
-<meta name="keywords" content="PHP,Nginx,Cache,High Concurrency">
+<meta name="keywords" content="Nginx,Cache,PHP,High Concurrency">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP如何解决网站大流量与高并发的问题（一）">
 <meta property="og:url" content="http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/index.html">
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="高并发的相关概念在某个时间点，有多少个访问量 如果一个系统的日PV在千万以上，有可能是一个高并发的系统 QPS: 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求) 吞吐量: 单位时间处理的请求数量 响应时间: 从请求发出到收到相应花费的时间 PV: 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量 UV: 独立访客unique">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-08-19T15:30:49.512Z">
+<meta property="og:updated_time" content="2018-08-19T13:51:01.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP如何解决网站大流量与高并发的问题（一）">
 <meta name="twitter:description" content="高并发的相关概念在某个时间点，有多少个访问量 如果一个系统的日PV在千万以上，有可能是一个高并发的系统 QPS: 每秒钟请求或者查询的数量，在互联网领域，指每秒相应请求数(指HTTP请求) 吞吐量: 单位时间处理的请求数量 响应时间: 从请求发出到收到相应花费的时间 PV: 综合浏览量 page view 页面浏览量或者点击量，一个访客在24小时之内的浏览量或者点击量 UV: 独立访客unique">
@@ -232,47 +232,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -469,13 +431,13 @@
 <p>none 代表为空时</p>
 <p>blocked 代表来源头部不为空，但是里面的值被防火墙删除</p>
 <p>server_names  代表信任的地址</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    valid_referers none blocked immoc.com *.imooc.com</span><br><span class="line">    </span><br><span class="line">    #如果有不允许的访问，$invalid_referer 为1 ，重定向到错误页面</span><br><span class="line">    if($invalid_referer) &#123;</span><br><span class="line">        #return 403</span><br><span class="line">        rewrite ^/ http://www.imooc.com/403.jpg</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    valid_referers none blocked immoc.com *.imooc.com</span><br><span class="line">    </span><br><span class="line">    #如果有不允许的访问，$invalid_referer 为1 ，重定向到错误页面</span><br><span class="line">    if($invalid_referer) &#123;</span><br><span class="line">        #return 403</span><br><span class="line">        rewrite ^/ http://www.imooc.com/403.jpg</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>加密签名。使用第三方模块HttpAccessKeyModule实现Nginx防盗链</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">accesskey on|off 模块开关</span><br><span class="line"></span><br><span class="line">accesskey_hashmethod md5 | sha-1签名加密方式</span><br><span class="line"></span><br><span class="line">accesskey_arg GET参数名称呢</span><br><span class="line"></span><br><span class="line">accesskey_signature加密规则</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    accesskey on;</span><br><span class="line">    #加密方式</span><br><span class="line">    accesskey_hashmethod md5;</span><br><span class="line">    #获取参数的键</span><br><span class="line">    accesskey_arg sign;</span><br><span class="line">    #签名规则</span><br><span class="line">    accesskey_signatur 'jason$remoe_addr';</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//md5(jason.ip)</span></span><br><span class="line"><span class="comment">//PHP中的加密规则</span></span><br><span class="line">$sign = md5(<span class="string">'jason'</span>.$_SERVER[<span class="string">'REMOTE_ADDR'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;img src = './logo.img?sign='.$sign.'&gt;"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">accesskey on|off 模块开关</span><br><span class="line"></span><br><span class="line">accesskey_hashmethod md5 | sha-1签名加密方式</span><br><span class="line"></span><br><span class="line">accesskey_arg GET参数名称呢</span><br><span class="line"></span><br><span class="line">accesskey_signature加密规则</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    accesskey on;</span><br><span class="line">    #加密方式</span><br><span class="line">    accesskey_hashmethod md5;</span><br><span class="line">    #获取参数的键</span><br><span class="line">    accesskey_arg sign;</span><br><span class="line">    #签名规则</span><br><span class="line">    accesskey_signatur &apos;jason$remoe_addr&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//md5(jason.ip)</span><br><span class="line">//PHP中的加密规则</span><br><span class="line">$sign = md5(&apos;jason&apos;.$_SERVER[&apos;REMOTE_ADDR&apos;]);</span><br><span class="line"></span><br><span class="line">echo &quot;&lt;img src = &apos;./logo.img?sign=&apos;.$sign.&apos;&gt;&quot;</span><br></pre></td></tr></table></figure>
 <p>####减少HTTP的请求</p>
 <p>性能黄金法则：只有10%-20%的最终用户响应时间花在接受请求的HTML上，剩下的80%-90%时间花在HTML文档所引用的js,css等组件上</p>
 <p>如何改善：改善相应时间的最简单的途径就是减少组件的数量，并由此减少HTTP的请求量</p>
@@ -488,7 +450,7 @@
 <h4 id="减少HTTP请求的方式"><a href="#减少HTTP请求的方式" class="headerlink" title="减少HTTP请求的方式"></a>减少HTTP请求的方式</h4><ul>
 <li>图片地图：图片地图允许你在一个图片上关联多个URL,目标URL的选择取决于用户单击了图片上的那个位置</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">usemap</span>=<span class="string">"#map1"</span> <span class="attr">src</span>=<span class="string">"/image/image.git=f"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">map</span> <span class="attr">name</span>=<span class="string">"map1"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">area</span> <span class="attr">shape</span>=<span class="string">'rect'</span> <span class="attr">coords</span>=<span class="string">'0,0,31,31'</span> <span class="attr">href</span>=<span class="string">'javascipt:alert('</span><span class="attr">Home</span>')' <span class="attr">title</span>=<span class="string">'Home'</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">area</span> <span class="attr">shape</span>=<span class="string">'rect'</span> <span class="attr">coords</span>=<span class="string">'36,0,66,31'</span> <span class="attr">href</span>=<span class="string">'javascipt:alert('</span><span class="attr">Cart</span>')' <span class="attr">title</span>=<span class="string">'Cart'</span>&gt;</span></span><br><span class="line">     ...</span><br><span class="line">     ...</span><br><span class="line"><span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;img usemap=&quot;#map1&quot; src=&quot;/image/image.git=f&quot;&gt;</span><br><span class="line">&lt;map name=&quot;map1&quot;&gt;</span><br><span class="line">     &lt;area shape=&apos;rect&apos; coords=&apos;0,0,31,31&apos; href=&apos;javascipt:alert(&apos;Home&apos;)&apos; title=&apos;Home&apos;&gt;</span><br><span class="line">     &lt;area shape=&apos;rect&apos; coords=&apos;36,0,66,31&apos; href=&apos;javascipt:alert(&apos;Cart&apos;)&apos; title=&apos;Cart&apos;&gt;</span><br><span class="line">     ...</span><br><span class="line">     ...</span><br><span class="line">&lt;map&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>CSS Sprites</li>
 </ul>
@@ -502,7 +464,7 @@
 <li>图片使用Base64编码减少页面请求数</li>
 </ul>
 <p>采用base64的编码方式将图片直接嵌入到网页中，而不是从外部载入</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'data:image/gif;base64,/9j/4AAQSkZJ....'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&apos;data:image/gif;base64,/9j/4AAQSkZJ....&apos;&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="浏览器缓存和数据压缩"><a href="#浏览器缓存和数据压缩" class="headerlink" title="浏览器缓存和数据压缩"></a>浏览器缓存和数据压缩</h3><p><em>高并发下只能通过提升服务器负责解决吗？</em></p>
 <p><em>缓存只能做数据库缓存吗？</em></p>
 <p>相关概念</p>
@@ -560,9 +522,9 @@
 <li>用户隐私等敏感数据</li>
 <li>经常改变的api数据接口</li>
 </ul>
-<h4 id="Nginx配置缓存策略"><a href="#Nginx配置缓存策略" class="headerlink" title="Nginx配置缓存策略"></a>Nginx配置缓存策略</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//获取响应头的If-Modified-Since参数</span></span><br><span class="line">$since = $_SERVER[<span class="string">'HTTP_IF_MODOFIED_SINCE'</span>];</span><br><span class="line"><span class="comment">//设置生存时间</span></span><br><span class="line">$lifttime = <span class="number">3600</span>;</span><br><span class="line"><span class="comment">//如果没有过期</span></span><br><span class="line"><span class="keyword">if</span> (strtotime($since)+ $lifetime &gt; time()) </span><br><span class="line">&#123;</span><br><span class="line">    header(<span class="string">'HTTP/1.1 304 Not Modified'</span>);</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line">header(<span class="string">'Last-Modified:'</span> . gmdate(<span class="string">'D,d M Y H:i:s'</span>,time()).<span class="string">'GMT'</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="本地缓存配置"><a href="#本地缓存配置" class="headerlink" title="本地缓存配置"></a>本地缓存配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add_header指令：添加状态码为2xx和3xx的相应投信息</span><br><span class="line">add_header name value [always]</span><br><span class="line">可以设置Pragma/Expire/Cache-Control，可以继承</span><br><span class="line">expires指令:通知浏览器过期时间expires time;为负值时表示Cache-Control：no-cache</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> nginx.conf</span><br><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    valid_referers none blocked immoc.com *.imooc.com</span><br><span class="line">    </span><br><span class="line">    #如果有不允许的访问，$invalid_referer 为1 ，重定向到错误页面</span><br><span class="line">    if($invalid_referer) &#123;</span><br><span class="line">        #return 403</span><br><span class="line">        rewrite ^/ http://www.imooc.com/403.jpg</span><br><span class="line">    &#125;</span><br><span class="line">    # 缓存30天</span><br><span class="line">    expires 30d;</span><br><span class="line">    # 关闭etag</span><br><span class="line">    etag off;</span><br><span class="line">     # 添加cache-control</span><br><span class="line">    add_header</span><br><span class="line">    cache-control max-age=3600</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Nginx配置缓存策略"><a href="#Nginx配置缓存策略" class="headerlink" title="Nginx配置缓存策略"></a>Nginx配置缓存策略</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//获取响应头的If-Modified-Since参数</span><br><span class="line">$since = $_SERVER[&apos;HTTP_IF_MODOFIED_SINCE&apos;];</span><br><span class="line">//设置生存时间</span><br><span class="line">$lifttime = 3600;</span><br><span class="line">//如果没有过期</span><br><span class="line">if (strtotime($since)+ $lifetime &gt; time()) </span><br><span class="line">&#123;</span><br><span class="line">    header(&apos;HTTP/1.1 304 Not Modified&apos;);</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line">header(&apos;Last-Modified:&apos; . gmdate(&apos;D,d M Y H:i:s&apos;,time()).&apos;GMT&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="本地缓存配置"><a href="#本地缓存配置" class="headerlink" title="本地缓存配置"></a>本地缓存配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add_header指令：添加状态码为2xx和3xx的相应投信息</span><br><span class="line">add_header name value [always]</span><br><span class="line">可以设置Pragma/Expire/Cache-Control，可以继承</span><br><span class="line">expires指令:通知浏览器过期时间expires time;为负值时表示Cache-Control：no-cache</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># nginx.conf</span><br><span class="line">location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$</span><br><span class="line">&#123;</span><br><span class="line">    valid_referers none blocked immoc.com *.imooc.com</span><br><span class="line">    </span><br><span class="line">    #如果有不允许的访问，$invalid_referer 为1 ，重定向到错误页面</span><br><span class="line">    if($invalid_referer) &#123;</span><br><span class="line">        #return 403</span><br><span class="line">        rewrite ^/ http://www.imooc.com/403.jpg</span><br><span class="line">    &#125;</span><br><span class="line">    # 缓存30天</span><br><span class="line">    expires 30d;</span><br><span class="line">    # 关闭etag</span><br><span class="line">    etag off;</span><br><span class="line">     # 添加cache-control</span><br><span class="line">    add_header</span><br><span class="line">    cache-control max-age=3600</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="前端代码和资源压缩"><a href="#前端代码和资源压缩" class="headerlink" title="前端代码和资源压缩"></a>前端代码和资源压缩</h4><p>可以让资源文件更小</p>
 <p>压缩方式：js,css,image,html代码压缩、<br>Gzip压缩</p>
 <p>js压缩的原理一般是去掉多余的空格和回车，替换长变量名，简化写法</p>
@@ -570,7 +532,7 @@
 <p><strong>图片压缩：</strong></p>
 <p>压缩工具：tinypng、JpegMini，ImageOptim</p>
 <p><strong>Gzip压缩：</strong> 配置Nginx</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip on|off</span><br><span class="line">gzip_buffers 32k</span><br><span class="line">gzip_disable</span><br><span class="line">gzip_min_length 200</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip on|off</span><br><span class="line">gzip_buffers 32k</span><br><span class="line">gzip_disable</span><br><span class="line">gzip_min_length 200</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -588,11 +550,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
-          
             <a href="/tags/Nginx/" rel="tag"># Nginx</a>
           
             <a href="/tags/Cache/" rel="tag"># Cache</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
             <a href="/tags/High-Concurrency/" rel="tag"># High Concurrency</a>
           
@@ -711,7 +673,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -722,7 +684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -775,7 +737,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -949,19 +911,6 @@
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

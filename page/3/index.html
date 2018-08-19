@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="zhyunfe, demor" />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -232,47 +232,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -863,14 +825,14 @@
 <p>计算方式：</p>
 <ul>
 <li><p>得出算法的计算次数</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#<span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>+<span class="number">4</span>+...+n</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n; i++)&#123;</span><br><span class="line">    $sum += i;</span><br><span class="line">&#125;</span><br><span class="line">#总共循环了n次，所以时间复杂度为O(n)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#1+2+3+4+...+n</span><br><span class="line">for(i=1;i&lt;=n; i++)&#123;</span><br><span class="line">    $sum += i;</span><br><span class="line">&#125;</span><br><span class="line">#总共循环了n次，所以时间复杂度为O(n)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>用常数1来取代所有时间中的加法常数</p>
 </li>
 <li>在修改后的运行次数函数中，只保留最高阶</li>
 <li>如果最高阶存在且不是1，则去除与这个数相乘的常数<blockquote>
 <p>举例</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">test</span><span class="params">($n)</span> </span>&#123;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">&#125;</span><br><span class="line">#计算<span class="number">3</span>次，O(<span class="number">3</span>)--记作-&gt;O(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> ($j = <span class="number">1</span>;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#n * n 次 时间复杂度为O(n^2)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> ($j = <span class="number">1</span>;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> () &#123;</span><br><span class="line">    n次</span><br><span class="line">&#125;</span><br><span class="line">echo $a + b </span><br><span class="line"><span class="meta">#n^2 + n + 1 ---&gt;忽略 --&gt; O(n^2)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>($n&gt;=<span class="number">1</span>) &#123;</span><br><span class="line">    $n = $n/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#n执行次数</span></span><br><span class="line"></span><br><span class="line">n/(<span class="number">2</span>^m) = <span class="number">1</span></span><br><span class="line">#m = log2n,所以时间复杂度O(log2n)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function test($n) &#123;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">&#125;</span><br><span class="line">#计算3次，O(3)--记作-&gt;O(1)</span><br><span class="line"></span><br><span class="line">for($i = 1; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    for ($j = 1;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#n * n 次 时间复杂度为O(n^2)</span><br><span class="line"></span><br><span class="line">for($i = 1; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    for ($j = 1;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">for () &#123;</span><br><span class="line">    n次</span><br><span class="line">&#125;</span><br><span class="line">echo $a + b </span><br><span class="line">#n^2 + n + 1 ---&gt;忽略 --&gt; O(n^2)</span><br><span class="line"></span><br><span class="line">while($n&gt;=1) &#123;</span><br><span class="line">    $n = $n/2;</span><br><span class="line">&#125;</span><br><span class="line">#n执行次数</span><br><span class="line"></span><br><span class="line">n/(2^m) = 1</span><br><span class="line">#m = log2n,所以时间复杂度O(log2n)</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
@@ -1980,7 +1942,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1991,7 +1953,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2028,7 +1990,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -2198,19 +2160,6 @@
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

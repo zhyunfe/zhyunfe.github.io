@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="【问题描述】  使用lnmp新建一个项目的时候，引入上级文件报错1Warning: require(): open_basedir restriction in effect. File(/home/wwwroot/my.cmf.com/simplewind/thinkphp/base.php) is not within the allowed path(s): (/home/wwwroot/m">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-08-19T15:30:49.519Z">
+<meta property="og:updated_time" content="2018-08-19T14:26:03.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Warning:require(): open_basedir restriction in effect. File">
 <meta name="twitter:description" content="【问题描述】  使用lnmp新建一个项目的时候，引入上级文件报错1Warning: require(): open_basedir restriction in effect. File(/home/wwwroot/my.cmf.com/simplewind/thinkphp/base.php) is not within the allowed path(s): (/home/wwwroot/m">
@@ -232,47 +232,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -394,7 +356,7 @@
 <blockquote>
 <p>使用lnmp新建一个项目的时候，引入上级文件报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: require(): open_basedir restriction in effect. File(/home/wwwroot/my.cmf.com/simplewind/thinkphp/base.php) is not within the allowed path(s): (/home/wwwroot/my.cmf.com/public/:/tmp/:/proc/) in /home/wwwroot/my.cmf.com/public/index.php on line 39</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>大体意思就是open_basedir生效中，没有权限访问当前路径<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">open_basedir</span><br><span class="line"><span class="meta">#</span>限制可以访问的路径</span><br><span class="line"><span class="meta">#</span>可以在php.ini里设置，也可以在nginx下设置</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>在文件fastcgi.conf中有</span><br><span class="line">fastcgi_param PHP_ADMIN_VALUE "open_basedir=$document_root/:/tmp/:/proc/";</span><br><span class="line"></span><br><span class="line">限制了不能引入上一级的文件</span><br></pre></td></tr></table></figure></p>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>大体意思就是open_basedir生效中，没有权限访问当前路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">open_basedir</span><br><span class="line">#限制可以访问的路径</span><br><span class="line">#可以在php.ini里设置，也可以在nginx下设置</span><br><span class="line"></span><br><span class="line">#在文件fastcgi.conf中有</span><br><span class="line">fastcgi_param PHP_ADMIN_VALUE &quot;open_basedir=$document_root/:/tmp/:/proc/&quot;;</span><br><span class="line"></span><br><span class="line">限制了不能引入上一级的文件</span><br></pre></td></tr></table></figure></p>
 <p>关于open_basedir的描述在这个博客里有讲到<br><a href="https://www.iamle.com/archives/1854.html" target="_blank" rel="noopener">https://www.iamle.com/archives/1854.html</a></p>
 
       
@@ -530,7 +492,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -541,7 +503,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -594,7 +556,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -768,19 +730,6 @@
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

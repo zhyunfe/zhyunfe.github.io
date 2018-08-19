@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="7.1 一维数组的定义1234567891011121314151617181920int a[10]; int a[10]= &amp;#123;0,1,2,3,4,5,6,7,8,9&amp;#125;;//例子用数组来处理就Fibonacci数列#include &amp;lt;stdio.h&amp;gt;void main()&amp;#123;    int i;    int f[20] = &amp;#123;1,1&amp;#125;">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-08-19T15:23:52.323Z">
+<meta property="og:updated_time" content="2018-08-19T14:38:11.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（七）数组">
 <meta name="twitter:description" content="7.1 一维数组的定义1234567891011121314151617181920int a[10]; int a[10]= &amp;#123;0,1,2,3,4,5,6,7,8,9&amp;#125;;//例子用数组来处理就Fibonacci数列#include &amp;lt;stdio.h&amp;gt;void main()&amp;#123;    int i;    int f[20] = &amp;#123;1,1&amp;#125;">
@@ -232,47 +232,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -390,19 +352,19 @@
       
 
       
-        <h3 id="7-1-一维数组的定义"><a href="#7-1-一维数组的定义" class="headerlink" title="7.1 一维数组的定义"></a>7.1 一维数组的定义</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>]; </span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>]= &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//例子用数组来处理就Fibonacci数列</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> f[<span class="number">20</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        f[i] = f[i<span class="number">-2</span>] + f[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">5</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%12d"</span>,f[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7-2-二维数组的定义和引用"><a href="#7-2-二维数组的定义和引用" class="headerlink" title="7.2 二维数组的定义和引用"></a>7.2 二维数组的定义和引用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a[<span class="number">3</span>][<span class="number">4</span>],b[<span class="number">5</span>][<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">3</span>][<span class="number">4</span>] = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;,&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="7-3-字符数组"><a href="#7-3-字符数组" class="headerlink" title="7.3 字符数组"></a>7.3 字符数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c[] = &#123;<span class="string">'I'</span>,<span class="string">'a'</span>,<span class="string">'m'</span>,<span class="string">'h'</span>&#125;;</span><br><span class="line">char doamond[5][5] = &#123;&#123;'','','*'&#125;,&#123;'','*','','*'&#125;&#125;;</span><br></pre></td></tr></table></figure>
+        <h3 id="7-1-一维数组的定义"><a href="#7-1-一维数组的定义" class="headerlink" title="7.1 一维数组的定义"></a>7.1 一维数组的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">int a[10]; </span><br><span class="line">int a[10]= &#123;0,1,2,3,4,5,6,7,8,9&#125;;</span><br><span class="line"></span><br><span class="line">//例子用数组来处理就Fibonacci数列</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int f[20] = &#123;1,1&#125;;</span><br><span class="line">    for(i=2;i&lt;20;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        f[i] = f[i-2] + f[i-1];</span><br><span class="line">        for(i=0;i&lt;20;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(i%5==0)printf(&quot;\n&quot;);</span><br><span class="line">            printf(&quot;%12d&quot;,f[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-2-二维数组的定义和引用"><a href="#7-2-二维数组的定义和引用" class="headerlink" title="7.2 二维数组的定义和引用"></a>7.2 二维数组的定义和引用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">float a[3][4],b[5][10];</span><br><span class="line"></span><br><span class="line">int a[3][4] = &#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;2,4,5,6&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-字符数组"><a href="#7-3-字符数组" class="headerlink" title="7.3 字符数组"></a>7.3 字符数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char c[] = &#123;&apos;I&apos;,&apos;a&apos;,&apos;m&apos;,&apos;h&apos;&#125;;</span><br><span class="line">char doamond[5][5] = &#123;&#123;&apos;&apos;,&apos;&apos;,&apos;*&apos;&#125;,&#123;&apos;&apos;,&apos;*&apos;,&apos;&apos;,&apos;*&apos;&#125;&#125;;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="字符数组的输入输出"><a href="#字符数组的输入输出" class="headerlink" title="字符数组的输入输出"></a>字符数组的输入输出</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c[] = &#123;<span class="string">"china"</span>&#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,c);</span><br><span class="line">c h i n a \<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h4 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h4><h5 id="puts函数"><a href="#puts函数" class="headerlink" title="puts函数"></a>puts函数</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[] = &#123;<span class="string">"China \n Bei jing"</span>&#125;;</span><br><span class="line"><span class="built_in">puts</span>(str);</span><br></pre></td></tr></table></figure>
-<h5 id="gets函数"><a href="#gets函数" class="headerlink" title="gets函数"></a>gets函数</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gets(str);</span><br></pre></td></tr></table></figure>
-<h4 id="strcat函数"><a href="#strcat函数" class="headerlink" title="strcat函数"></a>strcat函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strcat</span>是<span class="built_in">string</span> catenate 的缩写，其作用是连接两个字符数组中的字符串</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">10</span>] = &#123;<span class="string">"nihao"</span>&#125;;</span><br><span class="line"><span class="keyword">char</span> b[<span class="number">10</span>] = &#123;<span class="string">"a"</span>&#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,<span class="built_in">strcat</span>(a,b));<span class="comment">//nihao a</span></span><br></pre></td></tr></table></figure>
-<h4 id="strcpy-和strncpy"><a href="#strcpy-和strncpy" class="headerlink" title="strcpy 和strncpy"></a>strcpy 和strncpy</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strcpy</span>是<span class="built_in">string</span> copy的所系，是字符串复制函数，作用是将字符串<span class="number">2</span>复制到字符串数组<span class="number">1</span>中去</span><br><span class="line"></span><br><span class="line">char a[10] = '';</span><br><span class="line">char b[10] = 'copy';</span><br><span class="line"><span class="built_in">strcpy</span>(a,b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>, b);<span class="comment">//copy</span></span><br><span class="line"><span class="built_in">strcpy</span>(a,<span class="string">"china"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">strncpy</span>(str1,str2,n);<span class="comment">//将字符串前n个字符复制到str1中去</span></span><br></pre></td></tr></table></figure>
-<h4 id="strcmp函数"><a href="#strcmp函数" class="headerlink" title="strcmp函数"></a>strcmp函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">比较字符串<span class="number">1</span>和字符串<span class="number">2</span>，从做到右按照ASCII码值比较直到出现不同的字符或者遇到\<span class="number">0</span>截止</span><br><span class="line"><span class="built_in">strcmp</span>(str1,str2);</span><br><span class="line">str1 = str2 返回<span class="number">0</span></span><br><span class="line">str1 &gt; str2 返回正整数</span><br><span class="line">str1 &lt; str2 返回负整数</span><br></pre></td></tr></table></figure>
-<h4 id="strlen函数"><a href="#strlen函数" class="headerlink" title="strlen函数"></a>strlen函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">返回字符串长度</span><br><span class="line"><span class="built_in">strlen</span>(<span class="string">"china"</span>);<span class="comment">//5 不包含\0</span></span><br></pre></td></tr></table></figure>
-<h4 id="strlwr-函数"><a href="#strlwr-函数" class="headerlink" title="strlwr 函数"></a>strlwr 函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strlwr(str)<span class="comment">//将字符串中的大写转换成小写</span></span><br></pre></td></tr></table></figure>
-<h3 id="strup函数"><a href="#strup函数" class="headerlink" title="strup函数"></a>strup函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strup(str)<span class="comment">//将字符串中的小写转换成大写</span></span><br></pre></td></tr></table></figure>
+<h4 id="字符数组的输入输出"><a href="#字符数组的输入输出" class="headerlink" title="字符数组的输入输出"></a>字符数组的输入输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char c[] = &#123;&quot;china&quot;&#125;;</span><br><span class="line">printf(&quot;%s&quot;,c);</span><br><span class="line">c h i n a \0</span><br></pre></td></tr></table></figure>
+<h4 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h4><h5 id="puts函数"><a href="#puts函数" class="headerlink" title="puts函数"></a>puts函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char str[] = &#123;&quot;China \n Bei jing&quot;&#125;;</span><br><span class="line">puts(str);</span><br></pre></td></tr></table></figure>
+<h5 id="gets函数"><a href="#gets函数" class="headerlink" title="gets函数"></a>gets函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gets(str);</span><br></pre></td></tr></table></figure>
+<h4 id="strcat函数"><a href="#strcat函数" class="headerlink" title="strcat函数"></a>strcat函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">strcat是string catenate 的缩写，其作用是连接两个字符数组中的字符串</span><br><span class="line">char a[10] = &#123;&quot;nihao&quot;&#125;;</span><br><span class="line">char b[10] = &#123;&quot;a&quot;&#125;;</span><br><span class="line">printf(&quot;%s&quot;,strcat(a,b));//nihao a</span><br></pre></td></tr></table></figure>
+<h4 id="strcpy-和strncpy"><a href="#strcpy-和strncpy" class="headerlink" title="strcpy 和strncpy"></a>strcpy 和strncpy</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">strcpy是string copy的所系，是字符串复制函数，作用是将字符串2复制到字符串数组1中去</span><br><span class="line"></span><br><span class="line">char a[10] = &apos;&apos;;</span><br><span class="line">char b[10] = &apos;copy&apos;;</span><br><span class="line">strcpy(a,b);</span><br><span class="line">printf(&quot;%s\n&quot;, b);//copy</span><br><span class="line">strcpy(a,&quot;china&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">strncpy(str1,str2,n);//将字符串前n个字符复制到str1中去</span><br></pre></td></tr></table></figure>
+<h4 id="strcmp函数"><a href="#strcmp函数" class="headerlink" title="strcmp函数"></a>strcmp函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">比较字符串1和字符串2，从做到右按照ASCII码值比较直到出现不同的字符或者遇到\0截止</span><br><span class="line">strcmp(str1,str2);</span><br><span class="line">str1 = str2 返回0</span><br><span class="line">str1 &gt; str2 返回正整数</span><br><span class="line">str1 &lt; str2 返回负整数</span><br></pre></td></tr></table></figure>
+<h4 id="strlen函数"><a href="#strlen函数" class="headerlink" title="strlen函数"></a>strlen函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">返回字符串长度</span><br><span class="line">strlen(&quot;china&quot;);//5 不包含\0</span><br></pre></td></tr></table></figure>
+<h4 id="strlwr-函数"><a href="#strlwr-函数" class="headerlink" title="strlwr 函数"></a>strlwr 函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strlwr(str)//将字符串中的大写转换成小写</span><br></pre></td></tr></table></figure>
+<h3 id="strup函数"><a href="#strup函数" class="headerlink" title="strup函数"></a>strup函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strup(str)//将字符串中的小写转换成大写</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -539,7 +501,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -550,7 +512,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -603,7 +565,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -777,19 +739,6 @@
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
