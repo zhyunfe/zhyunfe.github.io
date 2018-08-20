@@ -12,5 +12,6 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
+
 Sitemap: https://zhyunfe.github.io/sitemap.xml
 Sitemap: https://zhyunfe.github.io/baidusitemap.xml
