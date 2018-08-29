@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="English">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ether," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="僵尸工场第一步 设置一个空合约123456pragma solidity ^0.4.19;// 创建一个僵尸工场的空合约contract ZombieFactory &amp;#123;&amp;#125; 第二步 状态变量和整数状态变量是被永久地保存在合约中，也就是说他们被写入以太币区块链中，想象成写入一个数据库12345678contract ZombieFactory &amp;#123;    //uint 无符">
+<meta name="keywords" content="ether">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CryptoZombies以太坊学习 - 01">
+<meta property="og:url" content="http://zhyunfe.github.io/2018/08/28/eth-game-01/index.html">
+<meta property="og:site_name" content="Demor&#39;s Blog">
+<meta property="og:description" content="僵尸工场第一步 设置一个空合约123456pragma solidity ^0.4.19;// 创建一个僵尸工场的空合约contract ZombieFactory &amp;#123;&amp;#125; 第二步 状态变量和整数状态变量是被永久地保存在合约中，也就是说他们被写入以太币区块链中，想象成写入一个数据库12345678contract ZombieFactory &amp;#123;    //uint 无符">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-08-28T14:49:12.990Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CryptoZombies以太坊学习 - 01">
+<meta name="twitter:description" content="僵尸工场第一步 设置一个空合约123456pragma solidity ^0.4.19;// 创建一个僵尸工场的空合约contract ZombieFactory &amp;#123;&amp;#125; 第二步 状态变量和整数状态变量是被永久地保存在合约中，也就是说他们被写入以太币区块链中，想象成写入一个数据库12345678contract ZombieFactory &amp;#123;    //uint 无符">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhyunfe.github.io/2018/08/28/eth-game-01/"/>
+
+
+
+
+
+  <title>CryptoZombies以太坊学习 - 01 | Demor's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demor's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Keep Growing</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/28/eth-game-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">CryptoZombies以太坊学习 - 01</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-28T22:10:07+08:00">
+                2018-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BlockChain/" itemprop="url" rel="index">
+                    <span itemprop="name">BlockChain</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BlockChain/Solidity/" itemprop="url" rel="index">
+                    <span itemprop="name">Solidity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="僵尸工场"><a href="#僵尸工场" class="headerlink" title="僵尸工场"></a>僵尸工场</h1><h3 id="第一步-设置一个空合约"><a href="#第一步-设置一个空合约" class="headerlink" title="第一步 设置一个空合约"></a>第一步 设置一个空合约</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">// 创建一个僵尸工场的空合约</span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二步-状态变量和整数"><a href="#第二步-状态变量和整数" class="headerlink" title="第二步 状态变量和整数"></a>第二步 状态变量和整数</h3><p>状态变量是被永久地保存在合约中，也就是说他们被写入以太币区块链中，想象成写入一个数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第三步-数学运算"><a href="#第三步-数学运算" class="headerlink" title="第三步 数学运算"></a>第三步 数学运算</h3><p>加法 x + y<br>减法 x - y<br>乘法 x * y<br>除法 x / y<br>求模/取余 x % y<br>乘方 x ** y<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    </span><br><span class="line">    // 为了保证我们的僵尸的DNA只含有16个字符，我们先造一个uint数据，让它等于10^16。这样一来以后我们可以用模运算符 % 把一个整数变成16位</span><br><span class="line">    // 建立一个uint类型的变量，名字叫dnaModulus 令其等于10的dnaDigits次方</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第四步-结构体"><a href="#第四步-结构体" class="headerlink" title="第四步 结构体"></a>第四步 结构体</h3><p>在我们的程序中，我们将创建一些僵尸！每个僵尸将拥有多个属性，所以这是一个展示结构体的完美例子。</p>
+<p>建立一个struct 命名为 Zombie.</p>
+<p>我们的 Zombie 结构体有两个属性： name (类型为 string), 和 dna (类型为 uint)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    </span><br><span class="line">    // 为了保证我们的僵尸的DNA只含有16个字符，我们先造一个uint数据，让它等于10^16。这样一来以后我们可以用模运算符 % 把一个整数变成16位</span><br><span class="line">    // 建立一个uint类型的变量，名字叫dnaModulus 令其等于10的dnaDigits次方</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第五步-数组"><a href="#第五步-数组" class="headerlink" title="第五步 数组"></a>第五步 数组</h3><blockquote>
+<p>如果你想建立一个集合，可以用 数组这样的数据类型. Solidity 支持两种数组: 静态 数组和动态 数组:</p>
+</blockquote>
+   <figure class="highlight plain"><figcaption><span>固定长度为2的静态数组:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uint[2] fixedArray;</span><br><span class="line">// 固定长度为5的string类型的静态数组:</span><br><span class="line">string[5] stringArray;</span><br><span class="line">// 动态数组，长度不固定，可以动态添加元素:</span><br><span class="line">uint[] dynamicArray;</span><br></pre></td></tr></table></figure>
+<p>你也可以建立一个 结构体类型的数组 例如，上一章提到的 Person:<br>   <code>Person[] people; // dynamic Array, we can keep adding to it</code></p>
+<p>记住：状态变量被永久保存在区块链中。所以在你的合约中创建动态数组来保存成结构的数据是非常有意义的。</p>
+<h4 id="公共数组"><a href="#公共数组" class="headerlink" title="公共数组"></a>公共数组</h4><p>  你可以定义 public 数组, Solidity 会自动创建 getter 方法. 语法如下:<br>  <code>Person[] public people;</code><br>  其它的合约可以从这个数组读取数据（但不能写入数据），所以这在合约中是一个有用的保存公共数据的模式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    </span><br><span class="line">    // 为了保证我们的僵尸的DNA只含有16个字符，我们先造一个uint数据，让它等于10^16。这样一来以后我们可以用模运算符 % 把一个整数变成16位</span><br><span class="line">    // 建立一个uint类型的变量，名字叫dnaModulus 令其等于10的dnaDigits次方</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line">    // 创建一个数据类型为 Zombie 的结构体数组，用 public 修饰，命名为：zombies.</span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### 第六步 定义函数</span><br><span class="line"></span><br><span class="line">在 Solidity 中函数定义的句法如下:</span><br><span class="line"></span><br><span class="line">`function eatHamburgers(string _name, uint _amount) &#123;&#125;`</span><br><span class="line">这是一个名为 eatHamburgers 的函数，它接受两个参数：一个 string类型的 和 一个 uint类型的。现在函数内部还是空的。</span><br><span class="line"></span><br><span class="line">注：: 习惯上函数里的变量都是以(_)开头 (但不是硬性规定) 以区别全局变量。我们整个教程都会沿用这个习惯。</span><br><span class="line"></span><br><span class="line">我们的函数定义如下:</span><br><span class="line"></span><br><span class="line">`eatHamburgers(&quot;vitalik&quot;, 100);`</span><br><span class="line"></span><br><span class="line">```solidity</span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    </span><br><span class="line">    // 为了保证我们的僵尸的DNA只含有16个字符，我们先造一个uint数据，让它等于10^16。这样一来以后我们可以用模运算符 % 把一个整数变成16位</span><br><span class="line">    // 建立一个uint类型的变量，名字叫dnaModulus 令其等于10的dnaDigits次方</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line">    // 创建一个数据类型为 Zombie 的结构体数组，用 public 修饰，命名为：zombies.</span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line">    </span><br><span class="line">    //建立一个函数 createZombie。 它有两个参数: _name (类型为string), 和 _dna (类型为uint)。</span><br><span class="line">    function createZombie(string _name, uint _dna) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### 第七步</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```solidity</span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    </span><br><span class="line">    // 为了保证我们的僵尸的DNA只含有16个字符，我们先造一个uint数据，让它等于10^16。这样一来以后我们可以用模运算符 % 把一个整数变成16位</span><br><span class="line">    // 建立一个uint类型的变量，名字叫dnaModulus 令其等于10的dnaDigits次方</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line">    // 创建一个数据类型为 Zombie 的结构体数组，用 public 修饰，命名为：zombies.</span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line">    </span><br><span class="line">    //建立一个函数 createZombie。 它有两个参数: _name (类型为string), 和 _dna (类型为uint)。</span><br><span class="line">    function createZombie(string _name, uint _dna) &#123;</span><br><span class="line">         //在函数体里新创建一个 Zombie， 然后把它加入 zombies 数组中。 新创建的僵尸的 name 和 dna，来自于函数的参数。</span><br><span class="line">           zombies.push(Zombie(_name, _dna));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### 第八步 变为私有函数</span><br><span class="line">```solidity</span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    </span><br><span class="line">    // 为了保证我们的僵尸的DNA只含有16个字符，我们先造一个uint数据，让它等于10^16。这样一来以后我们可以用模运算符 % 把一个整数变成16位</span><br><span class="line">    // 建立一个uint类型的变量，名字叫dnaModulus 令其等于10的dnaDigits次方</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line">    // 创建一个数据类型为 Zombie 的结构体数组，用 public 修饰，命名为：zombies.</span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line">    </span><br><span class="line">    //建立一个函数 createZombie。 它有两个参数: _name (类型为string), 和 _dna (类型为uint)。</span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">         //在函数体里新创建一个 Zombie， 然后把它加入 zombies 数组中。 新创建的僵尸的 name 和 dna，来自于函数的参数。</span><br><span class="line">           zombies.push(Zombie(_name, _dna));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### 第九步 函数返回值和修饰符</span><br><span class="line"></span><br><span class="line">返回值</span><br><span class="line">要想函数返回一个数值，按如下定义：</span><br></pre></td></tr></table></figure></p>
+<p>string greeting = “What’s up dog”;</p>
+<p>function sayHello() public returns (string) {<br>  return greeting;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Solidity 里，函数的定义里可包含返回值的数据类型(如本例中 string)。</span><br><span class="line"></span><br><span class="line">函数的修饰符</span><br><span class="line">上面的函数实际上没有改变 Solidity 里的状态，即，它没有改变任何值或者写任何东西。</span><br><span class="line"></span><br><span class="line">这种情况下我们可以把函数定义为 view, 意味着它只能读取数据不能更改数据:</span><br><span class="line"></span><br><span class="line">```function sayHello() public view returns (string) &#123;&#125;`</span><br><span class="line">Solidity 还支持 pure 函数, 表明这个函数甚至都不访问应用里的数据，例如：</span><br></pre></td></tr></table></figure></p>
+<p>function _multiply(uint a, uint b) private pure returns (uint) {<br>  return a * b;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">这个函数甚至都不读取应用里的状态 — 它的返回值完全取决于它的输入参数，在这种情况下我们把函数定义为 pure.</span><br><span class="line"></span><br><span class="line">注：可能很难记住何时把函数标记为 pure/view。 幸运的是， Solidity 编辑器会给出提示，提醒你使用这些修饰符。</span><br><span class="line"></span><br><span class="line">```solidity</span><br><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">        zombies.push(Zombie(_name, _dna));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第十步-Keccak256-和-类型转换"><a href="#第十步-Keccak256-和-类型转换" class="headerlink" title="第十步 Keccak256 和 类型转换"></a>第十步 Keccak256 和 类型转换</h3><h4 id="keccak256"><a href="#keccak256" class="headerlink" title="keccak256"></a>keccak256</h4><p>如何让 _generateRandomDna 函数返回一个全(半) 随机的 uint?</p>
+<p>Ethereum 内部有一个散列函数keccak256，它用了SHA3版本。一个散列函数基本上就是把一个字符串转换为一个256位的16进制数字。字符串的一个微小变化会引起散列数据极大变化。</p>
+<p>这在 Ethereum 中有很多应用，但是现在我们只是用它造一个伪随机数。</p>
+<p>例子:</p>
+<p><code>keccak256(&quot;aaaab&quot;);//6e91ec6b618bb462a4a6ee5aa2cb0e9cf30f7a052bb467b0ba58b8748c00d2e5</code></p>
+<p><code>keccak256(&quot;aaaac&quot;);//b1f078126895a1424524de5321b339ab00408010b7cf0e6ed451514981e58aa9</code><br>显而易见，输入字符串只改变了一个字母，输出就已经天壤之别了。</p>
+<p>注: 在区块链中安全地产生一个随机数是一个很难的问题， 本例的方法不安全，但是在我们的Zombie DNA算法里不是那么重要，已经很好地满足我们的需要了。</p>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>有时你需要变换数据类型。例如:</p>
+<p>uint8 a = 5;<br>uint b = 6;<br>// 将会抛出错误，因为 a <em> b 返回 uint, 而不是 uint8:<br>uint8 c = a </em> b;<br>// 我们需要将 b 转换为 uint8:<br>uint8 c = a <em> uint8(b);<br>上面, a </em> b 返回类型是 uint, 但是当我们尝试用 uint8 类型接收时, 就会造成潜在的错误。如果把它的数据类型转换为 uint8, 就可以了，编译器也不会出错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">        zombies.push(Zombie(_name, _dna));</span><br><span class="line">    &#125;</span><br><span class="line">    // 第一行代码取 _str 的 keccak256 散列值生成一个伪随机十六进制数，类型转换为 uint, 最后保存在类型为 uint 名为 rand 的变量中。</span><br><span class="line">      </span><br><span class="line">    // 我们只想让我们的DNA的长度为16位 (还记得 dnaModulus?)。所以第二行代码应该 return 上面计算的数值对 dnaModulus 求余数(%)</span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">         uint rand = uint(keccak256(_str));</span><br><span class="line">         return rand % dnaModuls;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第十一步-放在一起"><a href="#第十一步-放在一起" class="headerlink" title="第十一步 放在一起"></a>第十一步 放在一起</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">        zombies.push(Zombie(_name, _dna));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">        uint rand = uint(keccak256(_str));</span><br><span class="line">        return rand % dnaModulus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //创建一个 public 函数，命名为createRandomZombie. 它将被传入一个变量 _name (数据类型是 string)。 (注: 定义公共函数 public 和定义一个私有 private 函数的做法一样)。</span><br><span class="line">    </span><br><span class="line">    //函数的第一行应该调用 _generateRandomDna 函数，传入 _name 参数, 结果保存在一个类型为 uint 的变量里，命名为 randDna。</span><br><span class="line">    </span><br><span class="line">    //第二行调用 _createZombie 函数， 传入参数： _name 和 randDna。</span><br><span class="line">    </span><br><span class="line">    //整个函数应该是4行代码 (包括函数的结束符号 &#125; )。</span><br><span class="line">    function createRandomZombie(string _name) public &#123;</span><br><span class="line">        uint randDna = _generateRandomDna(_name);</span><br><span class="line">        _createZombie(_name, randDna);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第十二步-事件"><a href="#第十二步-事件" class="headerlink" title="第十二步  事件"></a>第十二步  事件</h3><p>我们的合约几乎就要完成了！让我们加上一个事件.</p>
+<p>事件 是合约和区块链通讯的一种机制。你的前端应用“监听”某些事件，并做出反应。</p>
+<p>例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 这里建立事件</span><br><span class="line">event IntegersAdded(uint x, uint y, uint result);</span><br><span class="line"></span><br><span class="line">function add(uint _x, uint _y) public &#123;</span><br><span class="line">  uint result = _x + _y;</span><br><span class="line">  //触发事件，通知app</span><br><span class="line">  IntegersAdded(_x, _y, result);</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你的 app 前端可以监听这个事件。JavaScript 实现如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">YourContract.IntegersAdded(function(error, result) &#123; </span><br><span class="line">  // 干些事</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">    // 这里建立事件</span><br><span class="line">    event NewZombie(uint zombieId, string name, uint dna);</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">    uint dnaModulus = 10 ** dnaDigits;</span><br><span class="line"></span><br><span class="line">    struct Zombie &#123;</span><br><span class="line">        string name;</span><br><span class="line">        uint dna;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Zombie[] public zombies;</span><br><span class="line"></span><br><span class="line">    function _createZombie(string _name, uint _dna) private &#123;</span><br><span class="line">            // 这里触发事件,修改 _createZombie 函数使得当新僵尸造出来并加入zombies数组后，生成事件NewZombie。</span><br><span class="line">            //需要定义僵尸id。 array.push() 返回数组的长度类型是uint - 因为数组的第一个元素的索引是 0， array.push() - 1 将是我们加入的僵尸的索引。 zombies.push() - 1 就是 id，数据类型是 uint。在下一行中你可以把它用到 NewZombie 事件中。</span><br><span class="line">            uint id = zombies.push(Zombie(_name, _dna)) - 1;</span><br><span class="line">            NewZombie(id, _name, _dna);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    function _generateRandomDna(string _str) private view returns (uint) &#123;</span><br><span class="line">        uint rand = uint(keccak256(_str));</span><br><span class="line">        return rand % dnaModulus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function createRandomZombie(string _name) public &#123;</span><br><span class="line">        uint randDna = _generateRandomDna(_name);</span><br><span class="line">        _createZombie(_name, randDna);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第十三步-Web3-js"><a href="#第十三步-Web3-js" class="headerlink" title="第十三步 Web3.js"></a>第十三步 Web3.js</h3><p>我们的 Solidity 合约完工了！ 现在我们要写一段 JavaScript 前端代码来调用这个合约。</p>
+<p>以太坊有一个 JavaScript 库，名为Web3.js。</p>
+<p>在后面的课程里，我们会进一步地教你如何安装一个合约，如何设置Web3.js。 但是现在我们通过一段代码来了解 Web3.js 是如何和我们发布的合约交互的吧。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">// 下面是调用合约的方式:</span><br><span class="line">var abi = /* abi是由编译器生成的 */</span><br><span class="line">var ZombieFactoryContract = web3.eth.contract(abi)</span><br><span class="line">var contractAddress = /* 发布之后在以太坊上生成的合约地址 */</span><br><span class="line">var ZombieFactory = ZombieFactoryContract.at(contractAddress)</span><br><span class="line">// `ZombieFactory` 能访问公共的函数以及事件</span><br><span class="line"></span><br><span class="line">// 某个监听文本输入的监听器:</span><br><span class="line">$(&quot;#ourButton&quot;).click(function(e) &#123;</span><br><span class="line">  var name = $(&quot;#nameInput&quot;).val()</span><br><span class="line">  //调用合约的 `createRandomZombie` 函数:</span><br><span class="line">  ZombieFactory.createRandomZombie(name)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 监听 `NewZombie` 事件, 并且更新UI</span><br><span class="line">var event = ZombieFactory.NewZombie(function(error, result) &#123;</span><br><span class="line">  if (error) return</span><br><span class="line">  generateZombie(result.zombieId, result.name, result.dna)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 获取 Zombie 的 dna, 更新图像</span><br><span class="line">function generateZombie(id, name, dna) &#123;</span><br><span class="line">  let dnaStr = String(dna)</span><br><span class="line">  // 如果dna少于16位,在它前面用0补上</span><br><span class="line">  while (dnaStr.length &lt; 16)</span><br><span class="line">    dnaStr = &quot;0&quot; + dnaStr</span><br><span class="line"></span><br><span class="line">  let zombieDetails = &#123;</span><br><span class="line">    // 前两位数构成头部.我们可能有7种头部, 所以 % 7</span><br><span class="line">    // 得到的数在0-6,再加上1,数的范围变成1-7</span><br><span class="line">    // 通过这样计算：</span><br><span class="line">    headChoice: dnaStr.substring(0, 2) % 7 + 1，</span><br><span class="line">    // 我们得到的图片名称从head1.png 到 head7.png</span><br><span class="line"></span><br><span class="line">    // 接下来的两位数构成眼睛, 眼睛变化就对11取模:</span><br><span class="line">    eyeChoice: dnaStr.substring(2, 4) % 11 + 1,</span><br><span class="line">    // 再接下来的两位数构成衣服，衣服变化就对6取模:</span><br><span class="line">    shirtChoice: dnaStr.substring(4, 6) % 6 + 1,</span><br><span class="line">    //最后6位控制颜色. 用css选择器: hue-rotate来更新</span><br><span class="line">    // 360度:</span><br><span class="line">    skinColorChoice: parseInt(dnaStr.substring(6, 8) / 100 * 360),</span><br><span class="line">    eyeColorChoice: parseInt(dnaStr.substring(8, 10) / 100 * 360),</span><br><span class="line">    clothesColorChoice: parseInt(dnaStr.substring(10, 12) / 100 * 360),</span><br><span class="line">    zombieName: name,</span><br><span class="line">    zombieDescription: &quot;A Level 1 CryptoZombie&quot;,</span><br><span class="line">  &#125;</span><br><span class="line">  return zombieDetails</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ether/" rel="tag"># ether</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/20/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Demor" />
+            
+              <p class="site-author-name" itemprop="name">Demor</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#僵尸工场"><span class="nav-number">1.</span> <span class="nav-text">僵尸工场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步-设置一个空合约"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一步 设置一个空合约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-状态变量和整数"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二步 状态变量和整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步-数学运算"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三步 数学运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步-结构体"><span class="nav-number">1.0.4.</span> <span class="nav-text">第四步 结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步-数组"><span class="nav-number">1.0.5.</span> <span class="nav-text">第五步 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#公共数组"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">公共数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十步-Keccak256-和-类型转换"><span class="nav-number">1.0.6.</span> <span class="nav-text">第十步 Keccak256 和 类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#keccak256"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">keccak256</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型转换"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">类型转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十一步-放在一起"><span class="nav-number">1.0.7.</span> <span class="nav-text">第十一步 放在一起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十二步-事件"><span class="nav-number">1.0.8.</span> <span class="nav-text">第十二步  事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十三步-Web3-js"><span class="nav-number">1.0.9.</span> <span class="nav-text">第十三步 Web3.js</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Demor</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -263,6 +263,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/17/skills-redis-safe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/17/skills-redis-safe/" itemprop="url">Redis安全性简介</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-17T22:00:31+08:00">
+                2018-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Redis安全性"><a href="#Redis安全性" class="headerlink" title="Redis安全性"></a>Redis安全性</h3><h4 id="常规安全模式"><a href="#常规安全模式" class="headerlink" title="常规安全模式"></a>常规安全模式</h4><p>Redis被设计成仅有可信环境下的可信用户才可以访问</p>
+<h4 id="网路安全"><a href="#网路安全" class="headerlink" title="网路安全"></a>网路安全</h4><p>仅可信的网络用户才可以访问Redis端口</p>
+<p><code>redis.conf</code> 修改  <code>bind 127.0.0.1</code></p>
+<h4 id="认证的特性"><a href="#认证的特性" class="headerlink" title="认证的特性"></a>认证的特性</h4><p>Redis没有尝试去实现访问控制，提供了一个轻量级的认证方式，可以编辑redis.conf文件来启用</p>
+<p>认证授权方式启用后，Redis会拒绝来自没有认证的用户的任何查询</p>
+<p>密码是明文配置在<code>redis.conf</code>文件中的</p>
+<p>Redis并不支持加密，需要实现新增的保护层，例如SSL代理</p>
+<h4 id="禁用特殊命令"><a href="#禁用特殊命令" class="headerlink" title="禁用特殊命令"></a>禁用特殊命令</h4><p>在Redis可以禁用命令或者将他们重命名成难以推测的名称，这样普通用户就只能使用部分命令了</p>
+<p>在<code>redis.conf</code>中 </p>
+<p><code>rename-command CONFIG basdadjdh23234j</code><br>或者删除这个命令<br><code>rename-command CONFIG &#39;&#39;</code></p>
+<h4 id="外部客户端通过仔细构造的输入触发的攻击"><a href="#外部客户端通过仔细构造的输入触发的攻击" class="headerlink" title="外部客户端通过仔细构造的输入触发的攻击"></a>外部客户端通过仔细构造的输入触发的攻击</h4><p>一个攻击者可以通过提交表单提交大量一样的字符串到哈希表里，是的O(1)的算法复杂度(平均时间)达到最差的O(N)，Redis将需要更多的CPU来处理，到最后会导致无法提供服务</p>
+<p>为了防止这类特殊的攻击，redis的哈希函数使用per-excution的伪随机种子</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/11/skills-redis-persistence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1689,154 +1842,6 @@ fastcgi_intercept_errors on;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/11/07/beginning-c-seven/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/07/beginning-c-seven/" itemprop="url">（七）数组</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-07T20:45:15+08:00">
-                2017-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《C语言程序设计》/" itemprop="url" rel="index">
-                    <span itemprop="name">《C语言程序设计》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="7-1-一维数组的定义"><a href="#7-1-一维数组的定义" class="headerlink" title="7.1 一维数组的定义"></a>7.1 一维数组的定义</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>]; </span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>]= &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//例子用数组来处理就Fibonacci数列</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> f[<span class="number">20</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        f[i] = f[i<span class="number">-2</span>] + f[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">5</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%12d"</span>,f[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7-2-二维数组的定义和引用"><a href="#7-2-二维数组的定义和引用" class="headerlink" title="7.2 二维数组的定义和引用"></a>7.2 二维数组的定义和引用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a[<span class="number">3</span>][<span class="number">4</span>],b[<span class="number">5</span>][<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">3</span>][<span class="number">4</span>] = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;,&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="7-3-字符数组"><a href="#7-3-字符数组" class="headerlink" title="7.3 字符数组"></a>7.3 字符数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c[] = &#123;<span class="string">'I'</span>,<span class="string">'a'</span>,<span class="string">'m'</span>,<span class="string">'h'</span>&#125;;</span><br><span class="line">char doamond[5][5] = &#123;&#123;'','','*'&#125;,&#123;'','*','','*'&#125;&#125;;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/07/beginning-c-seven/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1891,7 +1896,7 @@ fastcgi_intercept_errors on;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1902,7 +1907,7 @@ fastcgi_intercept_errors on;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1913,7 +1918,7 @@ fastcgi_intercept_errors on;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
