@@ -263,6 +263,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/11/skills-redis-persistence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/11/skills-redis-persistence/" itemprop="url">Redis持久化简介</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-11T22:02:04+08:00">
+                2018-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="RDB-Redis-DataBase"><a href="#RDB-Redis-DataBase" class="headerlink" title="RDB Redis DataBase"></a>RDB Redis DataBase</h3><p>可以在指定的时间间隔内生成数据及的时间点快照</p>
+<ul>
+<li><p>是一个非常紧凑的文件，保存了Redis在某个时间点上的数据集，适用于进行备份。</p>
+</li>
+<li><p>非常适用于灾难恢复：只有一个文件，并且内容非常紧凑，可以在加密后将它传送到别的数据中心</p>
+</li>
+<li>可以最大化Redis性能：服进行在保存RDB文件唯一要做的就是fork一个子进程，然后子进程就会处理接下来所有的保存工作，服进行无须执行任何磁盘I/O操作</li>
+<li>在恢复大数据集时笔AOF速度要快</li>
+<li>发生错误时，会有几分钟的数据丢失</li>
+<li>每次保存RDB时都需要fork子进程，数据量大时，会非常耗时，如果CPU时间紧张，就会停止处理客户端</li>
+</ul>
+<h3 id="AOF-Append-Only-File"><a href="#AOF-Append-Only-File" class="headerlink" title="AOF Append Only File"></a>AOF Append Only File</h3><p>记录服务器执行的所有写操作命令，并在服务器启动时，通过重新执行这些命令来还原数据集</p>
+<p>AOF文件中的命令全部以Redis协议的格式保存，新命令会被追加到文件的末尾</p>
+<p>Redis还可以在后台对AOF文件进行重写，使得AOF文件的提及不会超出保存数据集状态所需的实际大小</p>
+<ul>
+<li>会让Redis变得非常耐久：可以设置不同的fsync策略，默认每秒fsync一次</li>
+<li>AOF文件是一个只进行追加操作的日志文件，对AOF文件写入不需要进行seek</li>
+<li>Redis</li>
+</ul>
+<blockquote>
+<p>可以同时使用AOF持久化和RDB持久化，在Redis重启时，会优先使用AOF文件来还原数据集，因为AOF保存的数据集通常比RDB文件更加完整</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1674,154 +1837,6 @@ fastcgi_intercept_errors on;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/11/05/beginning-c-4-5-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/05/beginning-c-4-5-6/" itemprop="url">（四）最简单的C程序设计</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-05T20:43:51+08:00">
-                2017-11-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《C语言程序设计》/" itemprop="url" rel="index">
-                    <span itemprop="name">《C语言程序设计》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="4-1-C语句概述"><a href="#4-1-C语句概述" class="headerlink" title="4.1 C语句概述"></a>4.1 C语句概述</h3><h3 id="4-2-赋值语句"><a href="#4-2-赋值语句" class="headerlink" title="4.2 赋值语句"></a>4.2 赋值语句</h3><h3 id="4-3-数据输入输出的概念及在C语言中的实现"><a href="#4-3-数据输入输出的概念及在C语言中的实现" class="headerlink" title="4.3 数据输入输出的概念及在C语言中的实现"></a>4.3 数据输入输出的概念及在C语言中的实现</h3><h3 id="4-4-字符数据的输入输出"><a href="#4-4-字符数据的输入输出" class="headerlink" title="4.4 字符数据的输入输出"></a>4.4 字符数据的输入输出</h3><h4 id="4-4-1-putchar-函数"><a href="#4-4-1-putchar-函数" class="headerlink" title="4.4.1 putchar 函数"></a>4.4.1 putchar 函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a,b,c;</span><br><span class="line">    a = <span class="string">'B'</span>;</span><br><span class="line">    b = <span class="string">'O'</span>;</span><br><span class="line">    c = <span class="string">'Y'</span>;</span><br><span class="line">    <span class="built_in">putchar</span>(a);<span class="built_in">putchar</span>(b);<span class="built_in">putchar</span>(c);<span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    <span class="comment">//BOY</span></span><br><span class="line">    </span><br><span class="line">    putchar('\101');//A</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'\''</span>);<span class="comment">//'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-4-2-getchar函数"><a href="#4-4-2-getchar函数" class="headerlink" title="4.4.2 getchar函数"></a>4.4.2 getchar函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">函数的值就是从出入设备得到的字符</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c = getchar();<span class="comment">//运行时，如果从键盘输入 a,只有在按Enter键之后才会从到内存</span></span><br><span class="line">    <span class="built_in">putchar</span>(c);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//getchar只能接受一个字符</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-5-格式输入与输出"><a href="#4-5-格式输入与输出" class="headerlink" title="4.5 格式输入与输出"></a>4.5 格式输入与输出</h3><h4 id="4-5-1-printf函数"><a href="#4-5-1-printf函数" class="headerlink" title="4.5.1 printf函数"></a>4.5.1 printf函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(格式控制,输出表列)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d,%c"</span>,a,b);</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/05/beginning-c-4-5-6/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1876,7 +1891,7 @@ fastcgi_intercept_errors on;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
