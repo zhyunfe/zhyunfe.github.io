@@ -2,254 +2,282 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhyunfe.github.io/2018/09/11/machine-learning-01/</loc>
+    
+    <lastmod>2018-09-11T06:20:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/09/10/back-my-life/</loc>
+    
+    <lastmod>2018-09-10T03:18:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/09/10/teach-skill-01/</loc>
+    
+    <lastmod>2018-09-10T03:17:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/29/eth-ubu-envconfig/</loc>
+    
+    <lastmod>2018-08-29T05:56:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhyunfe.github.io/2018/08/28/eth-game-01/</loc>
     
-    <lastmod>2018-08-29T03:39:06.348Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-08-28T14:51:49.106Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/20/trouble-open-basedir/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.105Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/categories/index.html</loc>
-    
-    <lastmod>2018-08-28T14:51:49.105Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/08/20/test/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/09/19/skills-seo/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/17/skills-redis-safe/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/11/skills-redis-persistence/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.103Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.103Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/06/skills-nginx-504/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.102Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.102Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/01/skills-mysql-explain/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.101Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/01/15/skills-linux-command/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.101Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/03/08/skills-es/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.100Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.100Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.099Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/05/php-interview-prepare-mysql/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.098Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.098Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/06/php-interview-prepare-php/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.098Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/04/php-interview-prepare-hc-4/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.097Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/03/php-interview-prepare-hc-3/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.097Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/02/php-interview-prepare-hc-2/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.096Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.095Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.095Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/12/02/etherum-desc/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.094Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/03/19/kafka-easy/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.094Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/07/03/coding-solidity/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.093Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/12/19/blockchain-develop-dapp-desc/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.093Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-two/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.092Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/07/22/blockchain-bitcoin/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.092Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/03/beginning-c-three/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.092Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/07/beginning-c-seven/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.090Z</lastmod>
+    <lastmod>2018-08-29T03:39:06.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://zhyunfe.github.io/2017/11/09/beginning-c-nine/</loc>
     
-    <lastmod>2018-08-28T14:51:49.089Z</lastmod>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/03/beginning-c-three/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/07/22/blockchain-bitcoin/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-two/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/07/03/coding-solidity/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/tags/index.html</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/03/19/kafka-easy/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-one/</loc>
     
-    <lastmod>2018-08-28T14:51:49.089Z</lastmod>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://zhyunfe.github.io/2017/11/08/beginning-c-eight/</loc>
+    <loc>http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/</loc>
     
-    <lastmod>2018-08-28T14:51:49.088Z</lastmod>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/02/php-interview-prepare-hc-2/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/03/php-interview-prepare-hc-3/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/06/php-interview-prepare-php/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/03/08/skills-es/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://zhyunfe.github.io/2017/11/05/beginning-c-4-5-6/</loc>
     
-    <lastmod>2018-08-28T14:51:49.087Z</lastmod>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/06/skills-nginx-504/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/11/skills-redis-persistence/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/17/skills-redis-safe/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/09/19/skills-seo/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/07/beginning-c-seven/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/20/test/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/12/19/blockchain-develop-dapp-desc/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/08/beginning-c-eight/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/12/02/etherum-desc/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/04/php-interview-prepare-hc-4/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/05/php-interview-prepare-mysql/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2017/01/15/skills-linux-command/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/01/skills-mysql-explain/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/20/trouble-open-basedir/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/categories/index.html</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/</loc>
+    
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     
   </url>
   
