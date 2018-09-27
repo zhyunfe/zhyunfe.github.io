@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/12/19/blockchain-develop-dapp-desc/">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
@@ -316,7 +316,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/19/blockchain-develop-dapp-desc/" itemprop="url">（一）去中心化应用</a></h2>
+                <a class="post-title-link" href="/2018/01/08/skills-mysql-slow-query/" itemprop="url">MySQL慢查询</a></h2>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-19T18:42:44+08:00">
-                2017-12-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T22:12:15+08:00">
+                2018-01-08
               </time>
             
 
@@ -351,19 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/" itemprop="url" rel="index">
-                    <span itemprop="name">BlockChain</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/《区块链项目开发指南》/" itemprop="url" rel="index">
-                    <span itemprop="name">《区块链项目开发指南》</span>
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
                   </a>
                 </span>
 
@@ -380,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/19/blockchain-develop-dapp-desc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/19/blockchain-develop-dapp-desc/" itemprop="commentCount"></span>
+                <a href="/2018/01/08/skills-mysql-slow-query/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/08/skills-mysql-slow-query/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,7 +378,7 @@
 
           
           
-             <span id="/2017/12/19/blockchain-develop-dapp-desc/" class="leancloud_visitors" data-flag-title="（一）去中心化应用">
+             <span id="/2018/01/08/skills-mysql-slow-query/" class="leancloud_visitors" data-flag-title="MySQL慢查询">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -421,21 +410,41 @@
 
       
         
-          <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>如何学习以太坊？ -&gt; 从以太坊的白皮书和黄皮书开始/Building Blockchain Projects</p>
-<p>通过有趣的现实世界案例，将了解到如何编写完全按照程序运行、没有欺诈、没有中心机构或者第三方干预的智能合约，并学习如何创建端到端的区块链应用。</p>
-<p>将介绍加密货币中的密码学、以太币安全、挖矿、智能合约和Solidity等概念</p>
-<p>实例代码下载地址：<a href="http://www.packtpub.com" target="_blank" rel="noopener">http://www.packtpub.com</a></p>
-<p>​                <a href="http://www.hzbook.com" target="_blank" rel="noopener">http://www.hzbook.com</a></p>
-<h3 id="第一章-去中心化应用"><a href="#第一章-去中心化应用" class="headerlink" title="第一章 去中心化应用"></a>第一章 去中心化应用</h3><h5 id="1-1-什么是Dapp"><a href="#1-1-什么是Dapp" class="headerlink" title="1.1 什么是Dapp"></a>1.1 什么是Dapp</h5><p>目前几乎所有互联网应用都是中心化，每个应用的服务端由一个特定的企业或者个人所有，开发者在开发中心化应用，用户也一直在使用中心化应用。</p>
-<p>但是中心化应用存在一些问题：不透明、单点故障、不能防止网络审查。几乎不可能创建某些特定类型的应用</p>
-<p>为了解决这一问题，去中心化应用诞生了，它创建以网络为基础的去中心化应用Dapp</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/19/blockchain-develop-dapp-desc/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>MySQL 慢查询的相关参数解释：</p>
+<p>slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。</p>
+<p>log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>long_query_time ：慢查询阈值，当查询时间多于设定的阈值时，记录日志。</p>
+<p>log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。</p>
+<p>log_output：日志存储方式。log_output=’FILE’表示将日志存入文件，默认值是’FILE’。log_output=’TABLE’表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=’FILE,TABLE’。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需要能够获得更高的系统性能，那么建议优先记录到文件。</p>
+<pre><code>//查看是否开启慢查询，默认为OFF
+mysql&gt; show variables  like &apos;%slow_query_log%&apos;;
+//开启慢查询(仅对当前一次有效，重启后就失效了)
+mysql&gt; set global slow_query_log = 1;
+//修改慢查询记录触发时间为4秒，默认为10秒
+mysql&gt; set global long_query_time = 4;
+
+//修改my.cnf文件修改参数永久有效
+在my.cnf文件里增加
+//开启慢查询
+slow_query_log =1
+//指定慢查询日志文件
+slow_query_log_file=/tmp/mysql_slow.log
+//设置慢查询记录时间
+long_query_time = 4
+
+系统变量log-queries-not-using-indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。如果调优的话，建议开启这个选项。另外，开启了这个参数，其实使用full index scan的sql也会被记录到慢查询日志。
+set global log_queries_not_using_indexes=1;
+
+
+
+慢查询日志分析工具
+mysqldumpslow 日志文件路径
+
+mysqldumpslow /usr/local/var/mysql/Demoer-slow.log
+</code></pre>
+          
         
       
     </div>
@@ -482,7 +491,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/12/02/etherum-desc/">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/06/skills-nginx-504/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
@@ -501,7 +510,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/etherum-desc/" itemprop="url">（二）以太坊工作原理</a></h2>
+                <a class="post-title-link" href="/2018/01/06/skills-nginx-504/" itemprop="url">Nginx 504解决方案</a></h2>
         
 
         <div class="post-meta">
@@ -513,8 +522,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-02T18:56:11+08:00">
-                2017-12-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-06T21:52:29+08:00">
+                2018-01-06
               </time>
             
 
@@ -536,19 +545,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/" itemprop="url" rel="index">
-                    <span itemprop="name">BlockChain</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/《区块链项目开发指南》/" itemprop="url" rel="index">
-                    <span itemprop="name">《区块链项目开发指南》</span>
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
                   </a>
                 </span>
 
@@ -565,8 +563,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/02/etherum-desc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/02/etherum-desc/" itemprop="commentCount"></span>
+                <a href="/2018/01/06/skills-nginx-504/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/06/skills-nginx-504/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -574,7 +572,7 @@
 
           
           
-             <span id="/2017/12/02/etherum-desc/" class="leancloud_visitors" data-flag-title="（二）以太坊工作原理">
+             <span id="/2018/01/06/skills-nginx-504/" class="leancloud_visitors" data-flag-title="Nginx 504解决方案">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -606,13 +604,219 @@
 
       
         
-          <h5 id="2-1-以太坊概览"><a href="#2-1-以太坊概览" class="headerlink" title="2.1 以太坊概览"></a>2.1 以太坊概览</h5><p>以太坊是一个去中心化的平台，可以在其上部署Dapp，Dapp用一个或者更多个只能合约创建，使用Solidity编程语言编写只能合约。智能合约完全按照程序运行，而且防停机、防审查、防欺诈、防第三方干扰。</p>
-<p>以太坊的内部货币为以太坊，部署智能合约或者调用其方法需要用到以太币。只能合约可以有多个实例，每个实例都有自己专门的地址，用户账户和智能合约都可以持有以太币。</p>
-<p>以太坊使用区块链数据结构和工作量证明共识协议。</p>
-<p>有两种网络中的节点：普通节点和矿工，普通节点只备份区块链上的数据，而矿工通过挖矿创建区块链。</p>
+          
+            <p>修改nginx.conf文件</p>
+<p>在http{    </p>
+<pre><code>#添加如下配置
+</code></pre><p>}</p>
+<pre><code>gzip on
+gzip_min_length  1k;
+gzip_buffers     4 128k;
+gzip_http_version 1.1;
+gzip_comp_level 2;
+gzip_types     text/plain application/javascript application/x-javascript text/javascript text/css application/xml application/xml+rss;
+gzip_vary on;
+gzip_proxied   expired no-cache no-store private auth;
+gzip_disable   &quot;MSIE [1-6]\.&quot;;
+
+fastcgi_connect_timeout 300s;
+fastcgi_send_timeout 300s;
+fastcgi_read_timeout 300s;
+fastcgi_buffer_size 128k;
+fastcgi_buffers 8 128k;#8 128
+fastcgi_busy_buffers_size 256k;
+fastcgi_temp_file_write_size 256k;
+fastcgi_intercept_errors on;
+</code></pre><p>修改php-fpm.conf</p>
+<p><a href="http://blog.csdn.net/senlin1202/article/details/50800194" target="_blank" rel="noopener">http://blog.csdn.net/senlin1202/article/details/50800194</a></p>
+<p>如果你的服务器性能足够好，且宽带资源足够充足，PHP脚本没有系循环或BUG的话你可以直接将”request_terminate_timeout”设 置成0s。</p>
+<p>0s的含义是让PHP-CGI一直执行下去而没有时间限制。</p>
+<p>而如果你做不到这一点，也就是说你的PHP-CGI可能出现某个BUG，或者你的宽 带不够充足或者其他的原因导致你的PHP-CGI能够假死那么就建议你给”request_terminate_timeout”赋一个值，这个值可以根 据你服务器的性能进行设定。一般来说性能越好你可以设置越高，20分钟-30分钟都可以。由于我的服务器PHP脚本需要长时间运行，有的可能会超过10分 钟因此我设置了900秒，这样不会导致PHP-CGI死掉而出现502 Bad gateway这个错误。</p>
+<p>而”max_children” 这个值又是怎么计算出来的呢？这个值原则上是越大越好，php-cgi的进程多了就会处理的很快，排队的请求就会很少。</p>
+<p>设置”max_children” 也需要根据服务器的性能进行设定，一般来说一台服务器正常情况下每一个php-cgi所耗费的内存在20M左右，因此我的”max_children”我 设置成40个，20M*40=800M也就是说在峰值的时候所有PHP-CGI所耗内存在800M以内，低于我的有效内存1Gb。而如果我 的”max_children”设置的较小，比如5-10个，那么php-cgi就会“很累”，处理速度也很慢，等待的时间也较长。如果长时间没有得到处 理的请求就会出现504 Gateway Time-out这个错误，而正在处理的很累的那几个php-cgi如果遇到了问题就会出现502 Bad gateway这个错误。</p>
+<p>max_requests即是说每个进程若超过这个数目(跟php进程有一点点关系,关 系不大),就自动杀死..我这里应该设置512的,不过懒得压力测试了,设置大一点,不过也不要设置过大,是个结构体,没测试过,接近8K到9K大小.网 上动辄设置100k,有点浪费内存了.一个进程浪费大小接近1M.按照网上常用配置的128个进程,大概浪费100M左右.好吧,我承认100M是白菜 价,但也别这样浪费..= =</p>
+<p>max_children基本就是进程数,跟nginx的进程没有想象中的那么大,因为FPM会自己管理进程(有待考证,起码我简单浏览了一下源码,认为是这个意思).参数不宜设置过大,很占内存,进程的消耗就不用我多说了.</p>
+<p>max_children较好的设置方式根据req/s来设置,若程序是 100 req/s的处理能力..最大并发是10K,那么就设置 100比较好,这是动态来调整的.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/01/skills-mysql-explain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/01/skills-mysql-explain/" itemprop="url">Mysql Explain使用详解</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T21:16:59+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/01/skills-mysql-explain/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/01/skills-mysql-explain/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/01/skills-mysql-explain/" class="leancloud_visitors" data-flag-title="Mysql Explain使用详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Mysql Explain 是常用分析mysql性能的工具，下面简单说一下各参数的分析</p>
+<pre><code>1）id列数字越大越先执行，如果说数字一样大，那么就从上往下依次执行，id列为null的就表是这是一个结果集，不需要使用它来进行查询。
+
+2）select_type列常见的有：
+    A：simple：表示不需要union操作或者不包含子查询的简单select查询。有连接查询时，外层的查询为simple，且只有一个
+    B：primary：一个需要union操作或者含有子查询的select，位于最外层的单位查询的select_type即为primary。且只有一个
+    C：union：union连接的两个select查询，第一个查询是dervied派生表，除了第一个表外，第二个以后的表select_type都是union
+    D：dependent union：与union一样，出现在union 或union all语句中，但是这个查询要受到外部查询的影响
+    E：union result：包含union的结果集，在union和union all语句中,因为它不需要参与查询，所以id字段为null
+    F：subquery：除了from字句中包含的子查询外，其他地方出现的子查询都可能是subquery
+    G：dependent subquery：与dependent union类似，表示这个subquery的查询要受到外部表查询的影响
+    H：derived：from字句中出现的子查询，也叫做派生表，其他数据库中可能叫做内联视图或嵌套select
+
+3）table
+显示的查询表名，如果查询使用了别名，那么这里显示的是别名，如果不涉及对数据表的操作，那么这显示为null，如果显示为尖括号括起来的&lt;derived N&gt;就表示这个是临时表，后边的N就是执行计划中的id，表示结果来自于这个查询产生。如果是尖括号括起来的&lt;union M,N&gt;，与&lt;derived N&gt;类似，也是一个临时表，表示这个结果来自于union查询的id为M,N的结果集。
+</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/etherum-desc/#more" rel="contents">
+            <a class="btn" href="/2018/01/01/skills-mysql-explain/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1700,7 +1904,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/11/02/beginning-c-one/">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/10/06/php-interview-prepare-php/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
@@ -1719,7 +1923,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/02/beginning-c-one/" itemprop="url">（一）C语言概述</a></h2>
+                <a class="post-title-link" href="/2017/10/06/php-interview-prepare-php/" itemprop="url">谈谈对MVC工作原理的认识和常见的MVC框架</a></h2>
         
 
         <div class="post-meta">
@@ -1731,180 +1935,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T20:36:27+08:00">
-                2017-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《C语言程序设计》/" itemprop="url" rel="index">
-                    <span itemprop="name">《C语言程序设计》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/02/beginning-c-one/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/02/beginning-c-one/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/02/beginning-c-one/" class="leancloud_visitors" data-flag-title="（一）C语言概述">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-1-C语言出现的历史北京"><a href="#1-1-C语言出现的历史北京" class="headerlink" title="1.1 C语言出现的历史北京"></a>1.1 C语言出现的历史北京</h3><h3 id="1-2-C语言的特点"><a href="#1-2-C语言的特点" class="headerlink" title="1.2 C语言的特点"></a>1.2 C语言的特点</h3><ul>
-<li>语言简洁、紧凑，使用方便灵活</li>
-<li>运算符丰富</li>
-<li>数据类型丰富，具有现代语言的各种数据结构</li>
-<li>具有结构化的控制语句</li>
-<li>语法限制不太严格，程序设计自由度大</li>
-<li>C语言允许直接访问物理地址，能进行bit操作，能实现汇编语言的大部分功能，可以直接对硬件进行操作</li>
-<li>生成目标代码质量高，程序执行效率高</li>
-<li>用C语言编写的程序可移植性好，基本不做修改就能用于各种型号的计算机和各种操作系统</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/07/php-interview-prepare-algorithm/" itemprop="url">算法</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-07T21:14:02+08:00">
-                2017-10-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-06T21:04:35+08:00">
+                2017-10-06
               </time>
             
 
@@ -1944,8 +1976,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/07/php-interview-prepare-algorithm/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/10/07/php-interview-prepare-algorithm/" itemprop="commentCount"></span>
+                <a href="/2017/10/06/php-interview-prepare-php/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/10/06/php-interview-prepare-php/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1953,7 +1985,7 @@
 
           
           
-             <span id="/2017/10/07/php-interview-prepare-algorithm/" class="leancloud_visitors" data-flag-title="算法">
+             <span id="/2017/10/06/php-interview-prepare-php/" class="leancloud_visitors" data-flag-title="谈谈对MVC工作原理的认识和常见的MVC框架">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1985,31 +2017,37 @@
 
       
         
-          <h4 id="算法的概念"><a href="#算法的概念" class="headerlink" title="算法的概念"></a>算法的概念</h4><p>一个问题可以有多种算法，每种算法都有不同的效率<br>算法评定从时间复杂度和空间复杂度计算</p>
-<h4 id="时间复杂度和空间复杂度"><a href="#时间复杂度和空间复杂度" class="headerlink" title="时间复杂度和空间复杂度"></a>时间复杂度和空间复杂度</h4><p><strong>时间复杂度：</strong> 执行算法所需要的计算工作量，一般来说，计算机算法是问题规模N的函数f(n),算法的时间复杂度也因此记作T（n）= O(f(n))</p>
-<p>计算方式：</p>
+          
+            <h4 id="谈谈对MVC工作原理的认识和常见的MVC框架"><a href="#谈谈对MVC工作原理的认识和常见的MVC框架" class="headerlink" title="谈谈对MVC工作原理的认识和常见的MVC框架"></a>谈谈对MVC工作原理的认识和常见的MVC框架</h4><p>Model、View、Controller</p>
+<p>数据模型层，视图层、控制器(业务处理层)</p>
+<p>TP、Yii2、CI、Yaf</p>
+<h4 id="单一入口工作原理"><a href="#单一入口工作原理" class="headerlink" title="单一入口工作原理"></a>单一入口工作原理</h4><p>用一个处理程序文件处理多有的HTTP请求，根据请求参数的模块去完成对应操作</p>
+<p><strong>优势:</strong></p>
 <ul>
-<li><p>得出算法的计算次数</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#<span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>+<span class="number">4</span>+...+n</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n; i++)&#123;</span><br><span class="line">    $sum += i;</span><br><span class="line">&#125;</span><br><span class="line">#总共循环了n次，所以时间复杂度为O(n)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用常数1来取代所有时间中的加法常数</p>
-</li>
-<li>在修改后的运行次数函数中，只保留最高阶</li>
-<li>如果最高阶存在且不是1，则去除与这个数相乘的常数<blockquote>
-<p>举例</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">test</span><span class="params">($n)</span> </span>&#123;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">    echo $n;</span><br><span class="line">&#125;</span><br><span class="line">#计算<span class="number">3</span>次，O(<span class="number">3</span>)--记作-&gt;O(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> ($j = <span class="number">1</span>;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#n * n 次 时间复杂度为O(n^2)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i&lt;= $n;$i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> ($j = <span class="number">1</span>;$j&lt;=$n;$j++) &#123;</span><br><span class="line">        $sum += $j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> () &#123;</span><br><span class="line">    n次</span><br><span class="line">&#125;</span><br><span class="line">echo $a + b </span><br><span class="line"><span class="meta">#n^2 + n + 1 ---&gt;忽略 --&gt; O(n^2)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>($n&gt;=<span class="number">1</span>) &#123;</span><br><span class="line">    $n = $n/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#n执行次数</span></span><br><span class="line"></span><br><span class="line">n/(<span class="number">2</span>^m) = <span class="number">1</span></span><br><span class="line">#m = log2n,所以时间复杂度O(log2n)</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
+<li>可以进行统一的安全性的检查</li>
+<li>集中处理程序</li>
 </ul>
-<p>效率排名：O(1)&gt;O(log2n)&gt;O(n)&gt;O(nlog2n)&gt;O(n^2) &gt; O(n^3) &gt; O(2^n) &gt; O(n!) &gt; O(n^n)</p>
-<p>最坏的情况：最坏情况时的运行时间，一种保证，如果没有特别说明，说明时间复杂度为最坏的时间复杂度</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/07/php-interview-prepare-algorithm/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p><strong>劣势:</strong></p>
+<ul>
+<li>URL不美观</li>
+<li>处理效率会稍低<h4 id="模板引擎的理解"><a href="#模板引擎的理解" class="headerlink" title="模板引擎的理解"></a>模板引擎的理解</h4></li>
+</ul>
+<p>PHP 是一种HTML内嵌的在服务器端执行的脚本语言，但是PHP有很多可以使PHP代码和HTML代码分开的模板引擎，例如Smarty，Twig，Haml</p>
+<p>工作原理：<br>庞大的完善的正则表达式的替换库</p>
+<h4 id="常见框架的特性考点"><a href="#常见框架的特性考点" class="headerlink" title="常见框架的特性考点"></a>常见框架的特性考点</h4><p>php框架有哪些，用过哪些，各自的优缺点是什么？</p>
+<p>PHP框架的差异和优缺点</p>
+<p><strong>Yaf框架</strong></p>
+<p>使用php扩展的形式写的一个php矿建，以C语言为底层编写的，性能上要比PHP代码写的快一个数量级</p>
+<p>优点：执行效率高，轻量级、扩展性高</p>
+<p>缺点：高版本兼容性查、底层代码可读性差、需要安装扩展、功能单一、开发需要编写大量的插件</p>
+<p><strong>Yii2框架</strong></p>
+<p>Yii2框架是一款非常优秀的通用web后端框架，结构简单优雅，使用功能丰富，扩展性强，性能高</p>
+<p>缺点：<br>学习成本高，量级重</p>
+<p>常见框架的特性</p>
+<p>Yii2的路由配置</p>
+<p><strong>TP框架</strong></p>
+
+          
         
       
     </div>
@@ -2097,7 +2135,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
