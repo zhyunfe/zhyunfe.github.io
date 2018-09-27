@@ -222,7 +222,7 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+          <a href="/baidusitemap.xml" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
@@ -283,6 +283,699 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/29/eth-ubu-envconfig/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/29/eth-ubu-envconfig/" itemprop="url">Ubuntu全新安装Geth及开发智能合约 -</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-29T12:23:44+08:00">
+                2018-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Solidity/" itemprop="url" rel="index">
+                    <span itemprop="name">Solidity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/29/eth-ubu-envconfig/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/29/eth-ubu-envconfig/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/29/eth-ubu-envconfig/" class="leancloud_visitors" data-flag-title="Ubuntu全新安装Geth及开发智能合约 -">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="安装Geth"><a href="#安装Geth" class="headerlink" title="安装Geth"></a>安装Geth</h3><p>我们将所有的安装放置在/home/zhyunfe/下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /home/zhyunfe</span><br><span class="line">mkdir geth</span><br><span class="line">git clone https://github.com/ethereum/go-ethereum</span><br><span class="line">sudo apt-get install -y build-essential golang</span><br><span class="line">cd go-ethereum</span><br><span class="line">make geth</span><br></pre></td></tr></table></figure></p>
+<p>安装完了之后我们可以使用命令测试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">zhyunfe@zhyunfe: /home/zhyunfe$ geth</span><br><span class="line">WARN [08-29|04:30:34.204] Sanitizing cache to Go&apos;s GC limits       provided=1024 updated=320</span><br><span class="line">INFO [08-29|04:30:34.879] Maximum peer count                       ETH=25 LES=0 total=25</span><br><span class="line">INFO [08-29|04:30:34.916] Starting peer-to-peer node               instance=Geth/v1.8.15-unstable-63352bf4/linux-amd64/go1.10.1</span><br><span class="line">INFO [08-29|04:30:34.919] Allocated cache and file handles         database=/home/zhyunfe/.ethereum/geth/chaindata cache=240 handles=512</span><br><span class="line">INFO [08-29|04:30:35.448] Initialised chain configuration          config=&quot;&#123;ChainID: 1 Homestead: 1150000 DAO: 1920000 DAOSupport: true EIP150: 2463000 EIP155: 2675000 EIP158: 2675000 Byzantium: 4370000 Constantinople: &lt;nil&gt; Engine: ethash&#125;&quot;</span><br><span class="line">INFO [08-29|04:30:35.785] Disk storage enabled for ethash caches   dir=/home/zhyunfe/.ethereum/geth/ethash count=3</span><br><span class="line">INFO [08-29|04:30:35.794] Disk storage enabled for ethash DAGs     dir=/home/zhyunfe/.ethash               count=2</span><br><span class="line">INFO [08-29|04:30:35.812] Initialising Ethereum protocol           versions=&quot;[63 62]&quot; network=1</span><br><span class="line">INFO [08-29|04:30:36.314] Loaded most recent local header          number=0 hash=d4e567…cb8fa3 td=17179869184</span><br><span class="line">INFO [08-29|04:30:36.317] Loaded most recent local full block      number=0 hash=d4e567…cb8fa3 td=17179869184</span><br><span class="line">INFO [08-29|04:30:36.318] Loaded most recent local fast block      number=0 hash=d4e567…cb8fa3 td=17179869184</span><br><span class="line">INFO [08-29|04:30:36.399] Loaded local transaction journal         transactions=0 dropped=0</span><br><span class="line">INFO [08-29|04:30:36.443] Regenerated local transaction journal    transactions=0 accounts=0</span><br><span class="line">INFO [08-29|04:30:36.453] Starting P2P networking</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/28/eth-game-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/28/eth-game-01/" itemprop="url">CryptoZombies以太坊学习 - 01</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-28T22:10:07+08:00">
+                2018-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BlockChain/" itemprop="url" rel="index">
+                    <span itemprop="name">BlockChain</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BlockChain/Solidity/" itemprop="url" rel="index">
+                    <span itemprop="name">Solidity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/28/eth-game-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/28/eth-game-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/28/eth-game-01/" class="leancloud_visitors" data-flag-title="CryptoZombies以太坊学习 - 01">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="僵尸工场"><a href="#僵尸工场" class="headerlink" title="僵尸工场"></a>僵尸工场</h1><h3 id="第一步-设置一个空合约"><a href="#第一步-设置一个空合约" class="headerlink" title="第一步 设置一个空合约"></a>第一步 设置一个空合约</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">// 创建一个僵尸工场的空合约</span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二步-状态变量和整数"><a href="#第二步-状态变量和整数" class="headerlink" title="第二步 状态变量和整数"></a>第二步 状态变量和整数</h3><p>状态变量是被永久地保存在合约中，也就是说他们被写入以太币区块链中，想象成写入一个数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/28/eth-game-01/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-three/" itemprop="url">（三）目标文件里有什么</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:22:49+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
+                    <span itemprop="name">《程序员的自我修养》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/19/self-contivation-of-programmers-three/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/19/self-contivation-of-programmers-three/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/19/self-contivation-of-programmers-three/" class="leancloud_visitors" data-flag-title="（三）目标文件里有什么">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>编译器编译源代码后生成的文件叫做目标文件。</p>
+<h3 id="3-1-目标文件的格式是什么"><a href="#3-1-目标文件的格式是什么" class="headerlink" title="3.1 目标文件的格式是什么"></a>3.1 目标文件的格式是什么</h3><p>可执行文件格式：</p>
+<pre><code>- PE Portable Executable (windows)
+- ELF Executable Linkable Format (Linux)
+</code></pre><p>目标文件：源代码编译后但未进行链接的哪些中间文件windows下的.obj和linux下的.o</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 使用file命令查看响应的文件格式</span><br><span class="line">file filename.o</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/19/self-contivation-of-programmers-three/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-two/" itemprop="url">（二）静态链接</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:21:20+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
+                    <span itemprop="name">《程序员的自我修养》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/19/self-contivation-of-programmers-two/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/19/self-contivation-of-programmers-two/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/19/self-contivation-of-programmers-two/" class="leancloud_visitors" data-flag-title="（二）静态链接">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="2-1-被隐藏了的过程"><a href="#2-1-被隐藏了的过程" class="headerlink" title="2.1 被隐藏了的过程"></a>2.1 被隐藏了的过程</h3><p>4个步骤：预处理、编译、汇编、链接</p>
+<h4 id="2-1-1-预编译"><a href="#2-1-1-预编译" class="headerlink" title="2.1.1 预编译"></a>2.1.1 预编译</h4><p><code>gcc -E hello.c -o hello.i</code> 或者 <code>cpp hello.c &gt; hello.i</code></p>
+<p><strong>预编译</strong>过程主要处理那些源代码文件中以#开始的预编译指令，比如#include、#define等主要处理规则如下</p>
+<ul>
+<li>将所有的#define删除，并展开所有宏定义</li>
+<li>处理所有条件编译指令，比如#if #ifdef #elif #else #endif</li>
+<li>处理#include预编译指令，将被包含的文件插入到该预编译指令的位置，这个过程是递归进行的，就是说被包含的文件可能还包含其他文件</li>
+<li>删除所有的注释</li>
+<li>添加行号额文件标识，比如#2 hello.c 2， 以便于编译时编译器产生调试用的行号信息及用于编译时产生编译错误或警告时能够显示的行号</li>
+<li>保留所有的#pragma编译器指令，因为编译器须要使用它们</li>
+</ul>
+<p>经过编译处理后的.i文件不包含任何宏定义，因为所有的宏已经被展开，并且包含的文件也已经被插入到i文件中</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/19/self-contivation-of-programmers-two/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -431,6 +1124,179 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/07/php-interview-prepare-algorithm/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/19/self-contivation-of-progammers-one/" itemprop="url">（一）程序员的自我修养</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:17:51+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
+                    <span itemprop="name">《程序员的自我修养》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/19/self-contivation-of-progammers-one/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/19/self-contivation-of-progammers-one/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/19/self-contivation-of-progammers-one/" class="leancloud_visitors" data-flag-title="（一）程序员的自我修养">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="第1部分-简介"><a href="#第1部分-简介" class="headerlink" title="第1部分 简介"></a>第1部分 简介</h3><h4 id="1-1-从Hello-World说起"><a href="#1-1-从Hello-World说起" class="headerlink" title="1.1 从Hello World说起"></a>1.1 从Hello World说起</h4><h4 id="1-2-万变不离其宗"><a href="#1-2-万变不离其宗" class="headerlink" title="1.2 万变不离其宗"></a>1.2 万变不离其宗</h4><p>对于系统程序开发者来说，计算机多如牛毛的硬件设备中，有三个部件最为关键，他们分别是中央处理器CPU、内存和I/O控制芯片，这三个部件几乎就是计算机的核心</p>
+<p>早期的计算机没有很复杂的图形功能，CPU的核心频率也不高，跟内存的频率一样，他们都是直接连接在同一个<strong>总线</strong>上。</p>
+<p>由于I/O设备诸如显示设备、键盘、软盘和磁盘等速度与CPU和内存相比还是慢很多，当时也没有复杂的图形设备，显示设备大多是只能输出字符的终端，为了协调I/O设备与总线之间的速度，也为了能够让CPU能够和I/O设备进行通信，一般每个设备都会有一个相应的I/O控制器。</p>
+<p>后来由于CPU核心频率的提升，导致内存跟不上CPU的速度，于是产生了与内存频率一致的系统总线，而CPU采用倍频的方式与系统总线进行通信。</p>
+<p>为了协调CPU、内存和高速的图形设备，人们专门设计了一个高速的北桥芯片，以便他们之间能够高速地交换数据。</p>
+<p>由于北桥的运行速度非常高，所有相对低速的设备如果全部连接在北桥上，北桥既需要处理高速设备有需要处理低速设备，设计就会十分复杂，于是设计了专门处理低速设备的南桥芯片。</p>
+<p>磁盘、USB、键盘、鼠标等设备都连接在南桥上，由南桥将它们汇总后连接在北桥上。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/19/self-contivation-of-progammers-one/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1161,809 +2027,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-three/" itemprop="url">（三）目标文件里有什么</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:22:49+08:00">
-                2018-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
-                    <span itemprop="name">《程序员的自我修养》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/19/self-contivation-of-programmers-three/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/19/self-contivation-of-programmers-three/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/08/19/self-contivation-of-programmers-three/" class="leancloud_visitors" data-flag-title="（三）目标文件里有什么">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>编译器编译源代码后生成的文件叫做目标文件。</p>
-<h3 id="3-1-目标文件的格式是什么"><a href="#3-1-目标文件的格式是什么" class="headerlink" title="3.1 目标文件的格式是什么"></a>3.1 目标文件的格式是什么</h3><p>可执行文件格式：</p>
-<pre><code>- PE Portable Executable (windows)
-- ELF Executable Linkable Format (Linux)
-</code></pre><p>目标文件：源代码编译后但未进行链接的哪些中间文件windows下的.obj和linux下的.o</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 使用file命令查看响应的文件格式</span><br><span class="line">file filename.o</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/19/self-contivation-of-programmers-three/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/19/self-contivation-of-programmers-two/" itemprop="url">（二）静态链接</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:21:20+08:00">
-                2018-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
-                    <span itemprop="name">《程序员的自我修养》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/19/self-contivation-of-programmers-two/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/19/self-contivation-of-programmers-two/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/08/19/self-contivation-of-programmers-two/" class="leancloud_visitors" data-flag-title="（二）静态链接">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="2-1-被隐藏了的过程"><a href="#2-1-被隐藏了的过程" class="headerlink" title="2.1 被隐藏了的过程"></a>2.1 被隐藏了的过程</h3><p>4个步骤：预处理、编译、汇编、链接</p>
-<h4 id="2-1-1-预编译"><a href="#2-1-1-预编译" class="headerlink" title="2.1.1 预编译"></a>2.1.1 预编译</h4><p><code>gcc -E hello.c -o hello.i</code> 或者 <code>cpp hello.c &gt; hello.i</code></p>
-<p><strong>预编译</strong>过程主要处理那些源代码文件中以#开始的预编译指令，比如#include、#define等主要处理规则如下</p>
-<ul>
-<li>将所有的#define删除，并展开所有宏定义</li>
-<li>处理所有条件编译指令，比如#if #ifdef #elif #else #endif</li>
-<li>处理#include预编译指令，将被包含的文件插入到该预编译指令的位置，这个过程是递归进行的，就是说被包含的文件可能还包含其他文件</li>
-<li>删除所有的注释</li>
-<li>添加行号额文件标识，比如#2 hello.c 2， 以便于编译时编译器产生调试用的行号信息及用于编译时产生编译错误或警告时能够显示的行号</li>
-<li>保留所有的#pragma编译器指令，因为编译器须要使用它们</li>
-</ul>
-<p>经过编译处理后的.i文件不包含任何宏定义，因为所有的宏已经被展开，并且包含的文件也已经被插入到i文件中</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/19/self-contivation-of-programmers-two/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/19/self-contivation-of-progammers-one/" itemprop="url">（一）程序员的自我修养</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T19:17:51+08:00">
-                2018-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《程序员的自我修养》/" itemprop="url" rel="index">
-                    <span itemprop="name">《程序员的自我修养》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/19/self-contivation-of-progammers-one/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/19/self-contivation-of-progammers-one/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/08/19/self-contivation-of-progammers-one/" class="leancloud_visitors" data-flag-title="（一）程序员的自我修养">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="第1部分-简介"><a href="#第1部分-简介" class="headerlink" title="第1部分 简介"></a>第1部分 简介</h3><h4 id="1-1-从Hello-World说起"><a href="#1-1-从Hello-World说起" class="headerlink" title="1.1 从Hello World说起"></a>1.1 从Hello World说起</h4><h4 id="1-2-万变不离其宗"><a href="#1-2-万变不离其宗" class="headerlink" title="1.2 万变不离其宗"></a>1.2 万变不离其宗</h4><p>对于系统程序开发者来说，计算机多如牛毛的硬件设备中，有三个部件最为关键，他们分别是中央处理器CPU、内存和I/O控制芯片，这三个部件几乎就是计算机的核心</p>
-<p>早期的计算机没有很复杂的图形功能，CPU的核心频率也不高，跟内存的频率一样，他们都是直接连接在同一个<strong>总线</strong>上。</p>
-<p>由于I/O设备诸如显示设备、键盘、软盘和磁盘等速度与CPU和内存相比还是慢很多，当时也没有复杂的图形设备，显示设备大多是只能输出字符的终端，为了协调I/O设备与总线之间的速度，也为了能够让CPU能够和I/O设备进行通信，一般每个设备都会有一个相应的I/O控制器。</p>
-<p>后来由于CPU核心频率的提升，导致内存跟不上CPU的速度，于是产生了与内存频率一致的系统总线，而CPU采用倍频的方式与系统总线进行通信。</p>
-<p>为了协调CPU、内存和高速的图形设备，人们专门设计了一个高速的北桥芯片，以便他们之间能够高速地交换数据。</p>
-<p>由于北桥的运行速度非常高，所有相对低速的设备如果全部连接在北桥上，北桥既需要处理高速设备有需要处理低速设备，设计就会十分复杂，于是设计了专门处理低速设备的南桥芯片。</p>
-<p>磁盘、USB、键盘、鼠标等设备都连接在南桥上，由南桥将它们汇总后连接在北桥上。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/19/self-contivation-of-progammers-one/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/09/11/machine-learning-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/11/machine-learning-01/" itemprop="url">机器学习01 - 绪论</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-11T14:19:11+08:00">
-                2018-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/11/machine-learning-01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/11/machine-learning-01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/09/11/machine-learning-01/" class="leancloud_visitors" data-flag-title="机器学习01 - 绪论">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/09/10/teach-skill-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/10/teach-skill-01/" itemprop="url">teach-skill-01</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T11:17:45+08:00">
-                2018-09-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/10/teach-skill-01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/10/teach-skill-01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/09/10/teach-skill-01/" class="leancloud_visitors" data-flag-title="teach-skill-01">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
         
       
     </div>

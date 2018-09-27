@@ -1,277 +1,786 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/</loc>
+
+
     
-    <lastmod>2018-09-27T02:47:25.700Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-one/</loc>
-    
-    <lastmod>2018-09-27T02:47:14.270Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/07/03/coding-solidity/</loc>
-    
-    <lastmod>2018-09-27T02:46:55.331Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/12/02/etherum-desc/</loc>
-    
-    <lastmod>2018-09-27T02:46:45.325Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/12/19/blockchain-develop-dapp-desc/</loc>
-    
-    <lastmod>2018-09-27T02:46:31.851Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/</loc>
-    
-    <lastmod>2018-09-27T02:46:05.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/</loc>
-    
-    <lastmod>2018-09-27T02:45:46.663Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/</loc>
-    
-    <lastmod>2018-09-27T02:45:40.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/09/11/machine-learning-01/</loc>
-    
-    <lastmod>2018-09-11T06:20:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/09/10/back-my-life/</loc>
-    
-    <lastmod>2018-09-10T03:18:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/09/10/teach-skill-01/</loc>
-    
-    <lastmod>2018-09-10T03:17:45.000Z</lastmod>
-    
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2018/08/29/eth-ubu-envconfig/</loc>
+    <lastmod>2018-09-27T03:37:55.659Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu全新安装Geth及开发智能合约 -</title>
+        <pubTime>2018-08-29T04:23:44.000Z</pubTime>
+        
+        <tag>Ubuntu,Solidity,Python,Node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="Solidity" url="http://zhyunfe.github.io/categories/Solidity/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-    <lastmod>2018-08-29T05:56:03.000Z</lastmod>
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/</loc>
+    <lastmod>2018-09-27T03:37:44.121Z</lastmod>
+    <data>
+        <display>
+        <title>（三）目标文件里有什么</title>
+        <pubTime>2018-08-19T11:22:49.000Z</pubTime>
+        
+        <tag>reading</tag>
+         
+         
+           
+             
+              <breadCrumb title="《程序员的自我修养》" url="http://zhyunfe.github.io/categories/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/</loc>
+    <lastmod>2018-09-27T03:37:40.863Z</lastmod>
+    <data>
+        <display>
+        <title>（二）静态链接</title>
+        <pubTime>2018-08-19T11:21:20.000Z</pubTime>
+        
+        <tag>reading</tag>
+         
+         
+           
+             
+              <breadCrumb title="《程序员的自我修养》" url="http://zhyunfe.github.io/categories/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/</loc>
+    <lastmod>2018-09-27T03:37:36.001Z</lastmod>
+    <data>
+        <display>
+        <title>（一）程序员的自我修养</title>
+        <pubTime>2018-08-19T11:17:51.000Z</pubTime>
+        
+        <tag>reading,C,</tag>
+         
+         
+           
+             
+              <breadCrumb title="《程序员的自我修养》" url="http://zhyunfe.github.io/categories/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://zhyunfe.github.io/2018/08/28/eth-game-01/</loc>
+    <lastmod>2018-09-27T03:36:45.061Z</lastmod>
+    <data>
+        <display>
+        <title>CryptoZombies以太坊学习 - 01</title>
+        <pubTime>2018-08-28T14:10:07.000Z</pubTime>
+        
+        <tag>ether</tag>
+         
+         
+           
+             
+              <breadCrumb title="BlockChain" url="http://zhyunfe.github.io/categories/BlockChain/"/>
+          
+             
+              <breadCrumb title="Solidity" url="http://zhyunfe.github.io/categories/BlockChain/Solidity/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-    <lastmod>2018-08-29T03:39:06.000Z</lastmod>
-    
-  </url>
-  
   <url>
-    <loc>http://zhyunfe.github.io/2018/03/08/skills-es/</loc>
+    <loc>http://zhyunfe.github.io/2017/10/07/php-interview-prepare-algorithm/</loc>
+    <lastmod>2018-09-27T02:47:25.700Z</lastmod>
+    <data>
+        <display>
+        <title>算法</title>
+        <pubTime>2017-10-07T13:14:02.000Z</pubTime>
+        
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-one/</loc>
+    <lastmod>2018-09-27T02:47:14.270Z</lastmod>
+    <data>
+        <display>
+        <title>（一）C语言概述</title>
+        <pubTime>2017-11-02T12:36:27.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/07/03/coding-solidity/</loc>
+    <lastmod>2018-09-27T02:46:55.331Z</lastmod>
+    <data>
+        <display>
+        <title>（三）编写智能合约</title>
+        <pubTime>2018-07-03T11:10:35.000Z</pubTime>
+        
+        <tag>Solidity</tag>
+         
+         
+           
+             
+              <breadCrumb title="BlockChain" url="http://zhyunfe.github.io/categories/BlockChain/"/>
+          
+             
+              <breadCrumb title="《区块链项目开发指南》" url="http://zhyunfe.github.io/categories/BlockChain/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/12/02/etherum-desc/</loc>
+    <lastmod>2018-09-27T02:46:45.325Z</lastmod>
+    <data>
+        <display>
+        <title>（二）以太坊工作原理</title>
+        <pubTime>2017-12-02T10:56:11.000Z</pubTime>
+        
+        <tag>Ether</tag>
+         
+         
+           
+             
+              <breadCrumb title="BlockChain" url="http://zhyunfe.github.io/categories/BlockChain/"/>
+          
+             
+              <breadCrumb title="《区块链项目开发指南》" url="http://zhyunfe.github.io/categories/BlockChain/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/12/19/blockchain-develop-dapp-desc/</loc>
+    <lastmod>2018-09-27T02:46:31.851Z</lastmod>
+    <data>
+        <display>
+        <title>（一）去中心化应用</title>
+        <pubTime>2017-12-19T10:42:44.000Z</pubTime>
+        
+        <tag>BlockChain</tag>
+         
+         
+           
+             
+              <breadCrumb title="BlockChain" url="http://zhyunfe.github.io/categories/BlockChain/"/>
+          
+             
+              <breadCrumb title="《区块链项目开发指南》" url="http://zhyunfe.github.io/categories/BlockChain/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/09/11/machine-learning-01/</loc>
+    <lastmod>2018-09-11T06:20:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习01 - 绪论</title>
+        <pubTime>2018-09-11T06:19:11.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/09/10/back-my-life/</loc>
+    <lastmod>2018-09-10T03:18:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>我这二十多年</title>
+        <pubTime>2018-09-10T03:17:19.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/09/10/teach-skill-01/</loc>
+    <lastmod>2018-09-10T03:17:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>teach-skill-01</title>
+        <pubTime>2018-09-10T03:17:45.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
   <url>
     <loc>http://zhyunfe.github.io/2017/10/02/php-interview-prepare-hc-2/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP如何解决网站大流量与高并发的问题（二）</title>
+        <pubTime>2017-10-02T13:08:12.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+        <tag>Cache</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2017/10/03/php-interview-prepare-hc-3/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP如何解决网站大流量与高并发的问题（三）</title>
+        <pubTime>2017-10-03T13:10:30.000Z</pubTime>
+        
+        <tag>Cache</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>HighCurrency</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2017/10/06/php-interview-prepare-php/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>谈谈对MVC工作原理的认识和常见的MVC框架</title>
+        <pubTime>2017-10-06T13:04:35.000Z</pubTime>
+        
+        <tag>MVC</tag>
+         
+        <tag>PHP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2017/11/03/beginning-c-three/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>（三）数据类型、运算符与表达式</title>
+        <pubTime>2017-11-03T12:39:52.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-two/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2018/07/22/blockchain-bitcoin/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>《比特币白皮书》解读</title>
+        <pubTime>2018-07-22T14:21:44.000Z</pubTime>
+        
+        <tag>BlockChain</tag>
+         
+        <tag>BitCoin</tag>
+         
+         
+           
+             
+              <breadCrumb title="BlockChain" url="http://zhyunfe.github.io/categories/BlockChain/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/06/skills-nginx-504/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/11/skills-redis-persistence/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/17/skills-redis-safe/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/09/19/skills-seo/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/09/beginning-c-nine/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/01/20/trouble-open-basedir/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/08/beginning-c-eight/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/2018/03/19/kafka-easy/</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2017/11/05/beginning-c-4-5-6/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>（四）最简单的C程序设计</title>
+        <pubTime>2017-11-05T12:43:51.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>MySQL慢查询</title>
+        <pubTime>2018-01-08T14:12:15.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/06/skills-nginx-504/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx 504解决方案</title>
+        <pubTime>2018-01-06T13:52:29.000Z</pubTime>
+        
+        <tag>Nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux设置VIP</title>
+        <pubTime>2018-01-09T13:54:48.000Z</pubTime>
+        
+        <tag>Nginx</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Virtual IP</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/17/skills-redis-safe/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Redis安全性简介</title>
+        <pubTime>2018-01-17T14:00:31.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/11/skills-redis-persistence/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Redis持久化简介</title>
+        <pubTime>2018-01-11T14:02:04.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/09/19/skills-seo/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>SEO优化 - 怎样建立高转化率的站点关键词</title>
+        <pubTime>2017-09-19T14:03:55.000Z</pubTime>
+        
+        <tag>SEO</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-two/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>（二）程序的灵魂 - 算法</title>
+        <pubTime>2017-11-02T12:38:53.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/20/trouble-open-basedir/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Warning:require(): open_basedir restriction in effect. File</title>
+        <pubTime>2018-01-20T14:16:35.000Z</pubTime>
+        
+        <tag>PHP</tag>
+         
+         
+           
+             
+              <breadCrumb title="常见错误" url="http://zhyunfe.github.io/categories/%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/08/beginning-c-eight/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>（八）函数</title>
+        <pubTime>2017-11-08T12:46:47.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/09/beginning-c-nine/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>beginning-c-nine</title>
+        <pubTime>2017-11-09T12:48:12.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP如何解决网站大流量与高并发的问题（一）</title>
+        <pubTime>2017-10-01T13:06:47.000Z</pubTime>
+        
+        <tag>Cache</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>PHP</tag>
+         
+        <tag>High Concurrency</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2017/10/04/php-interview-prepare-hc-4/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP如何解决网站大流量与高并发的问题（四）</title>
+        <pubTime>2017-10-04T13:12:00.000Z</pubTime>
+        
+        <tag>Cache</tag>
+         
+        <tag>HighCurrency</tag>
+         
+        <tag>DynamicLanguage</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
+  <url>
+    <loc>http://zhyunfe.github.io/2018/03/19/kafka-easy/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>初始Kafka</title>
+        <pubTime>2018-03-19T14:06:58.000Z</pubTime>
+        
+        <tag>Kafka</tag>
+         
+         
+           
+             
+              <breadCrumb title="KeepLearning" url="http://zhyunfe.github.io/categories/KeepLearning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://zhyunfe.github.io/2017/10/05/php-interview-prepare-mysql/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mysql基础操作</title>
+        <pubTime>2017-10-05T13:00:43.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+        <tag>PHP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2017/01/15/skills-linux-command/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令</title>
+        <pubTime>2017-01-15T13:57:39.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2018/01/01/skills-mysql-explain/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mysql Explain使用详解</title>
+        <pubTime>2018-01-01T13:16:59.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
   <url>
     <loc>http://zhyunfe.github.io/2017/11/07/beginning-c-seven/</loc>
-    
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>（七）数组</title>
+        <pubTime>2017-11-07T12:45:15.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
-  </url>
-  
+    
   <url>
-    <loc>http://zhyunfe.github.io/categories/index.html</loc>
-    
+    <loc>http://zhyunfe.github.io/2018/03/08/skills-es/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhyunfe.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    
-  </url>
-  
+    <data>
+        <display>
+        <title>初识ElasticSearch</title>
+        <pubTime>2018-03-08T14:12:15.000Z</pubTime>
+        
+        <tag>ES</tag>
+         
+        <tag>搜索</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
 </urlset>
