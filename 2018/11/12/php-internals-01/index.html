@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="TIPI:深入理解PHP内核常用代码在PHP源码中经常会看到一些很常见的宏，这些代码在PHP的源码中出现的频率极高  ‘##’ 和 ‘#’  宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。 在PHP的宏定义中经常使用双井号 双井号’##’:&amp;lt;! – more –&amp;gt;在C语言的宏中，’##’被称为连接符，">
+<meta name="description" content="TIPI:深入理解PHP内核常用代码在PHP源码中经常会看到一些很常见的宏，这些代码在PHP的源码中出现的频率极高  ‘##’ 和 ‘#’  宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。 在PHP的宏定义中经常使用双井号 双井号’##’:">
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「深入理解PHP内核」 - 准备工作和背景知识">
 <meta property="og:url" content="http://zhyunfe.github.io/2018/11/12/php-internals-01/index.html">
 <meta property="og:site_name" content="Demor&#39;s Blog">
-<meta property="og:description" content="TIPI:深入理解PHP内核常用代码在PHP源码中经常会看到一些很常见的宏，这些代码在PHP的源码中出现的频率极高  ‘##’ 和 ‘#’  宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。 在PHP的宏定义中经常使用双井号 双井号’##’:&amp;lt;! – more –&amp;gt;在C语言的宏中，’##’被称为连接符，">
+<meta property="og:description" content="TIPI:深入理解PHP内核常用代码在PHP源码中经常会看到一些很常见的宏，这些代码在PHP的源码中出现的频率极高  ‘##’ 和 ‘#’  宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。 在PHP的宏定义中经常使用双井号 双井号’##’:">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-11-22T05:32:08.338Z">
+<meta property="og:updated_time" content="2018-11-22T05:33:38.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「深入理解PHP内核」 - 准备工作和背景知识">
-<meta name="twitter:description" content="TIPI:深入理解PHP内核常用代码在PHP源码中经常会看到一些很常见的宏，这些代码在PHP的源码中出现的频率极高  ‘##’ 和 ‘#’  宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。 在PHP的宏定义中经常使用双井号 双井号’##’:&amp;lt;! – more –&amp;gt;在C语言的宏中，’##’被称为连接符，">
+<meta name="twitter:description" content="TIPI:深入理解PHP内核常用代码在PHP源码中经常会看到一些很常见的宏，这些代码在PHP的源码中出现的频率极高  ‘##’ 和 ‘#’  宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。 在PHP的宏定义中经常使用双井号 双井号’##’:">
 
 
 
@@ -413,7 +413,7 @@
 </ul>
 <p>宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。</p>
 <p>在PHP的宏定义中经常使用双井号</p>
-<p><strong>双井号’##’:</strong><br>&lt;! – more –&gt;<br>在C语言的宏中，’##’被称为连接符，它是一种预处理运算符，用来把两个语言符号组合成单个语言符号。这里的语言符号不一定是宏的变量，并且双井号不能走位第一个或者最后一个元素存在。</p>
+<p><strong>双井号’##’:</strong><br><a id="more"></a><br>在C语言的宏中，’##’被称为连接符，它是一种预处理运算符，用来把两个语言符号组合成单个语言符号。这里的语言符号不一定是宏的变量，并且双井号不能走位第一个或者最后一个元素存在。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PHP_FUNCTION                ZEND_FUNCTION</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZEND_FUNCTION(name)         ZEND_NAMED_FUNCTION(ZEND_FN(name))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZEND_FN(name)               zif_##name</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZEND_NAME_FUNCTION(name)    void name(INTERNAL_FUNCTION_PARAMETERS)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INTERNAL_FUNCTION_PARAMETERS int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used TSRMLS_DC</span></span><br><span class="line"></span><br><span class="line">PHP_FUNCTION(count);</span><br><span class="line"><span class="comment">// 预处理器处理以后，PHP_FUNCTION(count)就展开为如下代码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">zif_count</span><span class="params">(<span class="keyword">int</span> ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, <span class="keyword">int</span> return_value_used TSRMLS_DC)</span></span></span><br></pre></td></tr></table></figure>
 <p>宏ZEND_FN(name)中有一个’##’，它的作用一如之前所说，是一个连接符，将zif和宏的变量name的值连接起来，以这种连接的方式以基础，多次使用这种宏形式，可以将它作为一个代码生成器，这样可以在一定程度上较少代码密度，也可以将它理解为一种代码重用的手段，间接地减少不小心所造成的错误</p>
 <p><strong>单井号’#’:</strong></p>
