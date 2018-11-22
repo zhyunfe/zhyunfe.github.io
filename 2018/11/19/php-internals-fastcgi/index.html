@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="#FastCGI 简介CGI全称是Common GateWay Interface 通用网关接口，它可以让一个客户端从网页浏览器向执行在Web服务器上的程序请求数据。CGI描述了客户端和这个程序之间传输数据的一种标准。 CGI的一个目的是要独立于任何语言的，所有CGI可以使用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量，如php、perl、tcl等 FastCGI是Web服务器和处理">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-11-22T05:25:13.243Z">
+<meta property="og:updated_time" content="2018-11-22T05:32:14.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「深入理解PHP内核」 - FastCGI">
 <meta name="twitter:description" content="#FastCGI 简介CGI全称是Common GateWay Interface 通用网关接口，它可以让一个客户端从网页浏览器向执行在Web服务器上的程序请求数据。CGI描述了客户端和这个程序之间传输数据的一种标准。 CGI的一个目的是要独立于任何语言的，所有CGI可以使用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量，如php、perl、tcl等 FastCGI是Web服务器和处理">
@@ -413,8 +413,7 @@
 <p>FastCGI是Web服务器和处理程序之间通信的一种协议，是CGI的一种改进方案。</p>
 <p>FastCGI像是一个常驻型的CGI，可以一直执行，在请求到大时不会花费时间去fork一个进程来处理(这是CGI最为人诟病的fork-and-execute模式)。正式因为他只是一个通信协议，还只是分布式的运算，即FastCGI程序可以在网站服务器意外的主机上执行并且接受来自其他网站服务器的请求</p>
 <p>FastCGI是语言无关的、可伸缩架构的CGI开放扩展，将CGI解释器进程保持在内存中，一次获得较高的性能。</p>
-<p>CGI程序反复加载是CGI性能地下的主要原因，如果CGI程序保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail-Over特性等</p>
-<p>一般情况下，FastCGI的整个工作流程是这样的：</p>
+<p>CGI程序反复加载是CGI性能地下的主要原因，如果CGI程序保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail-Over特性等<br><a id="more"></a><br>一般情况下，FastCGI的整个工作流程是这样的：</p>
 <ul>
 <li>WebServer启动时载入FastCGI进程管理器(IIS ISAPI或者Apache Module)</li>
 <li>FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自WebServer的链接</li>
