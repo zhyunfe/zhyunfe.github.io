@@ -297,6 +297,303 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/11/12/php-internals-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/12/php-internals-02/" itemprop="url">「深入理解PHP内核」 - 生命周期和Zend引擎</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T12:06:10+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php-internals/" itemprop="url" rel="index">
+                    <span itemprop="name">php-internals</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/12/php-internals-02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/12/php-internals-02/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/12/php-internals-02/" class="leancloud_visitors" data-flag-title="「深入理解PHP内核」 - 生命周期和Zend引擎">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="生命周期和Zend引擎"><a href="#生命周期和Zend引擎" class="headerlink" title="生命周期和Zend引擎"></a>生命周期和Zend引擎</h3><h4 id="SAPI接口"><a href="#SAPI接口" class="headerlink" title="SAPI接口"></a>SAPI接口</h4><p>Server Application Programming Interface指的是PHP具体应用的编程接口，就像PC一样，无论安装哪些操作系统，只要满足了PC的接口规范就可以在PC上正常运行</p>
+<p>PHP脚本要执行有很多方式，通过Web服务器或者直接在命令行下，也可以嵌在其他程序中</p>
+<ul>
+<li>使用Apache或者Nginx这类Web服务器来测试PHP脚本<blockquote>
+<p>脚本执行完成后，Web服务器应答，浏览器显示应答信息，或者在命令行标准输出上显示内容</p>
+</blockquote>
+</li>
+<li>使用命令行下通过PHP解释器程序来执行<blockquote>
+<p>命令行参数传递给PHP解释器要执行的脚本，相当于脚本通过url请求一个PHP页面，脚本执行完成后返回响应结果，只不过命令行的响应结果是显示在终端上</p>
+</blockquote>
+</li>
+</ul>
+<p>脚本执行的开始都是以SAPI接口实现开始的，知识不通的SAPI接口实现会完成他们特定的 工作</p>
+<h4 id="开始和结束"><a href="#开始和结束" class="headerlink" title="开始和结束"></a>开始和结束</h4><p>PHP开始执行以后会经过两个主要的阶段：</p>
+<ul>
+<li><p>处理请求之前的开始阶段</p>
+<ul>
+<li><p>模块初始化阶段(MINIT Moudle Init)</p>
+<p>在整个SAPI生命周期内，该过程只进行一次，例如PHP注册了一些扩展模块，则在MINIT阶段会回调所有模块的MINIT函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP_MINIT_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// 注册常量或者类等初始化操作</span></span><br><span class="line">   <span class="keyword">return</span> SUCCESS</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模块激活阶段(RINIT Request Init， 请求初始化阶段)</p>
+<p>例如通过url请求某个页面，则在每次请求之前都会进行模块激活</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PHP_RINIT_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//例如记录请求开始时间</span></span><br><span class="line">    <span class="comment">// 随后在请求结束的时候记录结束时间，这样我们就能够记录下处理请求所花费的时间到了</span></span><br><span class="line">    <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>模块在这个阶段可以进行一些初始化工作，例如注册常量，定义模块使用的类等等
+</code></pre><ul>
+<li><p>请求之后的结束阶段</p>
+<p>  请求处理完后就进入了结束阶段，一般脚本的执行到末尾或者通过调用exit()或者die()函数，PHP都将进入结束阶段。</p>
+<p>  和开始阶段对应，结束阶段也分为两个环节</p>
+<ul>
+<li><p>请求结束后停用模块(RSHUTDOWN), 对应RINIT</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP_RSHUTDOWN_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 例如记录请求结束时间，并把相应的信息写入到日志文件中</span></span><br><span class="line">    <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SAPI生命周期结束时关闭模块(MSHUTDOWN) 对应MINIT</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PHP_MSHUTDOWN_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="单进程SAPI生命周期"><a href="#单进程SAPI生命周期" class="headerlink" title="单进程SAPI生命周期"></a>单进程SAPI生命周期</h4><p>CLI/CGI模式的PHP属于单进程的SAPI模式。这类请求在处理一次请求后就关闭。只会经过以下几个环节：</p>
+<ul>
+<li>开始</li>
+<li>请求开始</li>
+<li>请求关闭</li>
+<li>结束</li>
+</ul>
+<p><strong>启动</strong></p>
+<p>在调用每个模块的模块初始化之前，会有一个初始化的过程，包括</p>
+<ul>
+<li>初始化若干全局变量<blockquote>
+<p>这里的初始化全局变量大多数情况下是将其设置为NULL</p>
+</blockquote>
+</li>
+<li>初始化若干常量<blockquote>
+<p>这里的常量是PHP自己的敞亮，这些常量要么是硬编码在程序中，比如PHP_VERSION,要么写在配置头文件中，比如PEAR_EXTENSION_DIR</p>
+</blockquote>
+</li>
+<li><p>初始化Zend引擎和核心组件</p>
+<blockquote>
+<p>zend_startup()函数的作用就是初始化Zend应请，这里的初始化操作包括</p>
+<ul>
+<li>内存管理初始化</li>
+<li>全局使用的函数指针初始化，对PHP源文件进行词法分析、语法分析、中间代码执行的函数指针的赋值</li>
+<li>初始化若干HashTable(比如函数表，常量表等等),为ini文件解析做准备，为PHP源文件解析做准备</li>
+<li>注册内置函数(如strlen,define等)</li>
+<li>注册标准常量(如E_ALL,TRUE, NULL等)</li>
+<li>注册GLOBALS全局变量等</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解析php.ini</p>
+<blockquote>
+<p>php_init_config函数的作用就是读取php.ini文件，设置配置参数，加载zend扩展并注册PHP扩展函数。此函数分为如下几步：初始化参数配置表，调用当前模式下的ini初始化配置，比如CLI模式下，会做如下初始化：</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INI_DEFAULT(<span class="string">"report_zend_debug"</span>, <span class="string">"0"</span>)</span><br><span class="line">INI_DEFAULT(<span class="string">"display_error"</span>, <span class="string">"1"</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>  不过在其他模式下却没有这样的初始化操作，接下来的各种操作都是查找ini文件</p>
+<ul>
+<li>判断是否有php_ini_path_override,在CLI模式下可以通过-c参数指定此路径(在php的命令参数中-c标识在指定的路径中查找ini文件)</li>
+<li>如果没有php_ini_path_override，判断php_ini_ignore是否为非空(忽略php.ini配置，这里也就CLI模式下有用，使用-n参数)</li>
+<li>如果不忽略ini配置，则开始吹了php_ini_search_path(查找ini文件的路径), 这些路径包含CWD(当前路径，不过这种不适用CLI模式)、执行脚本所在目录、环境变量PATH和PHPRC和配置文件中的PHP_CONFIG_FILE_PATH的值</li>
+<li>在准备完查找路径后，PHP会判断现在的ini路径(php_ini_file_name)是否为文件和是否可打开。如果这里ini路径时文件并且可打开，则会使用此文件，也就是CLI模式下通过-c参数指定的ini文件的优先级是最高的，其次是PHPRC指定的文件，第三是在搜索路径中查找php-%sapi-moudle-name%.ini文件(如CLI模式下应该是查找php-cli.ini文件)，最后才是搜索路径中查找php.ini文件</li>
+</ul>
+</li>
+<li><p>全局操作函数的初始化</p>
+<p>  php_startup_auto_globals函数会初始化在用户空间所使用频率很高的一些全局变量，如：$_GET $_POST $_FILES等，这里只是初始化，所调用的zend_register_auto_global函数也只是将这些变量名添加到CG(auto_globals)这个变量表</p>
+<p>  php_startup_sapi_contents_types函数用来初始化SAPI对于不同类型内容的处理函数，这里的处理函数包括POST数据默认处理函数、默认数据处理函数等</p>
+</li>
+<li><p>初始化静态构建的模块和共享模块<br>  php_register_internal_extensions_func 函数用来注册静态构建的模块，就是默认加载的模块，我们可以将其认为内置模块，在PHP5.3中内置的模板包括PHP标准扩展模块(/ext/standard/目录，这里是我们用的最频繁的函数，比如字符串函数，数学函数，数组操作函数等等，)日历扩展模块，FTP扩展模块，session扩展模块等</p>
+<p>  模块初始化会执行两个操作：</p>
+<pre><code>1、将这些模块注册到已注册的模块列表，如果已经注册了，会报Module xxx already loaded的错误
+2、将每个模块包含的函数注册到函数表(CG(function_table))，如果函数无法添加，则会报Unable to register functions, unable to load
+</code></pre><p>  在注册了静态构建模块后，PHP会注册附加的模块，不同的模式下可以加载不同的模块集，比如在CLI模式下是没这些附加的模块的</p>
+<p>  在内置模块和附加模块注册后，接下来是注册通过共享对象比如DLL何php.ini文件灵活配置的扩展</p>
+<p>  在所有模块都注册后，PHP会马上执行模块初始化操作zend_startup_modules，它的整个过程就是依次遍历每个模块，调用每个模块的的模块初始化函数PHP_MINIT_FUNCTION所包含的内容</p>
+</li>
+<li><p>禁用函数和类<br>  php_disable_functions 函数用来禁用PHP的一些函数。这些被禁用的函数来自PHP的配置文件的disable_functions变量。其禁用的过程是调用zend_disable_function(function_table)函数将执行的函数名从CG函数表中删除</p>
+<p> php_disable_classes函数用来禁用PHP的一些类，这些被禁用的类来自PHP的配置文件的disable_classes变量，其禁用的过程是调用zend_disable_class 函数将执行的类从CG(class_table)类表中删除</p>
+</li>
+</ul>
+<p><strong>ACTIVATION</strong><br>    在处理了文件相关的内容，PHP会调用php_request_startuo做请求初始化操作。请求初始化操作，除了调用每个模块的请求初始化函数外，还做了较多的其他工作，如下：</p>
+<ul>
+<li><p>激活Zend引擎</p>
+<p>  gc_reset 函数用来重置垃圾收集机制<br>  init_compiler函数用来初始化编译器，比如讲编译过程中放opcode的数组清空，准备编译时用来的数据结构等等</p>
+<p>  init_executor 函数用来初始化中间代码执行过程。在编译过程中，函数列表、类列表等都存放在编译时的全局变量中，在准备执行过程中，会将这些列表赋值给执行的全局变量中，如EG(function_table) = CG(funciton_table)，中间代码执行是在PHP的虚拟栈中能够，初始化这些栈等都会一起被初始化。<br>   除了栈，还有存放变量的符号表EG(symbol_table)会被初始化为50个元素的hashtable，存放对象的EG(object_strore)被初始化了1024个元素。<br>   PHP的执行环境除了上面的一些变量外，还有错误处理，异常处理等等，这些都是在这里初始化的<br>   通过php.ini配置的zend_extensions也是在这里被遍历调用activate函数</p>
+</li>
+<li><p>激活SAPI</p>
+<p>  sapi_activate 函数用来初始化SG(sapi_headers)和SG(request_info)，并且针对HTTP请求的方法设置一些内容，比如当请求方法为HEAD时，设置SG(request_info).headers_only = 1</p>
+</li>
+<li><p>环境初始化<br>  这里的环境初始化是指在用户空间中需要用到的一些环境变量初始化，这里的环境包括服务器环境、请求数据环境等。 实际到我们用到的变量，就是$_POST、$_GET、$_COOKIE、$_SERVER、$_ENV、$_FILES。 和sapi_module.default_post_reader一样，sapi_module.treat_data的值也是在模块初始化时， 通过php_startup_sapi_content_types函数注册了默认数据处理函数为main/php_variables.c文件中php_default_treat_data函数。</p>
+<p>  以$_COOKIE为例，php_default_treat_data函数会对依据分隔符，将所有的cookie拆分并赋值给对应的变量</p>
+</li>
+<li><p>模块请求初始化<br>  PHP通过zend_activate_modules函数实现模块的请求初始化, 此函数通过遍历注册在module_registry变量中的所有模块，调用其RINIT方法实现模块的请求初始化操作。</p>
+</li>
+<li><p>运行<br>  php_execute_script函数包含了运行PHP脚本的全部过程。</p>
+<p>  当一个PHP文件需要解析执行时，它可能会需要执行三个文件。前置执行文件、当前需要执行的主文件和一个后置执行文件<br>  非当前的两个文件可以在php.ini中通过auto_prepend_file参数和auto_append_file参数设置，如果将这两个参数设置为空，则禁用对应的执行文件</p>
+<p>  对于需要解析执行的文件，通过zend_compile_file(compile_file)函数做词法分析、语法分析和中间代码生成操作，返回此文件的所有中间代码</p>
+<p>  如果解析文件有生成有效的中间代码，则调用zend_execute执行中间代码，如果在执行过程中出现异常并且用户有定义这些异常的处理，则调用这些异常处理函数</p>
+<p>  在所有的操作处理完后PHP通过EG(return_value_ptr_ptr)返回结果</p>
+</li>
+</ul>
+<p><strong>DEACTIVATION</strong></p>
+<p>PHP关闭请求的过程是一个若干个关闭操作的集合，这个集合存在php_request_shutdown函数中，这个集合包括如下内容：<br>1、调用所有通过register_shutdown_function()注册的函数，这些在关闭时调用的函数式在用户控件添加进来的，一个简单的例子，我们可以在脚本出错时调用一个统一的函数，给用户一个友好一些的页面，这个有点类似于网页中的404页面<br>2、执行所有可用的__destruct函数。这里的析构函数包括在对象池EG(objects_store)中的所有对象的西沟函数以及EG(symbol_table)中各个元素的析构方法<br>3、将所有的输出刷出去<br>4、发送HTTP应答头。这也是一个输出字符串的过程，只是这个字符串可能符合某些规范<br>5、遍历每个模块的关闭请求方法，执行模块的请求关闭操作，Call each extensions RSHUTDOWN<br>6、销毁全局变量表的变量<br>7、通过zend_deactivate函数，关闭词法分析器、语法分析器、和中间代码执行器<br>8、调用每个扩展的post-RSHUTDOWN函数，只是基本每个扩展的post_deactivate_func 函数指针都是NULL<br>9、关闭SAPI，通过sapi_deactivate销毁SG(sapi_header)、SG(request_info)等内容<br>10、关闭流的包装器、关闭流的过滤器<br>11、关闭内存管理<br>12、重新设置最大执行时间</p>
+<p><strong>结束</strong></p>
+<ul>
+<li>flush<br>sapi_flush将最后的内容刷新出去，其调用的是sapi_module.flush，在CLI模式下等价于flush函数</li>
+<li>关闭Zend引擎<br>zend_shutdown将关闭Zend引擎</li>
+</ul>
+<p>在关闭所有的模块后，PHP继续销毁全局函数表，销毁全局类表、销售全局变量表等。 通过zend_shutdown_extensions遍历zend_extensions所有元素，调用每个扩展的shutdown函数</p>
+<p><strong>Zend引擎_</strong></p>
+<p>Zend引擎是PHP实现的核心，提供了语言实现上的基础设施。例如：PHP的语法实现，脚本的编译运行环境， 扩展机制以及内存管理等，当然这里的PHP指的是官方的PHP实现(除了官方的实现， 目前比较知名的有facebook的hiphop实现，不过到目前为止，PHP还没有一个标准的语言规范)， 而PHP则提供了请求处理和其他Web服务器的接口(SAPI)。</p>
+<p>目前PHP的实现和Zend引擎之间的关系非常紧密，甚至有些过于紧密了，例如很多PHP扩展都是使用的Zend API， 而Zend正是PHP语言本身的实现，PHP只是使用Zend这个内核来构建PHP语言的，而PHP扩展大都使用Zend API， 这就导致PHP的很多扩展和Zend引擎耦合在一起了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/09/11/machine-learning-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1813,171 +2110,6 @@ Kafka消息队列负责日志数据的接受、存储和转发
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/09/skills-nginx-vip/" itemprop="url">Linux设置VIP</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T21:54:48+08:00">
-                2018-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/09/skills-nginx-vip/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/09/skills-nginx-vip/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/01/09/skills-nginx-vip/" class="leancloud_visitors" data-flag-title="Linux设置VIP">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>在使用VMVare时，因为mac的ip经常会改变，每次重启虚拟机的时候IP也会改变，所有就要去改host去访问虚拟机中的项目，很麻烦，其实可以固定虚拟机的ip，及时宿主机ip变了也不会改变</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -s</span><br><span class="line"></span><br><span class="line">vim /Library/Preferences/VMware\Fusion/vmnet8/dhcpd.conf</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Configuration file for ISC 2.0 vmnet-dhcpd operating on vmnet8.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> This file was automatically generated by the VMware configuration program.</span><br><span class="line"><span class="meta">#</span> See Instructions below if you want to modify it.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> We set domain-name-servers to make some DHCP clients happy</span><br><span class="line"><span class="meta">#</span> (dhclient as configured in SuSE, TurboLinux, etc.).</span><br><span class="line"><span class="meta">#</span> We also supply a domain name to make pump (Red Hat 6.x) happy.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##### VMNET DHCP Configuration. Start of "DO NOT MODIFY SECTION" #####</span><br><span class="line"><span class="meta">#</span> Modification Instructions: This section of the configuration file contains</span><br><span class="line"><span class="meta">#</span> information generated by the configuration program. Do not modify this</span><br><span class="line"><span class="meta">#</span> section.</span><br><span class="line"><span class="meta">#</span> You are free to modify everything else. Also, this section must start </span><br><span class="line"><span class="meta">#</span> on a new line </span><br><span class="line"><span class="meta">#</span> This file will get backed up with a different name in the same directory </span><br><span class="line"><span class="meta">#</span> if this section is edited and you try to configure DHCP again.</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Written at: 11/08/2017 23:14:55</span><br><span class="line">allow unknown-clients;</span><br><span class="line">default-lease-time 1800;                # default is 30 minutes</span><br><span class="line">max-lease-time 7200;                    # default is 2 hours</span><br><span class="line"></span><br><span class="line">subnet 192.168.37.0 netmask 255.255.255.0 &#123;</span><br><span class="line">  range 192.168.37.128 192.168.37.254;</span><br><span class="line">  option broadcast-address 192.168.37.255;</span><br><span class="line">  option domain-name-servers 192.168.37.2;</span><br><span class="line">  option domain-name localdomain;</span><br><span class="line">  default-lease-time 1800;                # default is 30 minutes</span><br><span class="line">  max-lease-time 7200;                    # default is 2 hours</span><br><span class="line">  option netbios-name-servers 192.168.37.2;</span><br><span class="line">  option routers 192.168.37.2;</span><br><span class="line">&#125;</span><br><span class="line">host vmnet8 &#123;</span><br><span class="line">  hardware ethernet 00:50:56:C0:00:08;</span><br><span class="line">  fixed-address 192.168.37.1;</span><br><span class="line">  option domain-name-servers 0.0.0.0;</span><br><span class="line">  option domain-name ""; </span><br><span class="line">  option routers 0.0.0.0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>在这里添加你的虚拟机的固定ip</span><br><span class="line">host 你的虚拟机的名字 &#123;</span><br><span class="line">    hardware ethernet 00:50:56:C0:00:08;</span><br><span class="line">     fixed-address 192.168.37.88;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span>    hardware ethernet查看上面配置</span><br><span class="line"><span class="meta">#</span> fixed-address 你要配置的固定ip</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2032,7 +2164,7 @@ Kafka消息队列负责日志数据的接受、存储和转发
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2043,7 +2175,7 @@ Kafka消息队列负责日志数据的接受、存储和转发
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2054,7 +2186,7 @@ Kafka消息队列负责日志数据的接受、存储和转发
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

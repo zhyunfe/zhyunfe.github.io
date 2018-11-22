@@ -297,6 +297,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/09/skills-nginx-vip/" itemprop="url">Linux设置VIP</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T21:54:48+08:00">
+                2018-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/09/skills-nginx-vip/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/09/skills-nginx-vip/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/09/skills-nginx-vip/" class="leancloud_visitors" data-flag-title="Linux设置VIP">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>在使用VMVare时，因为mac的ip经常会改变，每次重启虚拟机的时候IP也会改变，所有就要去改host去访问虚拟机中的项目，很麻烦，其实可以固定虚拟机的ip，及时宿主机ip变了也不会改变</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -s</span><br><span class="line"></span><br><span class="line">vim /Library/Preferences/VMware\Fusion/vmnet8/dhcpd.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Configuration file for ISC 2.0 vmnet-dhcpd operating on vmnet8.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> This file was automatically generated by the VMware configuration program.</span><br><span class="line"><span class="meta">#</span> See Instructions below if you want to modify it.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> We set domain-name-servers to make some DHCP clients happy</span><br><span class="line"><span class="meta">#</span> (dhclient as configured in SuSE, TurboLinux, etc.).</span><br><span class="line"><span class="meta">#</span> We also supply a domain name to make pump (Red Hat 6.x) happy.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##### VMNET DHCP Configuration. Start of "DO NOT MODIFY SECTION" #####</span><br><span class="line"><span class="meta">#</span> Modification Instructions: This section of the configuration file contains</span><br><span class="line"><span class="meta">#</span> information generated by the configuration program. Do not modify this</span><br><span class="line"><span class="meta">#</span> section.</span><br><span class="line"><span class="meta">#</span> You are free to modify everything else. Also, this section must start </span><br><span class="line"><span class="meta">#</span> on a new line </span><br><span class="line"><span class="meta">#</span> This file will get backed up with a different name in the same directory </span><br><span class="line"><span class="meta">#</span> if this section is edited and you try to configure DHCP again.</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Written at: 11/08/2017 23:14:55</span><br><span class="line">allow unknown-clients;</span><br><span class="line">default-lease-time 1800;                # default is 30 minutes</span><br><span class="line">max-lease-time 7200;                    # default is 2 hours</span><br><span class="line"></span><br><span class="line">subnet 192.168.37.0 netmask 255.255.255.0 &#123;</span><br><span class="line">  range 192.168.37.128 192.168.37.254;</span><br><span class="line">  option broadcast-address 192.168.37.255;</span><br><span class="line">  option domain-name-servers 192.168.37.2;</span><br><span class="line">  option domain-name localdomain;</span><br><span class="line">  default-lease-time 1800;                # default is 30 minutes</span><br><span class="line">  max-lease-time 7200;                    # default is 2 hours</span><br><span class="line">  option netbios-name-servers 192.168.37.2;</span><br><span class="line">  option routers 192.168.37.2;</span><br><span class="line">&#125;</span><br><span class="line">host vmnet8 &#123;</span><br><span class="line">  hardware ethernet 00:50:56:C0:00:08;</span><br><span class="line">  fixed-address 192.168.37.1;</span><br><span class="line">  option domain-name-servers 0.0.0.0;</span><br><span class="line">  option domain-name ""; </span><br><span class="line">  option routers 0.0.0.0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>在这里添加你的虚拟机的固定ip</span><br><span class="line">host 你的虚拟机的名字 &#123;</span><br><span class="line">    hardware ethernet 00:50:56:C0:00:08;</span><br><span class="line">     fixed-address 192.168.37.88;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span>    hardware ethernet查看上面配置</span><br><span class="line"><span class="meta">#</span> fixed-address 你要配置的固定ip</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/01/08/skills-mysql-slow-query/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1891,196 +2056,6 @@ fastcgi_intercept_errors on;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/10/06/php-interview-prepare-php/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/06/php-interview-prepare-php/" itemprop="url">谈谈对MVC工作原理的认识和常见的MVC框架</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-06T21:04:35+08:00">
-                2017-10-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Interview-Prepare/" itemprop="url" rel="index">
-                    <span itemprop="name">Interview Prepare</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/10/06/php-interview-prepare-php/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/10/06/php-interview-prepare-php/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/10/06/php-interview-prepare-php/" class="leancloud_visitors" data-flag-title="谈谈对MVC工作原理的认识和常见的MVC框架">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="谈谈对MVC工作原理的认识和常见的MVC框架"><a href="#谈谈对MVC工作原理的认识和常见的MVC框架" class="headerlink" title="谈谈对MVC工作原理的认识和常见的MVC框架"></a>谈谈对MVC工作原理的认识和常见的MVC框架</h4><p>Model、View、Controller</p>
-<p>数据模型层，视图层、控制器(业务处理层)</p>
-<p>TP、Yii2、CI、Yaf</p>
-<h4 id="单一入口工作原理"><a href="#单一入口工作原理" class="headerlink" title="单一入口工作原理"></a>单一入口工作原理</h4><p>用一个处理程序文件处理多有的HTTP请求，根据请求参数的模块去完成对应操作</p>
-<p><strong>优势:</strong></p>
-<ul>
-<li>可以进行统一的安全性的检查</li>
-<li>集中处理程序</li>
-</ul>
-<p><strong>劣势:</strong></p>
-<ul>
-<li>URL不美观</li>
-<li>处理效率会稍低<h4 id="模板引擎的理解"><a href="#模板引擎的理解" class="headerlink" title="模板引擎的理解"></a>模板引擎的理解</h4></li>
-</ul>
-<p>PHP 是一种HTML内嵌的在服务器端执行的脚本语言，但是PHP有很多可以使PHP代码和HTML代码分开的模板引擎，例如Smarty，Twig，Haml</p>
-<p>工作原理：<br>庞大的完善的正则表达式的替换库</p>
-<h4 id="常见框架的特性考点"><a href="#常见框架的特性考点" class="headerlink" title="常见框架的特性考点"></a>常见框架的特性考点</h4><p>php框架有哪些，用过哪些，各自的优缺点是什么？</p>
-<p>PHP框架的差异和优缺点</p>
-<p><strong>Yaf框架</strong></p>
-<p>使用php扩展的形式写的一个php矿建，以C语言为底层编写的，性能上要比PHP代码写的快一个数量级</p>
-<p>优点：执行效率高，轻量级、扩展性高</p>
-<p>缺点：高版本兼容性查、底层代码可读性差、需要安装扩展、功能单一、开发需要编写大量的插件</p>
-<p><strong>Yii2框架</strong></p>
-<p>Yii2框架是一款非常优秀的通用web后端框架，结构简单优雅，使用功能丰富，扩展性强，性能高</p>
-<p>缺点：<br>学习成本高，量级重</p>
-<p>常见框架的特性</p>
-<p>Yii2的路由配置</p>
-<p><strong>TP框架</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2135,7 +2110,7 @@ fastcgi_intercept_errors on;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2146,7 +2121,7 @@ fastcgi_intercept_errors on;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2157,7 +2132,7 @@ fastcgi_intercept_errors on;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
