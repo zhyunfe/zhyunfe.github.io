@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/29/eth-ubu-envconfig/">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/11/19/php-internals-fastcgi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
@@ -316,7 +316,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/29/eth-ubu-envconfig/" itemprop="url">Ubuntu全新安装Geth及开发智能合约 -</a></h2>
+                <a class="post-title-link" href="/2018/11/19/php-internals-fastcgi/" itemprop="url">「深入理解PHP内核」 - FastCGI</a></h2>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-29T12:23:44+08:00">
-                2018-08-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-19T13:49:46+08:00">
+                2018-11-19
               </time>
             
 
@@ -351,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Solidity/" itemprop="url" rel="index">
-                    <span itemprop="name">Solidity</span>
+                  <a href="/categories/php-internals/" itemprop="url" rel="index">
+                    <span itemprop="name">php-internals</span>
                   </a>
                 </span>
 
@@ -369,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/29/eth-ubu-envconfig/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/29/eth-ubu-envconfig/" itemprop="commentCount"></span>
+                <a href="/2018/11/19/php-internals-fastcgi/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/19/php-internals-fastcgi/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2018/08/29/eth-ubu-envconfig/" class="leancloud_visitors" data-flag-title="Ubuntu全新安装Geth及开发智能合约 -">
+             <span id="/2018/11/19/php-internals-fastcgi/" class="leancloud_visitors" data-flag-title="「深入理解PHP内核」 - FastCGI">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,8 +411,29 @@
       
         
           
-            <h3 id="安装Geth"><a href="#安装Geth" class="headerlink" title="安装Geth"></a>安装Geth</h3><p>我们将所有的安装放置在/home/zhyunfe/下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /home/zhyunfe</span><br><span class="line">mkdir geth</span><br><span class="line">git clone https://github.com/ethereum/go-ethereum</span><br><span class="line">sudo apt-get install -y build-essential golang</span><br><span class="line">cd go-ethereum</span><br><span class="line">make geth</span><br></pre></td></tr></table></figure></p>
-<p>安装完了之后我们可以使用命令测试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">zhyunfe@zhyunfe: /home/zhyunfe$ geth</span><br><span class="line">WARN [08-29|04:30:34.204] Sanitizing cache to Go&apos;s GC limits       provided=1024 updated=320</span><br><span class="line">INFO [08-29|04:30:34.879] Maximum peer count                       ETH=25 LES=0 total=25</span><br><span class="line">INFO [08-29|04:30:34.916] Starting peer-to-peer node               instance=Geth/v1.8.15-unstable-63352bf4/linux-amd64/go1.10.1</span><br><span class="line">INFO [08-29|04:30:34.919] Allocated cache and file handles         database=/home/zhyunfe/.ethereum/geth/chaindata cache=240 handles=512</span><br><span class="line">INFO [08-29|04:30:35.448] Initialised chain configuration          config=&quot;&#123;ChainID: 1 Homestead: 1150000 DAO: 1920000 DAOSupport: true EIP150: 2463000 EIP155: 2675000 EIP158: 2675000 Byzantium: 4370000 Constantinople: &lt;nil&gt; Engine: ethash&#125;&quot;</span><br><span class="line">INFO [08-29|04:30:35.785] Disk storage enabled for ethash caches   dir=/home/zhyunfe/.ethereum/geth/ethash count=3</span><br><span class="line">INFO [08-29|04:30:35.794] Disk storage enabled for ethash DAGs     dir=/home/zhyunfe/.ethash               count=2</span><br><span class="line">INFO [08-29|04:30:35.812] Initialising Ethereum protocol           versions=&quot;[63 62]&quot; network=1</span><br><span class="line">INFO [08-29|04:30:36.314] Loaded most recent local header          number=0 hash=d4e567…cb8fa3 td=17179869184</span><br><span class="line">INFO [08-29|04:30:36.317] Loaded most recent local full block      number=0 hash=d4e567…cb8fa3 td=17179869184</span><br><span class="line">INFO [08-29|04:30:36.318] Loaded most recent local fast block      number=0 hash=d4e567…cb8fa3 td=17179869184</span><br><span class="line">INFO [08-29|04:30:36.399] Loaded local transaction journal         transactions=0 dropped=0</span><br><span class="line">INFO [08-29|04:30:36.443] Regenerated local transaction journal    transactions=0 accounts=0</span><br><span class="line">INFO [08-29|04:30:36.453] Starting P2P networking</span><br></pre></td></tr></table></figure></p>
+            <p>#FastCGI</p>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>CGI全称是Common GateWay Interface 通用网关接口，它可以让一个客户端从网页浏览器向执行在Web服务器上的程序请求数据。<br>CGI描述了客户端和这个程序之间传输数据的一种标准。</p>
+<p>CGI的一个目的是要独立于任何语言的，所有CGI可以使用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量，如php、perl、tcl等</p>
+<p>FastCGI是Web服务器和处理程序之间通信的一种协议，是CGI的一种改进方案。</p>
+<p>FastCGI像是一个常驻型的CGI，可以一直执行，在请求到大时不会花费时间去fork一个进程来处理(这是CGI最为人诟病的fork-and-execute模式)。正式因为他只是一个通信协议，还只是分布式的运算，即FastCGI程序可以在网站服务器意外的主机上执行并且接受来自其他网站服务器的请求</p>
+<p>FastCGI是语言无关的、可伸缩架构的CGI开放扩展，将CGI解释器进程保持在内存中，一次获得较高的性能。</p>
+<p>CGI程序反复加载是CGI性能地下的主要原因，如果CGI程序保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail-Over特性等</p>
+<p>一般情况下，FastCGI的整个工作流程是这样的：</p>
+<ul>
+<li>WebServer启动时载入FastCGI进程管理器(IIS ISAPI或者Apache Module)</li>
+<li>FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自WebServer的链接</li>
+<li>当客户端请求到达WebServer时，FastCGI进程管理器选择并链接到一个CGI解释器。WebServer将CGI环境变量和标准输入发送到FastCGI子进程php-cgi</li>
+<li>FastCGI子进程完成处理后将标准输出和错误信息从同一个链接返回WebServer，当FastCGI子进程关闭时，请求便告知处理完成。FastCGI子进程接着等待并处理来自FastCGI进程管理器的下一个链接，在CGI模式，php-cgi在此便退出了</li>
+</ul>
+<h4 id="PHP中的CGI实现"><a href="#PHP中的CGI实现" class="headerlink" title="PHP中的CGI实现"></a>PHP中的CGI实现</h4><p>PHP的CGI实现了Fastcgi协议，是一个TCP或者UDP协议的服务器接受来自Web服务器的请求，当启动时创建一个TCP/UDP协议的服务器的socket监听，并接收相关请求进行处理。随后就进入了PHP的生命周期：模块初始化、sapi初始化、处理PHP请求、模块关闭、sapi关闭等就构成了整个CGI的声明周期</p>
+<p>以TCP为例，在TCP的服务端，一般会执行这样几个步骤操作：</p>
+<ul>
+<li>调用socket函数创建一个TCP用的流式套接字</li>
+<li>调用bind函数将服务器的本地地址与前面创建的套接字绑定</li>
+<li>调用listen函数将新创建的套接字作为监听，等待客户端发起的连接，当客户端有多个连接到这个套接字时，可能需要排队处理</li>
+<li>当与客户端创建连接购，服务器调用read_stream函数读取客户的请求</li>
+<li>处理完数据后，服务器调用write函数向客户端发送应答</li>
+</ul>
 
           
         
@@ -461,7 +482,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/08/28/eth-game-01/">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/11/12/php-internals-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
@@ -480,7 +501,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/28/eth-game-01/" itemprop="url">CryptoZombies以太坊学习 - 01</a></h2>
+                <a class="post-title-link" href="/2018/11/12/php-internals-02/" itemprop="url">「深入理解PHP内核」 - 生命周期和Zend引擎</a></h2>
         
 
         <div class="post-meta">
@@ -492,8 +513,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-28T22:10:07+08:00">
-                2018-08-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T12:06:10+08:00">
+                2018-11-12
               </time>
             
 
@@ -515,19 +536,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/" itemprop="url" rel="index">
-                    <span itemprop="name">BlockChain</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/Solidity/" itemprop="url" rel="index">
-                    <span itemprop="name">Solidity</span>
+                  <a href="/categories/php-internals/" itemprop="url" rel="index">
+                    <span itemprop="name">php-internals</span>
                   </a>
                 </span>
 
@@ -544,8 +554,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/28/eth-game-01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/28/eth-game-01/" itemprop="commentCount"></span>
+                <a href="/2018/11/12/php-internals-02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/12/php-internals-02/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -553,7 +563,7 @@
 
           
           
-             <span id="/2018/08/28/eth-game-01/" class="leancloud_visitors" data-flag-title="CryptoZombies以太坊学习 - 01">
+             <span id="/2018/11/12/php-internals-02/" class="leancloud_visitors" data-flag-title="「深入理解PHP内核」 - 生命周期和Zend引擎">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -585,15 +595,345 @@
 
       
         
-          <h1 id="僵尸工场"><a href="#僵尸工场" class="headerlink" title="僵尸工场"></a>僵尸工场</h1><h3 id="第一步-设置一个空合约"><a href="#第一步-设置一个空合约" class="headerlink" title="第一步 设置一个空合约"></a>第一步 设置一个空合约</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.19;</span><br><span class="line"></span><br><span class="line">// 创建一个僵尸工场的空合约</span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第二步-状态变量和整数"><a href="#第二步-状态变量和整数" class="headerlink" title="第二步 状态变量和整数"></a>第二步 状态变量和整数</h3><p>状态变量是被永久地保存在合约中，也就是说他们被写入以太币区块链中，想象成写入一个数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">contract ZombieFactory &#123;</span><br><span class="line">    //uint 无符号数据类型，指其值不能是附属，对于有符号的整数存在名为int 的数据类型</span><br><span class="line">    // Solidity 中uint是uint256的代名词，一个256位的无符号整数 还有uint8 uint16 uint 32一般用uint就可以了</span><br><span class="line">    </span><br><span class="line">    //定义僵尸的DNA由一个十六位数字组成</span><br><span class="line">    uint dnaDigits = 16;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/28/eth-game-01/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="生命周期和Zend引擎"><a href="#生命周期和Zend引擎" class="headerlink" title="生命周期和Zend引擎"></a>生命周期和Zend引擎</h3><h4 id="SAPI接口"><a href="#SAPI接口" class="headerlink" title="SAPI接口"></a>SAPI接口</h4><p>Server Application Programming Interface指的是PHP具体应用的编程接口，就像PC一样，无论安装哪些操作系统，只要满足了PC的接口规范就可以在PC上正常运行</p>
+<p>PHP脚本要执行有很多方式，通过Web服务器或者直接在命令行下，也可以嵌在其他程序中</p>
+<ul>
+<li>使用Apache或者Nginx这类Web服务器来测试PHP脚本<blockquote>
+<p>脚本执行完成后，Web服务器应答，浏览器显示应答信息，或者在命令行标准输出上显示内容</p>
+</blockquote>
+</li>
+<li>使用命令行下通过PHP解释器程序来执行<blockquote>
+<p>命令行参数传递给PHP解释器要执行的脚本，相当于脚本通过url请求一个PHP页面，脚本执行完成后返回响应结果，只不过命令行的响应结果是显示在终端上</p>
+</blockquote>
+</li>
+</ul>
+<p>脚本执行的开始都是以SAPI接口实现开始的，知识不通的SAPI接口实现会完成他们特定的 工作</p>
+<h4 id="开始和结束"><a href="#开始和结束" class="headerlink" title="开始和结束"></a>开始和结束</h4><p>PHP开始执行以后会经过两个主要的阶段：</p>
+<ul>
+<li><p>处理请求之前的开始阶段</p>
+<ul>
+<li><p>模块初始化阶段(MINIT Moudle Init)</p>
+<p>在整个SAPI生命周期内，该过程只进行一次，例如PHP注册了一些扩展模块，则在MINIT阶段会回调所有模块的MINIT函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP_MINIT_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// 注册常量或者类等初始化操作</span></span><br><span class="line">   <span class="keyword">return</span> SUCCESS</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模块激活阶段(RINIT Request Init， 请求初始化阶段)</p>
+<p>例如通过url请求某个页面，则在每次请求之前都会进行模块激活</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PHP_RINIT_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//例如记录请求开始时间</span></span><br><span class="line">    <span class="comment">// 随后在请求结束的时候记录结束时间，这样我们就能够记录下处理请求所花费的时间到了</span></span><br><span class="line">    <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>模块在这个阶段可以进行一些初始化工作，例如注册常量，定义模块使用的类等等
+</code></pre><ul>
+<li><p>请求之后的结束阶段</p>
+<p>  请求处理完后就进入了结束阶段，一般脚本的执行到末尾或者通过调用exit()或者die()函数，PHP都将进入结束阶段。</p>
+<p>  和开始阶段对应，结束阶段也分为两个环节</p>
+<ul>
+<li><p>请求结束后停用模块(RSHUTDOWN), 对应RINIT</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP_RSHUTDOWN_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 例如记录请求结束时间，并把相应的信息写入到日志文件中</span></span><br><span class="line">    <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SAPI生命周期结束时关闭模块(MSHUTDOWN) 对应MINIT</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PHP_MSHUTDOWN_FUNCTION(myphpextension)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="单进程SAPI生命周期"><a href="#单进程SAPI生命周期" class="headerlink" title="单进程SAPI生命周期"></a>单进程SAPI生命周期</h4><p>CLI/CGI模式的PHP属于单进程的SAPI模式。这类请求在处理一次请求后就关闭。只会经过以下几个环节：</p>
+<ul>
+<li>开始</li>
+<li>请求开始</li>
+<li>请求关闭</li>
+<li>结束</li>
+</ul>
+<p><strong>启动</strong></p>
+<p>在调用每个模块的模块初始化之前，会有一个初始化的过程，包括</p>
+<ul>
+<li>初始化若干全局变量<blockquote>
+<p>这里的初始化全局变量大多数情况下是将其设置为NULL</p>
+</blockquote>
+</li>
+<li>初始化若干常量<blockquote>
+<p>这里的常量是PHP自己的敞亮，这些常量要么是硬编码在程序中，比如PHP_VERSION,要么写在配置头文件中，比如PEAR_EXTENSION_DIR</p>
+</blockquote>
+</li>
+<li><p>初始化Zend引擎和核心组件</p>
+<blockquote>
+<p>zend_startup()函数的作用就是初始化Zend应请，这里的初始化操作包括</p>
+<ul>
+<li>内存管理初始化</li>
+<li>全局使用的函数指针初始化，对PHP源文件进行词法分析、语法分析、中间代码执行的函数指针的赋值</li>
+<li>初始化若干HashTable(比如函数表，常量表等等),为ini文件解析做准备，为PHP源文件解析做准备</li>
+<li>注册内置函数(如strlen,define等)</li>
+<li>注册标准常量(如E_ALL,TRUE, NULL等)</li>
+<li>注册GLOBALS全局变量等</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解析php.ini</p>
+<blockquote>
+<p>php_init_config函数的作用就是读取php.ini文件，设置配置参数，加载zend扩展并注册PHP扩展函数。此函数分为如下几步：初始化参数配置表，调用当前模式下的ini初始化配置，比如CLI模式下，会做如下初始化：</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INI_DEFAULT(<span class="string">"report_zend_debug"</span>, <span class="string">"0"</span>)</span><br><span class="line">INI_DEFAULT(<span class="string">"display_error"</span>, <span class="string">"1"</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>  不过在其他模式下却没有这样的初始化操作，接下来的各种操作都是查找ini文件</p>
+<ul>
+<li>判断是否有php_ini_path_override,在CLI模式下可以通过-c参数指定此路径(在php的命令参数中-c标识在指定的路径中查找ini文件)</li>
+<li>如果没有php_ini_path_override，判断php_ini_ignore是否为非空(忽略php.ini配置，这里也就CLI模式下有用，使用-n参数)</li>
+<li>如果不忽略ini配置，则开始吹了php_ini_search_path(查找ini文件的路径), 这些路径包含CWD(当前路径，不过这种不适用CLI模式)、执行脚本所在目录、环境变量PATH和PHPRC和配置文件中的PHP_CONFIG_FILE_PATH的值</li>
+<li>在准备完查找路径后，PHP会判断现在的ini路径(php_ini_file_name)是否为文件和是否可打开。如果这里ini路径时文件并且可打开，则会使用此文件，也就是CLI模式下通过-c参数指定的ini文件的优先级是最高的，其次是PHPRC指定的文件，第三是在搜索路径中查找php-%sapi-moudle-name%.ini文件(如CLI模式下应该是查找php-cli.ini文件)，最后才是搜索路径中查找php.ini文件</li>
+</ul>
+</li>
+<li><p>全局操作函数的初始化</p>
+<p>  php_startup_auto_globals函数会初始化在用户空间所使用频率很高的一些全局变量，如：$_GET $_POST $_FILES等，这里只是初始化，所调用的zend_register_auto_global函数也只是将这些变量名添加到CG(auto_globals)这个变量表</p>
+<p>  php_startup_sapi_contents_types函数用来初始化SAPI对于不同类型内容的处理函数，这里的处理函数包括POST数据默认处理函数、默认数据处理函数等</p>
+</li>
+<li><p>初始化静态构建的模块和共享模块<br>  php_register_internal_extensions_func 函数用来注册静态构建的模块，就是默认加载的模块，我们可以将其认为内置模块，在PHP5.3中内置的模板包括PHP标准扩展模块(/ext/standard/目录，这里是我们用的最频繁的函数，比如字符串函数，数学函数，数组操作函数等等，)日历扩展模块，FTP扩展模块，session扩展模块等</p>
+<p>  模块初始化会执行两个操作：</p>
+<pre><code>1、将这些模块注册到已注册的模块列表，如果已经注册了，会报Module xxx already loaded的错误
+2、将每个模块包含的函数注册到函数表(CG(function_table))，如果函数无法添加，则会报Unable to register functions, unable to load
+</code></pre><p>  在注册了静态构建模块后，PHP会注册附加的模块，不同的模式下可以加载不同的模块集，比如在CLI模式下是没这些附加的模块的</p>
+<p>  在内置模块和附加模块注册后，接下来是注册通过共享对象比如DLL何php.ini文件灵活配置的扩展</p>
+<p>  在所有模块都注册后，PHP会马上执行模块初始化操作zend_startup_modules，它的整个过程就是依次遍历每个模块，调用每个模块的的模块初始化函数PHP_MINIT_FUNCTION所包含的内容</p>
+</li>
+<li><p>禁用函数和类<br>  php_disable_functions 函数用来禁用PHP的一些函数。这些被禁用的函数来自PHP的配置文件的disable_functions变量。其禁用的过程是调用zend_disable_function(function_table)函数将执行的函数名从CG函数表中删除</p>
+<p> php_disable_classes函数用来禁用PHP的一些类，这些被禁用的类来自PHP的配置文件的disable_classes变量，其禁用的过程是调用zend_disable_class 函数将执行的类从CG(class_table)类表中删除</p>
+</li>
+</ul>
+<p><strong>ACTIVATION</strong><br>    在处理了文件相关的内容，PHP会调用php_request_startuo做请求初始化操作。请求初始化操作，除了调用每个模块的请求初始化函数外，还做了较多的其他工作，如下：</p>
+<ul>
+<li><p>激活Zend引擎</p>
+<p>  gc_reset 函数用来重置垃圾收集机制<br>  init_compiler函数用来初始化编译器，比如讲编译过程中放opcode的数组清空，准备编译时用来的数据结构等等</p>
+<p>  init_executor 函数用来初始化中间代码执行过程。在编译过程中，函数列表、类列表等都存放在编译时的全局变量中，在准备执行过程中，会将这些列表赋值给执行的全局变量中，如EG(function_table) = CG(funciton_table)，中间代码执行是在PHP的虚拟栈中能够，初始化这些栈等都会一起被初始化。<br>   除了栈，还有存放变量的符号表EG(symbol_table)会被初始化为50个元素的hashtable，存放对象的EG(object_strore)被初始化了1024个元素。<br>   PHP的执行环境除了上面的一些变量外，还有错误处理，异常处理等等，这些都是在这里初始化的<br>   通过php.ini配置的zend_extensions也是在这里被遍历调用activate函数</p>
+</li>
+<li><p>激活SAPI</p>
+<p>  sapi_activate 函数用来初始化SG(sapi_headers)和SG(request_info)，并且针对HTTP请求的方法设置一些内容，比如当请求方法为HEAD时，设置SG(request_info).headers_only = 1</p>
+</li>
+<li><p>环境初始化<br>  这里的环境初始化是指在用户空间中需要用到的一些环境变量初始化，这里的环境包括服务器环境、请求数据环境等。 实际到我们用到的变量，就是$_POST、$_GET、$_COOKIE、$_SERVER、$_ENV、$_FILES。 和sapi_module.default_post_reader一样，sapi_module.treat_data的值也是在模块初始化时， 通过php_startup_sapi_content_types函数注册了默认数据处理函数为main/php_variables.c文件中php_default_treat_data函数。</p>
+<p>  以$_COOKIE为例，php_default_treat_data函数会对依据分隔符，将所有的cookie拆分并赋值给对应的变量</p>
+</li>
+<li><p>模块请求初始化<br>  PHP通过zend_activate_modules函数实现模块的请求初始化, 此函数通过遍历注册在module_registry变量中的所有模块，调用其RINIT方法实现模块的请求初始化操作。</p>
+</li>
+<li><p>运行<br>  php_execute_script函数包含了运行PHP脚本的全部过程。</p>
+<p>  当一个PHP文件需要解析执行时，它可能会需要执行三个文件。前置执行文件、当前需要执行的主文件和一个后置执行文件<br>  非当前的两个文件可以在php.ini中通过auto_prepend_file参数和auto_append_file参数设置，如果将这两个参数设置为空，则禁用对应的执行文件</p>
+<p>  对于需要解析执行的文件，通过zend_compile_file(compile_file)函数做词法分析、语法分析和中间代码生成操作，返回此文件的所有中间代码</p>
+<p>  如果解析文件有生成有效的中间代码，则调用zend_execute执行中间代码，如果在执行过程中出现异常并且用户有定义这些异常的处理，则调用这些异常处理函数</p>
+<p>  在所有的操作处理完后PHP通过EG(return_value_ptr_ptr)返回结果</p>
+</li>
+</ul>
+<p><strong>DEACTIVATION</strong></p>
+<p>PHP关闭请求的过程是一个若干个关闭操作的集合，这个集合存在php_request_shutdown函数中，这个集合包括如下内容：<br>1、调用所有通过register_shutdown_function()注册的函数，这些在关闭时调用的函数式在用户控件添加进来的，一个简单的例子，我们可以在脚本出错时调用一个统一的函数，给用户一个友好一些的页面，这个有点类似于网页中的404页面<br>2、执行所有可用的__destruct函数。这里的析构函数包括在对象池EG(objects_store)中的所有对象的西沟函数以及EG(symbol_table)中各个元素的析构方法<br>3、将所有的输出刷出去<br>4、发送HTTP应答头。这也是一个输出字符串的过程，只是这个字符串可能符合某些规范<br>5、遍历每个模块的关闭请求方法，执行模块的请求关闭操作，Call each extensions RSHUTDOWN<br>6、销毁全局变量表的变量<br>7、通过zend_deactivate函数，关闭词法分析器、语法分析器、和中间代码执行器<br>8、调用每个扩展的post-RSHUTDOWN函数，只是基本每个扩展的post_deactivate_func 函数指针都是NULL<br>9、关闭SAPI，通过sapi_deactivate销毁SG(sapi_header)、SG(request_info)等内容<br>10、关闭流的包装器、关闭流的过滤器<br>11、关闭内存管理<br>12、重新设置最大执行时间</p>
+<p><strong>结束</strong></p>
+<ul>
+<li>flush<br>sapi_flush将最后的内容刷新出去，其调用的是sapi_module.flush，在CLI模式下等价于flush函数</li>
+<li>关闭Zend引擎<br>zend_shutdown将关闭Zend引擎</li>
+</ul>
+<p>在关闭所有的模块后，PHP继续销毁全局函数表，销毁全局类表、销售全局变量表等。 通过zend_shutdown_extensions遍历zend_extensions所有元素，调用每个扩展的shutdown函数</p>
+<p><strong>Zend引擎_</strong></p>
+<p>Zend引擎是PHP实现的核心，提供了语言实现上的基础设施。例如：PHP的语法实现，脚本的编译运行环境， 扩展机制以及内存管理等，当然这里的PHP指的是官方的PHP实现(除了官方的实现， 目前比较知名的有facebook的hiphop实现，不过到目前为止，PHP还没有一个标准的语言规范)， 而PHP则提供了请求处理和其他Web服务器的接口(SAPI)。</p>
+<p>目前PHP的实现和Zend引擎之间的关系非常紧密，甚至有些过于紧密了，例如很多PHP扩展都是使用的Zend API， 而Zend正是PHP语言本身的实现，PHP只是使用Zend这个内核来构建PHP语言的，而PHP扩展大都使用Zend API， 这就导致PHP的很多扩展和Zend引擎耦合在一起了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2018/11/12/php-internals-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/12/php-internals-01/" itemprop="url">「深入理解PHP内核」 - 准备工作和背景知识</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T10:05:15+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php-internals/" itemprop="url" rel="index">
+                    <span itemprop="name">php-internals</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/12/php-internals-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/12/php-internals-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/12/php-internals-01/" class="leancloud_visitors" data-flag-title="「深入理解PHP内核」 - 准备工作和背景知识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="TIPI-深入理解PHP内核"><a href="#TIPI-深入理解PHP内核" class="headerlink" title="TIPI:深入理解PHP内核"></a>TIPI:深入理解PHP内核</h1><h4 id="常用代码"><a href="#常用代码" class="headerlink" title="常用代码"></a>常用代码</h4><p>在PHP源码中经常会看到一些很常见的宏，这些代码在PHP的源码中出现的频率极高</p>
+<ul>
+<li>‘##’ 和 ‘#’</li>
+</ul>
+<p>宏是C/C++非常强大，使用也很多的一个功能，有时用来实现类似函数内联的效果，或者将复杂的代码进行简单封装，提高可读性或者可移植性。</p>
+<p>在PHP的宏定义中经常使用双井号</p>
+<p><strong>双井号’##’:</strong></p>
+<p>在C语言的宏中，’##’被称为连接符，它是一种预处理运算符，用来把两个语言符号组合成单个语言符号。这里的语言符号不一定是宏的变量，并且双井号不能走位第一个或者最后一个元素存在。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PHP_FUNCTION                ZEND_FUNCTION</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZEND_FUNCTION(name)         ZEND_NAMED_FUNCTION(ZEND_FN(name))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZEND_FN(name)               zif_##name</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZEND_NAME_FUNCTION(name)    void name(INTERNAL_FUNCTION_PARAMETERS)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INTERNAL_FUNCTION_PARAMETERS int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used TSRMLS_DC</span></span><br><span class="line"></span><br><span class="line">PHP_FUNCTION(count);</span><br><span class="line"><span class="comment">// 预处理器处理以后，PHP_FUNCTION(count)就展开为如下代码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">zif_count</span><span class="params">(<span class="keyword">int</span> ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, <span class="keyword">int</span> return_value_used TSRMLS_DC)</span></span></span><br></pre></td></tr></table></figure>
+<p>宏ZEND_FN(name)中有一个’##’，它的作用一如之前所说，是一个连接符，将zif和宏的变量name的值连接起来，以这种连接的方式以基础，多次使用这种宏形式，可以将它作为一个代码生成器，这样可以在一定程度上较少代码密度，也可以将它理解为一种代码重用的手段，间接地减少不小心所造成的错误</p>
+<p><strong>单井号’#’:</strong></p>
+<p>“#”是一种预处理运算符，它的功能是将其后面的宏参数进行【字符串化】操作，简单说就是在对它所引用的宏变量通过替换后再起左右各加上一个双引号，用比较官方的话说就是讲语言符号转化为字符串，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#define STR(X) #x</span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s\n&quot;,STR(It&apos;s a long string));// 输出 It&apos;s a long string</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>关于宏定义中的do-while循环</li>
+</ul>
+<p>PHP源码中大量使用了宏操作，比如PHP5.3新增的垃圾收集机制中的一段代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ALLOC_ZVAL(z)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    (z) = (zval*)emalloc(<span class="keyword">sizeof</span>(zval_gc_info));</span><br><span class="line">    GC_ZVAL_INIT(z);</span><br><span class="line">&#125; <span class="keyword">while</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这段代码，在宏定义中使用了do{}while(0)语句模式，多行宏这种格式已经是一宗公认的编写方式了。</p>
+<p>为什么这么写呢？</p>
+<p>因为在do-while循环语句是先执行循环再判断条件是否成立，所以说至少会执行一次，当使用do-while(0)时，由于条件肯定是false，代码也肯定只执行一次</p>
+<p>肯定执行一次的代码为什么要放在do-while语句里呢，这种方式适用于宏定义中存在多语句的情况，如下所示代码:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TEST(a, b) a++;b++;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (expr)</span><br><span class="line">    TEST(a, b);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    do_else();</span><br></pre></td></tr></table></figure></p>
+<p>代码预处理后变成：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (expr)</span><br><span class="line">    a++;b++;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    do_else();</span><br></pre></td></tr></table></figure></p>
+<p>这样if-else的结构就被破坏了if后面有两个语句，这样是无法编译通过的，那为什么非要do-while而不是简单的用{}括起来呢。 这样也能保证if后面只有一个语句。例如上面的例子，在调用宏TEST的时候后面加了一个分号， 虽然这个分号可有可无， 但是出于习惯我们一般都会写上。 那如果是把宏里的代码用{}括起来，加上最后的那个分号。 还是不能通过编译。 所以一般的多表达式宏定义中都采用do-while(0)的方式。</p>
+<p>了解了do-while循环在宏中的作用，再来看”空操作”的定义。由于PHP需要考虑到平台的移植性和不同的系统配置， 所以需要在某些时候把一些宏的操作定义为空操作。例如在sapi\thttpd\thttpd.c文件中的VEC_FREE():</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> SERIALIZE_HEADERS</span></span><br><span class="line">    <span class="meta"># <span class="meta-keyword">define</span> VEC_FREE() smart_str_free(&amp;vec_str)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="meta"># <span class="meta-keyword">define</span> VEC_FREE() do &#123;&#125; while (0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>这里涉及到条件编译，在定义了SERIALIZE_HEADERS宏的时候将VEC_FREE()定义为如上的内容，而没有定义时， 不需要做任何操作，所以后面的宏将VEC_FREE()定义为一个空操作，不做任何操作，通常这样来保证一致性， 或者充分利用系统提供的功能。</p>
+<p>有时也会使用如下的方式来定义“空操作”，这里的空操作和上面的还是不一样，例如很常见的Debug日志打印宏：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> LOG_MSG printf</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> LOG_MSG(...)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
+<p>在编译时如果定义了DEBUG则将LOG_MSG当做printf使用，而不需要调试，正式发布时则将LOG_MSG()宏定义为空， 由于宏是在预编译阶段进行处理的，所以上面的宏相当于从代码中删除了。</p>
+<p>上面提到了两种将宏定义为空的定义方式，看上去一样，实际上只要明白了宏都只是简单的代码替换就知道该如何选择了。</p>
+<ul>
+<li>‘#line’ 预处理</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">line</span> 838 <span class="meta-string">"Zend/zend_language_scanner.c"</span></span></span><br></pre></td></tr></table></figure>
+<p>‘#line预处理’用于改变当前的行号（<strong>LINE</strong>）和文件名（<strong>FILE</strong>）。 如上所示代码，将当前的行号改变为838，文件名Zend/zend_language_scanner.c 它的作用体现在编译器的编写中，我们知道编译器对C 源码编译过程中会产生一些中间文件，通过这条指令， 可以保证文件名是固定的，不会被这些中间文件代替，有利于进行调试分析。</p>
+<ul>
+<li>PHP中的全局变量宏</li>
+</ul>
+<p>在PHP代码中经常能看到一些类似PG()， EG()之类的函数，他们都是PHP中定义的宏，这系列宏主要的作用是解决线程安全所写的全局变量包裹宏， 如$PHP_SRC/main/php_globals.h文件中就包含了很多这类的宏。例如PG这个PHP的核心全局变量的宏。 如下所示代码为其定义。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ZTS   <span class="comment">// 编译时开启了线程安全则使用线程安全库</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> PG(v) TSRMG(core_globals_id, php_core_globals *, v)</span></span><br><span class="line"><span class="keyword">extern</span> PHPAPI <span class="keyword">int</span> core_globals_id;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> PG(v) (core_globals.v) <span class="comment">// 否则这其实就是一个普通的全局变量</span></span></span><br><span class="line"><span class="keyword">extern</span> ZEND_API <span class="class"><span class="keyword">struct</span> _<span class="title">php_core_globals</span> <span class="title">core_globals</span>;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>PHP运行时的一些全局参数， 这个全局变量为如下的一个结构体，各字段的意义如字段后的注释：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在PHP启动并读取php.ini文件时就会对这些字段进行赋值， 而用户空间的ini_get()及ini_set()函数操作的一些配置也是对这个全局变量进行操作的</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">php_core_globals</span> &#123;</span></span><br><span class="line">    <span class="comment">// 是否要求PHP输出层在每个输出块之后自动刷新数据</span></span><br><span class="line">	zend_bool implicit_flush;</span><br><span class="line">    <span class="comment">// 输出缓冲区大小(字节)</span></span><br><span class="line">	zend_long output_buffering;</span><br><span class="line">    <span class="comment">// 是否允许使用dl()函数，dl()函数仅在将PHP作为apache模块安装时才有效</span></span><br><span class="line">	zend_bool enable_dl;</span><br><span class="line">    <span class="comment">// 将素有脚本的输出重定向到一个输出处理函数</span></span><br><span class="line">	<span class="keyword">char</span> *output_handler;</span><br><span class="line">    <span class="comment">// 如果解序列化处理器需要实例化一个未定义的类，这里指定的回调函数将以该未定义类的名字作为参数被unserialize()调用</span></span><br><span class="line">	<span class="keyword">char</span> *unserialize_callback_func;</span><br><span class="line">	<span class="comment">// 将浮点型和双精度型数据序列化存储时的精度(有效位数)</span></span><br><span class="line">	zend_long serialize_precision;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一个脚本能够申请到的最大的内存字节数(可以是使用K和M作为单位)</span></span><br><span class="line">	zend_long memory_limit;</span><br><span class="line">	<span class="comment">// 每个脚本解析输入数据(POST, GET, UPLOAD)的最大允许时间(秒)</span></span><br><span class="line">	zend_long max_input_time;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否在变量$php_errormsg中保存最近一个错误或警告消息</span></span><br><span class="line">	zend_bool track_errors;</span><br><span class="line">	<span class="comment">// 是否将错误信息作为输出的一部分显示</span></span><br><span class="line">	zend_bool display_errors;</span><br><span class="line">	<span class="comment">// 是否显示PHP启动时的错误</span></span><br><span class="line">	zend_bool display_startup_errors;</span><br><span class="line">	<span class="comment">// 是否在日志文件里记录错误，具体在哪里记录取决于error_log指令</span></span><br><span class="line">	zend_bool log_errors;</span><br><span class="line">	<span class="comment">// 设置错误日志中附加的与错误信息相关联的错误源的最大长度</span></span><br><span class="line">	zend_long      log_errors_max_len;</span><br><span class="line">	<span class="comment">// 记录错误日志时是否忽略重复的错误信息</span></span><br><span class="line">	zend_bool ignore_repeated_errors;</span><br><span class="line">	<span class="comment">// 是否在忽略重复的错误信息时忽略重复的错误源</span></span><br><span class="line">	zend_bool ignore_repeated_source;</span><br><span class="line">	<span class="comment">// 是否报告内存泄漏</span></span><br><span class="line">	zend_bool report_memleaks;</span><br><span class="line">	<span class="comment">// 将错误日志记录到哪个文件中</span></span><br><span class="line">	<span class="keyword">char</span> *error_log;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// PHP 的根目录</span></span><br><span class="line">	<span class="keyword">char</span> *doc_root;</span><br><span class="line">	<span class="comment">// 告诉PHP在使用/~username 打开脚本时去哪个目录下去找</span></span><br><span class="line">	<span class="keyword">char</span> *user_dir;</span><br><span class="line">	<span class="comment">// 指定一组目录用于require(), include(), fopen_with_path()函数寻找文件</span></span><br><span class="line">	<span class="keyword">char</span> *include_path;</span><br><span class="line">	<span class="comment">// 将PHP允许操作的所有文件(包括文件自身)都限制在此组目录列表下</span></span><br><span class="line">	<span class="keyword">char</span> *open_basedir;</span><br><span class="line">	<span class="comment">// 存放扩展库的目录</span></span><br><span class="line">	<span class="keyword">char</span> *extension_dir;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> *php_binary;</span><br><span class="line">	<span class="keyword">char</span> *sys_temp_dir;</span><br><span class="line">    <span class="comment">// 文件上传时存放文件的临时目录</span></span><br><span class="line">	<span class="keyword">char</span> *upload_tmp_dir;</span><br><span class="line">	<span class="comment">// 允许上传的文件的最大尺寸</span></span><br><span class="line">	zend_long upload_max_filesize;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用于错误信息后输出的字符串</span></span><br><span class="line">	<span class="keyword">char</span> *error_append_string;</span><br><span class="line">	<span class="comment">// 用于错误信息前输出的字符串</span></span><br><span class="line">	<span class="keyword">char</span> *error_prepend_string;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指定在主文件之前自动解析的文件名</span></span><br><span class="line">	<span class="keyword">char</span> *auto_prepend_file;</span><br><span class="line">	<span class="comment">// 指定在主文件之后自动解析的文件名</span></span><br><span class="line">	<span class="keyword">char</span> *auto_append_file;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入编码</span></span><br><span class="line">	<span class="keyword">char</span> *input_encoding;</span><br><span class="line">	<span class="comment">// 内部编码</span></span><br><span class="line">	<span class="keyword">char</span> *internal_encoding;</span><br><span class="line">	<span class="comment">// 输出编码</span></span><br><span class="line">	<span class="keyword">char</span> *output_encoding;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PHP所产生的URL中用来分割参数的分隔符</span></span><br><span class="line">	arg_separators arg_separator;</span><br><span class="line">    <span class="comment">// PHP注册Environment, GET, POST, Cookie, Server变量的顺序</span></span><br><span class="line">	<span class="keyword">char</span> *variables_order;</span><br><span class="line">    <span class="comment">// RFC1867保护的变量名，在main/rfc1867.c文件中有用到此变量</span></span><br><span class="line">	HashTable rfc1867_protected_variables;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 连接状态，有三个状态正常、中断、超时</span></span><br><span class="line">	<span class="keyword">short</span> connection_status;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* In 7.1/7.2 branches, this was initially a short,</span></span><br><span class="line"><span class="comment">	 * maintain struct alignment with subsequent padding.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	zend_bool ignore_user_abort;</span><br><span class="line">	<span class="keyword">char</span> ignore_user_abort_reserved_padding;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否头信息正在发送</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> header_is_being_sent;</span><br><span class="line">    <span class="comment">// 仅在main目录下的php_ticks.c文件中有用到，此处订单的函数在register_tick_function 等函数中有用到</span></span><br><span class="line">	zend_llist tick_functions;</span><br><span class="line">    <span class="comment">// 存放GET、POST、SERVER等信息</span></span><br><span class="line">	zval http_globals[<span class="number">6</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否展示PHP信息</span></span><br><span class="line">	zend_bool expose_php;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否将E,G,P,C,S变量注册为全局变量</span></span><br><span class="line">	zend_bool register_argc_argv;</span><br><span class="line">	<span class="comment">// 是否仅在用到$_SERVER和$_ENV变量时才创建(而不是脚本已启动就创建)</span></span><br><span class="line">	zend_bool auto_globals_jit;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果打开了html_errors指令，PHP将会在出错信息上显示超链接</span></span><br><span class="line">	<span class="keyword">char</span> *docref_root;</span><br><span class="line">	<span class="comment">// 指定文件的扩展名(必须有'.')</span></span><br><span class="line">	<span class="keyword">char</span> *docref_ext;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否在出错信息中吃使用HTML标记</span></span><br><span class="line">	zend_bool html_errors;</span><br><span class="line">	zend_bool xmlrpc_errors;</span><br><span class="line"></span><br><span class="line">	zend_long xmlrpc_error_number;</span><br><span class="line"></span><br><span class="line">	zend_bool activated_auto_globals[<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否已经激活模块</span></span><br><span class="line">	zend_bool modules_activated;</span><br><span class="line">	<span class="comment">// 是否允许HTTP文件上传</span></span><br><span class="line">	zend_bool file_uploads;</span><br><span class="line">	<span class="comment">// 是否在请求初始化过程中</span></span><br><span class="line">	zend_bool during_request_startup;</span><br><span class="line">	<span class="comment">// 是否允许打开远程文件</span></span><br><span class="line">	zend_bool allow_url_fopen;</span><br><span class="line">	<span class="comment">// 是否总是生成$HTTP_RAW_POST_DATA变量(原始POST数据)</span></span><br><span class="line">	zend_bool enable_post_data_reading;</span><br><span class="line">	<span class="comment">// 是否打开zend debug，仅在main/main.c文件中有使用</span></span><br><span class="line">	zend_bool report_zend_debug;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 最后的错误类型</span></span><br><span class="line">	<span class="keyword">int</span> last_error_type;</span><br><span class="line">	<span class="comment">// 最后的错误信息</span></span><br><span class="line">	<span class="keyword">char</span> *last_error_message;</span><br><span class="line">	<span class="comment">// 最后的错误文件</span></span><br><span class="line">	<span class="keyword">char</span> *last_error_file;</span><br><span class="line">	<span class="comment">// 最后的错误行</span></span><br><span class="line">	<span class="keyword">int</span>  last_error_lineno;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">	<span class="keyword">char</span> *php_sys_temp_dir;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 该指定接受一个用逗号分隔的函数名列表，以禁用特定的函数</span></span><br><span class="line">	<span class="keyword">char</span> *disable_functions;</span><br><span class="line">	<span class="comment">// 该指令接受一个用逗号分隔的类名列表，以禁用特定的类</span></span><br><span class="line">	<span class="keyword">char</span> *disable_classes;</span><br><span class="line">	<span class="comment">// 是否允许include/require远程文件</span></span><br><span class="line">	zend_bool allow_url_include;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> PHP_WIN32</span></span><br><span class="line">	zend_bool com_initialized;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">// 最大的嵌套层数</span></span><br><span class="line">	zend_long max_input_nesting_level;</span><br><span class="line">	<span class="comment">// 最大的变量数量</span></span><br><span class="line">	zend_long max_input_vars;</span><br><span class="line">	<span class="comment">// 是否在用户包含空间</span></span><br><span class="line">	zend_bool in_user_include;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用户的ini文件名</span></span><br><span class="line">	<span class="keyword">char</span> *user_ini_filename;</span><br><span class="line">	<span class="comment">// ini缓存过期限制</span></span><br><span class="line">	zend_long user_ini_cache_ttl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 优先级比variables_order高，在request变量生成时用到</span></span><br><span class="line">	<span class="keyword">char</span> *request_order;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 仅在ext/standard/mail.c文件中使用</span></span><br><span class="line">	zend_bool mail_x_header;</span><br><span class="line">	<span class="keyword">char</span> *mail_log;</span><br><span class="line"></span><br><span class="line">	zend_bool in_error_log;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> PHP_WIN32</span></span><br><span class="line">	zend_bool windows_show_crt_warning;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1838,191 +2178,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/02/etherum-desc/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/12/19/blockchain-develop-dapp-desc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/19/blockchain-develop-dapp-desc/" itemprop="url">（一）去中心化应用</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-19T18:42:44+08:00">
-                2017-12-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/" itemprop="url" rel="index">
-                    <span itemprop="name">BlockChain</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BlockChain/《区块链项目开发指南》/" itemprop="url" rel="index">
-                    <span itemprop="name">《区块链项目开发指南》</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/19/blockchain-develop-dapp-desc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/19/blockchain-develop-dapp-desc/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/19/blockchain-develop-dapp-desc/" class="leancloud_visitors" data-flag-title="（一）去中心化应用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>如何学习以太坊？ -&gt; 从以太坊的白皮书和黄皮书开始/Building Blockchain Projects</p>
-<p>通过有趣的现实世界案例，将了解到如何编写完全按照程序运行、没有欺诈、没有中心机构或者第三方干预的智能合约，并学习如何创建端到端的区块链应用。</p>
-<p>将介绍加密货币中的密码学、以太币安全、挖矿、智能合约和Solidity等概念</p>
-<p>实例代码下载地址：<a href="http://www.packtpub.com" target="_blank" rel="noopener">http://www.packtpub.com</a></p>
-<p>​                <a href="http://www.hzbook.com" target="_blank" rel="noopener">http://www.hzbook.com</a></p>
-<h3 id="第一章-去中心化应用"><a href="#第一章-去中心化应用" class="headerlink" title="第一章 去中心化应用"></a>第一章 去中心化应用</h3><h5 id="1-1-什么是Dapp"><a href="#1-1-什么是Dapp" class="headerlink" title="1.1 什么是Dapp"></a>1.1 什么是Dapp</h5><p>目前几乎所有互联网应用都是中心化，每个应用的服务端由一个特定的企业或者个人所有，开发者在开发中心化应用，用户也一直在使用中心化应用。</p>
-<p>但是中心化应用存在一些问题：不透明、单点故障、不能防止网络审查。几乎不可能创建某些特定类型的应用</p>
-<p>为了解决这一问题，去中心化应用诞生了，它创建以网络为基础的去中心化应用Dapp</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/19/blockchain-develop-dapp-desc/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>

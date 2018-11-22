@@ -774,9 +774,9 @@
       
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> PHP </tag>
             
         </tags>
       
@@ -799,9 +799,9 @@
       
         <tags>
             
-            <tag> HighCurrency </tag>
-            
             <tag> Cache </tag>
+            
+            <tag> HighCurrency </tag>
             
             <tag> DynamicLanguage </tag>
             
@@ -826,11 +826,11 @@
       
         <tags>
             
+            <tag> Cache </tag>
+            
             <tag> Nginx </tag>
             
             <tag> HighCurrency </tag>
-            
-            <tag> Cache </tag>
             
         </tags>
       
@@ -853,9 +853,9 @@
       
         <tags>
             
-            <tag> Cache </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> Cache </tag>
             
         </tags>
       
@@ -878,9 +878,9 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> Cache </tag>
+            
+            <tag> Nginx </tag>
             
             <tag> PHP </tag>
             
