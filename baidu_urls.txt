@@ -1,4 +1,6 @@
+http://zhyunfe.github.io/2018/11/19/php-internals-fastcgi/
 http://zhyunfe.github.io/2018/11/12/php-internals-02/
+http://zhyunfe.github.io/2018/11/12/php-internals-01/
 http://zhyunfe.github.io/2018/09/11/machine-learning-01/
 http://zhyunfe.github.io/2018/09/10/teach-skill-01/
 http://zhyunfe.github.io/2018/09/10/back-my-life/
@@ -6,5 +8,3 @@ http://zhyunfe.github.io/2018/08/29/eth-ubu-envconfig/
 http://zhyunfe.github.io/2018/08/28/eth-game-01/
 http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-three/
 http://zhyunfe.github.io/2018/08/19/self-contivation-of-programmers-two/
-http://zhyunfe.github.io/2018/08/19/self-contivation-of-progammers-one/
-http://zhyunfe.github.io/2018/07/22/blockchain-bitcoin/

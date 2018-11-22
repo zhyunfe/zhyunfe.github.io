@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://zhyunfe.github.io/2018/11/19/php-internals-fastcgi/</loc>
+    <lastmod>2018-11-22T05:23:48.030Z</lastmod>
+    <data>
+        <display>
+        <title>「深入理解PHP内核」 - FastCGI</title>
+        <pubTime>2018-11-19T05:49:46.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="php-internals" url="http://zhyunfe.github.io/categories/php-internals/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/11/12/php-internals-01/</loc>
+    <lastmod>2018-11-22T05:23:35.734Z</lastmod>
+    <data>
+        <display>
+        <title>「深入理解PHP内核」 - 准备工作和背景知识</title>
+        <pubTime>2018-11-12T02:05:15.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="php-internals" url="http://zhyunfe.github.io/categories/php-internals/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhyunfe.github.io/2018/11/12/php-internals-02/</loc>
     <lastmod>2018-11-19T05:49:18.890Z</lastmod>
     <data>
@@ -345,12 +385,12 @@
 
     
   <url>
-    <loc>http://zhyunfe.github.io/2017/11/09/beginning-c-nine/</loc>
+    <loc>http://zhyunfe.github.io/2017/11/03/beginning-c-three/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     <data>
         <display>
-        <title>beginning-c-nine</title>
-        <pubTime>2017-11-09T12:48:12.000Z</pubTime>
+        <title>（三）数据类型、运算符与表达式</title>
+        <pubTime>2017-11-03T12:39:52.000Z</pubTime>
         
         <tag>C</tag>
          
@@ -389,28 +429,6 @@
 
     
   <url>
-    <loc>http://zhyunfe.github.io/2017/11/08/beginning-c-eight/</loc>
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>（八）函数</title>
-        <pubTime>2017-11-08T12:46:47.000Z</pubTime>
-        
-        <tag>C</tag>
-         
-        <tag>algorithm</tag>
-         
-         
-           
-             
-              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://zhyunfe.github.io/2017/11/05/beginning-c-4-5-6/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     <data>
@@ -433,14 +451,14 @@
 
     
   <url>
-    <loc>http://zhyunfe.github.io/2018/01/06/skills-nginx-504/</loc>
+    <loc>http://zhyunfe.github.io/2017/09/19/skills-seo/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     <data>
         <display>
-        <title>Nginx 504解决方案</title>
-        <pubTime>2018-01-06T13:52:29.000Z</pubTime>
+        <title>SEO优化 - 怎样建立高转化率的站点关键词</title>
+        <pubTime>2017-09-19T14:03:55.000Z</pubTime>
         
-        <tag>Nginx</tag>
+        <tag>SEO</tag>
          
          
            
@@ -453,18 +471,14 @@
 
     
   <url>
-    <loc>http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/</loc>
+    <loc>http://zhyunfe.github.io/2018/01/06/skills-nginx-504/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     <data>
         <display>
-        <title>Linux设置VIP</title>
-        <pubTime>2018-01-09T13:54:48.000Z</pubTime>
+        <title>Nginx 504解决方案</title>
+        <pubTime>2018-01-06T13:52:29.000Z</pubTime>
         
         <tag>Nginx</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>Virtual IP</tag>
          
          
            
@@ -497,52 +511,12 @@
 
     
   <url>
-    <loc>http://zhyunfe.github.io/2018/01/17/skills-redis-safe/</loc>
+    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-two/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     <data>
         <display>
-        <title>Redis安全性简介</title>
-        <pubTime>2018-01-17T14:00:31.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhyunfe.github.io/2017/09/19/skills-seo/</loc>
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>SEO优化 - 怎样建立高转化率的站点关键词</title>
-        <pubTime>2017-09-19T14:03:55.000Z</pubTime>
-        
-        <tag>SEO</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/07/beginning-c-seven/</loc>
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>（七）数组</title>
-        <pubTime>2017-11-07T12:45:15.000Z</pubTime>
+        <title>（二）程序的灵魂 - 算法</title>
+        <pubTime>2017-11-02T12:38:53.000Z</pubTime>
         
         <tag>C</tag>
          
@@ -579,6 +553,48 @@
 
     
   <url>
+    <loc>http://zhyunfe.github.io/2018/01/17/skills-redis-safe/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Redis安全性简介</title>
+        <pubTime>2018-01-17T14:00:31.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/08/beginning-c-eight/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>（八）函数</title>
+        <pubTime>2017-11-08T12:46:47.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhyunfe.github.io/2018/03/19/kafka-easy/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     <data>
@@ -599,12 +615,12 @@
 
     
   <url>
-    <loc>http://zhyunfe.github.io/2017/11/03/beginning-c-three/</loc>
+    <loc>http://zhyunfe.github.io/2017/11/09/beginning-c-nine/</loc>
     <lastmod>2018-08-28T14:51:49.000Z</lastmod>
     <data>
         <display>
-        <title>（三）数据类型、运算符与表达式</title>
-        <pubTime>2017-11-03T12:39:52.000Z</pubTime>
+        <title>beginning-c-nine</title>
+        <pubTime>2017-11-09T12:48:12.000Z</pubTime>
         
         <tag>C</tag>
          
@@ -620,49 +636,6 @@
     </url>
 
     
-  <url>
-    <loc>http://zhyunfe.github.io/2017/11/02/beginning-c-two/</loc>
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>（二）程序的灵魂 - 算法</title>
-        <pubTime>2017-11-02T12:38:53.000Z</pubTime>
-        
-        <tag>C</tag>
-         
-        <tag>algorithm</tag>
-         
-         
-           
-             
-              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/02/php-interview-prepare-hc-2/</loc>
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>PHP如何解决网站大流量与高并发的问题（二）</title>
-        <pubTime>2017-10-02T13:08:12.000Z</pubTime>
-        
-        <tag>MySQL</tag>
-         
-        <tag>Cache</tag>
-         
-         
-           
-             
-              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://zhyunfe.github.io/2017/10/01/php-interview-prepare-hc-1/</loc>
@@ -672,37 +645,13 @@
         <title>PHP如何解决网站大流量与高并发的问题（一）</title>
         <pubTime>2017-10-01T13:06:47.000Z</pubTime>
         
-        <tag>Cache</tag>
-         
         <tag>Nginx</tag>
+         
+        <tag>Cache</tag>
          
         <tag>PHP</tag>
          
         <tag>High Concurrency</tag>
-         
-         
-           
-             
-              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhyunfe.github.io/2017/10/04/php-interview-prepare-hc-4/</loc>
-    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>PHP如何解决网站大流量与高并发的问题（四）</title>
-        <pubTime>2017-10-04T13:12:00.000Z</pubTime>
-        
-        <tag>Cache</tag>
-         
-        <tag>HighCurrency</tag>
-         
-        <tag>DynamicLanguage</tag>
          
          
            
@@ -722,9 +671,33 @@
         <title>Mysql基础操作</title>
         <pubTime>2017-10-05T13:00:43.000Z</pubTime>
         
+        <tag>PHP</tag>
+         
         <tag>MySQL</tag>
          
-        <tag>PHP</tag>
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/04/php-interview-prepare-hc-4/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP如何解决网站大流量与高并发的问题（四）</title>
+        <pubTime>2017-10-04T13:12:00.000Z</pubTime>
+        
+        <tag>HighCurrency</tag>
+         
+        <tag>Cache</tag>
+         
+        <tag>DynamicLanguage</tag>
          
          
            
@@ -764,11 +737,11 @@
         <title>PHP如何解决网站大流量与高并发的问题（三）</title>
         <pubTime>2017-10-03T13:10:30.000Z</pubTime>
         
-        <tag>Cache</tag>
-         
         <tag>Nginx</tag>
          
         <tag>HighCurrency</tag>
+         
+        <tag>Cache</tag>
          
          
            
@@ -802,5 +775,72 @@
     </url>
 
     
+  <url>
+    <loc>http://zhyunfe.github.io/2017/10/02/php-interview-prepare-hc-2/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP如何解决网站大流量与高并发的问题（二）</title>
+        <pubTime>2017-10-02T13:08:12.000Z</pubTime>
+        
+        <tag>Cache</tag>
+         
+        <tag>MySQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="Interview Prepare" url="http://zhyunfe.github.io/categories/Interview-Prepare/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
+  <url>
+    <loc>http://zhyunfe.github.io/2017/11/07/beginning-c-seven/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>（七）数组</title>
+        <pubTime>2017-11-07T12:45:15.000Z</pubTime>
+        
+        <tag>C</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="《C语言程序设计》" url="http://zhyunfe.github.io/categories/%E3%80%8AC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://zhyunfe.github.io/2018/01/09/skills-nginx-vip/</loc>
+    <lastmod>2018-08-28T14:51:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux设置VIP</title>
+        <pubTime>2018-01-09T13:54:48.000Z</pubTime>
+        
+        <tag>Nginx</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Virtual IP</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术笔记" url="http://zhyunfe.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
 </urlset>
