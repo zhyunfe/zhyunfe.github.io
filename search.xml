@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>深入理解PHP内核」 - PHP脚本的执行</title>
+      <link href="/2018/11/22/php-internals-script/"/>
+      <url>/2018/11/22/php-internals-script/</url>
+      
+        <content type="html"><![CDATA[<h1 id="PHP脚本的执行"><a href="#PHP脚本的执行" class="headerlink" title="PHP脚本的执行"></a>PHP脚本的执行</h1><p>编程语言的作用就是将语言的特定符号和处理规则进行翻译，由编程语言来处理这些规则，目前有非常多的编程语言，不管是静态语言还是动态语言都有固定的工作要做：将代码编译为目标指令，而编译过程就是根据语言的语法规则来进行翻译，我们可以选择手动对代码进行解析，但这是一个非常枯燥而容易出错的工作，因此就出现了像lex/yacc这类的编译器生成器</p><p>编程语言的编译器或解释器一般包含两大部分：</p><ul><li>读取源程序，并处理语言结构</li><li>处理语言结构并生成目标程序</li></ul><p>Lex和Yacc可以解决第一个问题，第一部分也可以分成两个部分：</p><ul><li>将代码分为一个个的标记</li><li>处理程序的层级结构</li></ul><p>很多编程语言都使用lex/yacc或者他们的变体来作为语言的词法语法分析生成器，比如PHP，Ruby,Python以及MySQL的SQL语言实现</p><p>Lex和Yacc是Unix下的两个文本处理工具，主要用于编写编译器，也可以做其他用途</p><ul><li>Lex 词法分析生成器 A Lexiacal Analyzer Generator</li><li>Yacc Yet Another Complier-Complier</li></ul><h4 id="Lex-Fex"><a href="#Lex-Fex" class="headerlink" title="Lex/Fex"></a>Lex/Fex</h4><p>Lex读取词法规则文件，生成词法分析器。目前通常是会用Flex以及Bison来完成同样的工作。</p><p>词法规则文件一般以.l作为扩展名，flex文件由三个部分组成，三部分之间用%%分割<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">定义段</span><br><span class="line">%%</span><br><span class="line">规则段</span><br><span class="line">%%</span><br><span class="line">用户代码段</span><br></pre></td></tr></table></figure></p><p>例如一下一个用于统计文件字符、词以及行数的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">%option noyywrap</span><br><span class="line">%&#123;</span><br><span class="line">int chars = 0</span><br><span class="line">int words = 0</span><br><span class="line">int lines = 0;</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line">%%</span><br><span class="line">[a-zA-Z]+ &#123;words++; chars+= strlen(yytext);&#125;</span><br><span class="line">&#123;chars++; lines++;&#125;</span><br><span class="line">&#123;chars ++;&#125;</span><br><span class="line">%%</span><br><span class="line"></span><br><span class="line">main(int argc, char **argv)</span><br><span class="line">&#123;</span><br><span class="line">    if (argc &gt; 1) &#123;</span><br><span class="line">        if(!(yyin=fopen(argv[1], &quot;r&quot;))) &#123;</span><br><span class="line">            perror(argv[1]);</span><br><span class="line">            return (1);</span><br><span class="line">        &#125;</span><br><span class="line">        yylex();</span><br><span class="line">        printf(&quot;%8d%8d%8d\n&quot;, lines, words, chars);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>该解释器读取文件内容， 根据规则段定义的规则进行处理， 规则后面大括号中包含的是动作， 也就是匹配到该规则程序执行的动作， 这个例子中的匹配动作时记录下文件的字符，词以及行数信息并打印出来。其中的规则使用正则表达式描述。</p><p>PHP以前使用的是flex，后来PHP的词法解析改为使用re2c， $PHP_SRC/Zend/zend_language_scanner.l 文件是re2c的规则文件， 所以如果修改该规则文件需要安装re2c才能重新编译</p><h4 id="Yacc-Bison"><a href="#Yacc-Bison" class="headerlink" title="Yacc/Bison"></a>Yacc/Bison</h4><p>PHP在后续的版本中可能会使用Lemon作为语法分析器， Lemon是SQLite作者为SQLite中SQL所编写的词法分析器。 Lemon具有线程安全以及可重入等特点，也能提供更直观的错误提示信息。</p><p>下面是以PHP中echo语句的编译为例：echo可以接受多个参数，这几个参数之间可以使用逗号分隔，在PHP的羽凡规则如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo_expr_list:</span><br><span class="line">    echo_expr_list &apos;,&apos; expr &#123; zend_do_echo(&amp;$3 TSRMLS_CC); &#125; </span><br><span class="line">    |                  expr &#123; zend_do_echo(&amp;$1 TSRMLS_CC); &#125;</span><br><span class="line">;</span><br></pre></td></tr></table></figure></p><p>其中echo_expr_list规则为一个递归规则，这样就允许接受多个表达式作为参数。 在上例中当匹配到echo时会执行zend_do_echo函数， 函数中的参数可能看起来比较奇怪， 其中的$3 表示前面规则的第三个定义，也就是expr这个表达式的值， zend_do_echo函数则根据表达式的信息编译opcode，其他的语法规则也类似。 这和C语言或者Java的编译器类似，不过GCC等编译器时将代码编译为机器码，Java编译器将代码编译为字节码。</p><p>##opcode</p><p>opcode是计算机指令中的一个部分，用于指定要执行的操作，指令的格式和规范由处理器的指令规范执行。除了指令本身以外通常还有指令所需要的操作数，可能有的指令不需要显示的操作数。这些操作数可能是寄存器中的值，堆栈中的值，某块内存的值或者IO端口中的值等等。</p><p>通常opcode还有另外一种称为：字节码(byte codes)</p><p>#####PHP的opcode</p><p>PHP是构建在Zend虚拟机Zend VM之上的，PHP 的opcode就是Zend虚拟机中的指令。</p><p>在PHP实现内部，opcode由如下的结构体表示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct _zend_op &#123;</span><br><span class="line">    opcode_handler_t handler; // 执行该opcode时调用的处理函数</span><br><span class="line">    znode result;</span><br><span class="line">    znode op1;</span><br><span class="line">    znode op2;</span><br><span class="line">    ulong extended_value;</span><br><span class="line">    uint lineno;</span><br><span class="line">    zend_uchar opcode; // opcode代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>和CPU指令类似，有一个标示指令的opcode字段，以及这个opcode所操作的操作数，PHP不像汇编那么底层，在脚本实际执行的时候可能还需要其他更多的信息，extended_value字段就保存了这类信息，其中的result域则是保存该指令执行完成后的结果</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> php-internals </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
       <title>「深入理解PHP内核」 - FastCGI</title>
       <link href="/2018/11/19/php-internals-fastcgi/"/>
       <url>/2018/11/19/php-internals-fastcgi/</url>
@@ -799,9 +816,9 @@
       
         <tags>
             
-            <tag> Cache </tag>
-            
             <tag> HighCurrency </tag>
+            
+            <tag> Cache </tag>
             
             <tag> DynamicLanguage </tag>
             
@@ -826,11 +843,11 @@
       
         <tags>
             
-            <tag> Cache </tag>
-            
             <tag> Nginx </tag>
             
             <tag> HighCurrency </tag>
+            
+            <tag> Cache </tag>
             
         </tags>
       
@@ -853,9 +870,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> Cache </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -878,9 +895,9 @@
       
         <tags>
             
-            <tag> Cache </tag>
-            
             <tag> Nginx </tag>
+            
+            <tag> Cache </tag>
             
             <tag> PHP </tag>
             

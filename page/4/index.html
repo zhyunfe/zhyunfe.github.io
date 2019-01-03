@@ -297,6 +297,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/11/05/beginning-c-4-5-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demor's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/05/beginning-c-4-5-6/" itemprop="url">（四）最简单的C程序设计</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-05T20:43:51+08:00">
+                2017-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《C语言程序设计》/" itemprop="url" rel="index">
+                    <span itemprop="name">《C语言程序设计》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/05/beginning-c-4-5-6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/05/beginning-c-4-5-6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/05/beginning-c-4-5-6/" class="leancloud_visitors" data-flag-title="（四）最简单的C程序设计">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="4-1-C语句概述"><a href="#4-1-C语句概述" class="headerlink" title="4.1 C语句概述"></a>4.1 C语句概述</h3><h3 id="4-2-赋值语句"><a href="#4-2-赋值语句" class="headerlink" title="4.2 赋值语句"></a>4.2 赋值语句</h3><h3 id="4-3-数据输入输出的概念及在C语言中的实现"><a href="#4-3-数据输入输出的概念及在C语言中的实现" class="headerlink" title="4.3 数据输入输出的概念及在C语言中的实现"></a>4.3 数据输入输出的概念及在C语言中的实现</h3><h3 id="4-4-字符数据的输入输出"><a href="#4-4-字符数据的输入输出" class="headerlink" title="4.4 字符数据的输入输出"></a>4.4 字符数据的输入输出</h3><h4 id="4-4-1-putchar-函数"><a href="#4-4-1-putchar-函数" class="headerlink" title="4.4.1 putchar 函数"></a>4.4.1 putchar 函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a,b,c;</span><br><span class="line">    a = <span class="string">'B'</span>;</span><br><span class="line">    b = <span class="string">'O'</span>;</span><br><span class="line">    c = <span class="string">'Y'</span>;</span><br><span class="line">    <span class="built_in">putchar</span>(a);<span class="built_in">putchar</span>(b);<span class="built_in">putchar</span>(c);<span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    <span class="comment">//BOY</span></span><br><span class="line">    </span><br><span class="line">    putchar('\101');//A</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'\''</span>);<span class="comment">//'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-2-getchar函数"><a href="#4-4-2-getchar函数" class="headerlink" title="4.4.2 getchar函数"></a>4.4.2 getchar函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">函数的值就是从出入设备得到的字符</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c = getchar();<span class="comment">//运行时，如果从键盘输入 a,只有在按Enter键之后才会从到内存</span></span><br><span class="line">    <span class="built_in">putchar</span>(c);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//getchar只能接受一个字符</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-5-格式输入与输出"><a href="#4-5-格式输入与输出" class="headerlink" title="4.5 格式输入与输出"></a>4.5 格式输入与输出</h3><h4 id="4-5-1-printf函数"><a href="#4-5-1-printf函数" class="headerlink" title="4.5.1 printf函数"></a>4.5.1 printf函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(格式控制,输出表列)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d,%c"</span>,a,b);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/05/beginning-c-4-5-6/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/11/03/beginning-c-three/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1942,184 +2111,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2017/01/15/skills-linux-command/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Demor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Demor's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/15/skills-linux-command/" itemprop="url">Linux常用命令</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-15T21:57:39+08:00">
-                2017-01-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/15/skills-linux-command/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/01/15/skills-linux-command/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/01/15/skills-linux-command/" class="leancloud_visitors" data-flag-title="Linux常用命令">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>正则表达式用来在文件中匹配符合条件的字符串，正则是包含匹配<br>grep、awk、sed等命令可以支持正则表达式</p>
-</blockquote>
-<blockquote>
-<p>通配符用来匹配符合条件的文件名，通配符是完全匹配<br>ls、find、cp这些命令不支持正则表达式，所以只能使用shell自己的额通配符来进行匹配</p>
-</blockquote>
-<h3 id="GREP"><a href="#GREP" class="headerlink" title="GREP"></a>GREP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#Global Rugular Expression Print 全局正则表达式版本，强大的文本搜索工具，使用正则表达式搜索文本，并把匹配的行打印出来</span><br><span class="line">grep -v</span><br><span class="line">grep &apos;&apos;</span><br><span class="line">grep -r &apos;\[0\]:\[pay\]&apos; /www/logs/mabplaygameapi.gm99api.com/gameapi_ring/2017/ | head</span><br><span class="line">ps -ef|grep -w </span><br><span class="line">grep -c 统计数据</span><br><span class="line">grep &quot;a*&quot; file.txt匹配0个或者多个a</span><br><span class="line">grep &quot;aa*&quot; file.txt 匹配1个或者多个a</span><br><span class="line">grep -c &apos;\[0\]:\[pay\]&apos; 20180118.log //统计日志中发货的记录</span><br><span class="line"></span><br><span class="line">grep -oP 零宽断言</span><br><span class="line"></span><br><span class="line">先行断言   也叫零宽度正预测先行断言(?=exp)   --  表示匹配表达式前面的位置 </span><br><span class="line">(?=&#125;)</span><br><span class="line">匹配以&#125;结尾的所有前面的字符</span><br><span class="line">后发断言   也叫零宽度正回顾后发断言(?&lt;=exp)  --  表示匹配表达式后面的位置 </span><br><span class="line">(?&lt;=&#123;)</span><br><span class="line">匹配&#123;后面所有的字符</span><br><span class="line">负向零宽后发断言(?&lt;!exp)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/15/skills-linux-command/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2169,7 +2165,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2228,7 +2224,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
