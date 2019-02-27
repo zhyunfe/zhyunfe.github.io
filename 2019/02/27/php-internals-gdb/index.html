@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="English">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="zhyunfe, demor" />
+  <meta name="keywords" content="zhyunfe, demor">
 
 
 
@@ -82,14 +82,14 @@
 <meta name="description" content="前言GDB是一个由GNU开源组织发布的、UNIX/Linux操作系统下的、基于命令行的、功能强大的程序调试工具。当程序发生coredump，通过GDB可以从core文件中复现场景，定位问题。 GDB调试常用命令 file &amp;lt;文件名&amp;gt; 加载被调试的可执行程序文件。因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径。    (gdb) file gdb-sample  r">
 <meta name="keywords" content="zhyunfe,demor,PHP,Solidity,C,Python,PAI,Dapp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用GDB调试代码">
+<meta property="og:title" content="「深入理解PHP内核」 - 如何使用GDB调试代码">
 <meta property="og:url" content="http://zhyunfe.github.io/2019/02/27/php-internals-gdb/index.html">
 <meta property="og:site_name" content="Demor&#39;s Blog">
 <meta property="og:description" content="前言GDB是一个由GNU开源组织发布的、UNIX/Linux操作系统下的、基于命令行的、功能强大的程序调试工具。当程序发生coredump，通过GDB可以从core文件中复现场景，定位问题。 GDB调试常用命令 file &amp;lt;文件名&amp;gt; 加载被调试的可执行程序文件。因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径。    (gdb) file gdb-sample  r">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-02-27T06:44:23.571Z">
+<meta property="og:updated_time" content="2019-02-27T07:01:04.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何使用GDB调试代码">
+<meta name="twitter:title" content="「深入理解PHP内核」 - 如何使用GDB调试代码">
 <meta name="twitter:description" content="前言GDB是一个由GNU开源组织发布的、UNIX/Linux操作系统下的、基于命令行的、功能强大的程序调试工具。当程序发生coredump，通过GDB可以从core文件中复现场景，定位问题。 GDB调试常用命令 file &amp;lt;文件名&amp;gt; 加载被调试的可执行程序文件。因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径。    (gdb) file gdb-sample  r">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://zhyunfe.github.io/2019/02/27/php-internals-gdb/"/>
+  <link rel="canonical" href="http://zhyunfe.github.io/2019/02/27/php-internals-gdb/">
 
 
 
 
 
-  <title>如何使用GDB调试代码 | Demor's Blog</title>
+  <title>「深入理解PHP内核」 - 如何使用GDB调试代码 | Demor's Blog</title>
   
 
 
@@ -138,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="English">
 
   
   
@@ -148,13 +148,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Demor's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -184,7 +184,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -194,7 +194,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             Tags
           </a>
@@ -204,7 +204,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             Categories
           </a>
@@ -214,7 +214,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
           </a>
@@ -224,7 +224,7 @@
         <li class="menu-item menu-item-sitemap">
           <a href="/baidusitemap.xml" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
             
             Sitemap
           </a>
@@ -237,7 +237,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             Search
           </a>
@@ -258,9 +258,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -292,20 +290,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhyunfe.github.io/2019/02/27/php-internals-gdb/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demor">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Demor's Blog">
     </span>
 
@@ -314,7 +312,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">如何使用GDB调试代码</h2>
+          <h2 class="post-title" itemprop="name headline">「深入理解PHP内核」 - 如何使用GDB调试代码</h2>
         
 
         <div class="post-meta">
@@ -337,7 +335,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -348,7 +346,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/php-internals/" itemprop="url" rel="index">
                     <span itemprop="name">php-internals</span>
                   </a>
@@ -376,7 +374,7 @@
 
           
           
-             <span id="/2019/02/27/php-internals-gdb/" class="leancloud_visitors" data-flag-title="如何使用GDB调试代码">
+             <span id="/2019/02/27/php-internals-gdb/" class="leancloud_visitors" data-flag-title="「深入理解PHP内核」 - 如何使用GDB调试代码">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -558,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/22/php-internals-script/" rel="next" title="深入理解PHP内核」 - PHP脚本的执行">
-                <i class="fa fa-chevron-left"></i> 深入理解PHP内核」 - PHP脚本的执行
+              <a href="/2018/11/22/php-internals-script/" rel="next" title="「深入理解PHP内核」 - PHP脚本的执行">
+                <i class="fa fa-chevron-left"></i> 「深入理解PHP内核」 - PHP脚本的执行
               </a>
             
           </div>
@@ -633,11 +631,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpeg"
-                alt="Demor" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Demor">
             
               <p class="site-author-name" itemprop="name">Demor</p>
               <p class="site-description motion-element" itemprop="description"></p>
